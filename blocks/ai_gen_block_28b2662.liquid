@@ -1,0 +1,838 @@
+
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-feature-marquee-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: {{ block.settings.desktop_padding }}px 0;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-feature-marquee__header-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0 0 {{ block.settings.desktop_header_margin }}px;
+  }
+
+  .ai-feature-marquee__heading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.desktop_heading_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.heading_color }};
+    display: inline-block;
+    position: relative;
+    padding-bottom: {{ block.settings.desktop_line_spacing }}px;
+  }
+
+  {% if block.settings.show_line %}
+    .ai-feature-marquee__heading-{{ ai_gen_id }}::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: {{ block.settings.desktop_line_width }}px;
+      height: {{ block.settings.line_height }}px;
+      background-color: {{ block.settings.line_color }};
+      border-radius: 2px;
+    }
+  {% endif %}
+
+  .ai-feature-marquee__track-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::before,
+  .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::before {
+    left: 0;
+    background: linear-gradient(to right, {{ block.settings.background_color }}, transparent);
+  }
+
+  .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::after {
+    right: 0;
+    background: linear-gradient(to left, {{ block.settings.background_color }}, transparent);
+  }
+
+  .ai-feature-marquee__track-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    will-change: transform;
+  }
+
+  .ai-feature-marquee__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .ai-feature-marquee__item-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.desktop_item_padding }}px {{ block.settings.desktop_item_horizontal_padding }}px;
+    gap: {{ block.settings.desktop_item_gap }}px;
+    white-space: nowrap;
+  }
+
+  .ai-feature-marquee__icon-container-{{ ai_gen_id }} {
+    width: {{ block.settings.desktop_icon_size }}px;
+    height: {{ block.settings.desktop_icon_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.icon_background }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: {{ block.settings.desktop_icon_padding }}px;
+  }
+
+  .ai-feature-marquee__icon-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-feature-marquee__icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background }};
+    border-radius: 50%;
+  }
+
+  .ai-feature-marquee__icon-placeholder-{{ ai_gen_id }} svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.3;
+  }
+
+  .ai-feature-marquee__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.desktop_title_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.title_color }};
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .ai-feature-marquee__percentage-{{ ai_gen_id }} {
+    font-size: {{ block.settings.desktop_percentage_size }}px;
+    font-weight: 400;
+    color: {{ block.settings.percentage_color }};
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-feature-marquee-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_padding }}px 0;
+    }
+
+    .ai-feature-marquee__header-{{ ai_gen_id }} {
+      margin: 0 0 {{ block.settings.mobile_header_margin }}px;
+    }
+
+    .ai-feature-marquee__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_heading_size }}px;
+      padding-bottom: {{ block.settings.mobile_line_spacing }}px;
+    }
+
+    {% if block.settings.show_line %}
+      .ai-feature-marquee__heading-{{ ai_gen_id }}::after {
+        width: {{ block.settings.mobile_line_width }}px;
+        height: {{ block.settings.line_height }}px;
+      }
+    {% endif %}
+
+    .ai-feature-marquee__item-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_item_padding }}px {{ block.settings.mobile_item_horizontal_padding }}px;
+      gap: {{ block.settings.mobile_item_gap }}px;
+    }
+
+    .ai-feature-marquee__icon-container-{{ ai_gen_id }} {
+      width: {{ block.settings.mobile_icon_size }}px;
+      height: {{ block.settings.mobile_icon_size }}px;
+      padding: {{ block.settings.mobile_icon_padding }}px;
+    }
+
+    .ai-feature-marquee__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_title_size }}px;
+    }
+
+    .ai-feature-marquee__percentage-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_percentage_size }}px;
+    }
+
+    .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::before,
+    .ai-feature-marquee__track-wrapper-{{ ai_gen_id }}::after {
+      width: 50px;
+    }
+  }
+{% endstyle %}
+
+<feature-marquee-{{ ai_gen_id }} class="ai-feature-marquee-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-feature-marquee__header-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-feature-marquee__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+  </div>
+
+  <div class="ai-feature-marquee__track-wrapper-{{ ai_gen_id }}">
+    <div class="ai-feature-marquee__track-{{ ai_gen_id }}" data-speed="{{ block.settings.scroll_speed }}">
+      <div class="ai-feature-marquee__content-{{ ai_gen_id }}">
+        {% for i in (1..6) %}
+      {% liquid
+  assign icon_key = 'icon_' | append: i
+  assign title_key = 'title_' | append: i
+  assign percentage_key = 'percentage_' | append: i
+  assign link_key = 'link_' | append: i
+
+  assign icon = block.settings[icon_key]
+  assign title = block.settings[title_key]
+  assign percentage = block.settings[percentage_key]
+  assign link = block.settings[link_key]
+%}
+
+{% if title != blank or percentage != blank %}
+  <div class="ai-feature-marquee__item-{{ ai_gen_id }}"
+       {% if link != blank %}data-link="{{ link }}"{% endif %}>
+
+<div class="ai-feature-marquee__icon-container-{{ ai_gen_id }}">
+  {% if icon %}
+    <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901" class="ai-feature-marquee__icon-link-{{ ai_gen_id }}">
+      <img
+        src="{{ icon | image_url: width: 400 }}"
+        alt="{{ title | escape }}"
+        class="ai-feature-marquee__icon-{{ ai_gen_id }}"
+      >
+    </a>
+  {% endif %}
+</div>
+
+    {% if title != blank %}
+      <h3 class="ai-feature-marquee__title-{{ ai_gen_id }}">{{ title }}</h3>
+    {% endif %}
+
+    {% if percentage != blank %}
+      <p class="ai-feature-marquee__percentage-{{ ai_gen_id }}">{{ percentage }}</p>
+    {% endif %}
+  </div>
+{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</feature-marquee-{{ ai_gen_id }}>
+
+<script>
+  this.addEventListener('click', (e) => {
+  const item = e.target.closest('.ai-feature-marquee__item-{{ ai_gen_id }}');
+  if (!item) return;
+
+  const link = item.getAttribute('data-link');
+  if (link) {
+    window.location.href = link;
+  }
+});
+  (function() {
+    class FeatureMarquee{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.track = this.querySelector('.ai-feature-marquee__track-{{ ai_gen_id }}');
+        this.content = this.querySelector('.ai-feature-marquee__content-{{ ai_gen_id }}');
+        this.speed = parseFloat(this.track.dataset.speed) || 50;
+        this.animationId = null;
+        this.position = 0;
+        this.contentWidth = 0;
+      }
+
+      connectedCallback() {
+        this.setupMarquee();
+        this.startAnimation();
+        
+        if ({{ block.settings.pause_on_hover | json }}) {
+          this.track.addEventListener('mouseenter', () => this.pauseAnimation());
+          this.track.addEventListener('mouseleave', () => this.startAnimation());
+        }
+
+        window.addEventListener('resize', () => this.handleResize());
+      }
+
+      setupMarquee() {
+        this.contentWidth = this.content.offsetWidth;
+        
+        const clone = this.content.cloneNode(true);
+        this.track.appendChild(clone);
+        
+        const clone2 = this.content.cloneNode(true);
+        this.track.appendChild(clone2);
+      }
+
+      handleResize() {
+        this.contentWidth = this.content.offsetWidth;
+      }
+
+      startAnimation() {
+        if (this.animationId) return;
+        
+        const animate = () => {
+          this.position -= this.speed / 60;
+          
+          if (Math.abs(this.position) >= this.contentWidth) {
+            this.position = 0;
+          }
+          
+          this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
+          this.animationId = requestAnimationFrame(animate);
+        };
+        
+        this.animationId = requestAnimationFrame(animate);
+      }
+
+      pauseAnimation() {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      }
+
+      disconnectedCallback() {
+        this.pauseAnimation();
+        window.removeEventListener('resize', () => this.handleResize());
+      }
+    }
+
+    customElements.define('feature-marquee-{{ ai_gen_id }}', FeatureMarquee{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Feature marquee",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium filtration technology"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Desktop heading"
+    },
+    {
+      "type": "range",
+      "id": "desktop_heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "desktop_header_margin",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Margin below",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile heading"
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_header_margin",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Margin below",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Decorative line"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show underline",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Line thickness",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#f5d24f"
+    },
+    {
+      "type": "header",
+      "content": "Desktop line"
+    },
+    {
+      "type": "range",
+      "id": "desktop_line_width",
+      "min": 30,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Width",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "desktop_line_spacing",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below heading",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Mobile line"
+    },
+    {
+      "type": "range",
+      "id": "mobile_line_width",
+      "min": 30,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mobile_line_spacing",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below heading",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Scrolling"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Scroll speed",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Desktop icon"
+    },
+    {
+      "type": "range",
+      "id": "desktop_icon_size",
+      "min": 40,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Container size",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "desktop_icon_padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Mobile icon"
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Container size",
+      "default": 75
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_padding",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "percentage_color",
+      "label": "Percentage color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Desktop text"
+    },
+    {
+      "type": "range",
+      "id": "desktop_title_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "desktop_percentage_size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Percentage size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_item_gap",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between icon and text",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Mobile text"
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_percentage_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Percentage size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_item_gap",
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between icon and text",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop section padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile section padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "desktop_item_padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop item vertical padding",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_item_horizontal_padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop item horizontal padding",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_item_padding",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile item vertical padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_item_horizontal_padding",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile item horizontal padding",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title",
+      "default": "Heavy Metals"
+    },
+    {
+      "type": "text",
+      "id": "percentage_1",
+      "label": "Percentage",
+      "default": "99.99%"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title",
+      "default": "PFAs"
+    },
+    {
+      "type": "text",
+      "id": "percentage_2",
+      "label": "Percentage",
+      "default": "99.99%"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_3",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Title",
+      "default": "Microplastics"
+    },
+    {
+      "type": "text",
+      "id": "percentage_3",
+      "label": "Percentage",
+      "default": "99.99%"
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_4",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Title",
+      "default": "Chlorine"
+    },
+    {
+      "type": "text",
+      "id": "percentage_4",
+      "label": "Percentage",
+      "default": "99.99%"
+    },
+    {
+      "type": "header",
+      "content": "Feature 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_5",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Title",
+      "default": "Bacteria"
+    },
+    {
+      "type": "text",
+      "id": "percentage_5",
+      "label": "Percentage",
+      "default": "99.99%"
+    },
+    {
+      "type": "header",
+      "content": "Feature 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_6",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Title",
+      "default": "Viruses"
+    },
+    {
+      "type": "text",
+      "id": "percentage_6",
+      "label": "Percentage",
+      "default": "99.99%"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature marquee"
+    }
+  ]
+}
+{% endschema %}

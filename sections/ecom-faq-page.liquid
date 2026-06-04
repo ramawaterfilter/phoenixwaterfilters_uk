@@ -1,0 +1,786 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2026-02-04 05:51:57
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=2.1" /><noscript><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=2.1" /></noscript><script type="text/javascript" asyc="async" id="ecom-vendors-slider_js" src="https://cdn.ecomposer.app/vendors/js/ecom-swiper@11.0.5.js" ></script>
+{%capture section_id %}ecom-faq-page{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}
+{{'ecom-6549ba3669d27fec6c05b252.css' | asset_url | stylesheet_tag }}
+<script src="{{'ecom-6549ba3669d27fec6c05b252.js' | asset_url }}" defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="6549ba3669d27fec6c05b252";
+ window.EComposer.PAGE = {"title":"Faq","type":"page","slug":"ecom-faq","plan_id":4,"template_id":"6549ba3669d27fec6c05b252"};
+ </script>
+<div class="ecom-builder" id="ecom-faq"><div class="ecom-sections" data-section-id="{{section.id}}"><section class="ecom-row ecom-core ecom-section ecom-n0w7glcgwhf" data-id="ecom-n0w7glcgwhf" style="z-index: inherit;"><div class="core__row--columns core__row--full"><div class="ecom-column ecom-core core__column--first core__column--last ecom-vru1h8k0u0i"><div class="core__column--wrapper" id="ecom-vru1h8k0u0i"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-670ehsit4qr"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-n0w7glcgwhf"><div id="faq-section">
+ 
+
+<div class="faq-tabs-wrapper">
+<div class="faq-tabs">
+ <a class="faq-tab" href="#faq-set-up-maintenance">Set Up & Maintenance</a>
+ <a class="faq-tab" href="#faq-filtration">Filtration</a>
+ <a class="faq-tab" href="#faq-shipping-returns">Shipping & Returns</a>
+ <a class="faq-tab" href="#faq-warranty">Warranty & 100 Day Money-back Guarantee</a>
+ <a class="faq-tab" href="#faq-account-subscriptions">Your Account & Subscriptions</a>
+</div>
+ </div>
+ 
+ <div id="faq-header" style="">
+ <h1>Frequently Asked Questions</h1>
+ <div class="search-bar-wrapper">
+ <input
+ type="text"
+ id="faq-search-bar"
+ placeholder="What can we help you with?"
+ oninput="searchFAQs()"
+ />
+ 
+ </div>
+ </div>
+ 
+
+ 
+ <div id="faq-categories">
+ 
+ <div class="faq-category" id="faq-set-up-maintenance">
+ <h2 class="category-title">Set Up & Maintenance</h2>
+ <div class="accordion">
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Is it essential to prime the Carbon Cartridges?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>Priming the Carbon Cartridges is the first step to ensuring your cartridges are completely free of any residuals from the manufacturing process. The residuals are completely normal and safe but can lead to cloudy water if the cartridges are not correctly primed.
+We recommend priming your Carbon Cartridges for at least three minutes. If not primed sufficiently, the first four rounds of filtered water may have cloudy white particles that can be safely discarded.
+NB: The recommended number of priming rounds depends on the type of cart you have. For full priming instructions, <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity___Carbon_Filter.pdf">click here.</a></p>
+ </div>
+ </div>
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Why is my water cloudy?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>Don’t worry, cloudy water after initial installation is normal and completely harmless. It’s simply safe residual dust from the manufacturing process. It can occur if the cartridges are not correctly primed - and we recommend priming cartridges fully (see above).
+If it is not primed, it can take about four rounds of filtered water to clear. For full priming instructions, <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity___Carbon_Filter.pdf">click here.</a></p>
+ </div>
+ </div>
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How long will my Carbon Cartridges last?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>We recommend replacing your Carbon Cartridges every 12 months . The lifespan of a pair of Phoenix Gravity Carbon Cartridges is about 20,000 litres. If you want to subscribe to have your filters replaced, you can do so here. </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How long will the POSTreat Fluoride Removal filters last?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>Our POSTreat Filter Cartridges are made from 304-Stainless Steel and are designed to last for years - which is why we include a 10 year warranty with our products.
+The media inside our proprietary FluoRid media will last for 4000 litres and need replacing approximately 4 months. 
+We also offer a subscription service for replacement media - we’ll remember when they’re due, so you don’t have to. 
+To replace your FluoRid media, <a href="https://phoenixwaterfilters.co.uk/products/postreat-fluorid-media-refill">click here.</a> </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How long will the FluoRide Media in the POSTreat last?
+		 
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+The lifespan of a pair of POSTreat Fluoride Removal filters are upto 4000 liters. It is recommended to replace the media with "FluoRid Media Refill" every 4 months.
+
+			</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Will I be able to assemble my system and change my cartridges myself?
+		 
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.
+We include full instructions with every unit and we’re always here to help. You can <a href="https://phoenixwaterfilters.co.uk/pages/contact-us">contact us here.</a>
+			</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ My Phoenix Gravity Water Filter has water dripping between the Upper and Lower Chambers. What does this mean?
+		 
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+This will be from over-filling the Water Filter System. Careful use can help prevent overfilling by checking how much water is in the lower chamber before filling the upper chamber.
+Once you get to know your usage rates the re-filling process will become second nature!
+We also sell a vision tap which will enable you to see the water level from the outside. <a href="https://phoenixwaterfilters.co.uk/collections/accessories/products/vision-tap-stainless-steel">Click here. </a>
+
+			</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How frequently do I need to change my cartridges?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+This depends on the usage frequency and quality of your water input. As a guide, we recommend replacing them at the following milestones:
+Carbon Cartridges: 12 months / 20,000 litres. POSTreat (and FluoRid Media Refill): 4 months. We also provide a subscription service that offers a specific percentage discount on every order. Let us remember when you need to change your cartridge, so you don’t have to!
+For full information, <a href="https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter">Visit our Shop.</a>
+
+			</p>
+ </div>
+ </div>
+		
+		
+		
+		
+ </div>
+ </div>
+	 <div class="faq-category" id="faq-filtration">
+ <h2 class="category-title">Filtration</h2>
+ <div class="accordion">
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How do your filters work?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We use the highest grade 304 stainless steel, natural coconut carbon and other natural materials. Plus the mighty force of gravity! Our advanced filtration system removes up to 99.99% of commonly occurring contaminants and retains up to 100% of minerals.
+<a href="https://phoenixwaterfilters.co.uk/pages/our-technology">Click here</a> for more information on how it works.
+
+</p>
+ </div>
+ </div>
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ What do your filters really remove?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Phoenix Gravity Carbon filters are made from pure coconut shells, which are a sustainable and a renewable resource. The carbon in the filters are activated, which means that it has a high surface area and is very porous. This allows them to trap a wide range of contaminants, including chlorine, heavy metals, and other impurities. Phoenix Gravity Carbon cartridges are designed to provide clean, odorless water with a great taste. They do not release any harmful chemicals or by-products into the water, and they are super effective at removing chlorine and other volatile organic compounds A pair of carbon cartridges can filter up to 20,000 liters of water by providing safe and healthy drinking water.
+</p>
+ </div>
+ </div>
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Do Phoenix Gravity Filters remove residual pharmaceutical waste?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			Yes, up to 99.99%! Our primary Smart Carbon Cartridges have been independently tested for many Volatile Organic compounds including 1,4- dichlorobenzene, 2-Butanone, Acetone, Allyl Chloride and many more. For full test results, <a href="https://phoenixwaterfilters.co.uk/pages/help-center">click here.</a>
+			</p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+Do the Phoenix Carbon Cartridges remove fluoride?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			They certainly can! We’ve designed a specialist fluoride cartridge called the POSTreat to remove over 95% of fluoride from your tap water.
+Made from the highest grade stainless steel, it’s completely reusable and refillable, with our POSTreat FluoRid Refill. The POSTtreat can be used in conjunction with primary Carbon Cartridges.
+For full details or to buy the POSTreat, <a href="https://phoenixwaterfilters.co.uk/collections/replacement-cartridges/products/refillable-water-filter-cartridge-postreat-fluoride-remover">click here.</a> Looking for a refill? <a href="https://phoenixwaterfilters.co.uk/products/postreat-fluorid-media-refill">Click here</a>
+</p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Do Phoenix Carbon Cartridges eliminate phthalates from water? 
+	 <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+While we have not specifically tested for the removal of phthalates, our Phoenix Carbon Cartridges are made with highest grade activated coconut carbon, which is known for its effectiveness in adsorbing phthalates from water. We are constantly improving and testing our filters.
+Find the full list of what we remove <a href="https://phoenixwaterfilters.co.uk/pages/help-center">here.</a>
+			</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+Do Phoenix Gravity filters remove Estrogen?		 
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			While we have not specifically tested for the removal of estrogen, our Phoenix Carbon Filters are made with activated coconut carbon, which is known for its effectiveness in adsorbing estrogen from water. We are constantly improving and testing our filters.
+Find the full list of what we remove <a href="https://phoenixwaterfilters.co.uk/pages/help-center">here.</a> <a href="https://pubmed.ncbi.nlm.nih.gov/22123241/">https://pubmed.ncbi.nlm.nih.gov/22123241/</a>
+		</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How do your Gravity Filters and cartridges compare to others?
+		 
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We are one of the leaders in advanced Gravity Filtration. With over 40 years’ experience of manufacturing in-house, we have complete control over the process and the quality of our filters and cartridges. We are enormously proud of the effort it has taken us to become a leading manufacturer of Gravity Water Filters.
+			</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Are your filters as comprehensive as Berkey?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			Absolutely! We have run extensive and independent tests on our filters for a variety of microbiological contaminants such as e-coli bacteria, MS2 Phage viruses and chemical contaminants such as Lead, chlorine, chromium, Volatile organic compounds and 100 more.
+
+What’s more, with over 40 years’ experience of in-house manufacturing - we’re one of the leading global manufacturers of stainless steel gravity filtration systems. We also have complete control over the process and the quality of our filters and cartridges. We are enormously proud of the effort it has taken us to become the world’s leading manufacturer of Gravity Water Filters.
+For more details, <a href="https://phoenixwaterfilters.co.uk/">click here.</a>
+		</p>
+ </div>
+ </div>
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Do Phoenix Gravity Filters lower the TDS?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			TDS stands for Total Dissolved Solids and is measured in parts per million (ppm) or parts per billion (ppb). It’s a measure of the water’s organic and inorganic content including minerals. Natural water will have a TDS reading from minerals picked up from the rocks and ground it flows through. It’s generally accepted that 300 ppm is a good mineral content. We purposely do not bring our TDS to zero, because we’re all about preserving the minerals your body needs.
+		</p>
+ </div>
+ </div>
+		
+		<div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Will Phoenix Gravity Filters remove water hardness?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			No. Phoenix Carbon Filter Cartridges are designed to remove up to 99.99% of bacteria, viruses, chlorine, lead and over 100 other unwanted substances from your drinking water. However, it’s important to note Phoenix Gravity Water Filters are not designed to lower water hardness. In fact, many of the natural minerals that make the water hard are essential to good health- we want to retain as many as possible! Hardness (and TDS) is measured in ppm, it’s generally accepted that 300 ppm is a good mineral content of water.
+		<a href="https://phoenixwaterfilters.co.uk/pages/help-center">Click here</a> for more details on what we remove.
+		</p>
+ </div>
+ </div>
+		
+		
+		
+		
+		
+		
+ </div>
+ </div>
+	
+	 <div class="faq-category" id="faq-shipping-returns">
+ <h2 class="category-title">Shipping & Returns</h2>
+ <div class="accordion">
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Where does Phoenix Gravity ship to?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We currently ship to the UK and all of Europe. We’re working on shipping to more locations.
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How much does shipping cost in Europe?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We offer free standard shipping on all Filter Systems and orders over £99 to the UK. Shipping costs outside of the UK will depend on local delivery requirements.
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How long does shipping take in Europe?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+
+We work with the best couriers to ensure you receive your products in the quickest, safest way.
+ </p>
+ </div>
+ </div>
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How long does UK shipping take?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We deliver within the UK in 2-4 working days. Expedited delivery is available at the checkout for an additional fee.
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ What’s your return and exchange policy?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We'll be able to accept returns initiated within 30 days of purchase. You will be responsible for the safe return of the item, which must arrive in a resealable condition in the original packaging.
+Once we accept the return we’ll refund you via the original payment method within 10 working days. We also offer a 100 Day Money-back Guarantee on our complete Gravity Water Filter Systems - see below for <a href="https://phoenixwaterfilters.co.uk/pages/delivery-and-returns">more info.</a>
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ My item has arrived damaged or incorrect, what can I do?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Please send a photograph of your full order including the packaging along with your order number to our support team at <b>support@phoenixwaterfilters.co.uk</b>, and we’ll get back to you as a matter of priority within 24 hours.
+
+ </p>
+ </div>
+ </div>
+		
+		
+		
+ </div>
+ </div>
+	
+	 <div class="faq-category" id="faq-warranty" >
+ <h2 class="category-title">Warranty and 100 Day Money-back guarantee</h2>
+ <div class="accordion">
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How does the 100-Day Money-Back Guarantee work?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+			 The 100-Day Money Back Guarantee is applicable only to the Phoenix Gravity Systems purchased with the stainless steel housings, via our website. The trial is not applicable for replacement filters and accessories purchased separately. Here’s how it works:
+ <ul>
+ <li>Purchase your Phoenix Gravity Water Filter System via our website. Once it arrives, start using it straight away.</li>
+ <li>If you don’t fall in love with your Phoenix Gravity System within 100 days of use from the date of delivery, contact our support team to initiate a return. The return must be initiated within 100 days from the date of purchase.</li>
+ <li>The system must be returned complete with all original parts and packaging. The stainless steel housing should not be dented or otherwise damaged. The filter cartridges must not be cracked or damaged upon our receipt of the return.</li>
+ <li>Upon safe receipt of the system and inspection of condition, we will be in touch to initiate a full refund to your original payment method. This process may take up to 10 business days to complete.</li>
+ </ul>
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Is the 100-day return policy valid if I order from Amazon?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+No. Your Phoenix Gravity Filter system must be purchased via our website to qualify for our 100-day money back guarantee.
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How does the warranty work?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+We offer a 10 year warranty for our Stainless Steel Gravity Water Filter system housings. They’re made to last, so you’re protected against any defects in material and workmanship.
+We offer a 1 year warranty on Phoenix Gravity Stainless Steel Tap and Carbon Cartridges. You’re protected against any defects in material and workmanship.
+We offer a 6 month warranty on all other parts and accessories. You’re protected against any defects in material and workmanship.
+For full T&Cs, <a href="https://phoenixwaterfilters.co.uk/pages/terms-and-conditions">click here.</a>
+
+ </p>
+ </div>
+ </div>
+		
+		
+		
+		
+		
+ 
+		
+		
+		
+ </div>
+ </div>
+	
+	 <div class="faq-category" id="faq-account-subscriptions">
+ <h2 class="category-title">Your Account And Subscriptions</h2>
+ <div class="accordion">
+ <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Can I get a subscription on my cartridges?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Yes, we offer a subscription to replace your cartridges to save you time and headspace.
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ How do I make changes to my subscription?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Your subscription can be amended and updated from your Phoenix Gravity Account. Once you’ve logged into your account, click on subscriptions to make any changes.
+If you need any further help, please don’t hesitate to <a href="https://phoenixwaterfilters.co.uk/pages/contact-us">contact us.</a>
+
+ </p>
+ </div>
+ </div>
+		 <div class="accordion-item">
+ <button class="accordion-header" onclick="toggleAccordion(this)">
+ Can I skip or cancel my subscription?
+ <span class="accordion-icon">+</span>
+ </button>
+ <div class="accordion-content">
+ <p>
+Yes, you can make changes to frequency or cancel your subscription at any time.
+Please note that cancelling your subscription will forfeit any special pricing on your subscription, so if you wish to re-subscribe after canceling, you may not be able to recover the same special pricing you had previously.
+
+ </p>
+ </div>
+ </div>
+		
+		
+		
+		
+		
+ 
+		
+		
+		
+ </div>
+ </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ </div>
+</div>
+
+<script>
+function toggleAccordion(button) {
+ const content = button.nextElementSibling;
+ const icon = button.querySelector('.accordion-icon');
+ const isOpen = content.style.display === 'block';
+
+ // Close all accordions
+ const allContents = document.querySelectorAll('.accordion-content');
+ const allIcons = document.querySelectorAll('.accordion-icon');
+ allContents.forEach(c => c.style.display = 'none');
+ allIcons.forEach(i => i.innerText = '+');
+
+ // Toggle clicked accordion based on previous state
+ if (!isOpen) {
+ content.style.display = 'block';
+ icon.innerText = '-';
+ }
+}
+
+
+ function searchFAQs() {
+ const query = document.getElementById('faq-search-bar').value.toLowerCase();
+ const categories = document.querySelectorAll('.faq-category');
+ let matchesFound = false;
+
+ categories.forEach((category) => {
+ const items = category.querySelectorAll('.accordion-item');
+ let categoryHasMatches = false;
+
+ items.forEach((item) => {
+ const header = item.querySelector('.accordion-header').innerText.toLowerCase();
+ const content = item.querySelector('.accordion-content').innerText.toLowerCase();
+
+ if (header.includes(query) || content.includes(query)) {
+ item.style.display = 'block';
+ categoryHasMatches = true;
+ } else {
+ item.style.display = 'none';
+ }
+ });
+
+ if (categoryHasMatches) {
+ category.style.display = 'block';
+ matchesFound = true;
+ } else {
+ category.style.display = 'none';
+ }
+ });
+
+ const noResultsElement = document.querySelector('.no-results');
+ if (!matchesFound && query !== '') {
+ if (!noResultsElement) {
+ const noResultsMessage = document.createElement('p');
+ noResultsMessage.className = 'no-results';
+ noResultsMessage.innerText = 'No matching results found.';
+ document.getElementById('faq-categories').appendChild(noResultsMessage);
+ }
+ } else {
+ if (noResultsElement) {
+ noResultsElement.remove();
+ }
+ }
+ }
+</script>
+
+
+<style>
+ 
+
+ /* Header Background with Search Bar */
+ #faq-header {
+ text-align: center;
+ padding: 20px 5px;
+ color: white;
+ background-size: cover;
+ background-position: center;
+ }
+
+ #faq-header h1 {
+ font-size: 50px;
+ margin-bottom: 20px;
+ }
+
+ .search-bar-wrapper {
+ position: relative;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+
+ #faq-search-bar {
+ width: 100%;
+ padding: 10px 40px 10px 15px;
+ border-radius: 20px;
+ font-size: 16px;
+ border: 1px solid #ccc;
+ color: #000000;
+ }
+
+ .search-icon {
+ position: absolute;
+ right: 15px;
+ top: 50%;
+ transform: translateY(-50%);
+ font-size: 18px;
+ color: #666;
+ }
+
+ /* FAQ Categories Styling */
+ #faq-categories {
+ margin: 20px auto;
+ max-width: 80%;
+ }
+
+ .faq-category {
+ margin-bottom: 30px;
+ margin-top:60px;
+ }
+
+ .category-title {
+ font-size: 30px;
+ margin-bottom: 10px;
+ color: #2f2953;
+ text-transform: uppercase;
+ font-weight: bold;
+ }
+
+ /* Accordion Styling */
+ .accordion-item {
+ margin-bottom: 10px;
+ }
+
+ .accordion-header {
+ width: 100%;
+ background-color: #f2f0f3 !important;
+ color: #2f2953 !important;
+ border: none;
+ font-weight: 700!important;
+ padding: 20px 15px;
+ text-align: left;
+ cursor: pointer;
+ line-height: 1.7;
+ font-size: 16px;
+ border-radius: 5px;
+ outline: none;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin: 20px 0px 10px 0px;
+ }
+
+ .accordion-header:hover {
+ background-color: #433a70;
+ }
+
+ .accordion-content {
+ display: none;
+ padding: 20px;
+ background: #f2f0f3;
+ /* background-color: #fff;
+ border-left: 1px solid #ccc;
+ border-right: 1px solid #ccc;
+ border-bottom: 1px solid #ccc;
+ text-align: left;*/
+ }
+
+ .accordion-icon {
+ font-size: 20px;
+ margin-left: auto;
+ color: #2f2953!important;
+ }
+
+ /* No Results */
+ .no-results {
+ text-align: center;
+ font-size: 18px;
+ color: red;
+ margin-top: 20px;
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+ #faq-header {
+ padding: 20px;
+ }
+
+ #faq-header h1 {
+ font-size: 24px;
+ }
+
+ .search-bar-wrapper {
+ width: 100%;
+ padding: 0 10px;
+ }
+ }
+ 
+ 
+.faq-tabs-wrapper {
+ background: #2f2953; 
+ width: 100%; 
+ padding: 40px 10px;
+}
+
+.faq-tabs {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+ gap: 10px;
+ max-width: 1200px; /* Set max-width for better alignment */
+ margin: 0 auto; /* Center the tabs */
+}
+
+.faq-tab {
+ padding: 12px 20px;
+ text-align: center;
+ text-decoration: none;
+ border: 2px solid #f1d14e;
+ border-radius: 5px;
+ color: #fff !important;
+ font-weight: 400 !important;
+ transition: background-color 0.3s;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+	
+	
+ .faq-tab:hover {
+ background-color: #f1d14e!important;
+ }
+
+ /* Style for sections */
+ .faq-section {
+ padding: 40px;
+ background-color: #f9f9f9;
+ border: 1px solid #ddd;
+ border-radius: 5px;
+ margin-bottom: 20px;
+ height: auto; /* Remove fixed height for flexibility */
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+ }
+
+ @media (max-width: 768px) {
+ .faq-tabs {
+ flex-wrap: wrap; /* Allow wrapping on smaller screens */
+ }
+ .faq-tab {
+ max-width: 100%; /* Full width on small screens */
+ }
+ .faq-tabs {
+ grid-template-columns: 1fr; /* Stack tabs in one column */
+ }
+ 
+}
+ 
+
+ html {
+ scroll-behavior: smooth;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</style>
+</div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+</div></div>
+{% schema %}
+{
+ "name": "Faq",
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n Please don't add Shopify sections to EComposer's page in the theme customize. If you do this, Shopify sections will be deleted when you republish your page in EComposer\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/ecomposer.app\/shop?open_builder=1&page=page&id=6549ba3669d27fec6c05b252&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ],
+ "locales": {
+ "en": {}
+ }
+}
+{% endschema %}

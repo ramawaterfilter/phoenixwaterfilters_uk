@@ -1,0 +1,722 @@
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.AOS) {
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-out-cubic'
+      });
+    }
+  });
+
+  document.addEventListener('shopify:section:load', function () {
+    if (window.AOS) {
+      AOS.refreshHard();
+    }
+  });
+</script>
+
+
+<section
+  id="hover-card-{{ section.id }}"
+  class="hover-card-section hover-card-{{ section.id }}"
+  style="
+    background: {{ section.settings.section_bg }};
+    padding: {{ section.settings.p1 }}px {{ section.settings.p2 }}px {{ section.settings.p3 }}px;
+    overflow: hidden;
+  "
+>
+
+   {% if section.settings.h3 != blank %}
+  <h1 class="heading-box">{{ section.settings.h3 }}</h1>
+       {% endif %}
+
+     {% if section.settings.h1 != blank %}
+  <h2 class="heading-box">{{ section.settings.h1 }}</h2>
+       {% endif %}
+            {% if section.settings.h2 != blank %}
+  <div class="sub-heading-box">{{ section.settings.h2 }}</div>
+       {% endif %}
+  <div class="hover-grid">
+    {% for block in section.blocks %}
+
+
+<div
+  class="hover-card"
+  {{ block.shopify_attributes }}
+  style="background: {{ block.settings.card_bg }};"
+  data-aos="{{ block.settings.aos_animation }}"
+  data-aos-delay="{{ block.settings.aos_delay }}"
+  data-aos-duration="{{ block.settings.aos_duration }}"
+>
+ <a href="{{ block.settings.b2 }}">
+        <!-- NORMAL STATE -->
+        <div class="card-front hhi">
+
+            <div class="card-hover-text">
+                      {% if block.settings.heading != blank %}
+          <h3 style="color: {{ block.settings.text_color }};">{{ block.settings.heading }}</h3>
+                 {% endif %}
+
+                      {% if block.settings.h10 != blank %}
+           <h3 class="box-sub-heading" style="color: {{ block.settings.text_color }};">{{ block.settings.h10 }}</h3>
+                  {% endif %}
+        </div>
+
+{% assign border_color = block.settings.r1 | default: 'rgba(0,0,0,0)' %}
+    <a href="{{ block.settings.b2 }}">
+{% if block.settings.icon != blank %}
+
+  <img 
+    src="{{ block.settings.icon | img_url: 'master' }}" 
+    alt="icon" 
+    class="icon"
+    style="border: 4px solid {{ border_color }};">
+ 
+{% endif %}
+       </a>
+        </div>
+  
+        <!-- HOVER STATE -->
+        <div class="card-hover">
+          <h3 style="color: {{ block.settings.hover_heading_color }};">{{ block.settings.hover_heading }}</h3>
+          <p style="color: {{ block.settings.sub_text_color }};">{{ block.settings.sub_heading }}</p>
+          {% if block.settings.button_text != blank %}
+            <a href="{{ block.settings.button_link }}" class="btn"
+               style="
+                 background: {{ block.settings.button_bg }};
+                 color: {{ block.settings.button_text_color }};
+                 border-radius: {{ block.settings.button_radius }}px;">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+
+
+      </a>
+      </div>
+    {% endfor %}
+  </div>
+            {% if section.settings.b1 != blank %}
+   <div class="button-link-box"><button>{{ section.settings.b1 }}</button></div>
+          {% endif %}
+</section>
+
+<style>
+
+
+  [data-aos] {
+  pointer-events: auto;
+}
+.card-front.hhi a {
+    text-decoration: none;
+}
+.hover-card-{{ section.id }} .button-link-box button p {
+    background: {{ section.settings.bc1 }};
+    color: {{ section.settings.bc2 }};
+    text-decoration: none;
+    border: none;
+    border-radius: 11px;
+    font-size: 16px;
+    padding: 15px 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.hover-card-{{ section.id }} .button-link-box button p:hover{
+background: #b8bbff;
+    transition-duration: .4s;
+}
+.button-link-box {
+    text-align: center;
+    margin-top: 30px;
+}
+.hover-card-{{ section.id }} .button-link-box button p a{
+    text-decoration: none;
+    color: {{ section.settings.bc2 }};
+}
+.hover-card-{{ section.id }} .button-link-box button {
+    border: none;
+}
+.hover-card-{{ section.id }} .hover-grid {
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.desktop_columns }}, 1fr);
+  gap: {{ section.settings.gap }}px;
+}
+
+.hover-card-{{ section.id }} .hover-card {
+  position: relative;
+  padding: {{ section.settings.card_padding }}px;
+  border-radius: {{ section.settings.radius }}px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  /* Dynamic height for desktop */
+  min-height: {{ section.settings.desktop_height }}px;
+}
+
+.hover-card-{{ section.id }} .card-front,
+.hover-card-{{ section.id }} .card-hover {
+  transition: all 0.35s ease;
+}
+
+.hover-card-{{ section.id }} .icon {
+  width: {{ section.settings.icon_size }}px;
+  margin-bottom: 12px;
+}
+
+.hover-card-{{ section.id }} .card-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+{% if section.settings.enable_hover_effect %}
+.hover-card-{{ section.id }} .hover-card:hover .card-front {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.hover-card-{{ section.id }} .hover-card:hover .card-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+{% else %}
+.hover-card-{{ section.id }} .card-front,
+.hover-card-{{ section.id }} .card-hover {
+  opacity: 1 !important;
+  transform: none !important;
+}
+{% endif %}
+
+
+.card-front h3{
+    font-size: 32px;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    line-height: 100%;
+}
+
+.card-hover p {
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 1px;
+    font-family: 'DM Sans';
+    padding-bottom: 25px;
+}
+
+.card-hover h3 {
+    font-size: 32px;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    line-height: 100%;
+    margin: 0 !important;
+}
+
+/* Desktop styles */
+@media(min-width: 768px){
+  .hover-card-{{ section.id }} .hover-grid {
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_lr }}px {{ section.settings.padding_bottom }}px;
+  }
+  
+  .card-hover a {
+    padding: 10px 21px;
+    text-decoration: none;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    border-radius: 8px;
+    font-size: 20px;
+  }
+  
+  .hover-card-{{ section.id }} .heading-box {
+    font-weight: 900;
+    font-size: {{ section.settings.hd1 }}px;
+    text-align: center;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+  }
+    .hover-card-{{ section.id }} .sub-heading-box {
+    font-weight: 900;
+    font-size: {{ section.settings.hd3 }}px;
+    text-align: center;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+  }
+  
+  .hover-card-{{ section.id }} .card-hover {
+    padding: {{ section.settings.card_padding }}px;
+  }
+  
+  .hover-card-{{ section.id }} .card-front,
+  .hover-card-{{ section.id }} .card-hover {
+    padding: {{ section.settings.card_padding }}px;
+  }
+  .hover-card-{{ section.id }} .sub-heading-box {
+    width: 50%;
+    margin: 0 auto;
+}
+h3.box-sub-heading {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+    font-family: system-ui;
+    font-weight: 400;
+}
+}
+
+/* Mobile styles */
+@media(max-width: 768px){
+  .hover-card-{{ section.id }} .hover-grid{
+    grid-template-columns: repeat({{ section.settings.mobile_columns }}, 1fr);
+    padding: 15px;
+  }
+  
+  .hover-card-{{ section.id }} .hover-card {
+    /* Dynamic height for mobile */
+    min-height: {{ section.settings.mobile_height }}px;
+  }
+  
+  .hover-card-{{ section.id }} .heading-box {
+    font-weight: 900;
+    font-size: {{ section.settings.hd2 }}px;
+    text-align: center;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+  }
+    .hover-card-{{ section.id }} .sub-heading-box {
+    font-weight: 900;
+    font-size: {{ section.settings.hd4 }}px;
+    text-align: center;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+  }
+  
+  .card-hover a {
+    padding: 10px 21px;
+    text-decoration: none;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .card-front h3 {
+    font-size: 24px;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    line-height: 100%;
+    margin: 0 !important;
+  }
+  
+  .card-hover h3 {
+    font-size: 24px;
+    font-family: 'DM Sans';
+    letter-spacing: 1px;
+    line-height: 100%;
+    margin: 0 !important;
+  }
+  
+  .card-hover p {
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 1px;
+    font-family: 'DM Sans';
+    padding-bottom: 2px;
+  }
+}
+
+.hover-card-{{ section.id }} .card-front,
+.hover-card-{{ section.id }} .card-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    transition: all 0.35s ease;
+}
+
+/* Disable hover on mobile if not enabled */
+@media (max-width: 768px) {
+  {% unless section.settings.enable_mobile_hover %}
+  .hover-card-{{ section.id }} .card-front {
+    display: none;
+  }
+  h3.box-sub-heading {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+    font-family: system-ui;
+    font-weight: 400;
+}
+  .hover-card-{{ section.id }} .card-hover {
+    position: relative;
+    opacity: 1;
+    transform: none;
+  }
+  .hover-card-{{ section.id }} .hover-card:hover .card-front,
+  .hover-card-{{ section.id }} .hover-card:hover .card-hover {
+    opacity: 1;
+    transform: none;
+  }
+  {% endunless %}
+}
+</style>
+{% schema %}
+{
+  "name": "Hover Card with Button",
+  "settings": [
+    {
+  "type": "checkbox",
+  "id": "enable_hover_effect",
+  "label": "Enable Hover Effect",
+  "default": true
+},
+    {
+      "type": "range",
+      "id": "hd1",
+      "label": "Heading Size (Desktop)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "hd2",
+      "label": "Heading Size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 24
+    },
+      {
+      "type": "range",
+      "id": "hd3",
+      "label": "Sub Heading Size (Desktop)",
+      "min": 12,
+      "max": 70,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "hd4",
+      "label": "Sub Heading Size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_hover",
+      "label": "Enable Hover Effect on Mobile",
+      "default": false
+    },
+
+     {
+      "type": "text",
+      "id": "h3",
+      "label": "Box Heading h1"
+    },
+    {
+      "type": "text",
+      "id": "h1",
+      "label": "Box Heading"
+    },
+        {
+      "type": "richtext",
+      "id": "h2",
+      "label": "Box Sub Heading"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section BG",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Card Height (Desktop)",
+      "min": 100,
+      "max": 600,
+      "step": 10,
+      "default": 300,
+      "unit": "px",
+      "info": "Desktop card minimum height"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Card Height (Mobile)",
+      "min": 80,
+      "max": 500,
+      "step": 10,
+      "default": 250,
+      "unit": "px",
+      "info": "Mobile card minimum height"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop Columns",
+      "min": 1,
+      "max": 5,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Mobile Columns",
+      "min": 1,
+      "max": 3,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 60,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card Padding",
+      "min": 10,
+      "max": 80,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 40,
+      "default": 12
+    },
+
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button Radius",
+      "min": 0,
+      "max": 30,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon Size",
+      "min": 50,
+      "step":10,
+      "max": 600,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Card Padding Top",
+      "min": 0,
+      "max": 100,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Card Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_lr",
+      "label": "Card Padding Left Right Desktop",
+      "min": 0,
+      "max": 100,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "p1",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "p3",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "p2",
+      "label": "Section Padding Left Right Desktop",
+      "min": 0,
+      "max": 100,
+      "default": 10
+    },
+          {
+      "type": "richtext",
+      "id": "b1",
+      "label": "Button"
+    },
+    {
+      "type": "color",
+      "id": "bc1",
+      "label": "Button bg Color",
+      "default": "#ffffff"
+    },
+       {
+      "type": "color",
+      "id": "bc2",
+      "label": "Button Color",
+      "default": "#ffffff"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Hover Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Normal Heading",
+          "default": "Our Service"
+        },
+          {
+          "type": "url",
+          "id": "b2",
+          "label": "Give Link"
+        },
+           {
+          "type": "richtext",
+          "id": "h10",
+          "label": "Sub Heading 2"
+        },
+     {
+  "type": "color",
+  "id": "r1",
+  "label": "Image Border Color",
+  "default": "transparent"
+},
+
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "hover_heading_color",
+          "label": "Hover Heading Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "sub_text_color",
+          "label": "Sub Heading Color",
+          "default": "#dddddd"
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "label": "Button BG",
+          "default": "#ff6600"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "hover_heading",
+          "label": "Hover Heading",
+          "default": "Our Service"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Sub Heading",
+          "default": "Short description goes here"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Explore"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card BG",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "select",
+          "id": "aos_animation",
+          "label": "Scroll Animation",
+          "default": "fade-up",
+          "options": [
+            { "value": "fade-left", "label": "Fade Left" },
+            { "value": "fade-right", "label": "Fade Right" },
+            { "value": "fade-up", "label": "Fade Up" },
+            { "value": "zoom-in", "label": "Zoom In" }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "aos_delay",
+          "label": "Animation Delay (ms)",
+          "min": 0,
+          "max": 500,
+          "step": 50,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "aos_duration",
+          "label": "Animation Duration (ms)",
+          "min": 300,
+          "max": 2000,
+          "step": 100,
+          "default": 800
+        }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Custom Box" }
+  ]
+}
+{% endschema %}
