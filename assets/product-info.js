@@ -10,19 +10,15 @@ if (!customElements.get('product-info')) {
       pendingRequestUrl = null;
       preProcessHtmlCallbacks = [];
       postProcessHtmlCallbacks = [];
-      variantScrollPosition = null;
 
       constructor() {
         super();
 
         this.quantityInput = this.querySelector('.quantity__input');
-        this.captureVariantScrollPosition = this.captureVariantScrollPosition.bind(this);
       }
 
       connectedCallback() {
         this.initializeProductSwapUtility();
-        this.addEventListener('pointerdown', this.captureVariantScrollPosition, true);
-        this.addEventListener('keydown', this.captureVariantScrollPosition, true);
 
         this.onVariantChangeUnsubscriber = subscribe(
           PUB_SUB_EVENTS.optionValueSelectionChange,
@@ -50,25 +46,8 @@ if (!customElements.get('product-info')) {
       }
 
       disconnectedCallback() {
-        this.removeEventListener('pointerdown', this.captureVariantScrollPosition, true);
-        this.removeEventListener('keydown', this.captureVariantScrollPosition, true);
         this.onVariantChangeUnsubscriber();
         this.cartUpdateUnsubscriber?.();
-      }
-
-      captureVariantScrollPosition(event) {
-        if (!event.target.closest('variant-selects')) return;
-        this.variantScrollPosition = { top: window.scrollY, left: window.scrollX };
-      }
-
-      restoreVariantScrollPosition() {
-        if (!this.variantScrollPosition) return;
-
-        const { top, left } = this.variantScrollPosition;
-        window.scrollTo(left, top);
-        requestAnimationFrame(() => window.scrollTo(left, top));
-        setTimeout(() => window.scrollTo(left, top), 100);
-        this.variantScrollPosition = null;
       }
 
       initializeProductSwapUtility() {
@@ -148,7 +127,6 @@ if (!customElements.get('product-info')) {
           .then(() => {
             // set focus to last clicked option value
             document.querySelector(`#${targetId}`)?.focus({ preventScroll: true });
-            this.restoreVariantScrollPosition();
           })
           .catch((error) => {
             if (error.name === 'AbortError') {
