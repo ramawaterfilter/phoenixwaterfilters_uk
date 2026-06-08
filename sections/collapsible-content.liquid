@@ -6,6 +6,15 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+  .section-{{ section.id }}-padding .accordion summary > .icon-plus {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    /* width: 1.8rem; */
+    height: 1rem;
+    transform: translateY(-50%);
+    flex-shrink: 0;
+  }
   .collapsible-content summary:hover {
     background: {{ section.settings.c1 }} !important;
     padding: 12px;
@@ -166,7 +175,7 @@
                     <h3 class="accordion__title inline-richtext h4">
                       {{ block.settings.heading | default: block.settings.page.title | escape }}
                     </h3>
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                    {{- 'icon-plus.svg' | inline_asset_content -}}
                   </summary>
                   <div
                     class="accordion__content rte"

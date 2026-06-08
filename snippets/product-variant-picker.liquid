@@ -20,32 +20,11 @@
 
     <button class="size-guide-close" type="button">×</button>
 
-    <img id="sizeGuideDynamicImage" src="" alt="Size Guide">
+    <img id="sizeGuideDynamicImage" alt="Size Guide" width="500" height="500">
 
   </div>
 </div>
 
-<button type="button" class="size-guide-btn" id="openSizeGuide">
-  SIZE GUIDE
-</button>
-
-<script>
-  function checkUrl() {
-    const btn = document.getElementById("openSizeGuide");
-    
-    if (window.location.href.includes("the-phoenix-gravity-water-filter")) {
-      btn.style.display = "inline-block";
-    } else {
-      btn.style.display = "none";
-    }
-  }
-
-  // Run on load
-  checkUrl();
-
-  // Keep checking (handles variant change)
-  setInterval(checkUrl, 500);
-</script>
     {%- for option in product.options_with_values -%}
       
       {%- liquid
@@ -63,11 +42,18 @@
       
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-value>
-              {{- option.selected_value -}}
+          <legend class="form__label{% if forloop.last %} form__label--with-size-guide{% endif %}">
+            <span>
+              {{ option.name }}:
+              <span data-selected-value>
+                {{- option.selected_value -}}
+              </span>
             </span>
+            {%- if forloop.last -%}
+              <button type="button" class="size-guide-btn" id="openSizeGuide">
+                SIZE GUIDE
+              </button>
+            {%- endif -%}
           </legend>
           {% render 'product-variant-options',
             product: product,
@@ -79,9 +65,19 @@
         
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }} <span class="selected-value" data-selected-value>
-      {{- option.selected_value -}}
-    </span></legend>
+          <legend class="form__label{% if forloop.last %} form__label--with-size-guide{% endif %}">
+            <span>
+              {{ option.name }}
+              <span class="selected-value" data-selected-value>
+                {{- option.selected_value -}}
+              </span>
+            </span>
+            {%- if forloop.last -%}
+              <button type="button" class="size-guide-btn" id="openSizeGuide">
+                SIZE GUIDE
+              </button>
+            {%- endif -%}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -93,9 +89,16 @@
       {%- else -%}
         
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
-          </label>
+          <div class="form__label{% if forloop.last %} form__label--with-size-guide{% endif %}">
+            <label for="Option-{{ section.id }}-{{ forloop.index0 }}">
+              {{ option.name }}
+            </label>
+            {%- if forloop.last -%}
+              <button type="button" class="size-guide-btn" id="openSizeGuide">
+                SIZE GUIDE
+              </button>
+            {%- endif -%}
+          </div>
           
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
@@ -129,7 +132,26 @@
         </div>
         
       {%- endif -%}
+
     {%- endfor -%}
+
+    <script>
+      function checkUrl() {
+        const btn = document.getElementById("openSizeGuide");
+
+        if (window.location.href.includes("the-phoenix-gravity-water-filter")) {
+          btn.style.display = "inline-block";
+        } else {
+          btn.style.display = "none";
+        }
+      }
+
+      // Run on load
+      checkUrl();
+
+      // Keep checking (handles variant change)
+      setInterval(checkUrl, 500);
+    </script>
 
     <script type="application/json" data-selected-variant>
       {{ product.selected_or_first_available_variant | json }}
@@ -150,9 +172,9 @@ document.addEventListener("click", function(e) {
     const image = document.getElementById("sizeGuideDynamicImage");
 
     const sizeGuideImages = {
-      "no stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/No_stand.png?v=1772693236",
-      "teak wood stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/WOOD.png?v=1772693236",
-      "stainless steel stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/STEEL.png?v=1772693236"
+      "no stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/6-Sizes.webp?v=1780746028",
+      "teak wood stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/11-Available.webp?v=1780746029",
+      "stainless steel stand": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/12-Available.webp?v=1780746028"
     };
 
     function getSelectedStandOption() {
@@ -234,10 +256,6 @@ document.addEventListener("click", function(e) {
   padding: 20px;                 /* spacing on small screens */
 }
 button#openSizeGuide {
-    align-content: end !important;
-    justify-content: end !important;
-    position: absolute !important;
-    right: 105px !important;
     border: none !important;
 }
 
@@ -264,15 +282,25 @@ cursor: pointer;
   animation: sizeGuideFade 0.25s ease;
 }
 button#openSizeGuide {
-    align-content: end !important;
-    justify-content: end !important;
-    position: absolute !important;
-    right: 105px !important;
     color: #132555;
     font-weight: 700;
     border-radius: 6px;
     padding: 5px;
     cursor: pointer;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.form__label--with-size-guide {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+}
+
+.form__label--with-size-guide > :first-child {
+  margin-right: auto;
 }
 
 /* Mobile View */
@@ -284,10 +312,6 @@ button#openSizeGuide {
     cursor: pointer;
     border-radius: 6px;
     padding: 5px;
-        right: 10px !important;
-        position: absolute !important;
-        align-content: end !important;
-        justify-content: end !important;
     }
 }
 /* Image */

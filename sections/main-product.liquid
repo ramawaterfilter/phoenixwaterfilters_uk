@@ -318,7 +318,7 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
                     </summary>
 
                     
@@ -662,7 +662,7 @@
                           {%- endif -%}
                         </div>
                         {%- if block.settings.make_collapsible_row -%}
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                          {{- 'icon-plus.svg' | inline_asset_content -}}
                           </summary>
                         {%- endif -%}
                         <slideshow-component class="slider-mobile-gutter">
@@ -2669,6 +2669,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <style>
+
+.product__accordion .summary__title + .icon-plus,
+.complementary-products__container .summary__title + .icon-plus {
+  {% comment %} width: 1.8rem; {% endcomment %}
+  height: 1rem;
+  flex-shrink: 0;
+}
 
     
         
