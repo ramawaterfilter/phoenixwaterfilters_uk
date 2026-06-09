@@ -695,96 +695,116 @@
       "block_order": [
         "ai_gen_block_28b2662_hDqhC4"
       ],
+      "disabled": true,
       "custom_css": [
         ".ai-feature-marquee-ay0fxmnjnalfpew92yaigenblock28b2662hdqhc4 {padding: 20px 0;}"
       ],
       "name": "Feature marquee",
       "settings": {}
     },
-    "custom_video_text_xjJEkA": {
-      "type": "custom-video-text",
-      "disabled": true,
-      "custom_css": [
-        ".video-text-wrapper {align-items: flex-start;}"
+    "custom_feature_marquee_7UhRrc": {
+      "type": "custom-feature-marquee",
+      "blocks": {
+        "feature_9Nnr7e": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/heavy_metals_2_e437209f-d9ff-4ed1-b1cb-af9056cf2fc6.webp",
+            "title": "Heavy Metals",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_KKA9Ac": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/pfa_1_a711d498-db80-4271-a093-3a0e78d435c0.webp",
+            "title": "PFAs",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_74f7D7": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/micro_1dbfd5f2-aec1-4ec8-aa1f-2c091440dfe6.png",
+            "title": "Microplastics",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_JRAUQr": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/cll_8b54051b-c462-4dd4-b9ce-ee1036efb0ef.webp",
+            "title": "Chlorine",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_yBWMwA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
+            "title": "Bacteria",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_YqGwkk": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/cav_bf257863-a238-40a5-99bc-2621e9a6e1eb.webp",
+            "title": "Pesticides",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        }
+      },
+      "block_order": [
+        "feature_9Nnr7e",
+        "feature_KKA9Ac",
+        "feature_74f7D7",
+        "feature_JRAUQr",
+        "feature_yBWMwA",
+        "feature_YqGwkk"
       ],
-      "name": "Video with Text (Fully Dynamic)",
+      "name": "Custom Feature marquee",
       "settings": {
-        "h1": "",
-        "hd1": 33,
-        "hd2": 24,
-        "w1": 21,
-        "w2": 16,
-        "u1": 36,
-        "un1": 30,
-        "b1": true,
-        "s1": true,
-        "pd1": 78,
-        "pd2": 40,
-        "heading1": "",
-        "heading": "Designed for durability",
-        "text": "<ul><li>Unlike plastic filters, Phoenix Gravity’s 304 stainless steel housing won’t leach polyurethane, microplastics or harmful chemicals into your water over time.</li><li>Rust-resistant to withstand the rigours of everyday use for 10+ years</li><li>The hand polishing is done with the highest attention to detail to ensure quality, rivaling that of car manufacturers.</li></ul>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "video": "shopify://files/videos/Stainless Phoenix Gravity fullview.mp4",
-        "custom_video": "<script src=\"https://fast.wistia.com/player.js\" async></script><script src=\"https://fast.wistia.com/embed/4bdkovx2rn.js\" async type=\"module\"></script><style>wistia-player[media-id='4bdkovx2rn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4bdkovx2rn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id=\"4bdkovx2rn\" aspect=\"1.7777777777777777\"></wistia-player>",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "left",
-        "bg_color": "#eaeef1",
-        "text_color": "#1c1c1c",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 350,
-        "underline_width_mobile": 270,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "media_height_desktop": "auto",
-        "media_height_mobile": "auto",
-        "cs1": "left-padding-class"
-      }
-    },
-    "custom_video_text_rKcejg": {
-      "type": "custom-video-text",
-      "disabled": true,
-      "custom_css": [
-        ".video-text-wrapper {align-items: flex-start;}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 24,
-        "w1": 21,
-        "w2": 16,
-        "u1": 36,
-        "un1": 30,
-        "b1": true,
-        "s1": true,
-        "pd1": 76,
-        "pd2": 40,
-        "heading1": "",
-        "heading": "5-minute assembly",
-        "text": "<ul><li>Install your Phoenix Gravity in 5 minutes or less.</li><li>It is easy to assemble.<br/></li><li>No tools are required.<br/></li><li>Just use your hands.</li></ul>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "video": "shopify://files/videos/Easy installation (1).mp4",
-        "custom_video": "<script src=\"https://fast.wistia.com/player.js\" async></script>\n<script src=\"https://fast.wistia.com/embed/nka2th3w5j.js\" async type=\"module\"></script><style>wistia-player[media-id='nka2th3w5j']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/nka2th3w5j/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id=\"nka2th3w5j\" seo=\"false\" aspect=\"1.7777777777777777\"></wistia-player>",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "right",
-        "bg_color": "#eaeef1",
-        "text_color": "#1c1c1c",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 290,
-        "underline_width_mobile": 225,
-        "padding_top": 0,
-        "padding_bottom": 10,
-        "media_height_desktop": "auto",
-        "media_height_mobile": "auto",
-        "cs1": "left-padding-class"
+        "heading": "What Phoenix Gravity Water Filters remove?",
+        "heading_color": "#121212",
+        "desktop_heading_size": 32,
+        "desktop_header_margin": 10,
+        "mobile_heading_size": 24,
+        "mobile_header_margin": 10,
+        "show_line": true,
+        "line_height": 3,
+        "line_color": "#ff7a00",
+        "desktop_line_width": 400,
+        "desktop_line_spacing": 15,
+        "mobile_line_width": 300,
+        "mobile_line_spacing": 12,
+        "scroll_speed": 45,
+        "pause_on_hover": true,
+        "icon_background": "#eaeef1",
+        "desktop_icon_size": 100,
+        "desktop_icon_padding": 20,
+        "mobile_icon_size": 75,
+        "mobile_icon_padding": 14,
+        "title_color": "#121212",
+        "percentage_color": "#666666",
+        "desktop_title_size": 18,
+        "desktop_percentage_size": 16,
+        "desktop_item_gap": 16,
+        "mobile_title_size": 16,
+        "mobile_percentage_size": 14,
+        "mobile_item_gap": 12,
+        "desktop_padding": 60,
+        "mobile_padding": 40,
+        "desktop_item_padding": 30,
+        "desktop_item_horizontal_padding": 50,
+        "mobile_item_padding": 20,
+        "mobile_item_horizontal_padding": 35,
+        "background_color": "#eaeef1"
       }
     },
     "custom_text_section_MEpp94": {
@@ -796,7 +816,7 @@
         "show_heading_line": true,
         "c1": false,
         "heading2": "",
-        "heading": "How do Smart Carbon Cartridges work?",
+        "heading": "How do Carbon Cartridges work?",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
         "line_width_desktop": 550,
@@ -1530,8 +1550,7 @@
     "custom_text_section_EchAq4",
     "custom_icon_image_slider_7ThCVK",
     "blocks_QUGmFH",
-    "custom_video_text_xjJEkA",
-    "custom_video_text_rKcejg",
+    "custom_feature_marquee_7UhRrc",
     "custom_text_section_MEpp94",
     "video_iLKrND",
     "custom_text_section_WJkaK8",

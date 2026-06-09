@@ -24,7 +24,8 @@
         "increment": {{ product.selected_or_first_available_variant.quantity_rule.increment | json }}
     },
     "unit_price": {{ product.selected_or_first_available_variant.unit_price | json }},
-    "unit_price_measurement": {{ product.selected_or_first_available_variant.unit_price_measurement | json }}
+    "unit_price_measurement": {{ product.selected_or_first_available_variant.unit_price_measurement | json }},
+    "next_incoming_date": {%- if product.selected_or_first_available_variant.next_incoming_date -%}{{ product.selected_or_first_available_variant.next_incoming_date | time_tag | json }}{%- else -%}null{%- endif -%}
 }
 {%- else -%}
 {

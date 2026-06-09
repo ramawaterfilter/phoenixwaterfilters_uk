@@ -783,7 +783,7 @@
         "desktop_icon_size": 100,
         "desktop_icon_padding": 20,
         "mobile_icon_size": 75,
-        "mobile_icon_padding": 0,
+        "mobile_icon_padding": 30,
         "title_color": "#121212",
         "percentage_color": "#666666",
         "desktop_title_size": 18,
@@ -798,7 +798,7 @@
         "desktop_item_horizontal_padding": 50,
         "mobile_item_padding": 10,
         "mobile_item_horizontal_padding": 35,
-        "background_color": "#eaeef1"
+        "background_color": "#ffffff"
       }
     },
     "nice_custom_video_text_NmybXF": {
@@ -825,7 +825,7 @@
             "heading_color": "#000000",
             "text_color": "#ffffff",
             "section_heading": "",
-            "heading": "How do Smart KokoCarb Cartridges work?",
+            "heading": "How do KokoCarb Cartridges work?",
             "text": "<p>Stage One: Advanced Carbon Filtration<br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p>Stage Two: Built-in Sterilisation<br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting long-lasting purity and protection.</p><p></p>",
             "show_underline": false,
             "show_search": false,

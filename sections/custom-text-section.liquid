@@ -50,7 +50,7 @@
         <div class="both-cta-txt">
         {% if section.settings.bottom_icon != blank %}
           <div class="cta-icon">
-            {{ section.settings.bottom_icon | image_url: width: 80 | image_tag: alt: '' }}
+            <img src="{{ section.settings.bottom_icon | image_url: width: 80 }}" alt="">
           </div>
         {% endif %}
 
@@ -83,7 +83,7 @@
           <div class="bottom-image">
           {% if section.settings.m2 != blank %}
           <div class="cta-image">
-       {{ section.settings.m2 | image_url: width: 1200 | image_tag: alt: 'icon' }}
+       <img src="{{ section.settings.m2 | img_url: 'master' }}" alt="icon">
           </div>
           {% endif %}
           </div>
