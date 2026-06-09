@@ -1,4 +1,4 @@
-﻿
+
 {% assign ai_gen_id = section.id | replace: '_', '' | downcase %}
 
 {% style %}
@@ -8,6 +8,10 @@
     overflow: hidden;
     padding: {{ section.settings.desktop_padding }}px 0;
     background-color: {{ section.settings.background_color }};
+  }
+
+  {
+    background-color: {{ section.settings.background_color }}
   }
 
   .ai-feature-marquee__header-{{ ai_gen_id }} {

@@ -192,6 +192,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "rgba(0,0,0,0)",
@@ -282,6 +283,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -391,8 +393,8 @@
         "column_WqUY88"
       ],
       "custom_css": [
-        ".background-none .multicolumn-card__image-wrapper + .multicolumn-card__info {padding-top:0px !important;}",
-        "img.multicolumn-card__image {height:70% !important;}"
+        ".background-none .multicolumn-card__image-wrapper + .multicolumn-card__info {padding-top: 0px !important;}",
+        "img.multicolumn-card__image {height: 70% !important;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -489,6 +491,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "Product Description",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -621,6 +624,7 @@
         "s1": false,
         "pd1": 18,
         "pd2": 25,
+        "heading1": "",
         "heading": "",
         "text": "<h2>Designed for durability</h2><ul><li>Our activated carbon cartridges are designed for minimum replacement, and can last up to 20000 litre for pair.</li><li>Need replacing only once per year</li></ul>",
         "show_search": false,
@@ -645,7 +649,7 @@
         "cs1": "left-padding-class"
       }
     },
-    "custom_video_text_NUFK6J": {
+    "custom_video_text_RtTPaP": {
       "type": "custom-video-text",
       "disabled": true,
       "custom_css": [
@@ -668,51 +672,7 @@
         "s1": false,
         "pd1": 37,
         "pd2": 30,
-        "heading": "Two-stage filtration at its finest",
-        "text": "<p><strong>Stage one: Tortuous Path <br/>Mechanical filtration:</strong> Our activated carbon blocks create a tortuous path that contaminants like microplastics, cysts and bacteria cannot pass through</p><p>AdsorptionChemicals like chlorine, lead, pesticides and more are absorbed by the specially activated surface</p><p><strong>Stage Two: Sterilising<br/></strong>Impregnated silver sterilises water and prevents growth of bacteria or mould</p>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "video": "shopify://files/videos/filtration-process-.mp4",
-        "custom_video": "",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "right",
-        "bg_color": "#f4f6fa",
-        "text_color": "#1c1c1c",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 120,
-        "underline_width_mobile": 80,
-        "padding_top": 0,
-        "padding_bottom": 30,
-        "media_height_desktop": "auto",
-        "media_height_mobile": "auto",
-        "cs1": ""
-      }
-    },
-    "custom_video_text_RtTPaP": {
-      "type": "custom-video-text",
-      "custom_css": [
-        ".video-text-content {background: #f0831f;}",
-        ".video-text-media {display: flex;}",
-        "h2.video-text-heading {color: black;}",
-        "p {color: white;}",
-        "@media (min-width: 749px) {.video-text-content {padding-left: 26px; } .video-text-content {height: -webkit-fill-available; }}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 21,
-        "w1": 18,
-        "w2": 16,
-        "u1": 60,
-        "un1": 37,
-        "b1": true,
-        "s1": false,
-        "pd1": 37,
-        "pd2": 30,
+        "heading1": "",
         "heading": "Two-Stage Filtration, Perfected",
         "text": "<p>Stage One: Advanced Carbon Filtration<br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p>Stage Two: Built-in Sterilisation<br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting long-lasting purity and protection.</p><p></p>",
         "show_search": false,
@@ -736,17 +696,194 @@
         "cs1": ""
       }
     },
-    "rich_text_TGEg6T": {
-      "type": "rich-text",
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
+    "custom_feature_marquee_JeTTdT": {
+      "type": "custom-feature-marquee",
+      "blocks": {
+        "feature_6YUz4T": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/heavy_metals_2_e437209f-d9ff-4ed1-b1cb-af9056cf2fc6.webp",
+            "title": "Heavy Metals",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_38CVTn": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/pfa_1_a711d498-db80-4271-a093-3a0e78d435c0.webp",
+            "title": "PFAs",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_QVizCX": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/micro_1dbfd5f2-aec1-4ec8-aa1f-2c091440dfe6.png",
+            "title": "Microplastics",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_Q6KPMT": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/cll_8b54051b-c462-4dd4-b9ce-ee1036efb0ef.webp",
+            "title": "Chlorine",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_NCLcRW": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
+            "title": "Bacteria",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "feature_kq6Dpq": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/cav_bf257863-a238-40a5-99bc-2621e9a6e1eb.webp",
+            "title": "Pesticides",
+            "percentage": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        }
+      },
+      "block_order": [
+        "feature_6YUz4T",
+        "feature_38CVTn",
+        "feature_QVizCX",
+        "feature_Q6KPMT",
+        "feature_NCLcRW",
+        "feature_kq6Dpq"
+      ],
+      "name": "Custom Feature marquee",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
+        "heading": "What KokoCarb Cartridges remove?",
+        "heading_color": "#121212",
+        "desktop_heading_size": 32,
+        "desktop_header_margin": 10,
+        "mobile_heading_size": 24,
+        "mobile_header_margin": 10,
+        "show_line": true,
+        "line_height": 3,
+        "line_color": "#ff7a00",
+        "desktop_line_width": 400,
+        "desktop_line_spacing": 15,
+        "mobile_line_width": 300,
+        "mobile_line_spacing": 12,
+        "scroll_speed": 45,
+        "pause_on_hover": true,
+        "icon_background": "#eaeef1",
+        "desktop_icon_size": 100,
+        "desktop_icon_padding": 20,
+        "mobile_icon_size": 75,
+        "mobile_icon_padding": 0,
+        "title_color": "#121212",
+        "percentage_color": "#666666",
+        "desktop_title_size": 18,
+        "desktop_percentage_size": 16,
+        "desktop_item_gap": 16,
+        "mobile_title_size": 16,
+        "mobile_percentage_size": 14,
+        "mobile_item_gap": 12,
+        "desktop_padding": 60,
+        "mobile_padding": 20,
+        "desktop_item_padding": 30,
+        "desktop_item_horizontal_padding": 50,
+        "mobile_item_padding": 10,
+        "mobile_item_horizontal_padding": 35,
+        "background_color": "#eaeef1"
+      }
+    },
+    "nice_custom_video_text_NmybXF": {
+      "type": "nice-custom-video-text",
+      "blocks": {
+        "media_bwiEwf": {
+          "type": "media",
+          "settings": {
+            "background_color": "#f4f6fa",
+            "video": "shopify://files/videos/filtration-process- new.mp4",
+            "custom_video": "",
+            "video_url": "",
+            "media_height_desktop": "auto",
+            "media_height_mobile": "auto",
+            "show_mobile_button": false,
+            "button_text": "Learn more",
+            "button_link": ""
+          }
+        },
+        "text_f7QdXy": {
+          "type": "text",
+          "settings": {
+            "background_color": "#f0831f",
+            "heading_color": "#000000",
+            "text_color": "#ffffff",
+            "section_heading": "",
+            "heading": "How do Smart KokoCarb Cartridges work?",
+            "text": "<p>Stage One: Advanced Carbon Filtration<br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p>Stage Two: Built-in Sterilisation<br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting long-lasting purity and protection.</p><p></p>",
+            "show_underline": false,
+            "show_search": false,
+            "search_placeholder": "Search products...",
+            "search_button_text": "Search",
+            "button_text": "",
+            "button_link": "",
+            "heading_size_desktop": 30,
+            "heading_size_mobile": 20,
+            "text_size_desktop": 18,
+            "text_size_mobile": 16,
+            "list_padding_desktop": 100,
+            "list_padding_mobile": 40,
+            "underline_width_desktop": 120,
+            "underline_width_mobile": 80,
+            "underline_margin_bottom": 50,
+            "underline_margin_left": 30
+          }
+        }
+      },
+      "block_order": [
+        "media_bwiEwf",
+        "text_f7QdXy"
+      ],
+      "name": "Custom Video with text",
+      "settings": {
+        "h1": "",
+        "hd1": 40,
+        "hd2": 24,
+        "w1": 21,
+        "w2": 16,
+        "u1": 50,
+        "un1": 30,
+        "b1": true,
+        "s1": true,
+        "pd1": 50,
+        "pd2": 40,
+        "heading1": "",
+        "heading": "Designed for durability",
+        "text": "<ul><li>High quality stainless steel</li><li>Rust resistant</li></ul>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "#f4f6fa",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "underline_width_desktop": 120,
+        "underline_width_mobile": 80,
         "padding_top": 0,
-        "padding_bottom": 12
+        "padding_bottom": 0,
+        "media_height_desktop": "auto",
+        "media_height_mobile": "auto",
+        "cs1": ""
       }
     },
     "custom_side_icons_8nbxxy": {
@@ -967,6 +1104,7 @@
         "left_item_dhmwYD",
         "left_item_dPBDdy"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 767px) {.filtration-section-template--28072777154944__custom_side_icons_AY3nz9 {display: none; }}"
       ],
@@ -1004,6 +1142,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "The Phoenix Difference",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1104,6 +1243,7 @@
         "hd2": 24,
         "show_heading_line": false,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1120,7 +1260,7 @@
         "w2": 19,
         "bottom_heading1": "",
         "bottom_button_text": "Complete Purchase",
-        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "bottom_button_link": "shopify://products/kokocarb-cartridges",
         "button_bg": "#f5d24f",
         "button_text_color": "#000000",
         "text_color": "#2d2d4f",
@@ -1232,6 +1372,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "FAQs",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1373,6 +1514,7 @@
         "caption": "",
         "c1": "rgba(0,0,0,0)",
         "heading": "",
+        "heading1": "",
         "h1": 50,
         "h2": 24,
         "w1": 26,
@@ -1424,6 +1566,7 @@
         "hd2": 24,
         "show_heading_line": false,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1491,6 +1634,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "The Phoenix difference, straight from the source(s).",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1584,9 +1728,9 @@
     "custom_text_section_9EqMzU",
     "image_with_text_baXir8",
     "custom_video_text_VnLUkL",
-    "custom_video_text_NUFK6J",
     "custom_video_text_RtTPaP",
-    "rich_text_TGEg6T",
+    "custom_feature_marquee_JeTTdT",
+    "nice_custom_video_text_NmybXF",
     "custom_side_icons_8nbxxy",
     "custom_side_icons_AY3nz9",
     "custom_text_section_C8qwW6",

@@ -371,10 +371,17 @@
     margin-left: var(--underline-margin-left);
   }
   #video-text-{{ section.id }} .video-text-wrapper.reverse{
-    flex-direction:row-reverse;
+    flex-direction:row;
   }
   #video-text-{{ section.id }} .video-text-content{
     width:50%;
+    box-sizing: border-box;
+    padding-left: 32px;
+    padding-right: 24px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   #video-text-{{ section.id }} .video-text-media{
    width:50%;

@@ -50,7 +50,7 @@
         <div class="both-cta-txt">
         {% if section.settings.bottom_icon != blank %}
           <div class="cta-icon">
-            <img src="{{ section.settings.bottom_icon | image_url: width: 80 }}" alt="">
+            {{ section.settings.bottom_icon | image_url: width: 80 | image_tag: alt: '' }}
           </div>
         {% endif %}
 
@@ -83,7 +83,7 @@
           <div class="bottom-image">
           {% if section.settings.m2 != blank %}
           <div class="cta-image">
-       <img src="{{ section.settings.m2 | img_url: 'master' }}" alt="icon">
+       {{ section.settings.m2 | image_url: width: 1200 | image_tag: alt: 'icon' }}
           </div>
           {% endif %}
           </div>
@@ -504,6 +504,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 {% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
+  if (!ctaButton) return;
+
+  ctaButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
