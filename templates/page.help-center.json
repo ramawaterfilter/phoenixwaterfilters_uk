@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "help-center-converted",
+      "settings": {
+        "show_registration_banner": true,
+        "registration_heading": "Register your product now and activate the 10-year warranty on your stainless steel system.",
+        "registration_note": "Product purchases from this store do not need registration they are automatically registered.",
+        "registration_button_label": "Register here",
+        "registration_button_link": "/pages/product-registration",
+        "hero_image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/help_center.jpg?v=1707988503",
+        "hero_image_alt": "Phoenix Gravity Water Filter help center",
+        "hero_heading": "Need help with your Phoenix Gravity Water Filter?",
+        "hero_highlight": "You're in the right place.",
+        "show_search": true,
+        "search_placeholder": "Search for help, FAQs, setup guides...",
+        "search_button_label": "Search",
+        "performance_heading": "We take our performance seriously.",
+        "performance_text": "<p>Our products undergo rigorous, independent testing to ensure our filtration - and your water - is of the highest (and tastiest) quality.</p>",
+        "report_heading": "View our test reports:",
+        "product_heading": "Say hello to healthier hydration."
+      },
+      "blocks": {
+        "help_setup": {
+          "type": "help_card",
+          "settings": {
+            "title": "How to set up your filter",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833",
+            "link": "/pages/how-to-set-up-your-filter",
+            "open_new_tab": true
+          }
+        },
+        "help_resources": {
+          "type": "help_card",
+          "settings": {
+            "title": "Additional resources",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/217.png?v=1700471879",
+            "link": "/blogs/news",
+            "open_new_tab": false
+          }
+        },
+        "help_technology": {
+          "type": "help_card",
+          "settings": {
+            "title": "How the Phoenix Gravity System works",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/218.png?v=1700472401",
+            "link": "/pages/our-technology",
+            "open_new_tab": false
+          }
+        },
+        "help_faq": {
+          "type": "help_card",
+          "settings": {
+            "title": "FAQs",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/216.png?v=1700472486",
+            "link": "/pages/faq",
+            "open_new_tab": false
+          }
+        },
+        "trust_delivery": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "Free UK delivery over £99",
+            "icon_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/van.png?v=1700475923"
+          }
+        },
+        "trust_warranty": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "10 year warranty",
+            "icon_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/10year_1.png?v=1700475967"
+          }
+        },
+        "trust_removed": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "99.99% contaminants removed",
+            "icon_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/virus_3.png?v=1700476034"
+          }
+        },
+        "report_environmental": {
+          "type": "report_card",
+          "settings": {
+            "title": "Environmental Monitoring Service",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/205.png?v=1700476779",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Environmental_monitoring_service_Carbon_Filter_Cartridge.zip?v=1709728560",
+            "open_new_tab": true
+          }
+        },
+        "report_cvr": {
+          "type": "report_card",
+          "settings": {
+            "title": "CVR Labs Limited",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/204.png?v=1700477439",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Lab_Reports_-cvr.zip?v=1709728495",
+            "open_new_tab": true
+          }
+        },
+        "report_wqa": {
+          "type": "report_card",
+          "settings": {
+            "title": "Water Quality Association",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/205.png?v=1700476779",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__WQA_Certificate.zip?v=1709728408",
+            "open_new_tab": true
+          }
+        },
+        "report_contaminants": {
+          "type": "report_card",
+          "settings": {
+            "title": "Contaminants Removed",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/204.png?v=1700477439",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901",
+            "open_new_tab": true
+          }
+        },
+        "cta_blog": {
+          "type": "info_cta",
+          "settings": {
+            "heading": "Product & health tips",
+            "button_label": "View here",
+            "link": "/blogs/news"
+          }
+        },
+        "cta_faq": {
+          "type": "info_cta",
+          "settings": {
+            "heading": "View our FAQs",
+            "button_label": "View here",
+            "link": "/pages/faq"
+          }
+        },
+        "product_filter": {
+          "type": "product_card",
+          "settings": {
+            "title": "Gravity Filter",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/filter_6.png?v=1703571372",
+            "link": "/products/the-phoenix-gravity-water-filter"
+          }
+        },
+        "product_carbon": {
+          "type": "product_card",
+          "settings": {
+            "title": "Carbon Cartridge",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/carbon_7.png?v=1703571411",
+            "link": "/products/smart-carbon-cartridges"
+          }
+        },
+        "product_postreat": {
+          "type": "product_card",
+          "settings": {
+            "title": "POSTreat",
+            "image_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Postreat_10.png?v=1703571433",
+            "link": "/products/refillable-water-filter-cartridge-postreat-fluoride-remover"
+          }
+        }
+      },
+      "block_order": [
+        "help_setup",
+        "help_resources",
+        "help_technology",
+        "help_faq",
+        "trust_delivery",
+        "trust_warranty",
+        "trust_removed",
+        "report_environmental",
+        "report_cvr",
+        "report_wqa",
+        "report_contaminants",
+        "cta_blog",
+        "cta_faq",
+        "product_filter",
+        "product_carbon",
+        "product_postreat"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

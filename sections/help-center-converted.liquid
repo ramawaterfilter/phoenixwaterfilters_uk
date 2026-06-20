@@ -1,0 +1,936 @@
+<section id="help-center-rebuild-{{ section.id }}" class="hc-ecom-page">
+  <style>
+    #help-center-rebuild-{{ section.id }} {
+      --hc-blue: #4994bf;
+      --hc-pink: #deb1b2;
+      --hc-navy: #262953;
+      --hc-navy-2: #2f2953;
+      --hc-orange: #f0831f;
+      --hc-green: #548152;
+      --hc-yellow: #f5d14e;
+      --hc-light: #eaeef1;
+      --hc-white: #ffffff;
+      font-family: "DM Sans", "Outfit", Arial, sans-serif;
+      color: var(--hc-navy);
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    #help-center-rebuild-{{ section.id }} *,
+    #help-center-rebuild-{{ section.id }} *::before,
+    #help-center-rebuild-{{ section.id }} *::after {
+      box-sizing: border-box;
+    }
+
+    #help-center-rebuild-{{ section.id }} a {
+      text-decoration: none;
+    }
+
+    #help-center-rebuild-{{ section.id }} img {
+      display: block;
+      max-width: 100%;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-container {
+      width: min(1600px, calc(100% - 80px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register {
+      background: var(--hc-blue);
+      color: #ffffff;
+      padding: 18px 0;
+      margin-top: 10px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__inner {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      align-items: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__copy {
+      padding-left: 12px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__heading {
+      margin: 0;
+      color: #ffffff;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__note {
+      margin: 4px 0 0;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+      min-height: 50px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #f5d14e;
+      color: #000000;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.25;
+      transition: 0.3s ease;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-register__button:hover {
+      background: #f5d14e;
+      color: #ffffff;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-hero {
+      position: relative;
+      min-height: 560px;
+      background-image: url("https://cdn.shopify.com/s/files/1/0735/1821/9557/files/help_center.jpg?v=1707988503");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-hero__content {
+      width: min(1600px, calc(100% - 80px));
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 40%;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-hero__heading {
+      max-width: 720px;
+      margin: 0;
+      color: #272953;
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 1.2;
+      text-transform: none;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-hero__highlight {
+      display: block;
+      color: var(--hc-pink);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-search {
+      width: 50%;
+      min-width: 430px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-search input {
+      width: 100%;
+      height: 40px;
+      border: 0;
+      outline: 0;
+      border-radius: 0;
+      background: var(--hc-light);
+      color: var(--hc-navy-2);
+      font-family: inherit;
+      font-size: 18px;
+      padding: 0 15px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-search input::placeholder {
+      color: #9a99a1;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-search button {
+      width: 100px;
+      height: 40px;
+      border: 0;
+      border-radius: 0;
+      background: var(--hc-light);
+      color: var(--hc-navy-2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-search svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 75px;
+      margin-bottom: 75px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card {
+      min-height: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card a {
+      width: 100%;
+      display: block;
+      padding: 50px 20px 35px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card h3 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-decoration: underline;
+      width:90%;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card:nth-child(1) h3 {
+      color: var(--hc-green);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card:nth-child(2) h3 {
+      color: var(--hc-yellow);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card:nth-child(3) h3 {
+      color: var(--hc-orange);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-help-card:nth-child(4) h3 {
+      color: var(--hc-pink);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-trust-desktop {
+      background: var(--hc-pink);
+      padding: 20px 0;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-trust-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      flex: 0 0 50px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-trust-mobile {
+      display: none;
+      background: var(--hc-pink);
+      padding: 15px 0;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-performance {
+      max-width: 1150px;
+      margin: 75px auto 0;
+      text-align: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-performance h2 {
+      margin: 0;
+      color: var(--hc-navy);
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-performance p {
+      margin: 20px 0 0;
+      color: var(--hc-navy);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-heading {
+      text-align: center;
+      margin: 75px 0 35px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-heading h3 {
+      display: inline-block;
+      position: relative;
+      margin: 0;
+      padding-bottom: 10px;
+      color: var(--hc-navy);
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-heading h3::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 100%;
+      margin-top: 10px;
+      background: var(--hc-pink);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 75px;
+      width:1200px;
+      margin:auto;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card {
+      text-align: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card a {
+      display: block;
+      padding: 0 10px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 4.5px solid var(--hc-orange);
+      margin: 0 auto 18px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card:nth-child(2) img {
+      border-color: var(--hc-yellow);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card:nth-child(3) img {
+      border-color: var(--hc-green);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card:nth-child(4) img {
+      border-color: var(--hc-pink);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-report-card h3 {
+      margin: 0;
+      color: var(--hc-navy-2);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-decoration:underline;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card {
+      min-height: 430px;
+      padding: 150px 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card--orange {
+      background: var(--hc-orange);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card--green {
+      background: var(--hc-green);
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card h3 {
+      margin: 0 0 30px;
+      color: #ffffff;
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 15px 75px;
+      border-radius: 10px;
+      background: #f5d14e;
+      color: #000000;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.25;
+      transition: 0.3s ease;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-info-card a:hover {
+      background: #f5d14e;
+      color: #ffffff;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-products-heading {
+      background: var(--hc-blue);
+      text-align: center;
+      padding: 25px 20px 0;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-products-heading h2 {
+      margin: 0;
+      color: var(--hc-navy-2);
+      font-size: 50px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-products {
+      background: var(--hc-blue);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding: 75px;
+      text-align: center;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-product-card a {
+      display: block;
+      padding: 0 20px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-product-card img {
+      width: 60%;
+      max-width: 260px;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto 28px;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-product-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #f5d14e;
+      color: #000000;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.25;
+      width: 70%;
+    }
+
+    #help-center-rebuild-{{ section.id }} .hc-product-card span:hover {
+    background: #f5d14e;
+    color: #fff;
+    }
+    @media screen and (max-width: 989px) {
+      #help-center-rebuild-{{ section.id }} .hc-container {
+        width: min(1600px, calc(100% - 50px));
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__heading {
+        font-size: 21px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__button {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero {
+        min-height: 420px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero__content {
+        width: min(1600px, calc(100% - 50px));
+        padding-left: 40%;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero__heading {
+        font-size: 25px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-search {
+        min-width: 320px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-performance h2,
+      #help-center-rebuild-{{ section.id }} .hc-products-heading h2 {
+        font-size: 32px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-performance p {
+        font-size: 20px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-card h3 {
+        font-size: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-card {
+        min-height: 260px;
+        padding: 50px 24px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-card h3 {
+        font-size: 30px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-products {
+        padding: 50px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-product-card span {
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      #help-center-rebuild-{{ section.id }} .hc-container {
+        width: calc(100% - 28px);
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register {
+        margin-top: 25px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__copy {
+        padding-left: 0;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__heading {
+        font-size: 16px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__note {
+        font-size: 12px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-register__button {
+        width: 100%;
+        min-height: 40px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero {
+        min-height: 360px;
+        background-position: center;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero__content {
+        width: calc(100% - 28px);
+        padding-left: 40%;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-hero__heading {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-search {
+        display: none;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-help-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-help-card {
+        min-height: 135px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-help-card a {
+        padding: 5px 8px 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-help-card img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 8px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-help-card h3 {
+        font-size: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-trust-desktop {
+        display: none;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-trust-mobile {
+        display: block;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-trust-item {
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-trust-item img {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-performance {
+        margin-top: 0;
+        padding-top: 28px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-performance h2 {
+        font-size: 24px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-performance p {
+        font-size: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-heading {
+        margin-top: 0;
+        padding-top: 28px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-heading h3 {
+        font-size: 21px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 10px;
+        margin-bottom: 35px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-report-card h3 {
+        font-size: 16px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-card {
+        min-height: auto;
+        padding: 25px 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-card h3 {
+        font-size: 25px;
+        margin-bottom: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-info-card a {
+        padding: 10px 40px;
+        font-size: 18px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-products-heading {
+        padding-top: 25px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-products-heading h2 {
+        font-size: 25px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-products {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 0 50px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-product-card a {
+        padding: 0 5px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-product-card img {
+        width: 120px;
+        max-width: 100%;
+        margin-bottom: 14px;
+      }
+
+      #help-center-rebuild-{{ section.id }} .hc-product-card span {
+        width: 100px;
+        min-height: 50px;
+        padding: 6px 8px;
+        font-size: 14px;
+      }
+    }
+    .hc-hero__content input[type="text"]::placeholder {
+    display: flex;
+    position: absolute;
+    left: 15%;
+    }
+  </style>
+
+  <div class="hc-register">
+    <div class="hc-container hc-register__inner">
+      <div class="hc-register__copy">
+        <h3 class="hc-register__heading">Register your product now and activate the 10-year warranty on your stainless steel system.</h3>
+        <p class="hc-register__note">(Product purchases from this store do not need registration they are automatically registered.)</p>
+      </div>
+
+      <a class="hc-register__button" href="/pages/product-registration" target="_blank" rel="noopener">
+        Register here
+      </a>
+    </div>
+  </div>
+
+  <div class="hc-hero">
+    <div class="hc-hero__content">
+      <h1 class="hc-hero__heading">
+        Need help with your Phoenix Gravity Water Filter?
+        <span class="hc-hero__highlight">You're in the right place.</span>
+      </h1>
+
+      <form class="hc-search" action="/search" method="get" role="search">
+        <input type="text" name="q" placeholder="Search" aria-label="Search">
+        <input type="hidden" name="type" value="page,article,product">
+        <input type="hidden" name="options[unavailable_products]" value="last">
+        <input type="hidden" name="options[prefix]" value="none">
+        <input type="hidden" name="sort_by" value="relevance">
+
+        <button type="submit" aria-label="Search">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+            <path d="M62.1,57L44.6,42.8c3.2-4.2,5-9.3,5-14.7c0-6.5-2.5-12.5-7.1-17.1v0c-9.4-9.4-24.7-9.4-34.2,0C3.8,15.5,1.3,21.6,1.3,28c0,6.5,2.5,12.5,7.1,17.1c4.7,4.7,10.9,7.1,17.1,7.1c6.1,0,12.1-2.3,16.8-6.8l17.7,14.3c0.3,0.3,0.7,0.4,1.1,0.4c0.5,0,1-0.2,1.4-0.6C63,58.7,62.9,57.6,62.1,57z M10.8,42.7C6.9,38.8,4.8,33.6,4.8,28s2.1-10.7,6.1-14.6c4-4,9.3-6,14.6-6c5.3,0,10.6,2,14.6,6c3.9,3.9,6.1,9.1,6.1,14.6S43.9,38.8,40,42.7C32,50.7,18.9,50.7,10.8,42.7z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="hc-container">
+    <div class="hc-help-grid">
+      <div class="hc-help-card">
+        <a href="/pages/how-to-set-up-your-filter" target="_blank" rel="noopener">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833" alt="How to set up your filter" loading="lazy" width="250" height="250">
+          <h3>How to set up your filter</h3>
+        </a>
+      </div>
+
+      <div class="hc-help-card">
+        <a href="/blogs/news">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/217.png?v=1700471879" alt="Additional resources" loading="lazy" width="250" height="250">
+          <h3>Additional resources</h3>
+        </a>
+      </div>
+
+      <div class="hc-help-card">
+        <a href="/pages/our-technology">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/218.png?v=1700472401" alt="How the Phoenix Gravity System works" loading="lazy" width="250" height="250">
+          <h3>How the Phoenix Gravity System works</h3>
+        </a>
+      </div>
+
+      <div class="hc-help-card">
+        <a href="/pages/faq">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/216.png?v=1700472486" alt="FAQs" loading="lazy" width="250" height="250">
+          <h3>FAQs</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hc-trust-desktop">
+    <div class="hc-container hc-trust-grid">
+      <div class="hc-trust-item">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/van.png?v=1700475923" alt="" loading="lazy">
+        <span>Free UK delivery over £99</span>
+      </div>
+
+      <div class="hc-trust-item">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/10year_1.png?v=1700475967" alt="" loading="lazy">
+        <span>10 year warranty</span>
+      </div>
+
+      <div class="hc-trust-item">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/virus_3.png?v=1700476034" alt="" loading="lazy">
+        <span>99.99% contaminants removed</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hc-trust-mobile">
+    <div class="hc-container hc-trust-grid">
+      <div class="hc-trust-item">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/100_days_5.png?v=1709702046" alt="" loading="lazy">
+        <span>100-day trail on the filter system</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hc-container">
+    <div class="hc-performance">
+      <h2>We take our performance seriously.</h2>
+      <p>Our products undergo rigorous, independent testing to ensure our filtration - and your water - is of the highest (and tastiest) quality</p>
+    </div>
+
+    <div class="hc-report-heading">
+      <h3>View our test reports:</h3>
+    </div>
+
+    <div class="hc-report-grid">
+      <div class="hc-report-card">
+        <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Environmental_monitoring_service_Carbon_Filter_Cartridge.zip?v=1709728560">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/205.png?v=1700476779" alt="Environmental Monitoring Service" loading="lazy" width="250" height="250">
+          <h3>Environmental Monitoring Service</h3>
+        </a>
+      </div>
+
+      <div class="hc-report-card">
+        <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Lab_Reports_-cvr.zip?v=1709728495">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/204.png?v=1700477439" alt="CVR Labs Limited" loading="lazy" width="250" height="250">
+          <h3>CVR Labs Limited</h3>
+        </a>
+      </div>
+
+      <div class="hc-report-card">
+        <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__WQA_Certificate.zip?v=1709728408">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/205.png?v=1700476779" alt="Water Quality Association" loading="lazy" width="250" height="250">
+          <h3>Water Quality Association</h3>
+        </a>
+      </div>
+
+      <div class="hc-report-card">
+        <a href="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901" target="_blank" rel="noopener">
+          <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/204.png?v=1700477439" alt="Contaminants Removed" loading="lazy" width="250" height="250">
+          <h3>Contaminants Removed</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hc-info-grid">
+    <div class="hc-info-card hc-info-card--orange">
+      <h3>Product &amp; health tips</h3>
+      <a href="/blogs/news">here</a>
+    </div>
+
+    <div class="hc-info-card hc-info-card--green">
+      <h3>View our FAQs</h3>
+      <a href="/pages/faq">here</a>
+    </div>
+  </div>
+
+  <div class="hc-products-heading">
+    <h2>Say hello to healthier hydration.</h2>
+  </div>
+
+  <div class="hc-products">
+    <div class="hc-product-card">
+      <a href="/products/the-phoenix-gravity-water-filter">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/filter_6.png?v=1703571372" alt="Gravity Filter" loading="lazy" width="600" height="600">
+        <span>Gravity Filter</span>
+      </a>
+    </div>
+
+    <div class="hc-product-card">
+      <a href="/products/smart-carbon-cartridges">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/carbon_7.png?v=1703571411" alt="Carbon Cartridge" loading="lazy" width="600" height="600">
+        <span>Carbon Cartridge</span>
+      </a>
+    </div>
+
+    <div class="hc-product-card">
+      <a href="/products/refillable-water-filter-cartridge-postreat-fluoride-remover">
+        <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Postreat_10.png?v=1703571433" alt="POSTreat" loading="lazy" width="600" height="600">
+        <span>POSTreat</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const section = document.querySelector('#help-center-rebuild-{{ section.id }}');
+      if (!section) return;
+
+      const searchForm = section.querySelector('.hc-search');
+
+      if (searchForm) {
+        searchForm.addEventListener('submit', function(event) {
+          const input = searchForm.querySelector('input[name="q"]');
+          const value = input ? input.value.trim() : '';
+
+          if (!value) {
+            event.preventDefault();
+            if (input) input.focus();
+            return;
+          }
+
+          input.value = value;
+        });
+      }
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Help Center converted",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Help Center converted"
+    }
+  ]
+}
+{% endschema %}

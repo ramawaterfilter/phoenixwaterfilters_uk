@@ -93,6 +93,7 @@
         "custom_liquid_7wgRGz": {
           "type": "custom_liquid",
           "name": "100 D GMB",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"guarantee-wrapper\">\n  <div class=\"guarantee-title\">100-Day Money Back Guarantee</div>\n</div>\n\n<style>\n  .guarantee-wrapper {\n    width: 100%;\n    text-align: center;\n    padding-top: 0px;\n    padding-bottom: 0px;\n    margin-top: 4px;\n  }\n\n  .guarantee-title {\n    margin: 0 auto;\n    text-align: center;\n    font-size: 15px;\n    line-height: 1.2;\n    font-weight: 600;\n    color: #24214f;\n  }\n\n  @media screen and (max-width: 749px) {\n    .guarantee-wrapper {\n      padding-top: 0px;\n      padding-bottom: 0px;\n      margin-top: 3px;\n    }\n\n    .guarantee-title {\n      font-size: 12px;\n      line-height: 1.2;\n      padding: 0 15px;\n    }\n  }\n</style>"
           }
@@ -134,6 +135,7 @@
         },
         "icon_with_text_3yWehV": {
           "type": "icon-with-text",
+          "disabled": true,
           "settings": {
             "layout": "horizontal",
             "icon_1": "none",

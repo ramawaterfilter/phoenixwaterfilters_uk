@@ -20,8 +20,13 @@
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
         "custom_liquid_zAkcJc": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"underline-title\">{{ product.metafields.custom.learn_more_centent | metafield_tag }}</div>\n\n<div class=\"alink-p\">Looking for the complete Phoenix Gravity System? <a href=\"/products/the-phoenix-gravity-water-filter\">Find it here.</a></div>"
           }
@@ -32,11 +37,6 @@
             "text": "",
             "text_style": "body"
           }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -71,15 +71,17 @@
             "layout": "horizontal",
             "icon_1": "none",
             "image_1": "shopify://shop_images/output-onlinepngtools.png",
-            "heading_1": "NSF  Certified",
+            "heading_1": "<strong>NSF 372 ANSI 42 Certified</strong>",
             "icon_2": "none",
             "image_2": "shopify://shop_images/jpeg-optimizer_delivery.webp",
             "heading_2": "Fast Shipping",
             "icon_3": "none",
             "heading_3": "",
             "icon_4": "none",
-            "image_4": "shopify://shop_images/jpeg-optimizer_customer__service.webp",
-            "heading_4": "<strong>Customer Support</strong>"
+            "image_4": "shopify://shop_images/output-smallpngtools_1__11zon.png",
+            "heading_4": "Universal Fit",
+            "icon_5": "none",
+            "heading_5": ""
           }
         },
         "collapsible_tab_VyEEwT": {
@@ -113,8 +115,19 @@
             "page": ""
           }
         },
+        "collapsible_tab_K7fxqP": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Lab Report",
+            "icon": "none",
+            "content": "",
+            "c1": "<div class=\"labreport-accordion\">\n\n  \n\n  <div class=\"labreport-grid\">\n\n    <!-- ITEM 1 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\">\n      <h4>PFOA PFOS LABORATORY TEST REPORT</h4>\n      <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 2 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\">\n      <h4>NSF CERTIFIED</h4>\n      <a href=\"https://info.nsf.org/Certified/DWTU/Listings.asp\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 3 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\">\n      <h4>HEAVY METALS TEST REPORT</h4>\n      <a href=\"https://cdn.shopify.com/s/files/1/2644/2852/files/Phoenix_gravity_contaminants_lab_report_USA_Aug2024_2.pdf\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n\n.labreport-title {\n  font-size: 26px;\n  margin-bottom: 25px;\n  border-bottom: 1px solid #ddd;\n  padding-bottom: 10px;\n}\n\n.labreport-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 40px;\n  text-align: center;\n}\n\n.labreport-item img {\n  width: 60px;\n  margin-bottom: 12px;\n}\n\n.labreport-item h4 {\n  font-size: 15px;\n  margin: 0;\n  letter-spacing: 0.5px;\n}\n\n.labreport-item a {\n  color: #00a0ff;\n  font-weight: 600;\n  text-decoration: none;\n}\n\n.labreport-item a:hover {\n color:#00a0ff;\n text-decoration: none;\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .labreport-grid {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n  }\n}\n</style>",
+            "page": ""
+          }
+        },
         "collapsible_tab_RtWPU4": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Key Features",
             "icon": "none",
@@ -123,24 +136,22 @@
             "page": ""
           }
         },
-        "collapsible_tab_cfqKeC": {
-          "type": "collapsible_tab",
-          "disabled": true,
+        "variant_metafield_tab_pCqtfF": {
+          "type": "variant_metafield_tab",
           "settings": {
-            "heading": "What’s New",
+            "heading": "Key Features",
             "icon": "none",
-            "content": "<p><strong>PrimeEasy Connector<br/></strong>A smart, easy-to-use connector that attaches directly to your tap, making priming faster, simpler and more efficient.</p><p><strong>At-Home Testing Kit<br/></strong>A convenient dye-based kit that allows you to quickly confirm your cartridges are correctly installed and performing as intended.</p>",
-            "c1": "",
-            "page": ""
+            "metafield_namespace": "custom",
+            "metafield_key": "custom_collapsible_row",
+            "hide_when_empty": true
           }
         },
-        "collapsible_tab_nFbX67": {
+        "collapsible_tab_XbtdzM": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
-            "heading": "Shipping and Returns",
+            "heading": "Compatiablity",
             "icon": "none",
-            "content": "<ul><li>Refunds are processed within 2 business days upon receiving and inspecting the returned product, and the amount will be credited to your original payment method within 7 business days.</li><li>A full refund is issued only if the complete product is returned; partial returns receive partial refunds.</li><li>Exchanges are available only for items with manufacturing defects or faults.</li><li>Return shipping is the customer’s responsibility and is non-refundable. For items over £99, we recommend using a trackable shipping service.</li></ul>",
+            "content": "<p>Phoenix Gravity KokoCarb Cartridges are designed to fit Doulton, Weeplow, ProOne and most other compatible gravity-fed water filtration systems, providing reliable performance and hassle-free replacement.</p>",
             "c1": "",
             "page": ""
           }
@@ -149,9 +160,9 @@
       "block_order": [
         "title",
         "judge_me_reviews_preview_badge_yQQi69",
+        "description",
         "custom_liquid_zAkcJc",
         "text_67PpMK",
-        "description",
         "variant_picker",
         "price",
         "appstle_subscription_appstle_subscription_product_page_widget_ndQjnn",
@@ -161,9 +172,10 @@
         "collapsible_tab_VyEEwT",
         "collapsible_tab_WRPzJX",
         "collapsible_tab_yGYd4C",
+        "collapsible_tab_K7fxqP",
         "collapsible_tab_RtWPU4",
-        "collapsible_tab_cfqKeC",
-        "collapsible_tab_nFbX67"
+        "variant_metafield_tab_pCqtfF",
+        "collapsible_tab_XbtdzM"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -178,77 +190,8 @@
         "image_zoom": "none",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 32,
-        "cs1": ""
-      }
-    },
-    "custom_text_section_FyNMRm": {
-      "type": "custom-text-section",
-      "disabled": true,
-      "name": "Custom Text",
-      "settings": {
-        "hd1": 40,
-        "hd2": 24,
-        "show_heading_line": true,
-        "c1": false,
-        "heading2": "",
-        "heading": "",
-        "heading_color": "#1e1e1e",
-        "line_color": "rgba(0,0,0,0)",
-        "line_width_desktop": 40,
-        "line_width_mobile": 80,
-        "left_content": "",
-        "t1": 18,
-        "t2": 18,
-        "text_width": 1200,
-        "cl1": "#2f2954",
-        "right_content": "",
-        "bottom_icon": "shopify://shop_images/100_days_5.png",
-        "bottom_heading": "100 day money-back guarantee when purchased with the complete Phoenix Gravity system",
-        "w1": 24,
-        "w2": 16,
-        "bottom_heading1": "",
-        "bottom_button_text": "",
-        "bottom_button_link": "",
-        "button_bg": "#ff7a00",
-        "button_text_color": "#ffffff",
-        "text_color": "#ffffff",
-        "bg_color": "#deb1b2",
-        "padding_top": 10,
-        "padding_bottom": 10,
-        "show_bottom_buttons": false,
-        "buttons_per_row_desktop": 4,
-        "buttons_per_row_mobile": 2,
-        "btn_width_desktop": 200,
-        "btn_width_mobile": 155,
-        "btn_text_1": "",
-        "btn_link_1": "",
-        "btn_bg_1": "#ff7a00",
-        "btn_text_color_1": "#ffffff",
-        "btn_border_color_1": "#ff7a00",
-        "btn_text_2": "",
-        "btn_link_2": "",
-        "btn_bg_2": "#000000",
-        "btn_text_color_2": "#ffffff",
-        "btn_border_color_2": "#000000",
-        "btn_text_3": "",
-        "btn_link_3": "",
-        "btn_bg_3": "#ffffff",
-        "btn_text_color_3": "#000000",
-        "btn_border_color_3": "#000000",
-        "btn_text_4": "",
-        "btn_link_4": "",
-        "btn_bg_4": "#2d2d4f",
-        "btn_text_color_4": "#ffffff",
-        "btn_border_color_4": "#2d2d4f",
-        "btn_text_5": "",
-        "btn_link_5": "",
-        "btn_bg_5": "#f69320",
-        "btn_text_color_5": "#ffffff",
-        "btn_border_color_5": "#f69320",
-        "show_faq_search": false,
-        "faq_search_placeholder": "Search your question...",
+        "padding_top": 16,
+        "padding_bottom": 16,
         "cs1": ""
       }
     },
@@ -349,7 +292,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/6.1_1.webp",
-            "title": "Retains 100% nutrients",
+            "title": "Retains your water’s essential minerals.",
             "text": "",
             "link_label": "",
             "link": ""
@@ -782,8 +725,8 @@
         "icon_background": "#eaeef1",
         "desktop_icon_size": 100,
         "desktop_icon_padding": 20,
-        "mobile_icon_size": 75,
-        "mobile_icon_padding": 30,
+        "mobile_icon_size": 100,
+        "mobile_icon_padding": 20,
         "title_color": "#121212",
         "percentage_color": "#666666",
         "desktop_title_size": 18,
@@ -792,13 +735,13 @@
         "mobile_title_size": 16,
         "mobile_percentage_size": 14,
         "mobile_item_gap": 12,
-        "desktop_padding": 60,
+        "desktop_padding": 20,
         "mobile_padding": 20,
         "desktop_item_padding": 30,
         "desktop_item_horizontal_padding": 50,
         "mobile_item_padding": 10,
         "mobile_item_horizontal_padding": 35,
-        "background_color": "#ffffff"
+        "background_color": "#eaeef1"
       }
     },
     "nice_custom_video_text_NmybXF": {
@@ -813,6 +756,11 @@
             "video_url": "",
             "media_height_desktop": "auto",
             "media_height_mobile": "auto",
+            "heading": "How do KokoCarb Cartridges work?",
+            "heading_size_mobile": 24,
+            "show_heading_line": true,
+            "line_color": "#ff7a00",
+            "line_width_mobile": 250,
             "show_mobile_button": false,
             "button_text": "Learn more",
             "button_link": ""
@@ -821,28 +769,28 @@
         "text_f7QdXy": {
           "type": "text",
           "settings": {
-            "background_color": "#f0831f",
+            "background_color": "#07726f",
             "heading_color": "#000000",
             "text_color": "#ffffff",
             "section_heading": "",
             "heading": "How do KokoCarb Cartridges work?",
-            "text": "<p>Stage One: Advanced Carbon Filtration<br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p>Stage Two: Built-in Sterilisation<br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting long-lasting purity and protection.</p><p></p>",
-            "show_underline": false,
+            "text": "<p><strong>Stage One: Advanced Carbon Filtration</strong><br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p><strong>Stage Two: Built-in Sterilisation</strong><br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mould within the filter, supporting long-lasting purity and protection.</p><p></p>",
+            "show_underline": true,
             "show_search": false,
             "search_placeholder": "Search products...",
             "search_button_text": "Search",
             "button_text": "",
             "button_link": "",
-            "heading_size_desktop": 30,
+            "heading_size_desktop": 32,
             "heading_size_mobile": 20,
             "text_size_desktop": 18,
             "text_size_mobile": 16,
             "list_padding_desktop": 100,
             "list_padding_mobile": 40,
-            "underline_width_desktop": 120,
-            "underline_width_mobile": 80,
-            "underline_margin_bottom": 50,
-            "underline_margin_left": 30
+            "underline_width_desktop": 360,
+            "line_width_mobile": 80,
+            "underline_margin_bottom": 0,
+            "underline_margin_left": 0
           }
         }
       },
@@ -854,7 +802,7 @@
       "settings": {
         "h1": "",
         "hd1": 40,
-        "hd2": 24,
+        "hd2": 22,
         "w1": 21,
         "w2": 16,
         "u1": 50,
@@ -877,8 +825,8 @@
         "bg_color": "#f4f6fa",
         "text_color": "#1c1c1c",
         "underline_color": "#ff7a00",
-        "underline_width_desktop": 120,
-        "underline_width_mobile": 80,
+        "line_width_desktop": 120,
+        "line_width_mobile": 300,
         "padding_top": 0,
         "padding_bottom": 0,
         "media_height_desktop": "auto",
@@ -1131,6 +1079,81 @@
         "cs1": ""
       }
     },
+    "variant_conditional_content_peWxRU": {
+      "type": "variant-conditional-content",
+      "blocks": {
+        "feature_carousel_AGDnA3": {
+          "type": "feature_carousel",
+          "settings": {
+            "heading": "",
+            "icon_size": 80,
+            "scroll_speed": 45,
+            "pause_on_hover": true,
+            "background_color": "#eaeef1",
+            "heading_color": "#121212",
+            "line_color": "#ff7a00",
+            "image_background": "#eaeef1",
+            "title_color": "#121212",
+            "text_color": "#666666",
+            "image_1": "shopify://shop_images/141.png",
+            "item_heading_1": "Removes more than 95% of fluoride",
+            "item_text_1": "",
+            "link_1": "",
+            "image_2": "shopify://shop_images/211.png",
+            "item_heading_2": "Housed in highest-grade stainless steel",
+            "item_text_2": "",
+            "link_2": "",
+            "image_3": "shopify://shop_images/4_3.png",
+            "item_heading_3": "Perfectly compatible with Phoenix Gravity Filter System",
+            "item_text_3": "",
+            "link_3": "",
+            "image_4": "shopify://shop_images/11.webp",
+            "item_heading_4": "Less waste, fewer refills, lower cost",
+            "item_text_4": "",
+            "link_4": "",
+            "image_5": "shopify://shop_images/7_1.png",
+            "item_heading_5": "Better taste you can trust for 40+ years",
+            "item_text_5": "",
+            "link_5": "",
+            "item_heading_6": "",
+            "item_text_6": "",
+            "link_6": "",
+            "item_heading_7": "",
+            "item_text_7": "",
+            "link_7": "",
+            "item_heading_8": "",
+            "item_text_8": "",
+            "link_8": "",
+            "item_heading_9": "",
+            "item_text_9": "",
+            "link_9": "",
+            "item_heading_10": "",
+            "item_text_10": "",
+            "link_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_carousel_AGDnA3"
+      ],
+      "custom_css": [
+        ".variant-feature-marquee {padding-block: 0px;}"
+      ],
+      "name": "Variant content",
+      "settings": {
+        "product_handle": "kokocarb-cartridges",
+        "variant_id": "57619826278784",
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h1",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "padding_mobile": 0,
+        "padding_desktop": 0
+      }
+    },
     "custom_text_section_C8qwW6": {
       "type": "custom-text-section",
       "custom_css": [
@@ -1201,26 +1224,20 @@
         "cs1": "diffrent-class-text"
       }
     },
-    "image_banner_xCpEer": {
-      "type": "image-banner",
-      "name": "t:sections.image-banner.presets.name",
+    "comparison_cart_KBm9AY": {
+      "type": "comparison-cart",
+      "name": "Comparison Chart",
       "settings": {
-        "image": "shopify://shop_images/Comparion_chart-desktop.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true,
-        "cs1": ""
+        "logo": "shopify://shop_images/Logo_with_Register_Mark.png",
+        "background_color": "#eef4f7",
+        "brand_column_color": "#4598bd",
+        "text_color": "#07143d",
+        "line_color": "#07143d"
       }
     },
     "rich_text_4Fa3Jz": {
       "type": "rich-text",
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -1257,7 +1274,7 @@
         "right_content": "",
         "bottom_heading": "Ready To Experience Water, As It Should Be?",
         "w1": 29,
-        "w2": 19,
+        "w2": 16,
         "bottom_heading1": "",
         "bottom_button_text": "Complete Purchase",
         "bottom_button_link": "shopify://products/kokocarb-cartridges",
@@ -1271,7 +1288,7 @@
         "buttons_per_row_desktop": 4,
         "buttons_per_row_mobile": 2,
         "btn_width_desktop": 200,
-        "btn_width_mobile": 155,
+        "btn_width_mobile": 100,
         "btn_text_1": "",
         "btn_link_1": "",
         "btn_bg_1": "#ff7a00",
@@ -1518,7 +1535,7 @@
         "h1": 50,
         "h2": 24,
         "w1": 26,
-        "w2": 19,
+        "w2": 16,
         "w3": 21,
         "w4": 16,
         "heading_size": "h1",
@@ -1720,7 +1737,6 @@
   },
   "order": [
     "main",
-    "custom_text_section_FyNMRm",
     "related-products",
     "custom_text_section_WJkaK8",
     "multicolumn_pfeYBW",
@@ -1733,8 +1749,9 @@
     "nice_custom_video_text_NmybXF",
     "custom_side_icons_8nbxxy",
     "custom_side_icons_AY3nz9",
+    "variant_conditional_content_peWxRU",
     "custom_text_section_C8qwW6",
-    "image_banner_xCpEer",
+    "comparison_cart_KBm9AY",
     "rich_text_4Fa3Jz",
     "custom_text_section_mNLNYX",
     "multicolumn_6zLMqh",
