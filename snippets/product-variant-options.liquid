@@ -1,12 +1,21 @@
-{%- comment -%}
-  Renders product variant options with icons from product metafields
+{% comment %}
+  Renders product variant options
 
-  Required product metafields:
-  custom.first_icon
-  custom.second_icon
-  custom.third_icon
-{%- endcomment -%}
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+  - picker_type: {String} type of picker to dispay
 
+
+  Usage:
+  {% render 'product-variant-options',
+    product: product,
+    option: option,
+    block: block
+    picker_type: picker_type
+  %}
+{% endcomment %}
 {%- liquid
   assign product_form_id = 'product-form-' | append: section.id
 -%}
@@ -14,7 +23,6 @@
 {%- for value in option.values -%}
   {%- liquid
     assign swatch_focal_point = null
-
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -29,37 +37,10 @@
     if value.available
       assign option_disabled = false
     endif
-
-    assign variant_icon_url = ''
-    assign show_icon = false
-    assign metafield_key = ''
-
-    comment
-      Icon mapping for one variant type with 3 options
-      Option 1 = first_icon
-      Option 2 = second_icon
-      Option 3 = third_icon
-    endcomment
-
-    if option.position == 1
-      case forloop.index0
-        when 0
-          assign metafield_key = 'first_icon'
-        when 1
-          assign metafield_key = 'second_icon'
-        when 2
-          assign metafield_key = 'third_icon'
-      endcase
-    endif
-
-    if metafield_key != blank and product.metafields.custom[metafield_key] != blank
-      assign variant_icon_url = product.metafields.custom[metafield_key] | image_url: width: 120
-      assign show_icon = true
-    endif
   -%}
 
   {%- capture input_id -%}
-    {{ section.id }}-{{ option.position }}-{{ forloop.index0 }}
+    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
   {%- endcapture -%}
 
   {%- capture input_name -%}
@@ -77,30 +58,19 @@
     </span>
   {%- endcapture -%}
 
+  {% assign escaped_value = value | escape %}
+
   {%- if picker_type == 'swatch' -%}
-
     {%- capture help_text -%}
-      <span class="visually-hidden">{{ value | escape }}</span>
+      <span class="visually-hidden">{{ escaped_value }}</span>
       {{ label_unavailable }}
-
-      {%- if show_icon and variant_icon_url != blank -%}
-        <span class="option-icon variant-icon">
-          <img
-            src="{{ variant_icon_url }}"
-            alt="{{ value | escape }} icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          >
-        </span>
-      {%- endif -%}
     {%- endcapture -%}
 
     {%
       render 'swatch-input',
       id: input_id,
       name: input_name,
-      value: value | escape,
+      value: escaped_value,
       swatch: value.swatch,
       product_form_id: product_form_id,
       checked: value.selected,
@@ -109,53 +79,36 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
-
   {%- elsif picker_type == 'button' -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ escaped_value }}"
+      form="{{ product_form_id }}"
+      {% if value.selected %}
+        checked
+      {% endif %}
+      {% if option_disabled %}
+        class="disabled"
+      {% endif %}
+      {{ input_dataset }}
+    >
 
-    <div class="variant-option-with-icons">
-      <input
-        type="radio"
-        id="{{ input_id | strip }}"
-        name="{{ input_name | escape | strip }}"
-        value="{{ value | escape }}"
-        form="{{ product_form_id }}"
-        {% if value.selected %}checked{% endif %}
-        {% if option_disabled %}class="disabled"{% endif %}
-        {{ input_dataset }}
-      >
+      
+    <label for="{{ input_id }}">
+      {{ value -}}
+      {{ label_unavailable }}
+    </label>
 
-      <label
-        class="custom-varient variant-label-with-icons image-only-label {% unless show_icon %}no-icon{% endunless %}"
-        for="{{ input_id | strip }}"
-      >
-        <div class="variant-wrapper">
-          
-
-          {%- if show_icon and variant_icon_url != blank -%}
-            <span class="image-box">
-              <img
-                src="{{ variant_icon_url }}"
-                alt="{{ value | escape }} icon"
-                width="60"
-                height="60"
-                loading="lazy"
-              >
-            </span>
-          {%- endif -%}
-
-          <span class="variant-name">{{ value }}</span>
-        </div>
-
-        {{ label_unavailable }}
-      </label>
-    </div>
 
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
-
     <option
-      id="{{ input_id | strip }}"
-      value="{{ value | escape }}"
-      {% if value.selected %}selected="selected"{% endif %}
+      id="{{ input_id }}"
+      value="{{ escaped_value }}"
+      {% if value.selected %}
+        selected="selected"
+      {% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"
         {% if swatch_focal_point %}
@@ -170,115 +123,166 @@
         {{- value -}}
       {%- endif %}
     </option>
-
   {%- endif -%}
-
 {%- endfor -%}
 
-<style>
-  {% comment %} .variant-option-with-icons {
-    display: inline-flex;
-    margin: 0 20px 20px 0;
-  } {% endcomment %}
 
-  .variant-option-with-icons input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+
+<style>
+
+
+  @media (max-width: 768px) {
+
+  /* Container spacing */
+  .product-form__input--pill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
+  /* ONLY cartridges & stand */
   .product-form__input--pill label.image-only-label {
+    width: calc(50% - 6px) !important; /* 2 per row */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
     padding: 0 !important;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
-    margin: 0 !important;
-    cursor: pointer;
   }
 
+  /* Inner alignment fix */
   .variant-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
   }
 
+  /* Circle */
   .top-circle {
     width: 14px;
     height: 14px;
-    border-radius: 5px;
+    border-radius: 50%;
     background: #d9d9d9;
-    transition: background 0.2s ease;
   }
 
+  /* Image box */
   .image-box {
-    width: 120px;
-    height: 120px;
-    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid transparent;
-    transition: border-color 0.2s ease, background 0.2s ease;
   }
 
   .image-box img {
-    width: 100px;
-    height: 100px;
+    width: 55px;
+    height: 55px;
     object-fit: contain;
-    display: block;
+  }
+}
+@media (max-width: 768px) {
+
+  variant-selects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .product-form__input--pill label.image-only-label {
+    width: calc(20% - 6px) !important; /* 2 per row */
+    display: flex !important;
+    justify-content: center;
+    margin-top:10px;
+    align-items: center;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
-  .variant-name {
-    font-size: 13px;
-    line-height: 1.2;
+  /* ONLY cartridges + stand */
+  variant-selects label.has-image {
+    width: calc(50% - 5px) !important; /* 2 per row */
+    display: flex !important;
+    flex-direction: column; /* stack image + text */
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px !important;
     text-align: center;
-    width:65%;
   }
 
-  input[type="radio"]:checked + label .image-box {
-    border-color: #2f2a5a;
-    background: #eef0ff;
+  /* image styling */
+  .image-box {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
   }
 
-  input[type="radio"].disabled + label {
-    opacity: 0.45;
-    cursor: not-allowed;
+  /* text under image */
+  variant-selects label.has-image span {
+    font-size: 11px;
+    line-height: 120%;
   }
+}
+.product-form__input--pill label.image-only-label {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin: 0 20px 20px 0 !important;
+}
 
-  @media screen and (max-width: 768px) {
-    .product-form__input--pill {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+.variant-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 
-    .variant-option-with-icons {
-      width: calc(33.333% - 8px);
-      margin: 0 !important;
-      justify-content: center;
-    }
+.top-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d9d9d9;
+}
 
-    .product-form__input--pill label.image-only-label {
-      width: 100% !important;
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-    }
+.image-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+}
 
-    .image-box {
-      width: 70px;
-      height: 70px;
-    }
+.image-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
 
-    .image-box img {
-      width: 48px;
-      height: 48px;
-    }
+input[type="radio"]:checked + label .top-circle {
+  background: #2f2a5a;
+}
 
-    .variant-name {
-      font-size: 11px;
-    }
-  }
+input[type="radio"]:checked + label .image-box {
+  border-color: #2f2a5a;
+  background: #eef0ff;
+}
+
+.image-only-label .variant-name {
+  display: none;
+}
+
+
 </style>

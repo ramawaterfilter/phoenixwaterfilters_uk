@@ -237,42 +237,6 @@
                     </div>
                   </details>
                 </div>
-              {%- when 'variant_metafield_tab' -%}
-                {%- liquid
-                  assign selected_variant = product.selected_or_first_available_variant
-                  assign metafield_namespace = block.settings.metafield_namespace | strip
-                  assign metafield_key = block.settings.metafield_key | strip
-                  assign variant_metafield = selected_variant.metafields[metafield_namespace][metafield_key]
-                -%}
-                <variant-metafield-accordion
-                  id="VariantMetafieldAccordion-{{ block.id }}-{{ section.id }}"
-                  class="product__accordion accordion quick-add-hidden"
-                  {% if block.settings.hide_when_empty and variant_metafield == blank %}
-                    hidden
-                  {% endif %}
-                  {{ block.shopify_attributes }}
-                >
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
-                    <summary>
-                      <div class="summary__title">
-                        {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
-                          {{ block.settings.heading | escape }}
-                        </h2>
-                      </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
-                    </summary>
-                    <div
-                      class="accordion__content rte"
-                      data-variant-metafield-content
-                      id="ProductAccordion-{{ block.id }}-{{ section.id }}"
-                    >
-                      {%- if variant_metafield != blank -%}
-                        {{ variant_metafield | metafield_tag }}
-                      {%- endif -%}
-                    </div>
-                  </details>
-                </variant-metafield-accordion>
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -781,45 +745,6 @@
   </div>
 </product-info>
 
-<script>
-  (() => {
-    const defineVariantMetafieldAccordion = () => {
-      if (!customElements.get('variant-metafield-accordion')) {
-        customElements.define(
-          'variant-metafield-accordion',
-          class VariantMetafieldAccordion extends HTMLElement {
-            connectedCallback() {
-              this.unsubscribe = subscribe(PUB_SUB_EVENTS.variantChange, ({ data }) => {
-                const source = data?.html?.getElementById(this.id);
-                const sourceContent = source?.querySelector('[data-variant-metafield-content]');
-                const currentContent = this.querySelector('[data-variant-metafield-content]');
-
-                if (!source || !sourceContent || !currentContent) {
-                  this.hidden = true;
-                  return;
-                }
-
-                currentContent.innerHTML = sourceContent.innerHTML;
-                this.hidden = source.hidden;
-              });
-            }
-
-            disconnectedCallback() {
-              this.unsubscribe?.();
-            }
-          }
-        );
-      }
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', defineVariantMetafieldAccordion, { once: true });
-    } else {
-      defineVariantMetafieldAccordion();
-    }
-  })();
-</script>
-
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -1249,66 +1174,6 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
-        }
-      ]
-    },
-    {
-      "type": "variant_metafield_tab",
-      "name": "Variant metafield tab",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Variant information",
-          "label": "Heading"
-        },
-        {
-          "type": "select",
-          "id": "icon",
-          "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "check_mark",
-              "label": "Check mark"
-            },
-            {
-              "value": "clipboard",
-              "label": "Clipboard"
-            },
-            {
-              "value": "question_mark",
-              "label": "Question mark"
-            },
-            {
-              "value": "ruler",
-              "label": "Ruler"
-            }
-          ],
-          "default": "check_mark",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "metafield_namespace",
-          "default": "custom",
-          "label": "Metafield namespace",
-          "info": "The namespace of the product variant metafield."
-        },
-        {
-          "type": "text",
-          "id": "metafield_key",
-          "default": "what_in_the_box",
-          "label": "Metafield key",
-          "info": "The key of the product variant metafield."
-        },
-        {
-          "type": "checkbox",
-          "id": "hide_when_empty",
-          "default": true,
-          "label": "Hide tab when metafield is empty"
         }
       ]
     },

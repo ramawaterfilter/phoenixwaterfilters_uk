@@ -119,7 +119,7 @@
  <a class="ecom-collection__product-form__actions--view-more ecom-collection__product-view-more-before ecom-child-element"
  
  target=""
- href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}"
  title="{{ product.title | escape }}">
  
  <span class="ecom-collection__product-view-more-text">
@@ -131,7 +131,7 @@
  
  <a class="ecom-collection__product-form__actions--soldout ecom-collection__product-sold-out-before ecom-child-element"
  
- href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}"
  title="{{ product.title | escape }}">
  
  <span class="ecom-collection__product-sold-out-text">
@@ -147,7 +147,7 @@
  <a class="ecom-collection__product-form__actions--view-more ecom-collection__product-view-more-before ecom-child-element"
  
  target=""
- href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}"
  title="{{ product.title | escape }}">
  
  <span class="ecom-collection__product-view-more-text">
@@ -182,7 +182,7 @@
  {% else %}
  
  
- <a href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}" class="ecom-collection__product-form__actions--view-more ecom-collection__product-view-more-before
+ <a href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}" class="ecom-collection__product-form__actions--view-more ecom-collection__product-view-more-before
  ecom-child-element" title="{{ product.title | escape }}" target="" >
  
  <span class="ecom-collection__product-view-more-text">
@@ -216,7 +216,7 @@
  {{ the_ecom_hook }}
  {% endunless %}
  {%- endif -%}
- <a href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}" target="" title="{{product.title | escape }}" class="ecom-collection__product-item--inner ecom-image-default">
+ <a href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}" target="" title="{{product.title | escape }}" class="ecom-collection__product-item--inner ecom-image-default">
  {%- if product.featured_media -%}
  {%- liquid
  assign featured_media_aspect_ratio = product.featured_media.aspect_ratio
@@ -345,7 +345,7 @@
  
  >
  <a
- href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ href="{%- if is_collection-%}{{ product.url }}{% else %}{{- product.url -}}{%-endif-%}"
  title="{{product.title | escape }}"
  target=""
  class="ecom-collection__product-item-information-title "

@@ -123,7 +123,6 @@ if (window.location.pathname === "/collections/accessories/products/vision-tap-s
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
-
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -622,6 +621,32 @@ jdgm.loadCSS(jdgm.CDN_HOST+"widget/base.css"):jdgm.loadCSS(jdgm.CDN_HOST+"shopif
       }, 2000);
     </script>
     <!-- End of Judge.me Core -->
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang start/////////////////////////////////////////////////////////////////// {% endcomment %}
+
+{% if template == 'index' %}
+<link rel="alternate" hreflang="en-us" href="https://phoenixwaterfilters.com/" />
+<link rel="alternate" hreflang="en-gb" href="https://phoenixwaterfilters.co.uk/" />
+<link rel="alternate" hreflang="fr-fr" href="https://phoenixwaterfilters.fr/" />
+<link rel="alternate" hreflang="x-default" href="https://phoenixwaterfilters.com/" />
+{% endif %}
+
+{% if product.metafields.custom.href_lang != blank %}
+  {{ product.metafields.custom.href_lang }}
+{% endif %}
+{% if collection.metafields.custom.href_lang != blank %}
+  {{ collection.metafields.custom.href_lang }}
+{% endif %}
+{% if page.metafields.custom.href_lang != blank %}
+  {{ page.metafields.custom.href_lang }}
+{% endif %}
+
+{% if blog.metafields.custom.href_lang != blank %}
+  {{ blog.metafields.custom.href_lang }}
+{% endif %}
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang end/////////////////////////////////////////////////////////////////// {% endcomment %}
+
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -643,7 +668,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-    
+
     {% sections 'footer-group' %}
 
     <ul hidden>

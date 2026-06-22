@@ -189,7 +189,6 @@ if (!customElements.get('product-info')) {
           updateSourceFromDestination('price');
           updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));
           updateSourceFromDestination('Inventory', ({ innerText }) => innerText === '');
-          updateSourceFromDestination('ProductDescription');
           updateSourceFromDestination('Volume');
           updateSourceFromDestination('Price-Per-Item', ({ classList }) => classList.contains('hidden'));
 
@@ -234,38 +233,51 @@ if (!customElements.get('product-info')) {
       setUnavailable() {
         this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
 
-        const selectors = [
-          'price',
-          'Inventory',
-          'Sku',
-          'ProductDescription',
-          'Price-Per-Item',
-          'Volume-Note',
-          'Volume',
-          'Quantity-Rules',
-        ]
+        const selectors = ['price', 'Inventory', 'Sku', 'Price-Per-Item', 'Volume-Note', 'Volume', 'Quantity-Rules']
           .map((id) => `#${id}-${this.dataset.section}`)
           .join(', ');
         document.querySelectorAll(selectors).forEach(({ classList }) => classList.add('hidden'));
       }
 
       updateMedia(html, variantFeaturedMediaId) {
-        if (!variantFeaturedMediaId) return;
-
         const mediaGallerySource = this.querySelector('media-gallery ul');
         const mediaGalleryDestination = html.querySelector(`media-gallery ul`);
+        const sourceGallery = this.querySelector('media-gallery');
+        const destinationGallery = html.querySelector('media-gallery');
 
-        const refreshSourceData = () => {
-          if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
-          const mediaGallerySourceItems = Array.from(mediaGallerySource.querySelectorAll('li[data-media-id]'));
-          const sourceSet = new Set(mediaGallerySourceItems.map((item) => item.dataset.mediaId));
-          const sourceMap = new Map(
-            mediaGallerySourceItems.map((item, index) => [item.dataset.mediaId, { item, index }])
-          );
-          return [mediaGallerySourceItems, sourceSet, sourceMap];
+        if (!mediaGallerySource || !mediaGalleryDestination) return;
+
+        const replaceGalleryList = (selector) => {
+          const source = this.querySelector(selector);
+          const destination = html.querySelector(selector);
+          if (source && destination) source.innerHTML = destination.innerHTML;
         };
 
-        if (mediaGallerySource && mediaGalleryDestination) {
+        if (destinationGallery?.hasAttribute('data-variant-file-gallery')) {
+          sourceGallery?.setAttribute('data-variant-file-gallery', '');
+          replaceGalleryList('media-gallery ul.product__media-list');
+          replaceGalleryList('media-gallery ul.thumbnail-list');
+          replaceGalleryList('media-gallery .thumbnail-grid-2x2');
+
+          const sourceCounter = sourceGallery?.querySelector('.slider-counter--total');
+          const destinationCounter = destinationGallery.querySelector('.slider-counter--total');
+          if (sourceCounter && destinationCounter) sourceCounter.textContent = destinationCounter.textContent;
+
+          if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
+        } else {
+          sourceGallery?.removeAttribute('data-variant-file-gallery');
+          replaceGalleryList('media-gallery ul.product__media-list');
+
+          const refreshSourceData = () => {
+            if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
+            const mediaGallerySourceItems = Array.from(mediaGallerySource.querySelectorAll('li[data-media-id]'));
+            const sourceSet = new Set(mediaGallerySourceItems.map((item) => item.dataset.mediaId));
+            const sourceMap = new Map(
+              mediaGallerySourceItems.map((item, index) => [item.dataset.mediaId, { item, index }])
+            );
+            return [mediaGallerySourceItems, sourceSet, sourceMap];
+          };
+
           let [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
           const mediaGalleryDestinationItems = Array.from(
             mediaGalleryDestination.querySelectorAll('li[data-media-id]')
@@ -308,12 +320,20 @@ if (!customElements.get('product-info')) {
           });
         }
 
-        // set featured media as active in the media gallery
-        this.querySelector(`media-gallery`)?.setActiveMedia?.(
-          `${this.dataset.section}-${variantFeaturedMediaId}`,
-          true,
-          true
-        );
+        replaceGalleryList('media-gallery ul.thumbnail-list');
+        replaceGalleryList('media-gallery .thumbnail-grid-2x2');
+
+        const sourceCounter = sourceGallery?.querySelector('.slider-counter--total');
+        const destinationCounter = destinationGallery.querySelector('.slider-counter--total');
+        if (sourceCounter && destinationCounter) sourceCounter.textContent = destinationCounter.textContent;
+
+        if (variantFeaturedMediaId) {
+          this.querySelector(`media-gallery`)?.setActiveMedia?.(
+            `${this.dataset.section}-${variantFeaturedMediaId}`,
+            true,
+            true
+          );
+        }
 
         // update media modal
         const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);

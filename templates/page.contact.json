@@ -17,7 +17,7 @@
           "settings": {
             "heading": "How to set up your water filter",
             "icon": "none",
-            "row_content": "<p>Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.We include full instructions with every unit and we’re always here to help. You can contact us<a href=\"/pages/get-help\" title=\"New Get Help\"> here.</a></p>",
+            "row_content": "<p>Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.We include full instructions with every unit and we’re always here to help. You can contact us<a href=\"/pages/get-help\" target=\"_blank\" title=\"Get help\"> here.</a></p>",
             "page": ""
           }
         },
@@ -82,6 +82,7 @@
         "caption": "Want to get in touch? Drop us a line here.",
         "c1": "#deb1b2",
         "heading": "But first! The answer to your question(s) may already be available on our website. Click below if you want to know about:",
+        "heading1": "",
         "h1": 50,
         "h2": 24,
         "w1": 21,
@@ -141,6 +142,7 @@
         "hd2": 24,
         "show_heading_line": false,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -207,6 +209,7 @@
         "hd2": 24,
         "show_heading_line": false,
         "c1": false,
+        "heading2": "",
         "heading": "Still have a burning question? We’d love to hear from you.",
         "heading_color": "#ffffff",
         "line_color": "#ff7a00",
@@ -277,8 +280,8 @@
       "type": "contact-form",
       "custom_css": [
         "/* Default phone number style */a[href^=\"tel:\"] {color: #ffffff !important; text-decoration: none !important; transition: color 0.3s ease;}",
-        "/* Change color on hover */a[href^=\"tel:\"]:hover {color: #f4d03f !important; /* Change to any color you prefer */ text-decoration: none !important;}",
-        "/* Keep underline removed in all states */a[href^=\"tel:\"]:focus,a[href^=\"tel:\"]:active {text-decoration: none !important;}"
+        " /* Change color on hover */a[href^=\"tel:\"]:hover {color: #f4d03f !important; /* Change to any color you prefer */ text-decoration: none !important;}",
+        " /* Keep underline removed in all states */a[href^=\"tel:\"]:focus,a[href^=\"tel:\"]:active {text-decoration: none !important;}"
       ],
       "settings": {
         "heading": "",

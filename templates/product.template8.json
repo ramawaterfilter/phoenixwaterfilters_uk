@@ -24,13 +24,6 @@
           "type": "description",
           "settings": {}
         },
-        "custom_liquid_zAkcJc": {
-          "type": "custom_liquid",
-          "disabled": true,
-          "settings": {
-            "custom_liquid": "<div class=\"underline-title\">{{ product.metafields.custom.learn_more_centent | metafield_tag }}</div>\n\n<div class=\"alink-p\">Looking for the complete Phoenix Gravity System? <a href=\"/products/the-phoenix-gravity-water-filter\">Find it here.</a></div>"
-          }
-        },
         "text_67PpMK": {
           "type": "text",
           "settings": {
@@ -51,11 +44,6 @@
         },
         "appstle_subscription_appstle_subscription_product_page_widget_ndQjnn": {
           "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-          "settings": {}
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -79,9 +67,7 @@
             "heading_3": "",
             "icon_4": "none",
             "image_4": "shopify://shop_images/output-smallpngtools_1__11zon.png",
-            "heading_4": "Universal Fit",
-            "icon_5": "none",
-            "heading_5": ""
+            "heading_4": "Universal Fit"
           }
         },
         "collapsible_tab_VyEEwT": {
@@ -104,17 +90,6 @@
             "page": ""
           }
         },
-        "collapsible_tab_yGYd4C": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Key Features",
-            "icon": "none",
-            "content": "<ul><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving essential minerals.<br/></li><li>Filtration capacity 20x better than a typical jug filters; <br/></li><li>Delivers cleaner, healthier water using the natural force of gravity- sustainable, long-lasting; <br/></li><li><strong>The PrimeEasy</strong> - this clever widget simply connects your tap to the KokoCarb making priming quicker and easier than ever before;<br/></li><li><strong>Testing kit </strong>- a simple at-home dye kit to test performance.  This can be used to check that the cartridges are both installed and are functioning correctly.</li></ul>",
-            "c1": "",
-            "page": ""
-          }
-        },
         "collapsible_tab_K7fxqP": {
           "type": "collapsible_tab",
           "settings": {
@@ -122,17 +97,6 @@
             "icon": "none",
             "content": "",
             "c1": "<div class=\"labreport-accordion\">\n\n  \n\n  <div class=\"labreport-grid\">\n\n    <!-- ITEM 1 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\">\n      <h4>PFOA PFOS LABORATORY TEST REPORT</h4>\n      <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 2 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\">\n      <h4>NSF CERTIFIED</h4>\n      <a href=\"https://info.nsf.org/Certified/DWTU/Listings.asp\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 3 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\">\n      <h4>HEAVY METALS TEST REPORT</h4>\n      <a href=\"https://cdn.shopify.com/s/files/1/2644/2852/files/Phoenix_gravity_contaminants_lab_report_USA_Aug2024_2.pdf\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n\n.labreport-title {\n  font-size: 26px;\n  margin-bottom: 25px;\n  border-bottom: 1px solid #ddd;\n  padding-bottom: 10px;\n}\n\n.labreport-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 40px;\n  text-align: center;\n}\n\n.labreport-item img {\n  width: 60px;\n  margin-bottom: 12px;\n}\n\n.labreport-item h4 {\n  font-size: 15px;\n  margin: 0;\n  letter-spacing: 0.5px;\n}\n\n.labreport-item a {\n  color: #00a0ff;\n  font-weight: 600;\n  text-decoration: none;\n}\n\n.labreport-item a:hover {\n color:#00a0ff;\n text-decoration: none;\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .labreport-grid {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n  }\n}\n</style>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_RtWPU4": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Key Features",
-            "icon": "none",
-            "content": "<ul><li>Independently tested and NSF certified to <strong>NSF/ANSI 42 and NSF/ANSI/CAN 372</strong> for trusted performance.  KokoCarb is designed for seamless use with all Phoenix Gravity Water Filter Systems and is compatible with most gravity-fed filtration units.</li><li>At its core lies high-grade CTC60 activated carbon, engineered for superior filtration performance. Its advanced carbon matrix effectively reduces a wide range of common contaminants while retaining essential minerals.</li><li>KokoCarb cartridges deliver long-lasting performance with minimal maintenance. Each pair filters up to 20,000 litres of water and is recommended for annual replacement to ensure consistent, dependable purification. <br/></li></ul><p><strong>What’s New</strong></p><ul><li><strong>PrimeEasy Connector<br/></strong>A smart, easy-to-use connector that attaches directly to your tap, making priming faster, simpler and more efficient.</li><li><strong>At-Home Testing Kit<br/></strong>A convenient dye-based kit that allows you to quickly confirm your cartridges are correctly installed and performing as intended.</li></ul>",
-            "c1": "",
             "page": ""
           }
         },
@@ -161,19 +125,15 @@
         "title",
         "judge_me_reviews_preview_badge_yQQi69",
         "description",
-        "custom_liquid_zAkcJc",
         "text_67PpMK",
         "variant_picker",
         "price",
         "appstle_subscription_appstle_subscription_product_page_widget_ndQjnn",
-        "quantity_selector",
         "buy_buttons",
         "icon_with_text_j3aQXj",
         "collapsible_tab_VyEEwT",
         "collapsible_tab_WRPzJX",
-        "collapsible_tab_yGYd4C",
         "collapsible_tab_K7fxqP",
-        "collapsible_tab_RtWPU4",
         "variant_metafield_tab_pCqtfF",
         "collapsible_tab_XbtdzM"
       ],
@@ -358,284 +318,6 @@
         "swipe_on_mobile": false,
         "padding_top": 20,
         "padding_bottom": 0,
-        "cs1": ""
-      }
-    },
-    "custom_icon_image_slider_if6Ktg": {
-      "type": "custom-icon-image-slider",
-      "blocks": {
-        "logo_icEG8F": {
-          "type": "logo",
-          "settings": {
-            "title": "",
-            "subtitle": "",
-            "link_url": ""
-          }
-        },
-        "logo_rBpRJd": {
-          "type": "logo",
-          "settings": {
-            "title": "",
-            "subtitle": "",
-            "link_url": ""
-          }
-        },
-        "logo_Hh77Ub": {
-          "type": "logo",
-          "settings": {
-            "title": "",
-            "subtitle": "",
-            "link_url": ""
-          }
-        },
-        "logo_4hM3FX": {
-          "type": "logo",
-          "settings": {
-            "title": "",
-            "subtitle": "",
-            "link_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo_icEG8F",
-        "logo_rBpRJd",
-        "logo_Hh77Ub",
-        "logo_4hM3FX"
-      ],
-      "disabled": true,
-      "name": "Logo Slider Swipe",
-      "settings": {
-        "heading": "",
-        "bg_color": "#ffffff",
-        "text_color": "#000000",
-        "heading_size": 28,
-        "heading_size_mobile": 22,
-        "logo_size_desktop": 150,
-        "logo_size_mobile": 100,
-        "desktop_slides": 5,
-        "tablet_slides": 4,
-        "mobile_slides": 2,
-        "autoplay_speed": 2000,
-        "show_arrows": false,
-        "show_dots": false,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "margin_top": 0,
-        "margin_bottom": 0
-      }
-    },
-    "custom_text_section_9EqMzU": {
-      "type": "custom-text-section",
-      "disabled": true,
-      "name": "Product Description",
-      "settings": {
-        "hd1": 32,
-        "hd2": 24,
-        "show_heading_line": true,
-        "c1": false,
-        "heading2": "",
-        "heading": "Product Description",
-        "heading_color": "#1e1e1e",
-        "line_color": "#ff7a00",
-        "line_width_desktop": 290,
-        "line_width_mobile": 260,
-        "left_content": "<ul><li>We’ve created our KokoCarb Cartridges from activated carbon using the highest-grade coconut shells (CTC 60) to create a dense, porous structure that removes 99.99% of parasites, heavy metals, chemicals and other contaminants - without removing the minerals your body needs.</li><li>Traps physical contaminants more than 20 times smaller than jug filters.</li></ul>",
-        "t1": 18,
-        "t2": 18,
-        "text_width": 1200,
-        "cl1": "#2f2954",
-        "right_content": "<ul><li>Silver-impregnated to prevent bacteria growth keeping your water safer for longer.</li><li>Fuses natural force of gravity with the highest-grade environmentally-friendly materials for the most effective, sustainable and durable filtration on the market.</li></ul>",
-        "bottom_heading": "",
-        "w1": 24,
-        "w2": 16,
-        "bottom_heading1": "",
-        "bottom_button_text": "",
-        "bottom_button_link": "",
-        "button_bg": "#ff7a00",
-        "button_text_color": "#ffffff",
-        "text_color": "#121212",
-        "bg_color": "#eaeef1",
-        "padding_top": 5,
-        "padding_bottom": 5,
-        "show_bottom_buttons": false,
-        "buttons_per_row_desktop": 4,
-        "buttons_per_row_mobile": 2,
-        "btn_width_desktop": 200,
-        "btn_width_mobile": 155,
-        "btn_text_1": "",
-        "btn_link_1": "",
-        "btn_bg_1": "#ff7a00",
-        "btn_text_color_1": "#ffffff",
-        "btn_border_color_1": "#ff7a00",
-        "btn_text_2": "",
-        "btn_link_2": "",
-        "btn_bg_2": "#000000",
-        "btn_text_color_2": "#ffffff",
-        "btn_border_color_2": "#000000",
-        "btn_text_3": "",
-        "btn_link_3": "",
-        "btn_bg_3": "#ffffff",
-        "btn_text_color_3": "#000000",
-        "btn_border_color_3": "#000000",
-        "btn_text_4": "",
-        "btn_link_4": "",
-        "btn_bg_4": "#2d2d4f",
-        "btn_text_color_4": "#ffffff",
-        "btn_border_color_4": "#2d2d4f",
-        "btn_text_5": "",
-        "btn_link_5": "",
-        "btn_bg_5": "#f69320",
-        "btn_text_color_5": "#ffffff",
-        "btn_border_color_5": "#f69320",
-        "show_faq_search": false,
-        "faq_search_placeholder": "Search your question...",
-        "cs1": ""
-      }
-    },
-    "image_with_text_baXir8": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_zadMCy": {
-          "type": "heading",
-          "settings": {
-            "heading": "POSTreat Fluoride Removal Filter Cartridge",
-            "heading_size": "h1"
-          }
-        },
-        "text_rph3tA": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
-            "text_style": "body"
-          }
-        },
-        "button_MjfBDp": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_zadMCy",
-        "text_rph3tA",
-        "button_MjfBDp"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/postreat_landscape_1.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-2",
-        "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "custom_video_text_VnLUkL": {
-      "type": "custom-video-text",
-      "disabled": true,
-      "custom_css": [
-        ".video-text-content {background: #548153; justify-content: flex-start !important; display: flex; padding: 10px;}",
-        ".video-text-contents {display: flex; align-items: center; justify-content: center;}",
-        "h2.video-text-heading {color: black;}",
-        "li {color: white;}",
-        ".video-text-media {display: flex;}",
-        "@media (max-width: 768px) {h2 {font-size: 24px; } .video-text-media {justify-content: center; }}",
-        "@media (min-width: 749px) {.video-text-content {height: -webkit-fill-available; }}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 24,
-        "w1": 21,
-        "w2": 16,
-        "u1": 36,
-        "un1": 30,
-        "b1": false,
-        "s1": false,
-        "pd1": 18,
-        "pd2": 25,
-        "heading1": "",
-        "heading": "",
-        "text": "<h2>Designed for durability</h2><ul><li>Our activated carbon cartridges are designed for minimum replacement, and can last up to 20000 litre for pair.</li><li>Need replacing only once per year</li></ul>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "custom_video": "",
-        "image": "shopify://shop_images/product_page_Carbon_candle_single850.webp",
-        "image_mobile_1": "shopify://shop_images/product_page_Carbon_candle_single850.webp",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "left",
-        "bg_color": "#eaeef1",
-        "text_color": "#ffffff",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 610,
-        "underline_width_mobile": 345,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "media_height_desktop": "400px",
-        "media_height_mobile": "300px",
-        "cs1": "left-padding-class"
-      }
-    },
-    "custom_video_text_RtTPaP": {
-      "type": "custom-video-text",
-      "disabled": true,
-      "custom_css": [
-        ".video-text-content {background: #f0831f;}",
-        ".video-text-media {display: flex;}",
-        "h2.video-text-heading {color: black;}",
-        "p {color: white;}",
-        "@media (min-width: 749px) {.video-text-content {padding-left: 26px; } .video-text-content {height: -webkit-fill-available; }}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 21,
-        "w1": 18,
-        "w2": 16,
-        "u1": 60,
-        "un1": 37,
-        "b1": true,
-        "s1": false,
-        "pd1": 37,
-        "pd2": 30,
-        "heading1": "",
-        "heading": "Two-Stage Filtration, Perfected",
-        "text": "<p>Stage One: Advanced Carbon Filtration<br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p>Stage Two: Built-in Sterilisation<br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting long-lasting purity and protection.</p><p></p>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "video": "shopify://files/videos/filtration-process-.mp4",
-        "custom_video": "",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "right",
-        "bg_color": "#f4f6fa",
-        "text_color": "#121212",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 120,
-        "underline_width_mobile": 80,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "media_height_desktop": "auto",
-        "media_height_mobile": "auto",
         "cs1": ""
       }
     },
@@ -834,251 +516,6 @@
         "cs1": ""
       }
     },
-    "custom_side_icons_8nbxxy": {
-      "type": "custom-side-icons",
-      "blocks": {
-        "right_item_Xg36CE": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/131_1.png",
-            "title": "Calcium",
-            "text": "Helps to strengthen bones\n and teeth."
-          }
-        },
-        "right_item_wM4Egh": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/155_52554042-d480-42bb-b7ac-61fdbc9bb856.png",
-            "title": "Potassium",
-            "text": "Can regulate nerve signals and improve \nheart health."
-          }
-        },
-        "right_item_DNP9Pk": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/132_e26183e9-a6bb-4346-a493-6393e1fb5494.png",
-            "title": "Magnesium",
-            "text": "Improves sleep and can help\n strengthen muscles."
-          }
-        },
-        "right_item_cm8ikK": {
-          "type": "right_item",
-          "disabled": true,
-          "settings": {
-            "icon": "shopify://shop_images/cl_1.png",
-            "title": "Chloride",
-            "text": "Helps to regulate and \nnourish cells."
-          }
-        },
-        "right_item_mTyAF6": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/133_617cbbc1-b490-4c2f-8cde-cbe2826fca98.png",
-            "title": "Sodium",
-            "text": "Can balance water and\n minerals"
-          }
-        },
-        "left_item_8WgtrQ": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/14_6b75726e-1a75-467c-8445-8e40a3d8b663.png",
-            "title": "Viruses",
-            "text": "Can enter water via sewage systems and\nanimal waste and cause disease."
-          }
-        },
-        "left_item_K6FtDb": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/cl_1.png",
-            "title": "Chlorine",
-            "text": "Impacts the taste and smell of your \ndrinking water."
-          }
-        },
-        "left_item_TDiBYT": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/5_1_00651197-419f-4d39-8380-e5c29a68457f.png",
-            "title": "Bacteria",
-            "text": "Can contaminate water via septic systems \nand sewers."
-          }
-        },
-        "left_item_kgChET": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/37_f2507985-4d77-48ce-a674-c7432f88f353.png",
-            "title": "Heavy metals",
-            "text": "Can leach into drinking water from \nhousehold plumbing."
-          }
-        },
-        "left_item_GiGbEF": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/128.png",
-            "title": "Parasites",
-            "text": "Can contaminate water through animal \nwaste and cause serious illness."
-          }
-        }
-      },
-      "block_order": [
-        "right_item_Xg36CE",
-        "right_item_wM4Egh",
-        "right_item_DNP9Pk",
-        "right_item_cm8ikK",
-        "right_item_mTyAF6",
-        "left_item_8WgtrQ",
-        "left_item_K6FtDb",
-        "left_item_TDiBYT",
-        "left_item_kgChET",
-        "left_item_GiGbEF"
-      ],
-      "disabled": true,
-      "name": "Filtration Icons Center Image",
-      "settings": {
-        "heading": "Filtration at its finest",
-        "w1": 21,
-        "w2": 18,
-        "t1": "<p>While protecting important minerals</p>",
-        "t2": "<p>Removes 99.99% of harmful contaminants</p>",
-        "heading_color": "#000000",
-        "section_bg": "#4d97c3",
-        "container_width": 1600,
-        "padding_top": 20,
-        "padding_bottom": 40,
-        "padding_lr": 35,
-        "center_image": "shopify://shop_images/product_page_Carbon_candle_single850.webp",
-        "image_original": true,
-        "image_width_desktop": 280,
-        "image_width_mobile": 220,
-        "image_margin": 0,
-        "icon_size": 70,
-        "text_color": "#ffffff",
-        "cs1": ""
-      }
-    },
-    "custom_side_icons_AY3nz9": {
-      "type": "custom-side-icons",
-      "blocks": {
-        "right_item_DhKDeC": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/131_1.png",
-            "title": "Calcium",
-            "text": "Helps to strengthen bones\n and teeth."
-          }
-        },
-        "right_item_7emzLT": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/155_52554042-d480-42bb-b7ac-61fdbc9bb856.png",
-            "title": "Potassium",
-            "text": "Can regulate nerve signals and improve \nheart health."
-          }
-        },
-        "right_item_EEfQxC": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/132_e26183e9-a6bb-4346-a493-6393e1fb5494.png",
-            "title": "Magnesium",
-            "text": "Improves sleep and can help\n strengthen muscles."
-          }
-        },
-        "right_item_fA3UKm": {
-          "type": "right_item",
-          "disabled": true,
-          "settings": {
-            "icon": "shopify://shop_images/cl_1.png",
-            "title": "Chloride",
-            "text": "Helps to regulate and \nnourish cells."
-          }
-        },
-        "right_item_7ExpkR": {
-          "type": "right_item",
-          "settings": {
-            "icon": "shopify://shop_images/133_617cbbc1-b490-4c2f-8cde-cbe2826fca98.png",
-            "title": "Sodium",
-            "text": "Can balance water and\n minerals"
-          }
-        },
-        "left_item_gtBtXQ": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/14_6b75726e-1a75-467c-8445-8e40a3d8b663.png",
-            "title": "Viruses",
-            "text": "Can enter water via sewage systems and\nanimal waste and cause disease."
-          }
-        },
-        "left_item_f36ArK": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/cl_1.png",
-            "title": "Chlorine",
-            "text": "Impacts the taste and smell of your \ndrinking water."
-          }
-        },
-        "left_item_H9iFP8": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/5_1_00651197-419f-4d39-8380-e5c29a68457f.png",
-            "title": "Bacteria",
-            "text": "Can contaminate water via septic systems \nand sewers."
-          }
-        },
-        "left_item_dhmwYD": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/37_f2507985-4d77-48ce-a674-c7432f88f353.png",
-            "title": "Heavy metals",
-            "text": "Can leach into drinking water from \nhousehold plumbing."
-          }
-        },
-        "left_item_dPBDdy": {
-          "type": "left_item",
-          "settings": {
-            "icon": "shopify://shop_images/128.png",
-            "title": "Parasites",
-            "text": "Can contaminate water through animal \nwaste and cause serious illness."
-          }
-        }
-      },
-      "block_order": [
-        "right_item_DhKDeC",
-        "right_item_7emzLT",
-        "right_item_EEfQxC",
-        "right_item_fA3UKm",
-        "right_item_7ExpkR",
-        "left_item_gtBtXQ",
-        "left_item_f36ArK",
-        "left_item_H9iFP8",
-        "left_item_dhmwYD",
-        "left_item_dPBDdy"
-      ],
-      "disabled": true,
-      "custom_css": [
-        "@media (max-width: 767px) {.filtration-section-template--28072777154944__custom_side_icons_AY3nz9 {display: none; }}"
-      ],
-      "name": "Filtration Icons Center Image",
-      "settings": {
-        "heading": "Filtration at its finest",
-        "w1": 21,
-        "w2": 18,
-        "t1": "<p>While protecting important minerals</p>",
-        "t2": "<p>Removes 99.99% of harmful contaminants</p>",
-        "heading_color": "#000000",
-        "section_bg": "#4d97c3",
-        "container_width": 1600,
-        "padding_top": 10,
-        "padding_bottom": 20,
-        "padding_lr": 35,
-        "center_image": "shopify://shop_images/product_page_Carbon_candle_single850.webp",
-        "image_original": true,
-        "image_width_desktop": 280,
-        "image_width_mobile": 220,
-        "image_margin": 0,
-        "icon_size": 70,
-        "text_color": "#ffffff",
-        "cs1": ""
-      }
-    },
     "variant_conditional_content_peWxRU": {
       "type": "variant-conditional-content",
       "blocks": {
@@ -1235,19 +672,6 @@
         "line_color": "#07143d"
       }
     },
-    "rich_text_4Fa3Jz": {
-      "type": "rich-text",
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 40
-      }
-    },
     "custom_text_section_mNLNYX": {
       "type": "custom-text-section",
       "custom_css": [
@@ -1317,68 +741,6 @@
         "show_faq_search": false,
         "faq_search_placeholder": "Search your question...",
         "cs1": ""
-      }
-    },
-    "multicolumn_6zLMqh": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_aC7RQ3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list1.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity WaterFilter with Smart Carbon</a>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_T76TeX": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list2.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal</a>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NCcygW": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list3.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal + Teak Wood Stand</a>",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_aC7RQ3",
-        "column_T76TeX",
-        "column_NCcygW"
-      ],
-      "disabled": true,
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "w1": 24,
-        "w2": 18,
-        "p1": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 36,
-        "cs1": "multi-column-tem"
       }
     },
     "custom_text_section_ddrd4c": {
@@ -1574,75 +936,6 @@
         "padding_bottom": 24
       }
     },
-    "custom_text_section_J8htEn": {
-      "type": "custom-text-section",
-      "disabled": true,
-      "name": "Custom Text",
-      "settings": {
-        "hd1": 40,
-        "hd2": 24,
-        "show_heading_line": false,
-        "c1": false,
-        "heading2": "",
-        "heading": "",
-        "heading_color": "#1e1e1e",
-        "line_color": "#ff7a00",
-        "line_width_desktop": 120,
-        "line_width_mobile": 80,
-        "left_content": "",
-        "t1": 18,
-        "t2": 18,
-        "text_width": 1200,
-        "cl1": "#2f2954",
-        "right_content": "",
-        "bottom_icon": "shopify://shop_images/100_days_5.png",
-        "bottom_heading": "If you don’t like your water filter, within 100 days we’ll give you a full refund.",
-        "w1": 24,
-        "w2": 14,
-        "bottom_heading1": "",
-        "bottom_button_text": "Complete Purchase",
-        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
-        "button_bg": "#f5d24f",
-        "button_text_color": "#ffffff",
-        "text_color": "#ffffff",
-        "bg_color": "#33523b",
-        "padding_top": 15,
-        "padding_bottom": 0,
-        "show_bottom_buttons": true,
-        "buttons_per_row_desktop": 4,
-        "buttons_per_row_mobile": 2,
-        "btn_width_desktop": 200,
-        "btn_width_mobile": 155,
-        "btn_text_1": "",
-        "btn_link_1": "",
-        "btn_bg_1": "#ff7a00",
-        "btn_text_color_1": "#ffffff",
-        "btn_border_color_1": "#ff7a00",
-        "btn_text_2": "",
-        "btn_link_2": "",
-        "btn_bg_2": "#000000",
-        "btn_text_color_2": "#ffffff",
-        "btn_border_color_2": "#000000",
-        "btn_text_3": "",
-        "btn_link_3": "",
-        "btn_bg_3": "#ffffff",
-        "btn_text_color_3": "#000000",
-        "btn_border_color_3": "#000000",
-        "btn_text_4": "",
-        "btn_link_4": "",
-        "btn_bg_4": "#2d2d4f",
-        "btn_text_color_4": "#ffffff",
-        "btn_border_color_4": "#2d2d4f",
-        "btn_text_5": "",
-        "btn_link_5": "",
-        "btn_bg_5": "#f69320",
-        "btn_text_color_5": "#ffffff",
-        "btn_border_color_5": "#f69320",
-        "show_faq_search": false,
-        "faq_search_placeholder": "Search your question...",
-        "cs1": ""
-      }
-    },
     "custom_text_section_ffY7mW": {
       "type": "custom-text-section",
       "name": "Custom Text",
@@ -1740,25 +1033,15 @@
     "related-products",
     "custom_text_section_WJkaK8",
     "multicolumn_pfeYBW",
-    "custom_icon_image_slider_if6Ktg",
-    "custom_text_section_9EqMzU",
-    "image_with_text_baXir8",
-    "custom_video_text_VnLUkL",
-    "custom_video_text_RtTPaP",
     "custom_feature_marquee_JeTTdT",
     "nice_custom_video_text_NmybXF",
-    "custom_side_icons_8nbxxy",
-    "custom_side_icons_AY3nz9",
     "variant_conditional_content_peWxRU",
     "custom_text_section_C8qwW6",
     "comparison_cart_KBm9AY",
-    "rich_text_4Fa3Jz",
     "custom_text_section_mNLNYX",
-    "multicolumn_6zLMqh",
     "custom_text_section_ddrd4c",
     "collapsible_content_jF6Q7J",
     "rich_text_3CWq7r",
-    "custom_text_section_J8htEn",
     "custom_text_section_ffY7mW",
     "17682225923f240bf1"
   ]

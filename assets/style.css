@@ -44,9 +44,6 @@ src: url(https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Montserrat-Regul
 deferred-media{
   --ratio-percent: 100%;
 }
-.product-form__buttons .button:after {
-    border-radius: 12px !important;
-}
 }
 
 
@@ -60,7 +57,7 @@ fieldset.js.product-form__input.product-form__input--pill {
     justify-content: start;
 }
 fieldset.js.product-form__input.product-form__input--pill label {
-    /* width: 30%; */
+    width: 30%;
     height: 70px;
     align-items: center;
     justify-content: center;
@@ -76,7 +73,7 @@ fieldset.js.product-form__input.product-form__input--pill label {
 
 /* ONLY cartridges & stand */
 fieldset.js.product-form__input.product-form__input--pill label.image-only-label {
-    /* width: 18% !important;  *//* 2 per row */
+    width: 18% !important; /* 2 per row */
     height: auto !important;
     flex-direction: column;
     padding: 10px 5px !important;

@@ -33,6 +33,34 @@
       tabindex="0"
     >
       {%- liquid
+        assign selected_variant = product.selected_or_first_available_variant
+        assign variant_file_images = selected_variant.metafields.custom.variant_images.value
+        assign use_variant_file_images = false
+        if variant_file_images != blank
+          assign use_variant_file_images = true
+        endif
+      -%}
+
+      {%- if use_variant_file_images -%}
+        {%- for image in variant_file_images -%}
+          {%- assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index -%}
+          <div
+            class="product-media-modal__image global-media-settings"
+            data-media-id="{{ variant_file_media_id }}"
+          >
+            {{
+              image
+              | image_url: width: 2048
+              | image_tag:
+                loading: 'lazy',
+                sizes: '100vw',
+                widths: '550, 800, 1100, 1445, 1680, 2048',
+                alt: image.alt
+            }}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+      {%- liquid
         if product.selected_or_first_available_variant.featured_media != null
           assign media = product.selected_or_first_available_variant.featured_media
           render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
@@ -52,6 +80,7 @@
           endunless
         -%}
       {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </product-modal>

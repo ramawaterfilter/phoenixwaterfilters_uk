@@ -27,7 +27,8 @@
           "settings": {
             "heading": "",
             "menu": "new-footer-main",
-            "l1": "#"
+            "m1": "shopify://shop_images/EBay_logo30.png",
+            "l1": "https://www.ebay.co.uk/usr/phoenix-water-filters"
           }
         },
         "link_list_6TmK8C": {

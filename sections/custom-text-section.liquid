@@ -71,7 +71,7 @@
         </div>
 
         {% if section.settings.bottom_button_text != blank %}
-          <a href="{{ section.settings.bottom_button_link }}" class="cta-btn">
+          <a href="{{ section.settings.bottom_button_link }}" class="cta-btn kl">
             {{ section.settings.bottom_button_text }}
           </a>
         {% endif %}
@@ -510,13 +510,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
   if (!ctaButton) return;
 
+document.addEventListener("DOMContentLoaded", function () {
+  const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
+  if (!ctaButton) return;
+
   ctaButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (!this.getAttribute("href") || this.getAttribute("href") === "#") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    // warna normal navigation hone do
   });
+});
 });
 </script>
 
