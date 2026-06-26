@@ -62,12 +62,14 @@
             "heading_1": "<strong>NSF 372 ANSI 42 Certified</strong>",
             "icon_2": "none",
             "image_2": "shopify://shop_images/jpeg-optimizer_delivery.webp",
-            "heading_2": "Fast Shipping",
+            "heading_2": "Free Shipping",
             "icon_3": "none",
             "heading_3": "",
             "icon_4": "none",
             "image_4": "shopify://shop_images/output-smallpngtools_1__11zon.png",
-            "heading_4": "Universal Fit"
+            "heading_4": "Universal Fit",
+            "icon_5": "truck",
+            "heading_5": ""
           }
         },
         "collapsible_tab_VyEEwT": {
@@ -303,7 +305,7 @@
       "settings": {
         "title": "",
         "w1": 24,
-        "w2": 18,
+        "w2": 14,
         "p1": "",
         "heading_size": "h1",
         "image_width": "third",
@@ -319,6 +321,105 @@
         "padding_top": 20,
         "padding_bottom": 0,
         "cs1": ""
+      }
+    },
+    "custom_marquee_xDhKW4": {
+      "type": "custom-marquee",
+      "blocks": {
+        "marquee_item_PWbRyk": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/heavy_metals_2_e437209f-d9ff-4ed1-b1cb-af9056cf2fc6.webp",
+            "title": "Heavy Metals",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_PAPyrg": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/pfa_1_a711d498-db80-4271-a093-3a0e78d435c0.webp",
+            "title": "PFAs",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_PRkWeE": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/micro_1dbfd5f2-aec1-4ec8-aa1f-2c091440dfe6.png",
+            "title": "Microplastics",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_hj9XQa": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/cll_8b54051b-c462-4dd4-b9ce-ee1036efb0ef.webp",
+            "title": "Chlorine",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_jRyCEJ": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
+            "title": "Bacteria",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_dwRp3x": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/cav_bf257863-a238-40a5-99bc-2621e9a6e1eb.webp",
+            "title": "Pesticides",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_item_PWbRyk",
+        "marquee_item_PAPyrg",
+        "marquee_item_PRkWeE",
+        "marquee_item_hj9XQa",
+        "marquee_item_jRyCEJ",
+        "marquee_item_dwRp3x"
+      ],
+      "name": "Custom marquee",
+      "settings": {
+        "show_heading_line": true,
+        "heading": "What Phoenix Gravity Water Filters remove?",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 500,
+        "line_width_mobile": 220,
+        "background_color": "#EAEEF1",
+        "text_color": "#000000",
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true,
+        "icon_size": 70,
+        "mobile_icon_size": 50,
+        "icon_gap": 0,
+        "mobile_icon_gap": 0,
+        "title_font_size": 24,
+        "mobile_title_font_size": 14,
+        "title_font_weight": "600",
+        "percentage_font_size": 16,
+        "mobile_percentage_font_size": 12,
+        "percentage_font_weight": "500",
+        "percentage_opacity": 85,
+        "text_transform": "none",
+        "letter_spacing": 0,
+        "item_gap": 120,
+        "mobile_item_gap": 40,
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 10
       }
     },
     "custom_feature_marquee_JeTTdT": {
@@ -387,6 +488,7 @@
         "feature_NCLcRW",
         "feature_kq6Dpq"
       ],
+      "disabled": true,
       "name": "Custom Feature marquee",
       "settings": {
         "heading": "What KokoCarb Cartridges remove?",
@@ -594,7 +696,8 @@
     "custom_text_section_C8qwW6": {
       "type": "custom-text-section",
       "custom_css": [
-        ".diffrent-class-text .cta-heading {width: 100% !important;}"
+        ".diffrent-class-text .cta-heading {width: 100% !important;}",
+        ".cta-heading {font-weight: 400;}"
       ],
       "name": "Custom Text",
       "settings": {
@@ -616,7 +719,7 @@
         "right_content": "",
         "bottom_heading": "Designed and manufactured in-house. Advanced and sustainable drinking water filtration removing 99.99% contaminants whilst retaining 100% minerals.",
         "w1": 23,
-        "w2": 19,
+        "w2": 14,
         "bottom_heading1": "",
         "bottom_button_text": "",
         "bottom_button_link": "",
@@ -928,7 +1031,7 @@
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "desktop_content_position": "left",
+        "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-2",
         "full_width": true,
@@ -1033,6 +1136,7 @@
     "related-products",
     "custom_text_section_WJkaK8",
     "multicolumn_pfeYBW",
+    "custom_marquee_xDhKW4",
     "custom_feature_marquee_JeTTdT",
     "nice_custom_video_text_NmybXF",
     "variant_conditional_content_peWxRU",

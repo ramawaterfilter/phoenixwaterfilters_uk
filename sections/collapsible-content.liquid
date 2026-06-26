@@ -89,6 +89,7 @@
     padding: 15px !important;
 }
 }
+.collapsible-content .accordion__content{display:flex;}
 {%- endstyle -%}
 
 <div
@@ -183,7 +184,21 @@
                     role="region"
                     aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
                   >
+                    <div>
                     {{ block.settings.row_content }}
+                    </div>
+                    {% if block.settings.image_block != blank %}
+                      <div class="quick-answers-faq__image">
+                        {{
+                          block.settings.image_block
+                          | image_url: width: 800
+                          | image_tag:
+                            loading: 'lazy',
+                            class: 'quick-answers-faq__img',
+                            alt: block.settings.image_block.alt
+                        }}
+                      </div>
+                    {% endif %}
                     {{ block.settings.page.content }}
                   </div>
                 </details>
@@ -667,6 +682,11 @@
           "type": "richtext",
           "id": "row_content",
           "label": "t:sections.collapsible_content.blocks.collapsible_row.settings.row_content.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_block",
+          "label": "Image block"
         },
         {
           "type": "page",

@@ -128,7 +128,9 @@
             "heading_3": "10 Year Warranty",
             "icon_4": "none",
             "image_4": "shopify://shop_images/CS.svg",
-            "heading_4": "<strong>Customer Support</strong>"
+            "heading_4": "<strong>Customer Support</strong>",
+            "icon_5": "truck",
+            "heading_5": "Heading"
           }
         },
         "icon_with_text_3yWehV": {
@@ -147,7 +149,9 @@
             "heading_3": "10 Year Warranty",
             "icon_4": "none",
             "image_4": "shopify://shop_images/CS.svg",
-            "heading_4": "<strong>Customer Support</strong>"
+            "heading_4": "<strong>Customer Support</strong>",
+            "icon_5": "none",
+            "heading_5": ""
           }
         },
         "collapsible_tab_WRPzJX": {

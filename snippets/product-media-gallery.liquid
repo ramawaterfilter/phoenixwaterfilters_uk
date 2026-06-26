@@ -1,12 +1,5 @@
 
 {%- liquid
-  assign selected_variant = product.selected_or_first_available_variant
-  assign variant_file_images = selected_variant.metafields.custom.variant_images.value
-  assign use_variant_file_images = false
-  if variant_file_images != blank
-    assign use_variant_file_images = true
-  endif
-
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
   endif
@@ -16,9 +9,6 @@
   endif
 
   assign media_count = product.media.size
-  if use_variant_file_images
-    assign media_count = variant_file_images.count
-  endif
   if section.settings.hide_variants and media_count > 1 and variant_images.size > 0
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
@@ -38,8 +28,6 @@
   elsif section.settings.media_size == 'small'
     assign media_width = 0.45
   endif
-
-  assign image_class = 'image-magnify-' | append: section.settings.image_zoom
 -%}
 
 <media-gallery
@@ -50,9 +38,6 @@
   {% endif %}
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
-  {% if use_variant_file_images %}
-    data-variant-file-gallery
-  {% endif %}
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter" style="position: relative;">
@@ -64,65 +49,6 @@
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
       role="list"
     >
-      {%- if use_variant_file_images -%}
-        {%- for image in variant_file_images -%}
-          {%- liquid
-            assign media_position = forloop.index
-            assign image_loading = 'lazy'
-            assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index
-            if forloop.first
-              assign image_loading = 'eager'
-            endif
-          -%}
-          <li
-            id="Slide-{{ variant_file_media_id }}"
-            class="product__media-item grid__item slider__slide{% if forloop.first %} is-active{% endif %}{% if single_media_visible %} product__media-item--single{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-            data-media-id="{{ variant_file_media_id }}"
-          >
-            <div
-              class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
-              style="--ratio: {{ image.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ image.aspect_ratio | default: 1.0 }};"
-            >
-              <modal-opener
-                class="product__modal-opener product__modal-opener--image"
-                data-modal="#ProductModal-{{ section.id }}"
-              >
-                <span
-                  class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
-                  aria-hidden="true"
-                >
-                  <span class="svg-wrapper">
-                    {{- 'icon-zoom.svg' | inline_asset_content -}}
-                  </span>
-                </span>
-                {%- render 'loading-spinner' -%}
-                <div class="product__media media media--transparent">
-                  {{
-                    image
-                    | image_url: width: 1946
-                    | image_tag:
-                      class: image_class,
-                      loading: image_loading,
-                      sizes: '(min-width: 990px) 65vw, 100vw',
-                      widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
-                      alt: image.alt
-                  }}
-                </div>
-                <button
-                  class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
-                  type="button"
-                  aria-haspopup="dialog"
-                  data-media-id="{{ variant_file_media_id }}"
-                >
-                  <span class="visually-hidden">
-                    {{ 'products.product.media.open_media' | t: index: media_position }}
-                  </span>
-                </button>
-              </modal-opener>
-            </div>
-          </li>
-        {%- endfor -%}
-      {%- else -%}
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
         <li
@@ -186,7 +112,6 @@
           </li>
         {%- endunless -%}
       {%- endfor -%}
-      {%- endif -%}
     </ul>
 
     {%- comment -%} Enhanced Navigation Arrows for Desktop {%- endcomment -%}
@@ -298,45 +223,6 @@
           calc((100vw - 8rem) / 3)
         {%- endcapture -%}
 
-        {%- if use_variant_file_images -%}
-          {%- for image in variant_file_images -%}
-            {%- liquid
-              assign media_index = forloop.index
-              assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index
-            -%}
-            <li
-              id="Slide-Thumbnails-{{ variant_file_media_id }}"
-              class="thumbnail-list__item slider__slide"
-              data-target="{{ variant_file_media_id }}"
-              data-media-position="{{ media_index }}"
-            >
-              {%- capture thumbnail_id -%}
-                Thumbnail-{{ section.id }}-variant-file-{{ forloop.index }}
-              {%- endcapture -%}
-              <button
-                class="thumbnail global-media-settings global-media-settings--no-shadow"
-                aria-label="{{ 'products.product.media.load_image' | t: index: media_index }}"
-                {% if forloop.first %}
-                  aria-current="true"
-                {% endif %}
-                aria-controls="GalleryViewer-{{ section.id }}"
-                aria-describedby="{{ thumbnail_id }}"
-              >
-                {{
-                  image
-                  | image_url: width: 416
-                  | image_tag:
-                    loading: 'lazy',
-                    sizes: sizes,
-                    widths: '54, 74, 104, 162, 208, 324, 416',
-                    id: thumbnail_id,
-                    alt: image.alt
-                  | escape
-                }}
-              </button>
-            </li>
-          {%- endfor -%}
-        {%- else -%}
         {%- if featured_media != null -%}
           {%- liquid
             capture media_index
@@ -443,7 +329,6 @@
             </li>
           {%- endunless -%}
         {%- endfor -%}
-        {%- endif -%}
       </ul>
       <button
         type="button"
@@ -466,42 +351,22 @@
   {%- if media_count > 1 -%}
     <div id="GalleryThumbnails2x2-{{ section.id }}" class="thumbnail-grid-2x2">
       {%- assign grid_count = 0 -%}
-      {%- if use_variant_file_images -%}
-        {%- for image in variant_file_images -%}
-          {%- if grid_count >= 4 -%}{%- break -%}{%- endif -%}
-          {%- assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index -%}
-          {%- assign grid_count = grid_count | plus: 1 -%}
-          <button
-            class="thumbnail-2x2-item"
-            data-media-id="{{ variant_file_media_id }}"
-            aria-label="Image {{ grid_count }}"
-            type="button"
-          >
-            {{
-              image
-              | image_url: width: 400
-              | image_tag: loading: 'lazy', alt: image.alt
-            }}
-          </button>
-        {%- endfor -%}
-      {%- else -%}
-        {%- for media in product.media -%}
-          {%- if grid_count >= 4 -%}{%- break -%}{%- endif -%}
-          {%- assign grid_count = grid_count | plus: 1 -%}
-          <button
-            class="thumbnail-2x2-item"
-            data-media-id="{{ section.id }}-{{ media.id }}"
-            aria-label="Image {{ grid_count }}"
-            type="button"
-          >
-            {{
-              media.preview_image
-              | image_url: width: 400
-              | image_tag: loading: 'lazy', alt: media.alt
-            }}
-          </button>
-        {%- endfor -%}
-      {%- endif -%}
+      {%- for media in product.media -%}
+        {%- if grid_count >= 4 -%}{%- break -%}{%- endif -%}
+        {%- assign grid_count = grid_count | plus: 1 -%}
+        <button
+          class="thumbnail-2x2-item"
+          data-media-id="{{ section.id }}-{{ media.id }}"
+          aria-label="Image {{ grid_count }}"
+          type="button"
+        >
+          {{
+            media.preview_image
+            | image_url: width: 400
+            | image_tag: loading: 'lazy', alt: media.alt
+          }}
+        </button>
+      {%- endfor -%}
     </div>
   {%- endif -%}
 
@@ -1065,9 +930,7 @@
     }
 
     function setActiveSlide(index) {
-      if (!allMedia.length) return;
-      if (index < 0) index = allMedia.length - 1;
-      if (index >= allMedia.length) index = 0;
+      if (index < 0 || index >= allMedia.length) return;
       allMedia.forEach(item => item.element.classList.remove('is-active'));
       allMedia[index].element.classList.add('is-active');
       currentIndex = index;
@@ -1083,9 +946,8 @@
 
     function updateArrows() {
       if (!prevBtn || !nextBtn) return;
-      const disabled = allMedia.length <= 1;
-      prevBtn.disabled = disabled;
-      nextBtn.disabled = disabled;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === allMedia.length - 1;
     }
 
     function updateCounter() {
@@ -1095,15 +957,16 @@
 
     function updateGrid() {
       if (!grid) return;
-      const activeMedia = allMedia[currentIndex];
-      const pageStart = Math.floor(currentIndex / 4) * 4;
-      const display = allMedia.slice(pageStart, pageStart + 4);
-
+      const currentAlt = allMedia[currentIndex]?.alt || '';
+      const groups = groupByAlt(allMedia);
+      const priority = groups[currentAlt] || [];
+      const others = allMedia.filter(i => i.alt !== currentAlt);
+      const display = [...priority, ...others].slice(0, 4);
       grid.innerHTML = '';
       display.forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'thumbnail-2x2-item';
-        if (activeMedia && item.mediaId === activeMedia.mediaId) btn.classList.add('is-active');
+        if (item.mediaId === allMedia[currentIndex].mediaId) btn.classList.add('is-active');
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt;
@@ -1117,27 +980,9 @@
       });
     }
 
-    function syncFromActiveSlide(activeElement) {
-      refreshMediaData();
-      const activeMediaId = activeElement?.dataset?.mediaId;
-      const eventIndex = activeMediaId ? allMedia.findIndex(item => item.mediaId === activeMediaId) : -1;
-      currentIndex = eventIndex !== -1 ? eventIndex : getActiveIndex();
-      allMedia.forEach(item => item.element.classList.toggle('is-active', item.mediaId === allMedia[currentIndex]?.mediaId));
-      updateArrows();
-      updateCounter();
-      updateGrid();
-    }
-
     function handleVariantChange() {
       setTimeout(() => {
         refreshMediaData();
-        if (gallery.hasAttribute('data-variant-file-gallery')) {
-          currentIndex = getActiveIndex();
-          updateArrows();
-          updateCounter();
-          updateGrid();
-          return;
-        }
         const activeIndex = getActiveIndex();
         const alt = allMedia[activeIndex]?.alt || '';
         if (alt) {
@@ -1195,17 +1040,12 @@
 
     if (prevBtn) prevBtn.onclick = () => goToSlide(currentIndex - 1);
     if (nextBtn) nextBtn.onclick = () => goToSlide(currentIndex + 1);
-    slider.closest('slider-component')?.addEventListener('slideChanged', (event) => {
-      window.setTimeout(() => syncFromActiveSlide(event.detail.currentElement), 0);
-    });
 
     function init() {
       refreshMediaData();
-      if (!gallery.hasAttribute('data-variant-file-gallery')) {
-        const active = getActiveIndex();
-        const alt = allMedia[active]?.alt || '';
-        if (alt) reorderByAlt(alt);
-      }
+      const active = getActiveIndex();
+      const alt = allMedia[active]?.alt || '';
+      if (alt) reorderByAlt(alt);
       currentIndex = getActiveIndex();
       updateArrows();
       updateCounter();
@@ -1429,13 +1269,10 @@
     const currentIdx = getCurrentIndex();
     const nextIdx = currentIdx + direction;
 
-    if (!slides.length) return;
-    let wrappedNextIdx = nextIdx;
-    if (wrappedNextIdx < 0) wrappedNextIdx = slides.length - 1;
-    if (wrappedNextIdx >= slides.length) wrappedNextIdx = 0;
+    if (nextIdx < 0 || nextIdx >= slides.length) return;
 
     // Check if next slide has a video
-    const nextSlide = slides[wrappedNextIdx];
+    const nextSlide = slides[nextIdx];
     const nextVideo = nextSlide.querySelector('video');
     const nextSrc = nextVideo ? (nextVideo.currentSrc || nextVideo.src || nextVideo.querySelector('source')?.src) : null;
 
@@ -1446,20 +1283,19 @@
 
     // Update gallery counters
     document.querySelectorAll('.slider-counter--current').forEach(el => {
-      el.textContent = wrappedNextIdx + 1;
+      el.textContent = nextIdx + 1;
     });
 
     // Update gallery prev/next arrow states
-    document.querySelectorAll('[id^="galleryPrev-"], [id^="galleryNext-"]').forEach(btn => {
-      btn.disabled = slides.length <= 1;
-    });
+    document.querySelectorAll('[id^="galleryPrev-"]').forEach(btn => btn.disabled = nextIdx === 0);
+    document.querySelectorAll('[id^="galleryNext-"]').forEach(btn => btn.disabled = nextIdx === slides.length - 1);
 
     if (nextSrc) {
       // Next slide is also a video — stay in modal
       cvmVideo.src = nextSrc;
       cvmVideo.load();
       cvmVideo.play().catch(() => {});
-      updateModalUI(wrappedNextIdx, slides.length);
+      updateModalUI(nextIdx, slides.length);
     } else {
       // Next slide is an image — close modal
       closeModal();

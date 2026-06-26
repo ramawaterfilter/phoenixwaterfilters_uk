@@ -48,7 +48,7 @@
         "w2": 16,
         "bottom_heading1": "<p>(Product purchases from this store do not need registration they are automatically registered.)</p>",
         "bottom_button_text": "Register here",
-        "bottom_button_link": "https://phoenixwaterfilters.co.uk/pages/product-registration",
+        "bottom_button_link": "shopify://pages/product-registration-1",
         "button_bg": "#f5d24f",
         "button_text_color": "#000000",
         "text_color": "#222222",

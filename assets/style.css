@@ -57,7 +57,7 @@ fieldset.js.product-form__input.product-form__input--pill {
     justify-content: start;
 }
 fieldset.js.product-form__input.product-form__input--pill label {
-    width: 30%;
+    /* width: 30%; */
     height: 70px;
     align-items: center;
     justify-content: center;
@@ -73,7 +73,7 @@ fieldset.js.product-form__input.product-form__input--pill label {
 
 /* ONLY cartridges & stand */
 fieldset.js.product-form__input.product-form__input--pill label.image-only-label {
-    width: 18% !important; /* 2 per row */
+    /* width: 18% !important; */ /* 2 per row */
     height: auto !important;
     flex-direction: column;
     padding: 10px 5px !important;
@@ -599,7 +599,7 @@ nav.header__inline-menu a.header__menu-item span {
 
 @media (max-width: 768px){
 .multicolumn-card__info h3.inline-richtext {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.2em;
     letter-spacing: 0px;
@@ -988,8 +988,8 @@ h2.footer-block__heading.inline-richtext {
     font-family: DM Sans,sans-serif;
 }
 .page-width.custom-width-product .icon-with-text img {
-    height: 60px !important;
-    width: 60px !important;
+    height: 50px !important;
+    width: 50px !important;
 }
 .page-width.custom-width-product span.h4.inline-richtext {
     font-size: 14px;
@@ -997,6 +997,7 @@ h2.footer-block__heading.inline-richtext {
 .page-width.custom-width-product .icon-with-text--horizontal {
     column-gap: 0rem !important;
     flex-wrap: wrap;
+    margin: 0.5rem 0;
 }
 .cta-image img {
     width: 100%;
@@ -1583,6 +1584,9 @@ button.slick-next.slick-arrow svg {
         font-size: 13px;
         padding: 0 10px;
     }
+    .accordion summary {
+    padding: 10px !important;
+}
 }
 
 h2.collapsible-content__heading.inline-richtext.h1 {

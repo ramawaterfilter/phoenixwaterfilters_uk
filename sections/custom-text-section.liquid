@@ -71,7 +71,7 @@
         </div>
 
         {% if section.settings.bottom_button_text != blank %}
-          <a href="{{ section.settings.bottom_button_link }}" class="cta-btn kl">
+          <a href="{{ section.settings.bottom_button_link }}" class="cta-btn">
             {{ section.settings.bottom_button_text }}
           </a>
         {% endif %}
@@ -431,8 +431,8 @@ section.custom-class-2.gh a.cta-btn {
     font-weight: 500;
     transition: 0.3s ease;
   }
-        #product-desc-{{ uid }} .heading-line {
-    margin: 0 auto 25px;
+  #product-desc-{{ uid }} .heading-line {
+    margin: 0 auto 5px;
   }
       #product-desc-{{ uid }} .desc-grid {
     display: block;
@@ -451,7 +451,7 @@ section.custom-class-2.gh a.cta-btn {
     color: {{ section.settings.heading_color }};
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin: 0;
   }
 .about-custom-text .cta-heading {
     font-size: 18px !important;
@@ -479,6 +479,7 @@ section.custom-class-2.gh a.cta-btn {
     #product-desc-{{ uid }} .bottom-cta {
       flex-direction: row;
       text-align: center;
+      gap: 10px;
     }
   }
 
@@ -510,18 +511,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
   if (!ctaButton) return;
 
-document.addEventListener("DOMContentLoaded", function () {
-  const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
-  if (!ctaButton) return;
-
   ctaButton.addEventListener("click", function (event) {
-    if (!this.getAttribute("href") || this.getAttribute("href") === "#") {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    // warna normal navigation hone do
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
-});
 });
 </script>
 
