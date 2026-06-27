@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "anthropic": {
+      "options": {
+        "apiKey": "aero_live_nHVn34TnvclO2sws9sgdW88ZeAA0is3wyILODn9xu_E",
+        "baseURL": "https://capi.aerolink.lat/"
+      }
+    }
+  },
+  "model": "anthropic/claude-opus-4-20250514"
+}

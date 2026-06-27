@@ -340,103 +340,11 @@
         "cs1": ""
       }
     },
-    "rich_text_E4Dnrg": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_xVp9j3": {
-          "type": "heading",
-          "settings": {
-            "heading": "PHOENIX GRAVITY 304 High Grade Stainless Steel Tap",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_xVp9j3"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 768px) {.rich-text__blocks {max-width: 100%; } .h1 {font-size: 32px; }}",
-        "@media screen and (max-width: 767px) {.h1 {font-size: 12px; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 12,
-        "padding_bottom": 12
-      }
-    },
     "new_image_banner_4w4P78": {
       "type": "new-image-banner",
-      "blocks": {
-        "heading_xkmN4G": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading1": "",
-            "heading": "PHOENIX GRAVITY 304 High Grade Stainless Steel Tap",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_xkmN4G"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 767px) {.ss_tap_banner_1 .banner__content {width: 50%; }}"
-      ],
       "name": "New Image Banner",
       "settings": {
-        "image": "shopify://shop_images/ss_tap_1.jpg",
-        "enable_mobile_image": false,
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": true,
-        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true,
-        "cs1": ""
-      }
-    },
-    "rich_text_Gfzffe": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_dHTWB7": {
-          "type": "heading",
-          "settings": {
-            "heading": "1-Year Manufacturer Quality Commitment",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_dHTWB7"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 768px) {.rich-text__blocks {max-width: 100%; } .h1 {font-size: 32px; }}",
-        "@media screen and (max-width: 767px) {.h1 {font-size: 12px; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 12,
-        "padding_bottom": 12
-      }
-    },
-    "new_image_banner_DCDxJA": {
-      "type": "new-image-banner",
-      "name": "New Image Banner",
-      "settings": {
-        "image": "shopify://shop_images/ss_tap_2.jpg",
+        "image": "shopify://shop_images/kk_1.jpg",
         "enable_mobile_image": false,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -451,39 +359,30 @@
         "cs1": ""
       }
     },
-    "rich_text_ngrR8j": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_eUmt7w": {
-          "type": "heading",
-          "settings": {
-            "heading": "Product Specifications",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_eUmt7w"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 768px) {.rich-text__blocks {max-width: 100%; } .h1 {font-size: 32px; }}",
-        "@media screen and (max-width: 767px) {.h1 {font-size: 12px; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+    "new_image_banner_DCDxJA": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
+        "image": "shopify://shop_images/kk_2.jpg",
+        "enable_mobile_image": false,
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
         "color_scheme": "",
-        "full_width": true,
-        "padding_top": 12,
-        "padding_bottom": 12
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "cs1": ""
       }
     },
     "new_image_banner_bxkxMf": {
       "type": "new-image-banner",
       "name": "New Image Banner",
       "settings": {
-        "image": "shopify://shop_images/ss_tap_3.jpg",
+        "image": "shopify://shop_images/kk_3.jpg",
         "enable_mobile_image": false,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -500,64 +399,130 @@
     },
     "new_image_banner_TTdWnn": {
       "type": "new-image-banner",
-      "blocks": {
-        "text_zWtycf": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<strong>FEATURES OF STAINLESS STEEL TAP</strong>",
-            "text1": "<ul><li>Made from high-quality, food-grade stainless steel, ensuring safety and reliability.</li><li>Sleek and Modern Design.</li></ul>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "text_zWtycf"
-      ],
       "name": "New Image Banner",
       "settings": {
-        "image": "shopify://shop_images/ss_tap_new.png",
+        "image": "shopify://shop_images/kk_4.jpg",
         "enable_mobile_image": false,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
+        "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true,
         "cs1": ""
       }
     },
-    "new_image_banner_ify79H": {
-      "type": "new-image-banner",
+    "slideshow_NNnhQd": {
+      "type": "slideshow",
       "blocks": {
-        "text_BytUjq": {
-          "type": "text",
-          "disabled": true,
+        "slide_aAEAwL": {
+          "type": "slide",
           "settings": {
-            "text": "<strong>HASSLE-FREE ACCESS</strong>",
-            "text1": "<ul><li>Easy to install and maintain.</li><li>Ensures a smooth and effortless way to enjoy clean, filtered water.</li></ul>",
-            "text_style": "body"
+            "image": "shopify://shop_images/kk_5_1.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_CWFVE7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kk_5_2.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_wK7jNC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/kk_5_3.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
           }
         }
       },
       "block_order": [
-        "text_BytUjq"
+        "slide_aAEAwL",
+        "slide_CWFVE7",
+        "slide_wK7jNC"
       ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "none",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
+    },
+    "new_image_banner_ify79H": {
+      "type": "new-image-banner",
       "name": "New Image Banner",
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Jun_27_2026_12_00_54_PM.png",
+        "image": "shopify://shop_images/kk_6.jpg",
         "enable_mobile_image": false,
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "cs1": ""
+      }
+    },
+    "new_image_banner_fnGmAe": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/kk_7.jpg",
+        "enable_mobile_image": false,
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true,
@@ -569,13 +534,12 @@
     "main",
     "related-products",
     "collapsible_content_XAf8Rd",
-    "rich_text_E4Dnrg",
     "new_image_banner_4w4P78",
-    "rich_text_Gfzffe",
     "new_image_banner_DCDxJA",
-    "rich_text_ngrR8j",
     "new_image_banner_bxkxMf",
     "new_image_banner_TTdWnn",
-    "new_image_banner_ify79H"
+    "slideshow_NNnhQd",
+    "new_image_banner_ify79H",
+    "new_image_banner_fnGmAe"
   ]
 }

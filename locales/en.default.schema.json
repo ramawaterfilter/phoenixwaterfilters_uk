@@ -3076,6 +3076,9 @@
           },
           "options__3": {
             "label": "Numbers"
+          },
+          "option__4":{
+            "label":"None"
           }
         },
         "auto_rotate": {
