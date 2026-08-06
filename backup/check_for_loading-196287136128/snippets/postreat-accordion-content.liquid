@@ -1,0 +1,99 @@
+<div class="postreat-accordion">
+  <div class="postreat-grid">
+
+    <!-- LEFT CONTENT -->
+    <div class="postreat-left">
+      <ul>
+        <li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li>
+        <li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li>
+        <li>Works in conjunction with Phoenix Gravity Smart Carbon Cartridges</li>
+        <li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li>
+      </ul>
+    </div>
+
+    <!-- CENTER IMAGE -->
+    <div class="postreat-center">
+      <img 
+        src="{{ 'postreat-bottle.png' | asset_url }}" 
+        alt="POSTreat Fluoride Filter"
+        loading="lazy">
+    </div>
+
+    <!-- RIGHT ICONS -->
+    <div class="postreat-right">
+      <div class="icon-item">
+        <img src="{{ 'icon-sustainable.png' | asset_url }}" alt="">
+        <p>Sustainable Materials</p>
+      </div>
+
+      <div class="icon-item">
+        <img src="{{ 'icon-steel.png' | asset_url }}" alt="">
+        <p>304 grade Stainless Steel</p>
+      </div>
+
+      <div class="icon-item">
+        <img src="{{ 'icon-fluoride.png' | asset_url }}" alt="">
+        <p>Removes &gt;95% Fluoride</p>
+      </div>
+
+      <div class="icon-item">
+        <img src="{{ 'icon-refill.png' | asset_url }}" alt="">
+        <p>Refillable</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.postreat-accordion {
+  padding: 30px 0;
+}
+
+.postreat-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.postreat-left ul {
+  padding-left: 18px;
+}
+
+.postreat-left li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.postreat-center img {
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.postreat-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+.icon-item img {
+  width: 42px;
+  margin-bottom: 8px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .postreat-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .postreat-right {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>

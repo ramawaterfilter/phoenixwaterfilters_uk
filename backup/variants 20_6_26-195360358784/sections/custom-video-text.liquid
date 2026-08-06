@@ -1,0 +1,698 @@
+<section
+  id="video-text-{{ section.id }}"
+  class="video-text-section {{ section.settings.cs1 }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  "
+>
+  {% if section.settings.h1 != blank %}
+    <h2 class="video-text-heading hh">{{ section.settings.h1 }}</h2>
+  {% endif %}
+
+  <div class="page-widthh video-text-wrapper {% if section.settings.video_position == 'right' %}reverse{% endif %}">
+    <!-- TEXT CONTENT -->
+    <div class="video-text-content">
+      {% if section.settings.heading1 != blank %}
+        <h1>
+          <a href="https://phoenixwaterfilters.co.uk/pages/set-up" class="video-text-heading">
+            {{ section.settings.heading1 }}
+          </a>
+        </h1>
+      {% endif %}
+
+      <div class="video-text-contents">
+        {% if section.settings.heading != blank %}
+          <h2>
+            {% if section.settings.heading == '5-minute assembly' %}
+              <a href="https://phoenixwaterfilters.co.uk/pages/set-up" class="video-text-heading">
+                {{ section.settings.heading }}
+              </a>
+            {% else %}
+              {{ section.settings.heading }}
+            {% endif %}
+          </h2>
+
+          {% if section.settings.s1 %}
+            <span class="heading-underline"></span>
+          {% endif %}
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="video-text-desc">
+            {% if product.handle == 'kokocarb_cartridges' %}
+              <h3 style="color: #132555; ">Stage One: Advanced Carbon Filtration</h3>
+              <p style="color: #333; font-size: 16px; line-height: 1.6; ">
+                The activated carbon creates a highly complex structure that helps reduce contaminants such as
+                microplastics, cysts, and bacteria. Its powerful adsorptive properties also target chemicals including
+                chlorine, lead, and pesticides, delivering cleaner, safer water.
+              </p>
+
+              <h3 style="color: #132555; ">Stage Two: Built-in Sterilisation</h3>
+              <p style="color: #333; font-size: 16px; line-height: 1.6;">
+                Silver-infused technology helps inhibit the growth of bacteria and mold within the filter, supporting
+                long-lasting purity and protection.
+              </p>
+
+            {% else %}
+              {{ section.settings.text }}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_search %}
+          <div class="video-text-search">
+            <form action="/search" method="get" role="search">
+              <input
+                type="search"
+                name="q"
+                placeholder="{{ section.settings.search_placeholder }}"
+                class="video-text-search-input"
+              >
+              <input type="hidden" name="type" value="product">
+              <button type="submit" class="video-text-search-btn">
+                {{ section.settings.search_btn_text }}
+              </button>
+            </form>
+          </div>
+        {% endif %}
+
+        <div class="for-desktop">
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="video-text-btn">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO / IMAGE -->
+    <div class="video-text-media">
+      {% if section.settings.custom_video != blank %}
+        {{ section.settings.custom_video }}
+
+      {% elsif section.settings.video != blank %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+
+      {% elsif section.settings.video_url != blank %}
+        <video autoplay muted loop playsinline>
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+
+      {% elsif section.settings.image != blank %}
+        <!-- Desktop Image -->
+        <img
+          class="desktop-media"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          alt="{{ section.settings.heading | escape }}"
+          loading="lazy"
+        >
+
+        <!-- Mobile Images -->
+        <div class="mobile-media-wrapper">
+          {% if section.settings.image_mobile_1 != blank %}
+            <img
+              class="mobile-media"
+              src="{{ section.settings.image_mobile_1 | image_url: width: 800 }}"
+              alt="{{ section.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {% endif %}
+
+          {% if section.settings.image_mobile_2 != blank %}
+            <img
+              class="mobile-media"
+              src="{{ section.settings.image_mobile_2 | image_url: width: 800 }}"
+              alt="{{ section.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.b1 %}
+        <div class="for-mobile">
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="video-text-btn">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #video-text-{{ section.id }} .video-text-search {
+    margin-top: 25px;
+  }
+
+  #video-text-{{ section.id }} .video-text-search form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 420px;
+  }
+
+  #video-text-{{ section.id }} .video-text-search-input {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  #video-text-{{ section.id }} .video-text-search-btn {
+    padding: 12px 22px;
+    background: #f5d24f;
+    color: #2f2954;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .video-text-heading {
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+
+  .video-text-heading:hover {
+    color: #dd6802ff;
+
+  }
+  /* MOBILE */
+  @media(max-width:768px){
+    #video-text-{{ section.id }} .video-text-search form{
+      margin: 0 auto;
+    }
+  }
+
+
+
+  /* Hide mobile images on desktop */
+  #video-text-{{ section.id }} .mobile-media-wrapper {
+    display: none;
+  }
+  #video-text-{{ section.id }} .video-text-wrapper{
+    display:flex;
+    align-items:center;
+    gap:0px;
+  }
+
+  #video-text-{{ section.id }} video,
+  #video-text-{{ section.id }} img{
+    width:100%;
+    object-fit:contain;
+  }
+  #video-text-{{ section.id }} .video-text-desc{
+    line-height:1.6;
+    margin-bottom:2px;
+    color:#2f2954;
+    width: 90%;
+  }
+
+  #video-text-{{ section.id }} .video-text-btn{
+      display: inline-block;
+      padding: 10px 68px;
+      background: #f5d24f;
+      font-size: 18px;
+      color: #2f2954;
+      font-family: sans-serif;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 400;
+  }
+   .custom-button-text .video-text-btn {
+      padding: 10px 30px !important;
+      font-size: 18px !important;
+      margin-left: 0px !important;
+      border-radius: 10px !important;
+  }
+  /* MOBILE */
+  @media(max-width: 768px){
+    #video-text-{{ section.id }} .video-text-wrapper{
+      flex-direction:column;
+    }
+      #video-text-{{ section.id }} .desktop-media {
+      display: none;
+    }
+
+    #video-text-{{ section.id }} .mobile-media-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* images ke beech spacing */
+    }
+
+    #video-text-{{ section.id }} .mobile-media {
+      width: 100%;
+      object-fit: contain;
+    }
+    #video-text-{{ section.id }} .video-text-desc{
+    text-align:center;
+    width:97%;
+    margin: auto;
+  }
+     #video-text-{{ section.id }} .video-text-desc ul {
+      padding-left: {{ section.settings.pd2 }}px;
+      text-align: left;
+  }
+  .for-desktop {
+      text-align: center;
+      display: none;
+  }
+  .for-mobile {
+      text-align: center;
+  }
+    #video-text-{{ section.id }} .heading-underline{
+      width: {{ section.settings.underline_width_mobile }}px;
+    }
+    .video-text-desc li {
+      margin-bottom: 6px;
+      font-size: {{ section.settings.w2 }}px;
+      line-height: 170%;
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-family: "DM Sans", sans-serif;
+  }
+  #video-text-{{ section.id }} .video-text-heading{
+    font-size:{{ section.settings.hd2 }}px;
+    text-align:center;
+    font-weight:700;
+    margin-bottom:10px;
+    padding-left: 0px;
+  }
+  #video-text-{{ section.id }} .video-text-wrapper.reverse{
+    flex-direction:column;
+  }
+  #video-text-{{ section.id }} .video-text-content{
+    width:100%;
+  }
+  #video-text-{{ section.id }} .video-text-media{
+   width:100%;
+  }
+  #video-text-{{ section.id }} .heading-underline{
+    display:block;
+    height:3px;
+    text-align:center;
+    background: {{ section.settings.underline_color }};
+    margin-bottom:15px;
+    margin: 0 auto;
+  }
+  #video-text-{{ section.id }} .video-text-desc p {
+  font-size: {{ section.settings.w2 }}px;
+  }
+  }
+
+
+  @media(min-width: 768px){
+  .video-text-desc li {
+      margin-bottom: 6px;
+      font-size: {{ section.settings.w1 }}px;
+      line-height: 33px;
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-family: sans-serif;
+  }
+  #video-text-{{ section.id }} .video-text-desc p {
+  font-size: {{ section.settings.w1 }}px;
+  }
+    #video-text-{{ section.id }} .video-text-desc ul {
+      padding-left: {{ section.settings.pd1 }}px !important;
+  }
+
+  .custom-class-2 .bottom-cta {
+      justify-content: space-evenly !important;
+  }
+  .custom-class-2 .cta-heading {
+          font-size: 32px !important;
+  }
+  .for-mobile {
+      display: none;
+  }
+    #video-text-{{ section.id }} .video-text-btn{
+      margin-left: 55px;
+  }
+  #video-text-{{ section.id }} .video-text-heading{
+    font-size:{{ section.settings.hd1 }}px;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+
+
+  .left-padding-class .video-text-heading{
+    padding-left: 30px;
+  }
+
+  .left-padding-class video-text-desc {
+    padding-left: 30px;
+  }
+
+
+
+  #video-text-{{ section.id }} .heading-underline{
+    display:block;
+    height:3px;
+    width: {{ section.settings.underline_width_desktop }}px;
+    background: {{ section.settings.underline_color }};
+    margin-bottom:{{ section.settings.u1 }}px;
+    margin-left: {{ section.settings.un1 }}px;
+  }
+  #video-text-{{ section.id }} .video-text-wrapper.reverse{
+    flex-direction:row-reverse;
+  }
+  #video-text-{{ section.id }} .video-text-content{
+    width:50%;
+  }
+  #video-text-{{ section.id }} .video-text-media{
+   width:50%;
+  }
+  }
+
+  /* ADAPT MODE */
+  {% if section.settings.media_height_desktop == 'auto' %}
+  #video-text-{{ section.id }} video,
+  #video-text-{{ section.id }} img{
+    height:auto;
+  }
+  {% endif %}
+
+  /* MOBILE */
+  @media(max-width: 768px){
+    #video-text-{{ section.id }} video,
+    #video-text-{{ section.id }} img{
+      height: {{ section.settings.media_height_mobile }};
+    }
+
+    {% if section.settings.media_height_mobile == 'auto' %}
+    #video-text-{{ section.id }} video,
+    #video-text-{{ section.id }} img{
+      height:auto;
+    }
+    {% endif %}
+  }
+
+  /* DESKTOP */
+  @media(min-width: 769px){
+    #video-text-{{ section.id }} video,
+    #video-text-{{ section.id }} img{
+      width: 100%;
+      height: {% if section.settings.media_height_desktop == 'auto' %}auto{% else %}{{ section.settings.media_height_desktop }}{% endif %};
+      object-fit: contain; /* changed from contain to cover for better full height */
+    }
+  }
+
+  /* MOBILE */
+  @media(max-width: 768px){
+    #video-text-{{ section.id }} video,
+    #video-text-{{ section.id }} img{
+      width: 100%;
+      height: {% if section.settings.media_height_mobile == 'auto' %}auto{% else %}{{ section.settings.media_height_mobile }}{% endif %};
+      object-fit: contain;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Video With Text (Dynamic)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "h1",
+      "label": "Section Main Heading"
+    },
+    {
+      "type": "range",
+      "id": "hd1",
+      "label": "Heading font size (Desktop)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "hd2",
+      "label": "Heading font size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 24
+    },
+
+    {
+      "type": "range",
+      "id": "w1",
+      "label": "Text Content font size (Desktop)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 21
+    },
+    {
+      "type": "range",
+      "id": "w2",
+      "label": "Text Content font size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "u1",
+      "label": "Underline Bottom margin",
+      "min": 0,
+      "max": 70,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "un1",
+      "label": "Underline left Mrgin",
+      "min": 0,
+      "max": 70,
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "b1",
+      "label": "Show Button on Mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "s1",
+      "label": "Show Underline",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "pd1",
+      "label": "left Padding desktop ul",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 75
+    },
+    {
+      "type": "range",
+      "id": "pd2",
+      "label": "left Padding mobile ul",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "Heading h1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed for durability"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<ul><li>High quality stainless steel</li><li>Rust resistant</li></ul>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show Search Bar",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search Placeholder Text",
+      "default": "Search products..."
+    },
+    {
+      "type": "text",
+      "id": "search_btn_text",
+      "label": "Search Button Text",
+      "default": "Search"
+    },
+
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Upload Video"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_video",
+      "label": "Custom Video Code (Wistia, iframe etc)",
+      "info": "If added, uploaded video will be hidden"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Fallback Image (shown when video not added)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_1",
+      "label": "Mobile Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_2",
+      "label": "Mobile Image 2 (Below Image 1)"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (MP4)"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "Video Position",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f4f6fa"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "underline_color",
+      "label": "Underline Color",
+      "default": "#ff7a00"
+    },
+    {
+      "type": "range",
+      "id": "underline_width_desktop",
+      "label": "Underline Width Desktop",
+      "min": 40,
+      "max": 700,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "underline_width_mobile",
+      "label": "Underline Width Mobile",
+      "min": 30,
+      "max": 500,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "media_height_desktop",
+      "label": "Video / Image Height (Desktop)",
+      "default": "500px",
+      "options": [
+        { "value": "300px", "label": "300px" },
+        { "value": "400px", "label": "400px" },
+        { "value": "500px", "label": "500px" },
+        { "value": "700px", "label": "700px" },
+        { "value": "auto", "label": "Adapt to image / video" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "media_height_mobile",
+      "label": "Video / Image Height (Mobile)",
+      "default": "300px",
+      "options": [
+        { "value": "300px", "label": "300px" },
+        { "value": "500px", "label": "500px" },
+        { "value": "700px", "label": "700px" },
+        { "value": "auto", "label": "Adapt to image / video" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "cs1",
+      "label": "Please Don not edit"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video with Text (Fully Dynamic)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,278 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_text_section_i9AYz4": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (min-width: 768px) {.desc-col {width: 70%; margin: 0 auto; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 50,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading": "How to set up your filter",
+        "heading_color": "#548154",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "<p><a href=\"#shopify-section-template--27517538435456__video_p8bmxY\" title=\"#shopify-section-template--27517538435456__video_p8bmxY\">How to set up your complete Phoenix Gravity System?</a></p><p><a href=\"#shopify-section-template--27517538435456__video_gryjHC\" title=\"#shopify-section-template--27517538435456__video_gryjHC\">How to set up your Carbon Cartridge Filters?</a></p><p><a href=\"#shopify-section-template--27517538435456__video_ztzqdV\" title=\"#shopify-section-template--27517538435456__video_ztzqdV\">How to set up your POSTreat filters?</a></p><p><a href=\"#shopify-section-template--27517538435456__video_EgmKYz\" title=\"#shopify-section-template--27517538435456__video_EgmKYz\">How to set up your Carbon Cartridge and POSTreat filters?</a></p><p><a href=\"#shopify-section-template--27517538435456__video_WwVUR7\" title=\"#shopify-section-template--27517538435456__video_WwVUR7\">How to Prime Your Smart Carbon Cartridges?</a></p><p><a href=\"#shopify-section-template--27517538435456__video_z4gVEk\" title=\"#shopify-section-template--27517538435456__video_z4gVEk\">How to set up your Stainless Steel Tap?</a></p>",
+        "t1": 20,
+        "t2": 16,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#548154",
+        "bg_color": "#ffffff",
+        "padding_top": 20,
+        "padding_bottom": 15,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "set-up-class"
+      }
+    },
+    "video_p8bmxY": {
+      "type": "video",
+      "custom_css": [],
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "How to set up your complete Phoenix Gravity System",
+        "h1": "Download instructions manual <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravit__Water_Filter_System-1.pdf?v=1770965301\" title=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravit__Water_Filter_System-1.pdf?v=1770965301\">here.</a>  <a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\" title=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">Shop the filter system</a>",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/water filter expandable.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/bglkvlo7id?web_component=true&seo=false\" title=\"water filter expandable Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/player.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "video_gryjHC": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "How to set up your Carbon Cartridge Filters",
+        "h1": "Download instructions manual <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity___Carbon_Filter_2275b8c2-11e9-4233-80f2-5f84793d4bfb.pdf?v=1770968274\">here.</a>",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/Smart Carbon Cartridge Assembly.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/p64wm466cr?seo=false&videoFoam=true\" title=\"Smart Carbon Cartridge Assembly Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" msallowfullscreen width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/assets/external/E-v1.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_ztzqdV": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "<a href=\"https://phoenixwaterfilters.co.uk/pages/how-to-set-up-your-filter#postreatcarbon\">How to set up your POSTreat filters</a>",
+        "h1": "Download instructions manual <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/POSTreat__Fluoride_Filter.zip?v=1709290249\">here.</a>",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/POSTreat Assembly.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/y2k9jyycmx?web_component=true&seo=false\" title=\"POSTreat Assembly Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/player.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-71d63c58-5651-41ad-b644-2c8c3c6d241e",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_EgmKYz": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "<a href=\"https://phoenixwaterfilters.co.uk/pages/how-to-set-up-your-filter#postreatcarbon\">How to set up your Carbon Cartridge and POSTreat filters</a>",
+        "h1": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/carbon_cartridge_postreat_filters.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/9gq4iehr1y?web_component=true&seo=false\" title=\"carbon_cartridge_postreat_filters Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/player.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-71d63c58-5651-41ad-b644-2c8c3c6d241e",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_WwVUR7": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "How to Prime Your Smart Carbon Cartridges",
+        "h1": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/Smart Carbon Cartridge- Priming.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/2hwm11cnaj?web_component=true&seo=false\" title=\"Smart Carbon Cartridge- Priming Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/player.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_z4gVEk": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "How to set up your Stainless Steel Tap",
+        "h1": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/Stainless Steel Tap Assembly.mp4",
+        "custom_video": "<div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><iframe src=\"https://fast.wistia.net/embed/iframe/wsd8lcak8u?web_component=true&seo=false\" title=\"Stainless Steel Tap Assembly Video\" allow=\"autoplay; fullscreen\" allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" class=\"wistia_embed\" name=\"wistia_embed\" width=\"100%\" height=\"100%\"></iframe></div></div>\n<script src=\"https://fast.wistia.net/player.js\" async></script>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_product_card_gkaMjq": {
+      "type": "custom-product-card",
+      "blocks": {
+        "item_7jJL9m": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/image_3_1.webp",
+            "title1": "The Phoenix Gravity Filter",
+            "title": "Shop",
+            "link": "shopify://products/the-phoenix-gravity-water-filter"
+          }
+        },
+        "item_NHUVwc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_34625446_1.png",
+            "title1": "KokoCarb Cartridges",
+            "title": "Shop",
+            "link": "shopify://products/smart-carbon-cartridges"
+          }
+        },
+        "item_twRhgx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/pos110_1_2.webp",
+            "title1": "POSTreat Fluoride Filter",
+            "title": "Shop",
+            "link": "shopify://products/postreat-fluoride-remover"
+          }
+        }
+      },
+      "block_order": [
+        "item_7jJL9m",
+        "item_NHUVwc",
+        "item_twRhgx"
+      ],
+      "custom_css": [
+        "span.arrow {display: none !important;}",
+        "@media (min-width: 768px) {h3 {background: #f1d14e; width: 45%; padding: 11px 0px; margin: 0 auto; border-radius: 12px; font-size: 22px !important; font-weight: 400 !important; font-family: sans-serif; }}",
+        "h3 {background: #f1d14e; width: 45%; padding: 11px 0px; margin: 0 auto; border-radius: 12px; font-size: 22px !important; font-weight: 400 !important; font-family: sans-serif;}"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "hd1": 50,
+        "hd2": 24,
+        "w1": 30,
+        "w2": 30,
+        "heading": "Say hello to healthier hydration.",
+        "section_bg": "#4994bf",
+        "text_color": "#000000",
+        "line_color": "#4994bf",
+        "card_bg": "#4994bf",
+        "desktop_per_view": 3,
+        "mobile_per_view": 1,
+        "desktop_slider": false,
+        "mobile_slider": true,
+        "hide_arrow_desktop": false,
+        "hide_arrow_mobile": false,
+        "hide_dots_desktop": true,
+        "hide_dots_mobile": true,
+        "gap": 30,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_lr": 20,
+        "margin_top": 24,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_text_section_i9AYz4",
+    "video_p8bmxY",
+    "video_gryjHC",
+    "video_ztzqdV",
+    "video_EgmKYz",
+    "video_WwVUR7",
+    "video_z4gVEk",
+    "custom_product_card_gkaMjq"
+  ]
+}

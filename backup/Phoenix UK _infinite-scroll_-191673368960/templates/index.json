@@ -1,0 +1,970 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_hero_video_CjriFB": {
+      "type": "custom-hero-video",
+      "name": "Video With Text - Dynamic",
+      "settings": {
+        "video": "shopify://files/videos/Stainless Phoenix Gravity_full_view.mp4",
+        "custom_video_code": "",
+        "w1": 50,
+        "w2": 35,
+        "w3": 18,
+        "w4": 16,
+        "heading": "Better way to drink water, Naturally.",
+        "subheading": "Eco-conscious, stainless steel filtration trusted by families worldwide.",
+        "button_text": "Shop Now",
+        "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "video_height_desktop": "540px",
+        "video_height_mobile": "450px",
+        "bg_color": "#ffffff",
+        "button_bg": "#132555",
+        "button_text1": "#ffffff",
+        "overlay_color": "#fff1f1",
+        "br1": 10,
+        "overlay_opacity": 0.1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "gap": 20
+      }
+    },
+    "multicolumn_zdYEgW": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LPJjW4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/52.png",
+            "title": "",
+            "text": "<p>Removes 99.9% of contaminants</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_HYyDKn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PW_Asset_59.png",
+            "title": "",
+            "text": "<p>Highest-grade stainless steel</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pCfqdz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/206.png",
+            "title": "",
+            "text": "<p>Natural activated carbon filtration</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_mYibbt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/76.png",
+            "title": "",
+            "text": "<p>Planet-friendly purification</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wWghhT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/192.png",
+            "title": "",
+            "text": "<p>Fresh taste you can trust</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cqYLVt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/95.png",
+            "title": "",
+            "text": "<p>10 year warranty</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_LPJjW4",
+        "column_HYyDKn",
+        "column_pCfqdz",
+        "column_mYibbt",
+        "column_wWghhT",
+        "column_cqYLVt"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 6,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-4e2cfd45-dbce-40c5-b168-78ac9e94dfa5",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": "homepage-custom-class"
+      }
+    },
+    "custom_product_card_G37DB8": {
+      "type": "custom-product-card",
+      "blocks": {
+        "item_QhCXpn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/home_filter.png",
+            "title1": "",
+            "title": "Filter Systems",
+            "link": "/collections/all-collections#filtration-products"
+          }
+        },
+        "item_WRrWKj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/home_cartridges.webp",
+            "title1": "",
+            "title": "Replacement Cartridges",
+            "link": "/collections/all-collections#replacement-cartridges"
+          }
+        },
+        "item_jP6iNV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/image.webp",
+            "title1": "",
+            "title": "Accessories",
+            "link": "/collections/all-collections#accessories"
+          }
+        }
+      },
+      "block_order": [
+        "item_QhCXpn",
+        "item_WRrWKj",
+        "item_jP6iNV"
+      ],
+      "custom_css": [
+        ".swiper-pagination {position: relative;}",
+        "@media (max-width: 768px) {span.arrow {display: none !important; } .card {margin: 44px 40px 15px 40px; }}",
+        "@media (min-width: 768px) {a.card {height: 570px; }}",
+        "span.swiper-pagination-bullet-active {background: #ff6a00;}"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "w1": 30,
+        "w2": 20,
+        "heading": "Say hello to healthier hydration.",
+        "section_bg": "#eaeef1",
+        "text_color": "#000000",
+        "line_color": "#ff6a00",
+        "card_bg": "#ffffff",
+        "desktop_per_view": 3,
+        "mobile_per_view": 1,
+        "desktop_slider": false,
+        "mobile_slider": true,
+        "hide_arrow_desktop": false,
+        "hide_arrow_mobile": true,
+        "hide_dots_desktop": false,
+        "hide_dots_mobile": false,
+        "gap": 0,
+        "padding_top": 24,
+        "padding_bottom": 20,
+        "padding_lr": 100,
+        "margin_top": 28,
+        "margin_bottom": 0
+      }
+    },
+    "custom_box_y77ar4": {
+      "type": "custom-box",
+      "blocks": {
+        "card_P3bcQk": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon12.png",
+            "heading": "Removes impurities, not nutrients",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#fbfdff",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#fbfdff",
+            "button_bg": "#deb1b2",
+            "button_text_color": "#ffffff",
+            "hover_heading": "Removes impurities, not nutrients",
+            "sub_heading": "We remove up to 99.99% of chlorine, bacteria, viruses, heavy metals and other contaminants and >95% of fluoride – whilst retaining 100% of the nutrients your body needs from magnesium, zinc, potassium and more",
+            "button_text": "Shop Now",
+            "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+            "card_bg": "#f9d24e",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_QkpYJB": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon13.png",
+            "heading": "Saves money and time",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#ffffff",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#ffffff",
+            "button_bg": "#f9d24e",
+            "button_text_color": "#ffffff",
+            "hover_heading": "Saves money and time",
+            "sub_heading": "Our filters don’t require a plumber or electricity and are easy to install. We use the highest grade durable stainless steel and our activated carbon filters can last up to 12 months, minimising replacement time and costs.",
+            "button_text": "Shop Now",
+            "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+            "card_bg": "#f08323",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_jicqQN": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon15.png",
+            "heading": "Better taste you can trust",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#ffffff",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#ffffff",
+            "button_bg": "#f5d24f",
+            "button_text_color": "#ffffff",
+            "hover_heading": "Better taste you can trust",
+            "sub_heading": "With 40+ years of bringing water back to its nutrient-rich natural state, we’re the leading global manufacturer of gravity water filters. Our products come with a 100 day money back guarantee and 10 year warranty.",
+            "button_text": "Shop Now",
+            "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+            "card_bg": "#ddb3b3",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_DXx3hV": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/icon14.png",
+            "heading": "Plastic (and guilt) free purification",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#ffffff",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#ffffff",
+            "button_bg": "#f5d24f",
+            "button_text_color": "#ffffff",
+            "hover_heading": "Plastic (and guilt) free purification",
+            "sub_heading": "We use 304 grade stainless steel, environmentally-friendly materials and virtually zero plastic in our solar-powered factory to leave your water contaminant and guilt-free.",
+            "button_text": "Shop Now",
+            "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+            "card_bg": "#538353",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_P3bcQk",
+        "card_QkpYJB",
+        "card_jicqQN",
+        "card_DXx3hV"
+      ],
+      "name": "Hover Text Dynamic",
+      "settings": {
+        "enable_hover_effect": true,
+        "hd1": 40,
+        "hd2": 24,
+        "hd3": 40,
+        "hd4": 24,
+        "enable_mobile_hover": false,
+        "h1": "A better way to drink water, naturally.",
+        "h2": "",
+        "section_bg": "#eaeef1",
+        "desktop_height": 410,
+        "mobile_height": 320,
+        "desktop_columns": 2,
+        "mobile_columns": 1,
+        "gap": 40,
+        "card_padding": 20,
+        "radius": 0,
+        "button_radius": 0,
+        "icon_size": 140,
+        "padding_top": 49,
+        "padding_bottom": 39,
+        "padding_lr": 100,
+        "p1": 23,
+        "p3": 11,
+        "p2": 10,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "custom_text_section_LadCey": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (max-width: 768px) {.cta-btn {padding: 4px 18px; } .bottom-cta {width: 100%; } .cta-icon img {max-width: 35px; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_icon": "shopify://shop_images/208_13463021-0287-4791-bf88-3bbca5169d27.png",
+        "bottom_heading": "If you don’t like your water filter, within 100 days we’ll give you a full refund.",
+        "w1": 24,
+        "w2": 14,
+        "bottom_heading1": "",
+        "bottom_button_text": "Return Policy",
+        "bottom_button_link": "shopify://pages/delivery-and-returns",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#ffffff",
+        "bg_color": "#33523a",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 170,
+        "btn_width_mobile": 125,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "custom_video_text_UkdzaD": {
+      "type": "custom-video-text",
+      "custom_css": [
+        ".video-text-wrapper {width: 90%; margin: 0 auto;}",
+        "@media (min-width: 768px) {.video-text-content {width: 40%; margin: 0 auto; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 30,
+        "hd2": 24,
+        "w1": 18,
+        "w2": 16,
+        "u1": 13,
+        "un1": 0,
+        "b1": false,
+        "s1": true,
+        "pd1": 100,
+        "pd2": 40,
+        "heading": "Your health can only be as good as your water.",
+        "text": "<p>We’re always told to drink more water, but do you know what it actually does?</p><p>The quality of your water impacts the quality of your sleep, skin, hair, immunity, brain power, health - and much, much more. Your body is made up of 60% water; you are what you drink.</p>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/Rectangle_34627098.webp",
+        "image_mobile_1": "shopify://shop_images/4.jpg",
+        "image_mobile_2": "shopify://shop_images/reach.jpg",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "left",
+        "bg_color": "#eaeef1",
+        "text_color": "#1c1c1c",
+        "underline_color": "#33523a",
+        "underline_width_desktop": 490,
+        "underline_width_mobile": 310,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "auto",
+        "cs1": "homepage-custom-class"
+      }
+    },
+    "custom_video_text_Lbz68V": {
+      "type": "custom-video-text",
+      "custom_css": [
+        ".video-text-wrapper {width: 90%; margin: 0 auto;}",
+        "@media (max-width: 768px) {.video-text-heading {width: 90%; margin: 0 auto; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 30,
+        "hd2": 24,
+        "w1": 18,
+        "w2": 16,
+        "u1": 11,
+        "un1": 0,
+        "b1": true,
+        "s1": true,
+        "pd1": 75,
+        "pd2": 40,
+        "heading": "But nutrient-rich, impurity-free water isn’t always on tap.",
+        "text": "<p><strong>Less than 1 percent </strong>of the earth’s freshwater is accessible and <strong>over three billion people </strong>globally are at risk of disease because of unknown water quality. Almost <strong>all of UK waters are polluted and almost a third of Europe’s </strong>groundwater bodies are significantly affected by pollution.</p><p>Tap water can be contaminated by heavy metals, pesticides, chlorine byproducts, industrial pollutants and more - compromising its quality, taste, and impact on our health.<strong>We’re here to change that</strong>.</p>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/Rectangle_34627099.webp",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "#eaeef1",
+        "text_color": "#1c1c1c",
+        "underline_color": "#33523a",
+        "underline_width_desktop": 610,
+        "underline_width_mobile": 315,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "300px",
+        "cs1": ""
+      }
+    },
+    "custom_icon_image_slider_UYTXTk": {
+      "type": "custom-icon-image-slider",
+      "blocks": {
+        "logo_yjcaUd": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/micro.png",
+            "title": "Microplastics",
+            "subtitle": "99%",
+            "link_url": ""
+          }
+        },
+        "logo_AKm7KT": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/cll.webp",
+            "title": "Chlorine",
+            "subtitle": "99%",
+            "link_url": ""
+          }
+        },
+        "logo_Ybn6nH": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/pestic.png",
+            "title": "Pesticides",
+            "subtitle": "99%",
+            "link_url": ""
+          }
+        },
+        "logo_KzqnG7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/heavy_metals_2.webp",
+            "title": "Heavy Metals",
+            "subtitle": "99.9%",
+            "link_url": ""
+          }
+        },
+        "logo_KYCk7U": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/pfa_1.webp",
+            "title": "PFAS",
+            "subtitle": "95%",
+            "link_url": ""
+          }
+        },
+        "logo_rHtUPY": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/parasites_1.webp",
+            "title": "Parasites",
+            "subtitle": "99.9%",
+            "link_url": ""
+          }
+        },
+        "logo_dxDhzB": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Bacteria_2.webp",
+            "title": "Bacteria",
+            "subtitle": "99.999%",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_yjcaUd",
+        "logo_AKm7KT",
+        "logo_Ybn6nH",
+        "logo_KzqnG7",
+        "logo_KYCk7U",
+        "logo_rHtUPY",
+        "logo_dxDhzB"
+      ],
+      "name": "Logo Slider – Fully Dynamic",
+      "settings": {
+        "heading": "What Phoenix Gravity Water Filters remove?",
+        "bg_color": "#eaeef1",
+        "text_color": "#000000",
+        "heading_size": 40,
+        "heading_size_mobile": 24,
+        "logo_size_desktop": 100,
+        "logo_size_mobile": 125,
+        "desktop_slides": 5,
+        "tablet_slides": 4,
+        "mobile_slides": 1,
+        "autoplay_speed": 3000,
+        "show_arrows": true,
+        "show_dots": false,
+        "padding_top": 5,
+        "padding_bottom": 5,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "custom_text_section_Qh38XX": {
+      "type": "custom-text-section",
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading": "Here’s How It Works",
+        "heading_color": "#1e1e1e",
+        "line_color": "rgba(0,0,0,0)",
+        "line_width_desktop": 40,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#2d2d4f",
+        "bg_color": "#eaeef1",
+        "padding_top": 5,
+        "padding_bottom": 10,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "video_NKgAp7": {
+      "type": "video",
+      "custom_css": [
+        ".video-section.isolate {width: 100%;}"
+      ],
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "h1": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/home page video_0fc83c69-7757-45f4-92aa-3c6cf4482e6a.mp4",
+        "custom_video": "<script src=\"https://fast.wistia.com/player.js\" async></script><script src=\"https://fast.wistia.com/embed/s5hzvgf7g6.js\" async type=\"module\"></script><style>wistia-player[media-id='s5hzvgf7g6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/s5hzvgf7g6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id=\"s5hzvgf7g6\" seo=\"false\" aspect=\"1.7777777777777777\"></wistia-player>\n<style>\n.video-section__media.gradient.global-media-settings {\n    padding: 0px !important;\n}\n</style>",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "custom_text_section_9yXnNX": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; }}",
+        "@media (max-width: 768px) {.cta-headings {text-align: center; } .bottom-cta {width: 100%; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "m2": "shopify://shop_images/image_7_06c0aa34-45eb-402f-8f9c-1ad5a64da55e.webp",
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "rgba(0,0,0,0)",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "Better quality you can taste, on tap",
+        "w1": 29,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "Yes Please",
+        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#ffffff",
+        "bg_color": "#33523a",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-class-2"
+      }
+    },
+    "custom_liquid_h3eXNW": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"img-mobile\"><img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/3_4.jpg?v=1708074030\"></div>\n\n<style>\n@media(min-width: 768px)\n{\n.img-mobile{\ndisplay:none;\n}\n}\n.img-mobile img{\nwidth:100%;\npadding:15px 15px 0px 15px;\n}\n</style>",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_video_text_UhQdg8": {
+      "type": "custom-video-text",
+      "custom_css": [
+        "@media (max-width: 768px) {.video-text-desc {padding: 0px 20px; } a.video-text-btn {padding: 4px 18px !important; }}",
+        "@media (min-width: 768px) {.reverse {padding-top: 40px; } .for-desktop {text-align: center; } p {margin-bottom: 0px; } .video-text-wrapper {align-items: flex-start; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 40,
+        "hd2": 24,
+        "w1": 18,
+        "w2": 16,
+        "u1": 0,
+        "un1": 0,
+        "b1": true,
+        "s1": true,
+        "pd1": 54,
+        "pd2": 40,
+        "heading": "We’re here for your hydration.",
+        "text": "<p>We believe that <strong>great-tasting, impurity-free </strong>water is a basic right - not a privilege. As the world’s leading manufacturer of gravity water filters, we’re on a mission to make <strong>healthier hydration </strong>accessible to everyone,</p><p>wherever they need it most. We also happen to be one of the oldest kids on the block, bringing water back to its straight-from-the-<strong>source purity </strong>since 1978.</p>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/img_8_ad49cf84-b8f4-4320-b362-cfe609deca59.webp",
+        "button_text": "Read Our Story",
+        "button_link": "shopify://pages/about",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "#eaeef1",
+        "text_color": "#1c1c1c",
+        "underline_color": "#deb1b2",
+        "underline_width_desktop": 540,
+        "underline_width_mobile": 345,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "300px",
+        "cs1": "custom-button-text"
+      }
+    },
+    "custom_text_section_VHGNtL": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; }}",
+        "@media (max-width: 768px) {.cta-headings {text-align: center; } .bottom-cta {width: 100%; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "rgba(0,0,0,0)",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "Say hello to hydration, as it should be.",
+        "w1": 29,
+        "w2": 17,
+        "bottom_heading1": "",
+        "bottom_button_text": "Shop Now",
+        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#121212",
+        "text_color": "#ffffff",
+        "bg_color": "#4994bf",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-class-2"
+      }
+    },
+    "custom_review_slider_7jXPmM": {
+      "type": "custom-review-slider",
+      "blocks": {
+        "testimonial_4G4e94": {
+          "type": "testimonial",
+          "settings": {
+            "review": "Had this for a few months. It works brilliantly. Haven't had to replace the filters yet. Quality is definitely good enough.",
+            "name": "Last of The Meketrex Supplicants",
+            "stars": 4
+          }
+        },
+        "testimonial_MBkHYY": {
+          "type": "testimonial",
+          "settings": {
+            "review": "Well made unit, easy to assemble, reasonable rate of filtration, good value for money compared to other granular activated carbon filters.",
+            "name": "Gary D",
+            "stars": 5
+          }
+        },
+        "testimonial_3YmLmX": {
+          "type": "testimonial",
+          "settings": {
+            "review": "So much better than i thought it would be. It looks really good, very sturdy, and the water is so soft. Wish id bought one years ago.",
+            "name": "Gilly K Edwards",
+            "stars": 5
+          }
+        },
+        "testimonial_mgxzFQ": {
+          "type": "testimonial",
+          "settings": {
+            "review": "We were looking for a solid filter that would be easy to maintain, easy to build, long lasting, and effective. Meets the mark on all accounts!",
+            "name": "Andrew Narduzzi",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_4G4e94",
+        "testimonial_MBkHYY",
+        "testimonial_3YmLmX",
+        "testimonial_mgxzFQ"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.phoenix-card {width: 80%; margin: 0 auto; }}"
+      ],
+      "name": "Phoenix Testimonial Slider",
+      "settings": {
+        "heading": "The Phoenix Difference",
+        "subheading": "Straight from the source(s)",
+        "bg_color": "#eaeef1",
+        "show_arrows_desktop": true,
+        "show_arrows_mobile": true,
+        "show_dots_desktop": true,
+        "show_dots_mobile": true,
+        "padding_top": 5,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_jEFEQQ": {
+      "type": "rich-text",
+      "blocks": {
+        "text_e68ijB": {
+          "type": "text",
+          "settings": {
+            "text": "<h1><a href=\"https://www.instagram.com/phoenixgravityfilters_uk/\"><span style=\"text-decoration:underline\">Stay Connected.</span></a></h1>"
+          }
+        }
+      },
+      "block_order": [
+        "text_e68ijB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "custom_hero_video_CjriFB",
+    "multicolumn_zdYEgW",
+    "custom_product_card_G37DB8",
+    "custom_box_y77ar4",
+    "custom_text_section_LadCey",
+    "custom_video_text_UkdzaD",
+    "custom_video_text_Lbz68V",
+    "custom_icon_image_slider_UYTXTk",
+    "custom_text_section_Qh38XX",
+    "video_NKgAp7",
+    "custom_text_section_9yXnNX",
+    "custom_liquid_h3eXNW",
+    "custom_video_text_UhQdg8",
+    "custom_text_section_VHGNtL",
+    "custom_review_slider_7jXPmM",
+    "rich_text_jEFEQQ"
+  ]
+}

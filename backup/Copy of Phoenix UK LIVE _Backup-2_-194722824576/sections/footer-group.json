@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand_information_UcaYLz": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true,
+            "p1": "<p>Phoenix Water Filters Ltd</p><p>Registered office: Unit 1, Batsworth Road, Mitcham, London, England, CR4 3BX Registered in England and Wales.</p><p>Company Number:14397753. </p><p>VAT Number:425 483883.  <br/></p><p><a href=\"mailto:support@phoenixwaterfilters.co.uk\" target=\"_blank\" title=\"mailto:support@phoenixwaterfilters.co.uk\">support@phoenixwaterfilters.co.uk</a></p>",
+            "p2": "<p><a href=\"tel:+442080585660\" target=\"_blank\" title=\"tel:+442080585660\">+4420 8058 5660</a></p>"
+          }
+        },
+        "link_list_HchFjM": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "new-footer-main",
+            "l1": "#"
+          }
+        },
+        "link_list_6TmK8C": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "new-footer-menu-2",
+            "m1": "shopify://shop_images/amazon_whitelogo30.png",
+            "l1": "https://www.amazon.co.uk/stores/PHOENIXGRAVITY/page/81F6602D-F3A3-47BC-9FD4-A38E4D60C879"
+          }
+        },
+        "text_kEVfwh": {
+          "type": "text",
+          "settings": {
+            "heading": "Be the first to know.",
+            "subtext": "<p>Sign up for exclusive offers and health news</p>"
+          }
+        }
+      },
+      "block_order": [
+        "brand_information_UcaYLz",
+        "link_list_HchFjM",
+        "link_list_6TmK8C",
+        "text_kEVfwh"
+      ],
+      "custom_css": [
+        ".footer__content-bottom.scroll-trigger {display: none;}",
+        "a {color: white; text-decoration: none;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "p3": "<p>Phoenix Gravity is specially and exclusively designed and manufactured by Rama, the leading global manufacturer of advanced gravity water filters.</p>",
+        "p4": "<p>A British-Indian partnership. Responsibly produced in India, lovingly shipped internationally. © Copyright 2026 Phoenix Gravity Water Filters</p>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

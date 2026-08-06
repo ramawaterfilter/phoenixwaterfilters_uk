@@ -1,0 +1,9 @@
+{%- liquid
+  assign visible_item_count = cart.item_count
+  for item in cart.items
+    if item.properties._bundle_type == 'phoenix-auto-subscription' and item.properties._bundle_role == 'subscription'
+      assign visible_item_count = visible_item_count | minus: item.quantity
+    endif
+  endfor
+-%}
+{{ 'general.cart.view' | t: count: visible_item_count }}

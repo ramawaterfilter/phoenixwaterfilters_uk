@@ -1,0 +1,968 @@
+{% assign uid = section.id %}
+
+<section
+  id="product-desc-{{ uid }}"
+  class="product-desc-{{ uid }} {{ section.settings.cs1 }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width customp">
+
+
+
+ {% if section.settings.heading2 != blank %}
+      <h1 class="desc-heading hn-k">
+        {{ section.settings.heading2 }}
+      </h1>
+{% endif %}
+
+
+    {% if section.settings.heading != blank %}
+      <h2 class="desc-heading hn-k">
+        {{ section.settings.heading }}
+      </h2>
+  {% if section.settings.show_heading_line %}
+  <div class="heading-line"></div>
+{% endif %}
+
+    {% endif %}
+
+    <div class="desc-grid">
+           {% if section.settings.left_content != blank %}
+      <div class="desc-col">
+        {{ section.settings.left_content }}
+      </div>
+       {% endif %}
+
+           {% if section.settings.right_content != blank %}
+      <div class="desc-col">
+        {{ section.settings.right_content }}
+      </div>
+       {% endif %}
+    </div>
+
+    {% if section.settings.bottom_heading != blank or section.settings.bottom_button_text != blank %}
+      <div class="bottom-cta">
+        
+        <div class="both-cta-txt">
+        {% if section.settings.bottom_icon != blank %}
+          <div class="cta-icon">
+            <img
+              src="{{ section.settings.bottom_icon | image_url: width: 60 }}"
+              width="60"
+              height="60"
+              loading="lazy"
+              alt="10-year warranty"
+              class="bottom-cta-icon-image"
+            >
+          </div>
+        {% endif %}
+
+
+          <div class="cta-headings">
+        {% if section.settings.bottom_heading != blank %}
+          <div class="cta-heading">
+            {{ section.settings.bottom_heading }}
+          </div>
+        {% endif %}
+
+          {% if section.settings.bottom_heading1 != blank %}
+          <div class="cta-heading1">
+            {{ section.settings.bottom_heading1 }}
+          </div>
+        {% endif %}
+        </div>
+        </div>
+
+        {% if section.settings.bottom_button_text != blank %}
+          <a href="{{ section.settings.bottom_button_link }}" class="cta-btn kl">
+            {{ section.settings.bottom_button_text }}
+          </a>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {% if section.settings.c1%}
+          <div class="bottom-image">
+          {% if section.settings.m2 != blank %}
+          <div class="cta-image">
+       <img src="{{ section.settings.m2 | img_url: 'master' }}" alt="icon">
+          </div>
+          {% endif %}
+          </div>
+        {% endif %}
+{% if section.settings.show_bottom_buttons %}
+  <div class="bottom-buttons-row">
+
+    {% for i in (1..5) %}
+
+      {% capture btn_text_key %}btn_text_{{ i }}{% endcapture %}
+      {% capture btn_link_key %}btn_link_{{ i }}{% endcapture %}
+      {% capture btn_bg_key %}btn_bg_{{ i }}{% endcapture %}
+      {% capture btn_text_color_key %}btn_text_color_{{ i }}{% endcapture %}
+      {% capture btn_border_key %}btn_border_color_{{ i }}{% endcapture %}
+
+      {% assign btn_text = section.settings[btn_text_key] %}
+      {% assign btn_link = section.settings[btn_link_key] %}
+      {% assign btn_bg = section.settings[btn_bg_key] %}
+      {% assign btn_text_color = section.settings[btn_text_color_key] %}
+      {% assign btn_border = section.settings[btn_border_key] %}
+
+      {% if btn_text != blank %}
+        <a
+          href="{{ btn_link }}"
+          class="bottom-btn"
+          style="
+            background-color: {{ btn_bg }};
+            color: {{ btn_text_color }};
+            border: 2px solid {{ btn_border }};
+          "
+        >
+          {{ btn_text }}
+        </a>
+      {% endif %}
+
+    {% endfor %}
+
+  </div>
+{% endif %}   
+  </div>
+
+{% if section.settings.show_faq_search %}
+  <div class="faq-search-wrap">
+    <input
+      type="text"
+      id="faqSearch-{{ uid }}"
+      placeholder="{{ section.settings.faq_search_placeholder }}"
+      class="faq-search-input"
+    >
+  </div>
+{% endif %}
+
+
+</section>
+
+<style>
+
+
+#product-desc-{{ uid }} .faq-search-wrap {
+  max-width: 500px;
+  margin: 20px auto 40px;
+}
+
+#product-desc-{{ uid }} .faq-search-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  outline: none;
+}
+
+#product-desc-{{ uid }} .faq-search-input:focus {
+  border-color: #f69320;
+}
+
+#product-desc-{{ uid }} .bottom-buttons-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.buttons_per_row_desktop }}, 1fr);
+  gap: 12px;
+}
+
+#product-desc-{{ uid }} .bottom-btn {
+  padding: 7px 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  transition: 0.3s ease;
+  width: {{ section.settings.btn_width_desktop }}px;
+  margin: 0 auto;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-desc-{{ uid }} .bottom-btn:hover {
+  opacity: 0.85;
+  border: 2px solid #f69320;
+}
+
+@media (max-width: 768px) {
+  #product-desc-{{ uid }} .bottom-buttons-row {
+    grid-template-columns: repeat({{ section.settings.buttons_per_row_mobile }}, 1fr);
+  }
+  #product-desc-{{ uid }} .bottom-btn {
+    width: {{ section.settings.btn_width_mobile }}px;
+  }
+  #product-desc-{{ uid }} .bottom-btn {
+  margin: 0 auto;
+}
+.both-cta-txt {
+    display: flex;
+    text-align: left;
+    gap: 10px;
+    align-items: center;
+}
+}
+
+
+
+
+section.custom-class-2.gh .bottom-cta {
+    justify-content: space-between !important;
+}
+section.custom-class-2.gh .cta-heading {
+        font-size: 29px !important;
+}
+section.custom-class-2.gh .both-cta-txt {
+    width: 70%;
+}
+section.custom-class-2.gh a.cta-btn {
+    padding: 5px 47px !important;
+    font-size: 24px !important;
+}
+
+  #product-desc-{{ uid }} .heading-line {
+    width: {{ section.settings.line_width_desktop }}px;
+    height: 3px;
+    background-color: {{ section.settings.line_color }};
+    display:block;
+  }
+
+  #product-desc-{{ uid }} .desc-col {
+    color: {{ section.settings.text_color }};
+    line-height: 1.8;
+  }
+    #product-desc-{{ uid }} .desc-col a {
+    color: {{ section.settings.text_color }};
+    text-decoration:none;
+  }
+
+  #product-desc-{{ uid }} ul {
+    padding-left: 20px;
+  }
+  /* Bottom CTA */
+  #product-desc-{{ uid }} .bottom-cta {
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  {% comment %} #product-desc-{{ uid }} .cta-icon img {
+    max-width: 60px;
+  } {% endcomment %}
+  #product-desc-{{ uid }} .cta-btn:hover {
+    opacity: 0.85;
+  }
+    @media (min-width: 768px) {
+  #product-desc-{{ uid }} .cta-heading {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.w1 }}px;
+    font-weight: 900;
+    line-height: 1.2em;
+    text-decoration: none;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0px;
+  }
+      #product-desc-{{ uid }} .desc-grid {
+    width: 95%;
+    margin:0 auto;
+  }
+  .product-desc-{{ uid }} .page-width.customp {
+    padding: 0px;
+    max-width: 100%;
+}
+   #product-desc-{{ uid }} .desc-col {
+    font-size: {{ section.settings.t1 }}px;
+  }
+  .both-cta-txt {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+  .cta-image img {
+    display: none;
+}
+    #product-desc-{{ uid }} .cta-btn {
+    padding: 12px 22px;
+    background-color: {{ section.settings.button_bg }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: 0.3s ease;
+  }
+    #product-desc-{{ uid }} .heading-line {
+    margin: 0 auto 40px;
+  }
+    #product-desc-{{ uid }} .desc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+    #product-desc-{{ uid }} li {
+        margin-bottom: 6px;
+    font-size: 21px;
+    line-height: 33px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family: sans-serif;
+    color:{{ section.settings.cl1 }};
+  }
+    #product-desc-{{ uid }} .desc-heading {
+    text-align: center;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.hd1 }}px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: 'DM Sans';
+}
+.custom-class-2 a.cta-btn {
+    padding: 5px 30px !important;
+    font-size: 18px !important;
+    margin-left: 0px !important;
+    border-radius: 10px !important;
+}
+.set-up-class .desc-heading {
+  text-align: left !important;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.set-up-class .desc-grid {
+  display: block !important;
+  width: 73%;
+  margin: 0 auto;
+}
+.set-up-class h2.desc-heading.hn-k:before {
+    content: "";
+    background-image: url('https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833');
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    display: inline-block;
+    top: 14px;
+    margin-right: 15px;
+}
+.set-up-class h1.desc-heading.hn-k:before {
+    content: "";
+    background-image: url('https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833');
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    display: inline-block;
+    top: 14px;
+    margin-right: 15px;
+}
+}
+
+
+
+  @media (max-width: 768px) {
+    #product-desc-{{ uid }} .desc-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .video-section h2.title.inline-richtext.h1 {
+    font-size: 18px;
+}
+    .set-up-class h2.desc-heading.hn-k:before {
+    content: "";
+    background-image: url('https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833');
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    display: inline-block;
+    top: 14px;
+    margin-right: 15px;
+}
+    .set-up-class h1.desc-heading.hn-k:before {
+    content: "";
+    background-image: url('https://cdn.shopify.com/s/files/1/0735/1821/9557/files/220.png?v=1700471833');
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    display: inline-block;
+    top: 14px;
+    margin-right: 15px;
+}
+    .set-up-class .desc-heading {
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.set-up-class .desc-grid {
+  display: block !important;
+  width: 90%;
+  margin: 0 auto;
+}
+       #product-desc-{{ uid }} .desc-col {
+    font-size: {{ section.settings.t2 }}px;
+  }
+      .custom-class-2 a.cta-btn {
+    padding: 5px 30px !important;
+    font-size: 18px !important;
+    margin-left: 0px !important;
+    border-radius: 10px !important;
+}
+    .cta-image img {
+    width: 100%;
+    padding-top: 30px;
+}
+  #product-desc-{{ uid }} .cta-btn {
+    padding: 10px 10px;
+    background-color: {{ section.settings.button_bg }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px !important;
+    font-weight: 500;
+    transition: 0.3s ease;
+  }
+        #product-desc-{{ uid }} .heading-line {
+    margin: 0 auto 25px;
+  }
+      #product-desc-{{ uid }} .desc-grid {
+    display: block;
+  }
+      #product-desc-{{ uid }} li {
+  margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 170%;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+    color:{{ section.settings.cl1 }};
+  }
+      #product-desc-{{ uid }} .desc-heading {
+    text-align: center;
+    color: {{ section.settings.heading_color }};
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+.about-custom-text .cta-heading {
+    font-size: 18px !important;
+    text-align:center;
+}
+  #product-desc-{{ uid }} .cta-heading {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.w2 }}px;
+    font-weight: 900;
+    line-height: 150%;
+    text-decoration: none;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: 0px;
+    font-family: "DM Sans", sans-serif;
+  }
+    #product-desc-{{ uid }} .desc-heading {
+      font-size: {{ section.settings.hd2 }}px;
+    }
+
+    #product-desc-{{ uid }} .heading-line {
+      width: {{ section.settings.line_width_mobile }}px;
+    }
+
+    #product-desc-{{ uid }} .bottom-cta {
+      flex-direction: row;
+      text-align: center;
+    }
+  }
+
+</style>
+{% if section.settings.show_faq_search %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("faqSearch-{{ uid }}");
+  if (!searchInput) return;
+
+  const faqItems = document.querySelectorAll(
+    "#product-desc-{{ uid }} .desc-col li, #product-desc-{{ uid }} .desc-col p"
+  );
+
+  searchInput.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+
+    faqItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(value) ? "" : "none";
+    });
+  });
+});
+</script>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
+  if (!ctaButton) return;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const ctaButton = document.querySelector("#product-desc-{{ uid }} .cta-btn");
+  if (!ctaButton) return;
+
+  ctaButton.addEventListener("click", function (event) {
+    if (!this.getAttribute("href") || this.getAttribute("href") === "#") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    // warna normal navigation hone do
+  });
+});
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom text",
+  "settings": [
+       {
+      "type": "range",
+      "id": "hd1",
+      "label": "Heading Size (Desktop)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 40
+    },
+          {
+      "type": "range",
+      "id": "hd2",
+      "label": "Heading Size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 24
+    },
+    
+{
+  "type": "checkbox",
+  "id": "show_heading_line",
+  "label": "Show Heading Line",
+  "default": true
+},
+
+        {
+      "type": "checkbox",
+      "id": "c1",
+      "label": "Show Image in Mobile View"
+    },
+      {
+      "type": "image_picker",
+      "id": "m2",
+      "label": "Head Image"
+    },
+
+
+   {
+      "type": "text",
+      "id": "heading2",
+      "label": "Main Heading 2",
+    },
+
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Product Description"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#1e1e1e"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Underline Color",
+      "default": "#ff7a00"
+    },
+    {
+      "type": "range",
+      "id": "line_width_desktop",
+      "label": "Underline Width (Desktop)",
+      "min": 40,
+      "max": 800,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "line_width_mobile",
+      "label": "Underline Width (Mobile)",
+      "min": 40,
+      "max": 500,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "richtext",
+      "id": "left_content",
+      "label": "Left Column Content"
+    },
+    {
+      "type": "range",
+      "id": "t1",
+      "label": "Left-Right Text Size Desktop",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "t2",
+      "label": "Left-Right Text Size Mobile",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 18
+    },
+       {
+      "type": "range",
+      "id": "text_width",
+      "label": "Left-Right Text Width",
+      "min": 800,
+      "max": 1200,
+      "step": 50,
+      "default": 1200
+    },
+      {
+      "type": "color",
+      "id": "cl1",
+      "label": "Column Content Color",
+      "default": "#2f2954"
+    },
+    {
+      "type": "richtext",
+      "id": "right_content",
+      "label": "Right Column Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon",
+      "label": "Bottom Icon"
+    },
+    {
+      "type": "text",
+      "id": "bottom_heading",
+      "label": "Bottom Heading"
+    },
+      {
+      "type": "range",
+      "id": "w1",
+      "label": "Bottom Heading Size Desktop",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 24
+    },
+      {
+      "type": "range",
+      "id": "w2",
+      "label": "Bottom Heading Size Mobile",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 16
+    },
+      {
+      "type": "richtext",
+      "id": "bottom_heading1",
+      "label": "Bottom Sub Heading"
+    },
+    {
+      "type": "text",
+      "id": "bottom_button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "bottom_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background Color",
+      "default": "#ff7a00"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2d2d4f"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f4f7f8"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+  "type": "header",
+  "content": "Bottom Buttons"
+},
+{
+  "type": "checkbox",
+  "id": "show_bottom_buttons",
+  "label": "Show Bottom Buttons",
+  "default": false
+},
+{
+  "type": "range",
+  "id": "buttons_per_row_desktop",
+  "label": "Buttons per row (Desktop)",
+  "min": 1,
+  "max": 5,
+  "step": 1,
+  "default": 4
+},
+{
+  "type": "range",
+  "id": "buttons_per_row_mobile",
+  "label": "Buttons per row (Mobile)",
+  "min": 1,
+  "max": 3,
+  "step": 1,
+  "default": 2
+},
+{
+  "type": "range",
+  "id": "btn_width_desktop",
+  "label": "Button Width (Desktop px)",
+  "min": 120,
+  "max": 450,
+  "step": 10,
+  "default": 200
+},
+{
+  "type": "range",
+  "id": "btn_width_mobile",
+  "label": "Button Width (Mobile px)",
+  "min": 100,
+  "max": 300,
+  "step": 5,
+  "default": 155
+},
+
+{
+  "type": "text",
+  "id": "btn_text_1",
+  "label": "Button 1 Text"
+},
+{
+  "type": "url",
+  "id": "btn_link_1",
+  "label": "Button 1 Link"
+},
+{
+  "type": "color",
+  "id": "btn_bg_1",
+  "label": "Button 1 Background",
+  "default": "#ff7a00"
+},
+{
+  "type": "color",
+  "id": "btn_text_color_1",
+  "label": "Button 1 Text Color",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "btn_border_color_1",
+  "label": "Button 1 Border Color",
+  "default": "#ff7a00"
+},
+
+{
+  "type": "text",
+  "id": "btn_text_2",
+  "label": "Button 2 Text"
+},
+{
+  "type": "url",
+  "id": "btn_link_2",
+  "label": "Button 2 Link"
+},
+{
+  "type": "color",
+  "id": "btn_bg_2",
+  "label": "Button 2 Background",
+  "default": "#000000"
+},
+{
+  "type": "color",
+  "id": "btn_text_color_2",
+  "label": "Button 2 Text Color",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "btn_border_color_2",
+  "label": "Button 2 Border Color",
+  "default": "#000000"
+},
+
+{
+  "type": "text",
+  "id": "btn_text_3",
+  "label": "Button 3 Text"
+},
+{
+  "type": "url",
+  "id": "btn_link_3",
+  "label": "Button 3 Link"
+},
+{
+  "type": "color",
+  "id": "btn_bg_3",
+  "label": "Button 3 Background",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "btn_text_color_3",
+  "label": "Button 3 Text Color",
+  "default": "#000000"
+},
+{
+  "type": "color",
+  "id": "btn_border_color_3",
+  "label": "Button 3 Border Color",
+  "default": "#000000"
+},
+
+{
+  "type": "text",
+  "id": "btn_text_4",
+  "label": "Button 4 Text"
+},
+{
+  "type": "url",
+  "id": "btn_link_4",
+  "label": "Button 4 Link"
+},
+{
+  "type": "color",
+  "id": "btn_bg_4",
+  "label": "Button 4 Background",
+  "default": "#2d2d4f"
+},
+{
+  "type": "color",
+  "id": "btn_text_color_4",
+  "label": "Button 4 Text Color",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "btn_border_color_4",
+  "label": "Button 4 Border Color",
+  "default": "#2d2d4f"
+},
+{
+  "type": "text",
+  "id": "btn_text_5",
+  "label": "Button 5 Text"
+},
+{
+  "type": "url",
+  "id": "btn_link_5",
+  "label": "Button 5 Link"
+},
+{
+  "type": "color",
+  "id": "btn_bg_5",
+  "label": "Button 5 Background",
+  "default": "#f69320"
+},
+{
+  "type": "color",
+  "id": "btn_text_color_5",
+  "label": "Button 5 Text Color",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "btn_border_color_5",
+  "label": "Button 5 Border Color",
+  "default": "#f69320"
+},
+{
+  "type": "header",
+  "content": "FAQ Search"
+},
+{
+  "type": "checkbox",
+  "id": "show_faq_search",
+  "label": "Show FAQ Search Bar",
+  "default": false
+},
+{
+  "type": "text",
+  "id": "faq_search_placeholder",
+  "label": "Search Placeholder Text",
+  "default": "Search your question..."
+},
+
+     {
+      "type": "text",
+      "id": "cs1",
+      "label": "Please Do not edit"
+    },
+
+  ],
+  "presets": [
+    {
+      "name": "Custom Text"
+    }
+  ]
+}
+{% endschema %}

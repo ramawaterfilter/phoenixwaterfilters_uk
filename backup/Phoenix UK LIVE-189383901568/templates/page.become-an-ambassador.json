@@ -1,0 +1,376 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "{background: #eaeef1;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_text_section_AXgxBb": {
+      "type": "custom-text-section",
+      "disabled": true,
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "Register your product now and activate the 10-year warranty on your stainless steel system.(Product purchases from this store do not need registration they are automatically registered.)",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "Register here",
+        "bottom_button_link": "/",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#2d2d4f",
+        "bg_color": "#f4f7f8",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "image_banner_K9VYWz": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_RUeMnk": {
+          "type": "heading",
+          "settings": {
+            "heading1": "Earn Money with the Phoenix Gravity Ambassador Program",
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_ryWNPH": {
+          "type": "text",
+          "settings": {
+            "text": "Refer your followers to Phoenix Gravity and earn money when they make a purchase of a Phoenix Gravity Water Filter on our website.",
+            "text1": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_zP3g9T": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Earn Now",
+            "button_link_1": "https://af.uppromote.com/phoenix-water-filter/register",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RUeMnk",
+        "text_ryWNPH",
+        "buttons_zP3g9T"
+      ],
+      "custom_css": [
+        "a.button.button--primary {font-size: 16px; font-weight: 500; border-radius: 11px; text-transform: uppercase; padding: 11px 46px;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {color: white; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/slider6.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "cs1": "banner-dealer-class"
+      }
+    },
+    "custom_box_HGCVL4": {
+      "type": "custom-box",
+      "custom_css": [
+        ".sub-heading-box {width: 100%;}",
+        "p {font-weight: 400 !important;}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": true,
+        "hd1": 31,
+        "hd2": 24,
+        "hd3": 16,
+        "hd4": 24,
+        "enable_mobile_hover": false,
+        "h1": "How to become a Phoenix Gravity Ambassador",
+        "h2": "<p>It's easy to start earning money with the Phoenix Gravity Ambassador Program</p>",
+        "section_bg": "#eaeef1",
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "desktop_columns": 3,
+        "mobile_columns": 1,
+        "gap": 20,
+        "card_padding": 30,
+        "radius": 12,
+        "button_radius": 6,
+        "icon_size": 60,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_lr": 10,
+        "p1": 17,
+        "p3": 0,
+        "p2": 10,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "multicolumn_Pf7kRa": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ayFjLA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-29_at_5.14.43_PM.png",
+            "title": "Create an ambassador account",
+            "text": "<p>Sign up for an account to get your own referral link.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3ed4w3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-29_at_5.16.26_PM.png",
+            "title": "Raise awareness of the Phoenix Gravity System",
+            "text": "<p>Share the Phoenix Gravity Water Filter on social media and include your referral link.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dHRRMB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-29_at_5.16.32_PM.png",
+            "title": "Earn money when they buy",
+            "text": "<p>Get paid for every Phoenix Gravity Water filter you sell through your referral link</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ayFjLA",
+        "column_3ed4w3",
+        "column_dHRRMB"
+      ],
+      "custom_css": [
+        ".multicolumn-card__image-wrapper--third-width {width: 20%;}",
+        "a.button.button--primary {font-size: 16px; font-weight: 500; border-radius: 11px; text-transform: uppercase; padding: 11px 46px;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {color: white; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "Earn Now",
+        "button_link": "https://af.uppromote.com/phoenix-water-filter/register",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "multicolumn_ciQhmg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_N8DJYQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/10_pecent.jpg",
+            "title": "Refer And Earn Up To 10%",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rYmp3i": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/heart.jpg",
+            "title": "Become a Water Evangelist",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_i869KR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/group_1.jpg",
+            "title": "Execute And Supply Your Network With Pure Mineral-Rich Water",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_N8DJYQ",
+        "column_rYmp3i",
+        "column_i869KR"
+      ],
+      "custom_css": [
+        ".title-wrapper-with-link {justify-content: center;}",
+        "a.button.button--primary {font-size: 16px; font-weight: 500; border-radius: 11px; text-transform: uppercase; padding: 11px 46px;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {color: white; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Benefits of being an Ambassador",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Earn Now",
+        "button_link": "https://af.uppromote.com/phoenix-water-filter/register",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "rich_text_BdhBzn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_BzzTd6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Already an Ambassador?",
+            "heading_size": "h1"
+          }
+        },
+        "text_GjKHz6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Log in to your dashboard here to track your prgress as an Ambassador.</p>"
+          }
+        },
+        "button_A6kAzf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Log In",
+            "button_link": "https://af.uppromote.com/phoenix-water-filter/login",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BzzTd6",
+        "text_GjKHz6",
+        "button_A6kAzf"
+      ],
+      "custom_css": [
+        "a.button.button--primary {font-size: 16px; font-weight: 500; border-radius: 11px; text-transform: uppercase; padding: 11px 46px;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {color: white; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_text_section_AXgxBb",
+    "image_banner_K9VYWz",
+    "custom_box_HGCVL4",
+    "multicolumn_Pf7kRa",
+    "multicolumn_ciQhmg",
+    "rich_text_BdhBzn"
+  ]
+}

@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_gnYzXU": {
+          "type": "announcement",
+          "settings": {
+            "text": "99.99% contaminants removed",
+            "icon": "shopify://shop_images/contaminate_new.png",
+            "link": ""
+          }
+        },
+        "announcement_icWFGK": {
+          "type": "announcement",
+          "settings": {
+            "text": "10 Year Warranty",
+            "icon": "shopify://shop_images/10_years_new.png",
+            "link": ""
+          }
+        },
+        "announcement_AmkNbU": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free delivery over £99",
+            "icon": "shopify://shop_images/free_shipping_new.png",
+            "link": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "100 day money back guarantee",
+            "icon": "shopify://shop_images/100_days_new.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_gnYzXU",
+        "announcement_icWFGK",
+        "announcement_AmkNbU",
+        "announcement-bar-0"
+      ],
+      "custom_css": [
+        ".utility-bar__grid {padding: 10px;}",
+        ".announcement-bar-slider .slider {width: 80%;}",
+        ".slider-button .icon {height: 10px;}",
+        ".svg-wrapper {font-size: 20px;}"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-4e2cfd45-dbce-40c5-b168-78ac9e94dfa5",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [
+        "@media (max-width: 768px) {.header__heading-logo {height: auto; max-width: 80%; }}"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "header-menu-new",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": false,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

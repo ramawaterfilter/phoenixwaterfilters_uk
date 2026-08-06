@@ -1,0 +1,358 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<section
+  id="phoenix-testimonial-{{ section.id }}"
+  class="phoenix-testimonial-wrapper phoenix-testimonial-{{ section.id }}"
+  style="
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="phoenix-container">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="phoenix-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="phoenix-subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <div class="swiper phoenix-swiper phoenix-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="phoenix-card">
+
+              <p class="phoenix-quote">
+                “{{ block.settings.review }}”
+              </p>
+
+              <p class="phoenix-name">{{ block.settings.name }}</p>
+
+              <div class="phoenix-stars">
+            {% for i in (1..block.settings.stars) %}
+  ★
+{% endfor %}
+
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+     <div class="phoenix-prev phoenix-prev-{{ section.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+<div class="phoenix-next phoenix-next-{{ section.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+   <div class="phoenix-pagination swip-p phoenix-pagination-{{ section.id }}"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  new Swiper('.phoenix-swiper-{{ section.id }}', {
+    loop: true,
+    spaceBetween: 30,
+
+    slidesPerView: 3,
+
+    pagination: {
+      el: '.phoenix-pagination-{{ section.id }}',
+      clickable: true
+    },
+
+    navigation: {
+      nextEl: '.phoenix-next-{{ section.id }}',
+      prevEl: '.phoenix-prev-{{ section.id }}'
+    },
+
+    breakpoints: {
+      320: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+});
+</script>
+
+
+
+<style>
+ .swip-p {
+    margin-top: 20px;
+} 
+.phoenix-container svg {
+    width: 36px;
+    height: 24px;
+}
+.phoenix-prev {
+    display: grid !important;
+    align-items: center;
+    cursor:pointer;
+}
+.phoenix-next {
+    display: grid !important;
+    align-items: center;
+    cursor:pointer;
+}
+/* Desktop only */
+@media (min-width: 769px) {
+  .phoenix-prev-{{ section.id }},
+  .phoenix-next-{{ section.id }} {
+    display: {% if section.settings.show_arrows_desktop %}flex{% else %}none{% endif %};
+  }
+  .phoenix-pagination-{{ section.id }} {
+    display: {% if section.settings.show_dots_desktop %}block{% else %}none{% endif %};
+  }
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .phoenix-prev-{{ section.id }},
+  .phoenix-next-{{ section.id }} {
+    display: {% if section.settings.show_arrows_mobile %}flex{% else %}none{% endif %};
+  }
+
+  .phoenix-pagination-{{ section.id }} {
+    display: {% if section.settings.show_dots_mobile %}block{% else %}none{% endif %};
+  }
+}
+.phoenix-swiper-{{ section.id }} {
+  position: relative;
+}
+
+.phoenix-prev-{{ section.id }},
+.phoenix-next-{{ section.id }} {
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.phoenix-prev-{{ section.id }} {
+  left: 0px;
+}
+
+.phoenix-next-{{ section.id }} {
+  right: 0px;
+}
+
+/* arrow icon fix */
+.phoenix-prev::after,
+.phoenix-next::after {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.phoenix-testimonial-{{ section.id }} {
+  text-align: center;
+}
+
+.phoenix-container {
+  width: 95%;
+  margin: auto;
+}
+
+.phoenix-heading {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.phoenix-card {
+  background: #ffffff;
+  border: 2px solid #e7b2b3;
+  border-radius: 16px;
+  padding: 10px 30px;
+  height: 100%;
+}
+
+.phoenix-quote {
+  font-size: 20px;
+  font-family: DM Sans, sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #2b2b4f;
+  margin-bottom: 30px;
+}
+
+.phoenix-name {
+  color: #1e88e5;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.phoenix-stars {
+  color: #f5b400;
+  font-size: 18px;
+}
+
+/* arrows */
+.phoenix-prev,
+.phoenix-next {
+  width: 36px;
+  height: 36px;
+  background: #e8e9ea;
+  border-radius: 50%;
+  color:#deb1b2;
+}
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #deb1b2;
+    width: 15px;
+    height: 15px;
+}
+span.swiper-pagination-bullet {
+    background: white;
+    opacity: 1;
+    width: 15px;
+    height: 15px;
+}
+.phoenix-prev::after,
+.phoenix-next::after {
+  font-size: 14px;
+  color: #000;
+  font-family: DM Sans, sans-serif;
+}
+.phoenix-subheading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top:0px;
+  margin-bottom: 50px;
+  font-family: DM Sans, sans-serif;
+}
+/* mobile */
+@media (max-width: 768px) {
+  .phoenix-heading {
+    font-size: 24px;
+    font-family: DM Sans, sans-serif;
+  }
+.phoenix-subheading {
+  margin-bottom: 25px;
+}
+.phoenix-subheading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top:0px;
+  margin-bottom: 50px;
+  font-family: DM Sans, sans-serif;
+  margin-bottom:10px;
+}
+  .phoenix-quote {
+    font-size: 16px;
+    font-family: DM Sans, sans-serif;
+  }
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Phoenix Difference"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading",
+      "default": "Straight from the source(s)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#eef2f3"
+    },
+    {
+  "type": "checkbox",
+  "id": "show_arrows_desktop",
+  "label": "Show Arrows – Desktop",
+  "default": true
+},
+{
+  "type": "checkbox",
+  "id": "show_arrows_mobile",
+  "label": "Show Arrows – Mobile",
+  "default": false
+},
+{
+  "type": "checkbox",
+  "id": "show_dots_desktop",
+  "label": "Show Dots – Desktop",
+  "default": true
+},
+{
+  "type": "checkbox",
+  "id": "show_dots_mobile",
+  "label": "Show Dots – Mobile",
+  "default": true
+},
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review Text"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name"
+        },
+        {
+  "type": "range",
+  "id": "stars",
+  "label": "Star Rating",
+  "min": 1,
+  "max": 5,
+  "step": 1,
+  "default": 5
+}
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Phoenix Testimonial Slider",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

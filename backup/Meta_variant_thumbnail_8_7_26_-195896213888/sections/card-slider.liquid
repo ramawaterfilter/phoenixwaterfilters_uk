@@ -1,0 +1,1077 @@
+{% comment %}
+  Contaminant removal card slider
+{% endcomment %}
+
+{%- liquid
+  assign desktop_gap_count = section.settings.desktop_cards | minus: 1
+  assign desktop_gap_total = desktop_gap_count | times: section.settings.card_gap
+  assign three_card_gap_total = section.settings.card_gap | times: 2
+
+  assign tablet_padding_top = section.settings.padding_top | times: 0.8 | round
+  assign tablet_padding_bottom = section.settings.padding_bottom | times: 0.8 | round
+
+  assign mobile_padding_top = section.settings.padding_top | times: 0.7 | round
+  assign mobile_padding_bottom = section.settings.padding_bottom | times: 0.7 | round
+-%}
+
+<section
+  id="ContaminantSlider-{{ section.id }}"
+  class="contaminant-slider-section"
+  style="
+    --section-bg: {{ section.settings.background_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --card-bg: {{ section.settings.card_background }};
+    --badge-bg: {{ section.settings.badge_background }};
+    --badge-color: {{ section.settings.badge_text_color }};
+    --arrow-bg: {{ section.settings.arrow_background }};
+    --arrow-color: {{ section.settings.arrow_color }};
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --card-gap: {{ section.settings.card_gap }}px;
+  "
+>
+  <div class="contaminant-slider__container page-width">
+    <div class="contaminant-slider__header">
+      <div class="contaminant-slider__heading-wrapper">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="contaminant-slider__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="contaminant-slider__description">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="contaminant-slider__controls">
+          <button
+            type="button"
+            class="contaminant-slider__arrow contaminant-slider__arrow--previous"
+            aria-label="Previous contaminants"
+            data-slider-previous
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="contaminant-slider__arrow contaminant-slider__arrow--next"
+            aria-label="Next contaminants"
+            data-slider-next
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="contaminant-slider__viewport">
+        <div
+          class="contaminant-slider__track"
+          data-contaminant-track
+          tabindex="0"
+          aria-label="Contaminants removed"
+        >
+          {%- for block in section.blocks -%}
+            <article
+              class="contaminant-slider__card"
+              {{ block.shopify_attributes }}
+            >
+              <div class="contaminant-slider__card-title">
+                {%- if block.settings.percentage != blank -%}
+                  <span class="contaminant-slider__badge">
+                    {{ block.settings.percentage }}
+                  </span>
+                {%- endif -%}
+
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title }}</h3>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.description != blank -%}
+                <div class="contaminant-slider__card-description">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="contaminant-slider__empty">
+        Add contaminant cards from the theme editor.
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% style %}
+  #ContaminantSlider-{{ section.id }},
+  #ContaminantSlider-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ContaminantSlider-{{ section.id }} {
+    width: 100%;
+    overflow: hidden;
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    background: var(--section-bg);
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__container {
+    width: 100%;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 48px;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__heading-wrapper {
+    width: 100%;
+    max-width: 1250px;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__heading {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: clamp(
+      32px,
+      3vw,
+      {{ section.settings.heading_size }}px
+    );
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__description {
+    margin-top: 10px;
+    color: var(--text-color);
+    font-size: clamp(
+      16px,
+      1.4vw,
+      {{ section.settings.description_size }}px
+    );
+    line-height: 1.45;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__description p {
+    margin: 0;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 14px;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__arrow {
+    display: flex;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--arrow-bg);
+    color: var(--arrow-color);
+    cursor: pointer;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__arrow:hover {
+    transform: translateY(-2px);
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__arrow:focus-visible {
+    outline: 2px solid var(--arrow-bg);
+    outline-offset: 3px;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__arrow:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+    transform: none;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__viewport {
+    width: 100%;
+    margin: -8px -2px -18px;
+    padding: 8px 2px 18px;
+    overflow: hidden;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__track {
+    display: flex;
+    width: 100%;
+    gap: var(--card-gap);
+    padding: 0 0 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    scrollbar-width: none;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__track::-webkit-scrollbar {
+    display: none;
+  } */
+
+  /*
+   * Desktop: 1200px and above
+   */
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__card {
+    flex: 0 0 calc(
+      (100% - {{ desktop_gap_total }}px) /
+      {{ section.settings.desktop_cards }}
+    );
+
+    width: calc(
+      (100% - {{ desktop_gap_total }}px) /
+      {{ section.settings.desktop_cards }}
+    );
+
+    max-width: calc(
+      (100% - {{ desktop_gap_total }}px) /
+      {{ section.settings.desktop_cards }}
+    );
+
+    min-width: 0;
+    min-height: {{ section.settings.card_min_height }}px;
+    padding: 30px 24px 26px;
+    border-radius: {{ section.settings.card_radius }}px;
+    background: var(--card-bg);
+    box-shadow: 0 8px 28px rgba(25, 27, 59, 0.08);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__badge {
+    display: inline-flex;
+    min-height: 36px;
+    padding: 4px 11px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    font-size: {{ section.settings.card_heading_size }}px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__card-title h3 {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: {{ section.settings.card_heading_size }}px;
+    font-weight: 700;
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__card-description {
+    color: var(--text-color);
+    font-size: {{ section.settings.card_text_size }}px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__card-description p {
+    margin: 0;
+  }
+
+  #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__empty {
+    padding: 40px;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /*
+   * 768px–1199px
+   * Three cards visible
+   */
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    #ContaminantSlider-{{ section.id }} {
+      padding-top: {{ tablet_padding_top }}px;
+      padding-bottom: {{ tablet_padding_bottom }}px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__header {
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__heading {
+      font-size: clamp(
+        30px,
+        4vw,
+        {{ section.settings.heading_size }}px
+      );
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__description {
+      font-size: clamp(
+        16px,
+        2vw,
+        {{ section.settings.description_size }}px
+      );
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__arrow {
+      width: 46px;
+      height: 46px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card {
+      flex: 0 0 calc(
+        (100% - {{ three_card_gap_total }}px) / 3
+      );
+
+      width: calc(
+        (100% - {{ three_card_gap_total }}px) / 3
+      );
+
+      max-width: calc(
+        (100% - {{ three_card_gap_total }}px) / 3
+      );
+
+      min-height: 220px;
+      padding: 26px 20px 24px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge,
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title h3 {
+      font-size: clamp(
+        18px,
+        2vw,
+        {{ section.settings.card_heading_size }}px
+      );
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-description {
+      font-size: clamp(
+        15px,
+        1.8vw,
+        {{ section.settings.card_text_size }}px
+      );
+    }
+  }
+
+  /*
+   * 577px–767px
+   * Two cards visible
+   */
+  @media screen and (min-width: 577px) and (max-width: 767px) {
+    #ContaminantSlider-{{ section.id }} {
+      padding-top: {{ tablet_padding_top }}px;
+      padding-bottom: {{ tablet_padding_bottom }}px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__header {
+      display: flex;
+      margin-bottom: 28px;
+    }
+
+    /* #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__controls {
+      display: none;
+    } */
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__heading {
+      font-size: clamp(
+        28px,
+        5vw,
+        36px
+      );
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__description {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__track {
+      padding-right: 0;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card {
+      flex: 0 0 calc(
+        (100% - {{ section.settings.card_gap }}px) / 2
+      );
+
+      width: calc(
+        (100% - {{ section.settings.card_gap }}px) / 2
+      );
+
+      max-width: calc(
+        (100% - {{ section.settings.card_gap }}px) / 2
+      );
+
+      min-height: 210px;
+      padding: 24px 18px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge {
+      min-height: 32px;
+      padding: 4px 9px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge,
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title h3 {
+      font-size: 18px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-description {
+      font-size: 16px;
+    }
+  }
+
+  /*
+   * Up to 576px
+   * One card visible
+   */
+  @media screen and (max-width: 576px) {
+    #ContaminantSlider-{{ section.id }} {
+      padding-top: {{ mobile_padding_top }}px;
+      padding-bottom: {{ mobile_padding_bottom }}px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__header {
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__controls {
+      display: none;
+    } */
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__heading {
+      font-size: clamp(
+        26px,
+        8vw,
+        34px
+      );
+      line-height: 1.2;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__description {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__viewport {
+      width: 100%;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__track {
+      width: 100%;
+      padding-right: 0;
+      padding-bottom: 10px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      min-height: auto;
+      padding: 24px 20px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge {
+      min-height: 32px;
+      padding: 4px 9px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge,
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title h3 {
+      font-size: 18px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-description {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 390px) {
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card {
+      padding: 22px 18px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__badge,
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-title h3 {
+      font-size: 17px;
+    }
+
+    #ContaminantSlider-{{ section.id }}
+    .contaminant-slider__card-description {
+      font-size: 15px;
+    }
+  }
+  .contaminant-slider__container.page-width{max-width:{{section.settings.page_width }}rem;}
+
+  @media screen and (max-width:576px){
+    #ContaminantSlider-{{ section.id }}
+  .contaminant-slider__arrow {
+    width: 32px;
+    height: 32px;
+  }
+  }
+{% endstyle %}
+
+<script>
+  (function () {
+    const section = document.getElementById(
+      'ContaminantSlider-{{ section.id }}'
+    );
+
+    if (
+      !section ||
+      section.dataset.sliderInitialised === 'true'
+    ) {
+      return;
+    }
+
+    section.dataset.sliderInitialised = 'true';
+
+    const track = section.querySelector(
+      '[data-contaminant-track]'
+    );
+
+    const previousButton = section.querySelector(
+      '[data-slider-previous]'
+    );
+
+    const nextButton = section.querySelector(
+      '[data-slider-next]'
+    );
+
+    if (!track) return;
+
+    function getScrollAmount() {
+      const card = track.querySelector(
+        '.contaminant-slider__card'
+      );
+
+      if (!card) {
+        return track.clientWidth;
+      }
+
+      const trackStyles = window.getComputedStyle(track);
+
+      const gap =
+        parseFloat(
+          trackStyles.columnGap ||
+          trackStyles.gap
+        ) || 0;
+
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function getMaximumScroll() {
+      return Math.max(
+        0,
+        track.scrollWidth - track.clientWidth
+      );
+    }
+
+    function isAtBeginning() {
+      return track.scrollLeft <= 3;
+    }
+
+    function isAtEnd() {
+      return (
+        track.scrollLeft >=
+        getMaximumScroll() - 3
+      );
+    }
+
+    function moveToPreviousSlide() {
+      if (isAtBeginning()) {
+        track.scrollTo({
+          left: getMaximumScroll(),
+          behavior: 'smooth'
+        });
+
+        return;
+      }
+
+      track.scrollBy({
+        left: -getScrollAmount(),
+        behavior: 'smooth'
+      });
+    }
+
+    function moveToNextSlide() {
+      if (isAtEnd()) {
+        track.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+
+        return;
+      }
+
+      track.scrollBy({
+        left: getScrollAmount(),
+        behavior: 'smooth'
+      });
+    }
+
+    function updateButtons() {
+      const hasScrollableContent =
+        track.scrollWidth >
+        track.clientWidth + 3;
+
+      if (previousButton) {
+        previousButton.disabled =
+          !hasScrollableContent;
+      }
+
+      if (nextButton) {
+        nextButton.disabled =
+          !hasScrollableContent;
+      }
+    }
+
+    previousButton?.addEventListener(
+      'click',
+      moveToPreviousSlide
+    );
+
+    nextButton?.addEventListener(
+      'click',
+      moveToNextSlide
+    );
+
+    track.addEventListener(
+      'keydown',
+      function (event) {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          moveToPreviousSlide();
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          moveToNextSlide();
+        }
+      }
+    );
+
+    track.addEventListener(
+      'scroll',
+      function () {
+        window.requestAnimationFrame(
+          updateButtons
+        );
+      },
+      {
+        passive: true
+      }
+    );
+
+    window.addEventListener(
+      'resize',
+      updateButtons
+    );
+
+    updateButtons();
+
+    if (
+      document.fonts &&
+      document.fonts.ready
+    ) {
+      document.fonts.ready.then(
+        updateButtons
+      );
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Card slider",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type":"range",
+      "id":"page_width",
+      "min":100,
+      "max":160,
+      "unit":"rem",
+      "label":"Page width",
+      "default":140
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered to remove contaminants and improve taste ..."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>For drinking water that’s pure, fresh and worry-free – we remove impurities and pollutants including:</p>"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Slider layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_cards",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Cards per row on desktop",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Space between cards",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_min_height",
+      "min": 160,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "label": "Card minimum height",
+      "default": 240
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Card corner radius",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size",
+      "min": 16,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card heading size",
+      "default": 23
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Card text size",
+      "default": 19
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#222150"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#222150"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Percentage background",
+      "default": "#348bd9"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Percentage text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_background",
+      "label": "Arrow background",
+      "default": "#2f295e"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contaminant",
+      "name": "Contaminant card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": "99.9%"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Contaminant name",
+          "default": "Chlorine"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Describe the contaminant and its potential effects on drinking water.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card slider",
+      "blocks": [
+        {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Chlorine",
+            "description": "<p>Chlorine reacts with organic matter in water, forming disinfection byproducts linked to health risks.</p>"
+          }
+        },
+        {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.999%",
+            "title": "Bacteria",
+            "description": "<p>Bacteria in drinking water can lead to illnesses such as gastrointestinal issues and infections.</p>"
+          }
+        },
+        {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.66%",
+            "title": "PFAS",
+            "description": "<p>PFAS in drinking water has been linked to hormonal disruption, weakened immune systems and liver problems.</p>"
+          }
+        },
+        {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Viruses",
+            "description": "<p>Viruses in drinking water can lead to hepatitis, vomiting, diarrhoea and fever.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

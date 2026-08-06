@@ -1,0 +1,194 @@
+{% style %}
+.cmx-section-{{ section.id }} {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  background-color: {{ section.settings.section_bg_color }};
+  {% if section.settings.section_bg_image != blank %}
+  background-image: url({{ section.settings.section_bg_image | image_url }});
+  background-size: cover;
+  background-position: center;
+  {% endif %}
+}
+
+.cmx-section-{{ section.id }} h2 {
+  font-size: 42px;
+  margin-bottom: 12px;
+  color: {{ section.settings.heading_color }};
+}
+
+.cmx-section-{{ section.id }} .cmx-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.cmx-section-{{ section.id }} .cmx-full {
+  grid-column: span 2;
+}
+
+.cmx-section-{{ section.id }} label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: {{ section.settings.label_color }};
+}
+
+.cmx-section-{{ section.id }} input,
+.cmx-section-{{ section.id }} textarea {
+  width: 100%;
+  padding: 9px 18px;
+  border-radius: 12px;
+  border: none;
+  background: {{ section.settings.input_bg_color }};
+  color: {{ section.settings.input_text_color }};
+  font-size: 15px;
+}
+
+.cmx-section-{{ section.id }} textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+.cmx-section-{{ section.id }} .cmx-button-wrap {
+  grid-column: span 2;
+  margin-top: 20px;
+}
+
+.cmx-section-{{ section.id }} button {
+  background: {{ section.settings.button_bg_color }};
+  color: {{ section.settings.button_text_color }};
+  padding: 14px 44px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cmx-section-{{ section.id }} button:hover {
+  background: {{ section.settings.button_hover_color }};
+}
+
+@media (min-width: 768px) {
+.cmx-section-{{ section.id }} .cmx-container {
+  max-width: {{ section.settings.container_width }}px;
+  margin: 0 auto;
+  text-align: center;
+  color: {{ section.settings.text_color }};
+}
+.cmx-section-{{ section.id }} .cmx-subheading {
+  font-size: 14px;
+  margin-bottom: 50px;
+  color: {{ section.settings.subheading_color }};
+  line-height: 130%;
+}
+}
+@media (max-width: 768px) {
+  .cmx-section-{{ section.id }} h2 {
+    font-size: 24px;
+  }
+  .cmx-section-{{ section.id }} .cmx-subheading {
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: {{ section.settings.subheading_color }};
+  line-height: 130%;
+    width: 80%;
+}
+.cmx-section-{{ section.id }} .cmx-container {
+  max-width: {{ section.settings.container_width1 }}px;
+  margin: 0 auto;
+  text-align: center;
+  color: {{ section.settings.text_color }};
+}
+  .cmx-section-{{ section.id }} .cmx-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cmx-section-{{ section.id }} .cmx-full,
+  .cmx-section-{{ section.id }} .cmx-button-wrap {
+    grid-column: span 1;
+  }
+}
+{% endstyle %}
+
+
+<section id="form-cmx" class="cmx-section-{{ section.id }}">
+     <center> <h2>{{ section.settings.heading }}</h2>
+    <p class="cmx-subheading">{{ section.settings.subheading }}</p></center>
+  <div class="cmx-container">
+  
+
+    {% form 'contact' %}
+      <div class="cmx-form">
+        <div>
+          <label>Name*</label>
+          <input type="text" name="contact[name]" required>
+        </div>
+
+        <div>
+          <label>Company*</label>
+          <input type="text" name="contact[company]" required>
+        </div>
+
+        <div class="cmx-full">
+          <label>Email*</label>
+          <input type="email" name="contact[email]" required>
+        </div>
+
+        <div class="cmx-full">
+          <label>Phone Number*</label>
+          <input type="tel" name="contact[phone]" required>
+        </div>
+
+        <div class="cmx-full">
+          <label>Message</label>
+          <textarea name="contact[body]"></textarea>
+        </div>
+
+        <div class="cmx-button-wrap">
+          <button type="submit">
+            {{ section.settings.button_text }}
+          </button>
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Modern Contact – Dynamic",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Have any questions or enquiries? Fill out our contact form, and we'll get back to you." },
+
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#ffffff" },
+    { "type": "color", "id": "subheading_color", "label": "Subheading Color", "default": "#e5e7eb" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#ffffff" },
+    { "type": "color", "id": "label_color", "label": "Label Color", "default": "#ffffff" },
+
+    { "type": "color", "id": "section_bg_color", "label": "Section Background Color", "default": "#020617" },
+    { "type": "image_picker", "id": "section_bg_image", "label": "Background Image" },
+
+    { "type": "range", "id": "padding_top", "label": "Padding Top", "min": 20, "max": 200, "step": 4, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding Bottom", "min": 20, "max": 200, "step": 4, "default": 80 },
+
+    { "type": "range", "id": "container_width", "label": "Form Width Desktop", "min": 400, "max": 1200, "step": 20, "default": 900 },
+    { "type": "range", "id": "container_width1", "label": "Form Width Mobile", "min": 300, "max": 1200, "step": 20, "default": 500 },
+
+    { "type": "color", "id": "input_bg_color", "label": "Input Background Color", "default": "#ffffff" },
+    { "type": "color", "id": "input_text_color", "label": "Input Text Color", "default": "#000000" },
+
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "SUBMIT" },
+    { "type": "color", "id": "button_bg_color", "label": "Button Background", "default": "#facc15" },
+    { "type": "color", "id": "button_hover_color", "label": "Button Hover Background", "default": "#fde047" },
+    { "type": "color", "id": "button_text_color", "label": "Button Text Color", "default": "#000000" }
+  ],
+  "presets": [
+    { "name": "Modern Contact – Dynamic" }
+  ]
+}
+{% endschema %}

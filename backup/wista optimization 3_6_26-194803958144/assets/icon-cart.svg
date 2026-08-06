@@ -1,0 +1,21 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  fill="none"
+  class="icon icon-cart"
+>
+  <!-- Cart -->
+  <path
+    d="M6 10h6l6 28h26l6-18H18"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Wheels -->
+  <circle cx="24" cy="46" r="3" fill="currentColor" />
+  <circle cx="42" cy="46" r="3" fill="currentColor" />
+
+  <!-- Badge Circle -->
+  <cir

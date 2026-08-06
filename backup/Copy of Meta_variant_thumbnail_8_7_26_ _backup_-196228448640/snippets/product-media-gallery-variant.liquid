@@ -1,0 +1,1929 @@
+{%- liquid
+  assign selected_variant = product.selected_or_first_available_variant
+  assign variant_file_media = selected_variant.metafields.custom.variant_media.value
+  assign use_variant_file_media = false
+
+  if variant_file_media != blank
+    assign use_variant_file_media = true
+  endif
+
+  if section.settings.hide_variants and variant_images.size == product.media.size
+    assign single_media_visible = true
+  endif
+
+  if limit == 1
+    assign single_media_visible = true
+  endif
+
+  assign media_count = product.media.size
+
+  if use_variant_file_media
+    assign media_count = variant_file_media.count
+  elsif section.settings.hide_variants and media_count > 1 and variant_images.size > 0
+    assign media_count = media_count | minus: variant_images.size | plus: 1
+  endif
+
+  if media_count == 1 or single_media_visible
+    assign single_media_visible_mobile = true
+  endif
+
+  if media_count == 0 or single_media_visible_mobile or section.settings.mobile_thumbnails == 'show' or section.settings.mobile_thumbnails == 'columns' and media_count < 3
+    assign hide_mobile_slider = true
+  endif
+
+  if section.settings.media_size == 'large'
+    assign media_width = 0.65
+  elsif section.settings.media_size == 'medium'
+    assign media_width = 0.55
+  elsif section.settings.media_size == 'small'
+    assign media_width = 0.45
+  endif
+
+  assign image_class = 'image-magnify-' | append: section.settings.image_zoom
+-%}
+
+<media-gallery
+  id="MediaGallery-{{ section.id }}"
+  role="region"
+  {% if section.settings.enable_sticky_info %}
+    class="product__column-sticky"
+  {% endif %}
+  aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
+  data-desktop-layout="{{ section.settings.gallery_layout }}"
+  {% if use_variant_file_media %}
+    data-variant-file-gallery
+  {% endif %}
+>
+  <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
+
+  <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter" style="position: relative;">
+    <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
+      {{ 'accessibility.skip_to_product_info' | t }}
+    </a>
+
+    <ul
+      id="Slider-Gallery-{{ section.id }}"
+      class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
+      role="list"
+    >
+      {%- if use_variant_file_media -%}
+        {%- for media_file in variant_file_media -%}
+          {%- liquid
+            assign media_position = forloop.index
+            assign media_loading = 'lazy'
+            assign media_fetchpriority = 'low'
+            assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index
+            assign file_media_type = media_file.media_type
+
+            assign media_ratio = media_file.aspect_ratio
+            if media_ratio == blank and media_file.preview_image != blank
+              assign media_ratio = media_file.preview_image.aspect_ratio
+            endif
+            assign media_ratio = media_ratio | default: 1.0
+
+            if forloop.first
+              assign media_loading = 'eager'
+              assign media_fetchpriority = 'high'
+            endif
+          -%}
+
+          <li
+            id="Slide-{{ variant_file_media_id }}"
+            class="product__media-item grid__item slider__slide{% if forloop.first %} is-active{% endif %}{% if single_media_visible %} product__media-item--single{% endif %}{% if file_media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            data-media-id="{{ variant_file_media_id }}"
+          >
+            <div
+              class="product-media-container media-type-{{ file_media_type }} media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
+              style="--ratio: {{ media_ratio }}; --preview-ratio: {{ media_ratio }};"
+            >
+              {%- if file_media_type == 'image' -%}
+                <modal-opener
+                  class="product__modal-opener product__modal-opener--image"
+                  data-modal="#ProductModal-{{ section.id }}"
+                >
+                  <span
+                    class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
+                    aria-hidden="true"
+                  >
+                    <span class="svg-wrapper">
+                      {{- 'icon-zoom.svg' | inline_asset_content -}}
+                    </span>
+                  </span>
+
+                  {%- render 'loading-spinner' -%}
+
+                  <div class="product__media media media--transparent">
+                    {{
+                      media_file
+                      | image_url: width: 1946
+                      | image_tag:
+                        class: image_class,
+                        loading: media_loading,
+                        fetchpriority: media_fetchpriority,
+                        decoding: 'async',
+                        sizes: '(min-width: 990px) 65vw, 100vw',
+                        widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                        alt: media_file.alt | default: product.title | escape
+                    }}
+                  </div>
+
+                  <button
+                    class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
+                    type="button"
+                    aria-haspopup="dialog"
+                    data-media-id="{{ variant_file_media_id }}"
+                  >
+                    <span class="visually-hidden">
+                      {{ 'products.product.media.open_media' | t: index: media_position }}
+                    </span>
+                  </button>
+                </modal-opener>
+
+              {%- elsif file_media_type == 'video' -%}
+                <div class="product__media media media--transparent">
+                  {{
+                    media_file
+                    | video_tag:
+                      controls: true,
+                      autoplay: false,
+                      muted: true,
+                      loop: section.settings.enable_video_looping,
+                      playsinline: true,
+                      preload: 'metadata',
+                      image_size: '1200x',
+                      class: 'variant-metafield-video'
+                  }}
+                </div>
+
+              {%- else -%}
+                {%- if media_file.preview_image != blank -%}
+                  <div class="product__media media media--transparent">
+                    {{
+                      media_file.preview_image
+                      | image_url: width: 1946
+                      | image_tag:
+                        class: image_class,
+                        loading: media_loading,
+                        fetchpriority: media_fetchpriority,
+                        decoding: 'async',
+                        sizes: '(min-width: 990px) 65vw, 100vw',
+                        widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+                        alt: media_file.alt | default: product.title | escape
+                    }}
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+
+      {%- else -%}
+        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+          <li
+            id="Slide-{{ section.id }}-{{ featured_media.id }}"
+            class="product__media-item grid__item slider__slide is-active{% if single_media_visible %} product__media-item--single{% endif %}{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            data-media-id="{{ section.id }}-{{ featured_media.id }}"
+          >
+            {%- assign media_position = 1 -%}
+            {% render 'product-thumbnail',
+              media: featured_media,
+              media_count: media_count,
+              position: media_position,
+              desktop_layout: section.settings.gallery_layout,
+              mobile_layout: section.settings.mobile_thumbnails,
+              loop: section.settings.enable_video_looping,
+              modal_id: section.id,
+              xr_button: true,
+              media_width: media_width,
+              media_fit: section.settings.media_fit,
+              constrain_to_viewport: section.settings.constrain_to_viewport,
+              lazy_load: false
+            %}
+          </li>
+        {%- endif -%}
+
+        {%- for media in product.media -%}
+          {% if media_position >= limit
+            or media_position >= 1
+            and section.settings.hide_variants
+            and variant_images contains media.src
+          %}
+            {% continue %}
+          {% endif %}
+
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+            <li
+              id="Slide-{{ section.id }}-{{ media.id }}"
+              class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+              data-media-id="{{ section.id }}-{{ media.id }}"
+            >
+              {%- liquid
+                assign media_position = media_position | default: 0 | plus: 1
+                assign lazy_load = false
+                if media_position > 1
+                  assign lazy_load = true
+                endif
+              -%}
+
+              {% render 'product-thumbnail',
+                media: media,
+                media_count: media_count,
+                position: media_position,
+                desktop_layout: section.settings.gallery_layout,
+                mobile_layout: section.settings.mobile_thumbnails,
+                loop: section.settings.enable_video_looping,
+                modal_id: section.id,
+                xr_button: true,
+                media_width: media_width,
+                media_fit: section.settings.media_fit,
+                constrain_to_viewport: section.settings.constrain_to_viewport,
+                lazy_load: lazy_load
+              %}
+            </li>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+
+    {% if media_count > 1 %}
+      <div class="product-gallery-arrows">
+        <button
+          type="button"
+          class="gallery-arrow gallery-arrow--prev"
+          id="galleryPrev-{{ section.id }}"
+          aria-label="Previous media"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="gallery-arrow gallery-arrow--next"
+          id="galleryNext-{{ section.id }}"
+          aria-label="Next media"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+
+      <div class="slider-counter caption">
+        <span class="slider-counter--current">1</span>
+        <span aria-hidden="true"> / </span>
+        <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+        <span class="slider-counter--total">{{ media_count }}</span>
+      </div>
+
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </div>
+
+    <div
+      class="product-media-mobile-dots"
+      data-gallery-dots
+      aria-label="Media pagination"
+      {% if media_count <= 1 %}hidden{% endif %}
+    >
+      {%- if media_count > 1 -%}
+        {%- for dot_index in (1..media_count) -%}
+          <button
+            type="button"
+            class="product-media-mobile-dot{% if forloop.first %} is-active{% endif %}"
+            data-gallery-dot="{{ forloop.index0 }}"
+            aria-label="Go to media {{ dot_index }}"
+            {% if forloop.first %}aria-current="true"{% endif %}
+          ></button>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if media_count > 1 -%}
+      <div id="CustomGalleryThumbnails2x6-{{ section.id }}" class="thumbnail-grid-2x6">
+        {%- assign grid_count = 0 -%}
+
+        {%- if use_variant_file_media -%}
+          {%- for media_file in variant_file_media -%}
+            {%- liquid
+              assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index
+              assign grid_count = grid_count | plus: 1
+              assign file_media_type = media_file.media_type
+              assign thumb_image = media_file
+
+              if file_media_type == 'video'
+                assign thumb_image = media_file.preview_image
+              endif
+            -%}
+
+            <button
+              class="thumbnail-2x6-item{% if file_media_type == 'video' %} thumbnail-2x6-item--video{% endif %}"
+              data-media-id="{{ variant_file_media_id }}"
+              aria-label="{% if file_media_type == 'video' %}Video{% else %}Image{% endif %} {{ grid_count }}"
+              type="button"
+            >
+              {%- if thumb_image != blank -%}
+                {{
+                  thumb_image
+                  | image_url: width: 220
+                  | image_tag:
+                    loading: 'lazy',
+                    fetchpriority: 'low',
+                    decoding: 'async',
+                    widths: '90, 120, 160, 220',
+                    alt: media_file.alt | default: product.title | escape
+                }}
+              {%- endif -%}
+
+              {%- if file_media_type == 'video' -%}
+                <span class="thumbnail__badge" aria-hidden="true">
+                  <span class="svg-wrapper">
+                    {{- 'icon-play.svg' | inline_asset_content -}}
+                  </span>
+                </span>
+              {%- endif -%}
+            </button>
+          {%- endfor -%}
+
+        {%- else -%}
+          {%- for media in product.media -%}
+            {%- assign grid_count = grid_count | plus: 1 -%}
+
+            <button
+              class="thumbnail-2x6-item"
+              data-media-id="{{ section.id }}-{{ media.id }}"
+              aria-label="Image {{ grid_count }}"
+              type="button"
+            >
+              {{
+                media.preview_image
+                | image_url: width: 220
+                | image_tag:
+                  loading: 'lazy',
+                  fetchpriority: 'low',
+                  decoding: 'async',
+                  widths: '90, 120, 160, 220',
+                  alt: media.alt | escape
+              }}
+            </button>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </slider-component>
+
+  {%- if first_3d_model -%}
+    <button
+      class="button button--full-width product__xr-button"
+      type="button"
+      aria-label="{{ 'products.product.xr_button_label' | t }}"
+      data-shopify-xr
+      data-shopify-model3d-id="{{ first_3d_model.id }}"
+      data-shopify-title="{{ product.title | escape }}"
+      data-shopify-xr-hidden
+    >
+      <span class="svg-wrapper">
+        {{- 'icon-3d-model.svg' | inline_asset_content -}}
+      </span>
+      {{ 'products.product.xr_button' | t }}
+    </button>
+  {%- endif -%}
+
+  {%- liquid
+    assign is_not_limited_to_single_item = false
+    if limit == null or limit > 1
+      assign is_not_limited_to_single_item = true
+    endif
+  -%}
+
+  {%- if is_not_limited_to_single_item
+    and media_count > 1
+    and section.settings.gallery_layout contains 'thumbnail'
+    or section.settings.mobile_thumbnails == 'show'
+  -%}
+    <slider-component
+      id="GalleryThumbnails-{{ section.id }}"
+      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
+    >
+      <button
+        type="button"
+        class="slider-button slider-button--prev{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+        aria-controls="GalleryThumbnails-{{ section.id }}"
+        data-step="3"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+
+      <ul
+        id="Slider-Thumbnails-{{ section.id }}"
+        class="thumbnail-list list-unstyled slider slider--mobile{% if section.settings.gallery_layout == 'thumbnail_slider' %} slider--tablet-up{% endif %}"
+      >
+        {%- capture sizes -%}
+          (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4),
+          (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4),
+          (min-width: 750px) calc((100vw - 15rem) / 8),
+          calc((100vw - 8rem) / 3)
+        {%- endcapture -%}
+
+        {%- if use_variant_file_media -%}
+          {%- for media_file in variant_file_media -%}
+            {%- liquid
+              assign media_index = forloop.index
+              assign variant_file_media_id = section.id | append: '-variant-' | append: selected_variant.id | append: '-file-' | append: forloop.index
+              assign file_media_type = media_file.media_type
+              assign thumb_image = media_file
+
+              if file_media_type == 'video'
+                assign thumb_image = media_file.preview_image
+              endif
+            -%}
+
+            <li
+              id="Slide-Thumbnails-{{ variant_file_media_id }}"
+              class="thumbnail-list__item slider__slide"
+              data-target="{{ variant_file_media_id }}"
+              data-media-position="{{ media_index }}"
+            >
+              {%- capture thumbnail_id -%}
+                Thumbnail-{{ section.id }}-variant-file-{{ forloop.index }}
+              {%- endcapture -%}
+
+              {%- if file_media_type == 'video' -%}
+                <span class="thumbnail__badge" aria-hidden="true">
+                  <span class="svg-wrapper">
+                    {{- 'icon-play.svg' | inline_asset_content -}}
+                  </span>
+                </span>
+              {%- endif -%}
+
+              <button
+                class="thumbnail global-media-settings global-media-settings--no-shadow"
+                aria-label="{% if file_media_type == 'video' %}{{ 'products.product.media.load_video' | t: index: media_index }}{% else %}{{ 'products.product.media.load_image' | t: index: media_index }}{% endif %}"
+                {% if forloop.first %}
+                  aria-current="true"
+                {% endif %}
+                aria-controls="GalleryViewer-{{ section.id }}"
+                aria-describedby="{{ thumbnail_id }}"
+              >
+                {%- if thumb_image != blank -%}
+                  {{
+                    thumb_image
+                    | image_url: width: 416
+                    | image_tag:
+                      loading: 'lazy',
+                      fetchpriority: 'low',
+                      decoding: 'async',
+                      sizes: sizes,
+                      widths: '54, 74, 104, 162, 208, 324, 416',
+                      id: thumbnail_id,
+                      alt: media_file.alt | default: product.title | escape
+                  }}
+                {%- endif -%}
+              </button>
+            </li>
+          {%- endfor -%}
+
+        {%- else -%}
+          {%- if featured_media != null -%}
+            {%- liquid
+              capture media_index
+                if featured_media.media_type == 'model'
+                  increment model_index
+                elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video'
+                  increment video_index
+                elsif featured_media.media_type == 'image'
+                  increment image_index
+                endif
+              endcapture
+              assign media_index = media_index | plus: 1
+            -%}
+
+            <li
+              id="Slide-Thumbnails-{{ section.id }}-0"
+              class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains featured_media.src %} thumbnail-list_item--variant{% endif %}"
+              data-target="{{ section.id }}-{{ featured_media.id }}"
+              data-media-position="{{ media_index }}"
+            >
+              {%- capture thumbnail_id -%}
+                Thumbnail-{{ section.id }}-0
+              {%- endcapture -%}
+
+              <button
+                class="thumbnail global-media-settings global-media-settings--no-shadow"
+                aria-label="{%- if featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
+                aria-current="true"
+                aria-controls="GalleryViewer-{{ section.id }}"
+                aria-describedby="{{ thumbnail_id }}"
+              >
+                {{
+                  featured_media.preview_image
+                  | image_url: width: 416
+                  | image_tag:
+                    loading: 'lazy',
+                    fetchpriority: 'low',
+                    decoding: 'async',
+                    sizes: sizes,
+                    widths: '54, 74, 104, 162, 208, 324, 416',
+                    id: thumbnail_id,
+                    alt: featured_media.alt | escape
+                }}
+              </button>
+            </li>
+          {%- endif -%}
+
+          {%- for media in product.media -%}
+            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+              {%- liquid
+                capture media_index
+                  if media.media_type == 'model'
+                    increment model_index
+                  elsif media.media_type == 'video' or media.media_type == 'external_video'
+                    increment video_index
+                  elsif media.media_type == 'image'
+                    increment image_index
+                  endif
+                endcapture
+                assign media_index = media_index | plus: 1
+              -%}
+
+              <li
+                id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}"
+                class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
+                data-target="{{ section.id }}-{{ media.id }}"
+                data-media-position="{{ media_index }}"
+              >
+                {%- if media.media_type == 'model' -%}
+                  <span class="thumbnail__badge" aria-hidden="true">
+                    <span class="svg-wrapper">
+                      {{- 'icon-3d-model.svg' | inline_asset_content -}}
+                    </span>
+                  </span>
+                {%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}
+                  <span class="thumbnail__badge" aria-hidden="true">
+                    <span class="svg-wrapper">
+                      {{- 'icon-play.svg' | inline_asset_content -}}
+                    </span>
+                  </span>
+                {%- endif -%}
+
+                {%- capture thumbnail_id -%}
+                  Thumbnail-{{ section.id }}-{{ forloop.index }}
+                {%- endcapture -%}
+
+                <button
+                  class="thumbnail global-media-settings global-media-settings--no-shadow"
+                  aria-label="{%- if media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
+                  {% if media == product.selected_or_first_available_variant.featured_media
+                    or product.selected_or_first_available_variant.featured_media == null
+                    and forloop.index == 1
+                  %}
+                    aria-current="true"
+                  {% endif %}
+                  aria-controls="GalleryViewer-{{ section.id }}"
+                  aria-describedby="{{ thumbnail_id }}"
+                >
+                  {{
+                    media.preview_image
+                    | image_url: width: 416
+                    | image_tag:
+                      loading: 'lazy',
+                      fetchpriority: 'low',
+                      decoding: 'async',
+                      sizes: sizes,
+                      widths: '54, 74, 104, 162, 208, 324, 416',
+                      id: thumbnail_id,
+                      alt: media.alt | escape
+                  }}
+                </button>
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+      <button
+        type="button"
+        class="slider-button slider-button--next{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+        aria-controls="GalleryThumbnails-{{ section.id }}"
+        data-step="3"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </slider-component>
+  {%- endif -%}
+</media-gallery>
+
+
+{% comment %}
+  Styling and Functionality
+{% endcomment %}
+<style>
+
+  .variant-metafield-video,
+  .product__media video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .thumbnail-2x6-item {
+    position: relative;
+  }
+
+  .thumbnail-2x6-item--video .thumbnail__badge {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    z-index: 2;
+  }
+
+  /* Gallery Navigation Arrows */
+  .product-gallery-arrows {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgb(222 177 178 / 31%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+  }
+
+  .gallery-arrow:hover {
+    background: rgb(47 41 84 / 21%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transform: translateY(-50%) scale(1.15);
+  }
+
+  .gallery-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .gallery-arrow--prev {
+    left: 20px;
+  }
+
+  .gallery-arrow--next {
+    right: 20px;
+  }
+
+  .gallery-arrow svg {
+    color: white;
+    width: 28px;
+    height: 28px;
+  }
+
+  .gallery-arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .gallery-arrow:disabled:hover {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Mobile adjustments */
+  @media screen and (max-width: 749px) {
+    .gallery-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .gallery-arrow--prev {
+      left: 10px;
+    }
+
+    .gallery-arrow--next {
+      right: 10px;
+    }
+
+    .gallery-arrow svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  /* Extra small mobile */
+  @media screen and (max-width: 480px) {
+    .gallery-arrow {
+      width: 35px;
+      height: 35px;
+    }
+
+    .gallery-arrow--prev {
+      left: 8px;
+    }
+
+    .gallery-arrow--next {
+      right: 8px;
+    }
+
+    .gallery-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  /* Scroll to Top Button */
+  .shopify-drag-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .shopify-drag-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .shopify-drag-up:hover {
+    transform: scale(1.1);
+    background: #333;
+  }
+
+  /* Smooth slide transitions */
+  .product__media-list {
+    scroll-behavior: smooth;
+  }
+
+  .product-media-mobile-dots {
+    display: none;
+  }
+
+  .product-media-mobile-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(47, 41, 83, 0.28);
+    cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .product-media-mobile-dot.is-active {
+    background: #2f2953;
+    transform: scale(1.25);
+  }
+
+  @media screen and (max-width: 749px) {
+    media-gallery .slider-buttons {
+      gap: 14px;
+    }
+
+    media-gallery .slider-counter.caption {
+      display: none;
+    }
+
+    .product-media-mobile-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 24px;
+      margin: 10px 0 0;
+    }
+  }
+
+  media-gallery .product__media-list,
+  media-gallery .thumbnail-grid-2x6 {
+    transition: opacity 160ms ease;
+  }
+
+  media-gallery {
+    position: relative;
+  }
+
+  media-gallery::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 26px;
+    height: 26px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    border-top-color: rgba(0, 0, 0, 0.65);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.85);
+    transition: opacity 140ms ease, transform 140ms ease;
+    z-index: 3;
+  }
+
+  media-gallery.is-preloading-media .product__media-list,
+  media-gallery.is-preloading-media .thumbnail-grid-2x6 {
+    opacity: 0.68;
+  }
+
+  media-gallery.is-preloading-media::after {
+    opacity: 1;
+    transform: scale(1);
+    animation: gallery-loading-spin 700ms linear infinite;
+  }
+
+  media-gallery.is-changing-media .product__media-list,
+  media-gallery.is-changing-media .thumbnail-grid-2x6 {
+    opacity: 0.01;
+  }
+
+  @keyframes gallery-loading-spin {
+    to {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+
+  /* 2x6 Thumbnail Grid */
+  .thumbnail-grid-2x6 {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .thumbnail-grid-2x6 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.8rem;
+      max-width: 100%;
+      margin: 1.2rem auto 0;
+      padding: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+     /* Expand button on video slides */
+  .cvm-expand-btn {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  }
+
+  .thumbnail-2x6-item {
+    display: block;
+    flex: 0 0 13rem;
+    position: relative;
+    width: 13rem;
+    height: 13rem;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 0.8rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0;
+    background: rgb(var(--color-background));
+    line-height: 0;
+    scroll-snap-align: start;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .thumbnail-2x6-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  .thumbnail-2x6-item:hover {
+    border-color: rgba(var(--color-foreground), 0.34);
+  }
+
+  .thumbnail-2x6-item.is-active {
+    border-color: rgb(var(--color-foreground));
+    box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
+  }
+
+  /* ── Modal Fullscreen Controls ── */
+
+  /* Close Button */
+  .modal-custom-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .modal-custom-close:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: scale(1.1) rotate(90deg);
+  }
+
+  .modal-custom-close svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Modal Arrows */
+  .modal-custom-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .modal-custom-arrow--prev {
+    left: 20px;
+  }
+
+  .modal-custom-arrow--next {
+    right: 20px;
+  }
+
+  .modal-custom-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-custom-arrow--prev:hover {
+    transform: translateY(-50%) scale(1.12) translateX(-2px);
+  }
+
+  .modal-custom-arrow--next:hover {
+    transform: translateY(-50%) scale(1.12) translateX(2px);
+  }
+
+  .modal-custom-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .modal-custom-arrow svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Mobile modal arrows */
+  @media screen and (max-width: 749px) {
+    .modal-custom-arrow {
+      width: 42px;
+      height: 42px;
+    }
+
+    .modal-custom-arrow--prev { left: 10px; }
+    .modal-custom-arrow--next { right: 10px; }
+
+    .modal-custom-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .modal-custom-close {
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  /* ── Custom Video Fullscreen Modal ── */
+  /* Native video fullscreen button hide karo */
+  video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+  }
+
+  /* Custom Video Modal */
+  #custom-video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #custom-video-modal.open {
+    display: flex;
+  }
+
+  #custom-video-modal video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 100vh;
+  }
+
+  /* Close button */
+  #cvm-close {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+    cursor: pointer;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  #cvm-close:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1) rotate(90deg);
+  }
+
+  #cvm-close svg { width: 22px; height: 22px; pointer-events: none; }
+
+  /* Prev / Next arrows */
+  .cvm-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+    cursor: pointer;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  #cvm-prev { left: 18px; }
+  #cvm-next { right: 18px; }
+
+  #cvm-prev:hover { background: rgba(255,255,255,0.3); transform: translateY(-50%) scale(1.1) translateX(-2px); }
+  #cvm-next:hover { background: rgba(255,255,255,0.3); transform: translateY(-50%) scale(1.1) translateX(2px); }
+
+  .cvm-arrow svg { width: 24px; height: 24px; pointer-events: none; }
+
+  .cvm-arrow.hidden, #cvm-close.hidden { display: none !important; }
+
+  /* Counter badge */
+  #cvm-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    z-index: 99999;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    letter-spacing: 0.5px;
+  }
+
+  /* Expand button on video slides */
+  .cvm-expand-btn {
+    position: absolute !important;
+    bottom: 14px !important;
+    right: 14px !important;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .cvm-expand-btn:hover {
+    background: rgba(0,0,0,0.8);
+    transform: scale(1.1);
+  }
+
+  .cvm-expand-btn svg {
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cvm-expand-btn {
+      width: 34px;
+      height: 34px;
+      bottom: 10px;
+      right: 10px;
+    }
+     /* Expand button on video slides */
+  .cvm-expand-btn {
+    width: 25px !important;
+    height: 35px !important;
+  }
+    .cvm-expand-btn svg { width: 15px; height: 15px; }
+  }
+
+  @media screen and (max-width: 749px) {
+    #cvm-close { top: 12px; right: 12px; width: 40px; height: 40px; }
+    .cvm-arrow { width: 40px; height: 40px; }
+    #cvm-prev { left: 10px; }
+    #cvm-next { right: 10px; }
+    .cvm-arrow svg { width: 20px; height: 20px; }
+    #cvm-close svg { width: 18px; height: 18px; }
+  }
+</style>
+
+<!-- Custom Video Fullscreen Modal -->
+<div id="custom-video-modal" role="dialog" aria-modal="true" aria-label="Video fullscreen">
+  <video id="cvm-video" controls playsinline></video>
+
+  <button id="cvm-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <button class="cvm-arrow" id="cvm-prev" aria-label="Previous">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <button class="cvm-arrow" id="cvm-next" aria-label="Next">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div id="cvm-counter"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  function initGallery(sectionId) {
+    const gallery = document.getElementById('MediaGallery-' + sectionId);
+    if (!gallery) return;
+
+    const prevBtn = document.getElementById('galleryPrev-' + sectionId);
+    const nextBtn = document.getElementById('galleryNext-' + sectionId);
+    const slider = document.getElementById('Slider-Gallery-' + sectionId);
+    const grid = document.getElementById('CustomGalleryThumbnails2x6-' + sectionId);
+    const dotsContainer = gallery.querySelector('[data-gallery-dots]');
+
+    if (!slider) return;
+
+    let currentIndex = 0;
+    let allMedia = [];
+    let dots = [];
+    const initializedDots = new WeakSet();
+
+    function refreshMediaData() {
+      allMedia = [];
+      const slides = slider.querySelectorAll('.product__media-item');
+      slides.forEach((slide, index) => {
+        const img = slide.querySelector('img');
+        if (!img) return;
+        allMedia.push({
+          element: slide,
+          mediaId: slide.dataset.mediaId,
+          alt: img.alt || '',
+          src: img.src,
+          index
+        });
+      });
+      syncDots();
+    }
+
+    function groupByAlt(mediaArray) {
+      const groups = {};
+      mediaArray.forEach(item => {
+        if (!groups[item.alt]) groups[item.alt] = [];
+        groups[item.alt].push(item);
+      });
+      return groups;
+    }
+
+    function reorderByAlt(targetAlt) {
+      if (!targetAlt) return;
+      const groups = groupByAlt(allMedia);
+      const targetGroup = groups[targetAlt] || [];
+      const others = allMedia.filter(m => m.alt !== targetAlt);
+      const newOrder = [...targetGroup, ...others];
+      const fragment = document.createDocumentFragment();
+      newOrder.forEach(item => fragment.appendChild(item.element));
+      slider.innerHTML = '';
+      slider.appendChild(fragment);
+      allMedia = newOrder;
+    }
+
+    function getActiveIndex() {
+      for (let i = 0; i < allMedia.length; i++) {
+        if (allMedia[i].element.classList.contains('is-active')) return i;
+      }
+      return 0;
+    }
+
+    function setActiveSlide(index) {
+      if (!allMedia.length) return;
+      index = ((index % allMedia.length) + allMedia.length) % allMedia.length;
+      allMedia.forEach(item => item.element.classList.remove('is-active'));
+      allMedia[index].element.classList.add('is-active');
+      currentIndex = index;
+      slider.scrollTo({ left: allMedia[index].element.offsetLeft, behavior: 'smooth' });
+      updateArrows();
+      updateCounter();
+      updateDots();
+      updateGrid();
+    }
+
+    function goToSlide(index) {
+      setActiveSlide(index);
+    }
+
+    function updateArrows() {
+      if (!prevBtn || !nextBtn) return;
+      const disabled = allMedia.length <= 1;
+      prevBtn.disabled = disabled;
+      nextBtn.disabled = disabled;
+    }
+
+    function updateCounter() {
+      const counter = gallery.querySelector('.slider-counter--current');
+      if (counter) counter.textContent = currentIndex + 1;
+    }
+
+    function getDotIndex() {
+      if (!dots.length || !allMedia.length) return 0;
+      return Math.min(dots.length - 1, Math.max(0, currentIndex));
+    }
+
+    function updateDots() {
+      if (!dots.length) return;
+      const activeDot = getDotIndex();
+      dots.forEach((dot, index) => {
+        const isActive = index === activeDot;
+        dot.classList.toggle('is-active', isActive);
+        if (isActive) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    }
+
+    function setupDots() {
+      if (!dots.length) return;
+      dots.forEach((dot, index) => {
+        if (initializedDots.has(dot)) return;
+        initializedDots.add(dot);
+        dot.addEventListener('click', () => {
+          if (!allMedia.length) return;
+          goToSlide(index);
+        });
+      });
+    }
+
+    function syncDots() {
+      if (!dotsContainer) return;
+
+      const dotCount = allMedia.length;
+      dotsContainer.hidden = dotCount <= 1;
+      dots = Array.from(dotsContainer.querySelectorAll('[data-gallery-dot]'));
+
+      if (dots.length !== dotCount) {
+        dotsContainer.replaceChildren();
+        for (let index = 0; index < dotCount; index += 1) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'product-media-mobile-dot';
+          dot.dataset.galleryDot = index;
+          dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+          dotsContainer.appendChild(dot);
+        }
+        dots = Array.from(dotsContainer.querySelectorAll('[data-gallery-dot]'));
+      }
+
+      setupDots();
+    }
+
+    function updateGrid() {
+      if (!grid) return;
+      const activeMedia = allMedia[currentIndex];
+      const display = allMedia;
+      let activeButton = null;
+
+      grid.innerHTML = '';
+      display.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'thumbnail-2x6-item';
+        if (activeMedia && item.mediaId === activeMedia.mediaId) {
+          btn.classList.add('is-active');
+          activeButton = btn;
+        }
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt;
+        img.loading = 'lazy';
+        btn.appendChild(img);
+        grid.appendChild(btn);
+        btn.onclick = () => {
+          const idx = allMedia.findIndex(m => m.mediaId === item.mediaId);
+          if (idx !== -1) goToSlide(idx);
+        };
+      });
+      if (activeButton) {
+        const activeButtonCenter = activeButton.offsetLeft + (activeButton.offsetWidth / 2);
+        const targetScrollLeft = activeButtonCenter - (grid.clientWidth / 2);
+        grid.scrollTo({ left: Math.max(0, targetScrollLeft), behavior: 'smooth' });
+      }
+    }
+
+    function syncFromActiveSlide(activeElement) {
+      refreshMediaData();
+      const activeMediaId = activeElement?.dataset?.mediaId;
+      const eventIndex = activeMediaId ? allMedia.findIndex(item => item.mediaId === activeMediaId) : -1;
+      currentIndex = eventIndex !== -1 ? eventIndex : getActiveIndex();
+      allMedia.forEach(item => item.element.classList.toggle('is-active', item.mediaId === allMedia[currentIndex]?.mediaId));
+      updateArrows();
+      updateCounter();
+      updateDots();
+      updateGrid();
+    }
+
+    function handleVariantChange(resetToFirst = false) {
+      setTimeout(() => {
+        refreshMediaData();
+        if (gallery.hasAttribute('data-variant-file-gallery')) {
+          currentIndex = resetToFirst ? 0 : getActiveIndex();
+          allMedia.forEach((item, index) => item.element.classList.toggle('is-active', index === currentIndex));
+          if (resetToFirst && allMedia[currentIndex]) slider.scrollTo({ left: allMedia[currentIndex].element.offsetLeft, behavior: 'smooth' });
+          updateArrows();
+          updateCounter();
+          updateDots();
+          updateGrid();
+          return;
+        }
+        const activeIndex = getActiveIndex();
+        const alt = allMedia[activeIndex]?.alt || '';
+        if (alt) {
+          reorderByAlt(alt);
+          const newIndex = resetToFirst ? 0 : getActiveIndex();
+          currentIndex = newIndex !== -1 ? newIndex : 0;
+        }
+        allMedia.forEach((item, index) => item.element.classList.toggle('is-active', index === currentIndex));
+        if (resetToFirst && allMedia[currentIndex]) slider.scrollTo({ left: allMedia[currentIndex].element.offsetLeft, behavior: 'smooth' });
+        updateArrows();
+        updateCounter();
+        updateDots();
+        updateGrid();
+      }, 80);
+    }
+
+    function setupVariantListeners() {
+      document.addEventListener('variant:media:updated', (event) => {
+        if (!event.detail?.sectionId || event.detail.sectionId === sectionId) handleVariantChange(true);
+      });
+      document.addEventListener('variant:change', () => setTimeout(() => handleVariantChange(true), 80));
+      document.addEventListener('shopify:variant:change', () => setTimeout(() => handleVariantChange(true), 80));
+      document.querySelectorAll('select[name="id"]').forEach(el => {
+        el.addEventListener('change', () => setTimeout(() => handleVariantChange(true), 80));
+      });
+      document.querySelectorAll('input[type="radio"]').forEach(el => {
+        el.addEventListener('change', () => setTimeout(() => handleVariantChange(true), 80));
+      });
+      const observer = new MutationObserver(() => setTimeout(syncFromActiveSlide, 80));
+      observer.observe(slider, { childList: true, subtree: true });
+    }
+
+    function setupTouchSwipe() {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isDragging = false;
+
+      slider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+        isDragging = false;
+      }, { passive: true });
+
+      slider.addEventListener('touchmove', function(e) {
+        const deltaX = Math.abs(e.changedTouches[0].clientX - touchStartX);
+        const deltaY = Math.abs(e.changedTouches[0].clientY - touchStartY);
+        if (deltaX > deltaY && deltaX > 10) {
+          isDragging = true;
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      slider.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (diff > 50) goToSlide(currentIndex + 1);
+        else if (diff < -50) goToSlide(currentIndex - 1);
+        isDragging = false;
+      }, { passive: true });
+    }
+
+    if (prevBtn) prevBtn.onclick = () => goToSlide(currentIndex - 1);
+    if (nextBtn) nextBtn.onclick = () => goToSlide(currentIndex + 1);
+    slider.closest('slider-component')?.addEventListener('slideChanged', (event) => {
+      window.setTimeout(() => syncFromActiveSlide(event.detail.currentElement), 0);
+    });
+
+    function init() {
+      refreshMediaData();
+      if (!gallery.hasAttribute('data-variant-file-gallery')) {
+        const active = getActiveIndex();
+        const alt = allMedia[active]?.alt || '';
+        if (alt) reorderByAlt(alt);
+      }
+      currentIndex = getActiveIndex();
+      updateArrows();
+      updateCounter();
+      updateDots();
+      updateGrid();
+      setupVariantListeners();
+      setupDots();
+      setupTouchSwipe();
+    }
+
+    init();
+  }
+
+  function initAll() {
+    document.querySelectorAll('[id^="MediaGallery-"]').forEach(g => {
+      const id = g.id.replace('MediaGallery-', '');
+      initGallery(id);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+
+})();
+
+
+// ============================================================
+// MODAL FULLSCREEN — Arrows + Close Button + Keyboard + Swipe
+// ============================================================
+(function() {
+  'use strict';
+
+  function injectModalControls(modal) {
+    if (modal.dataset.customControlsInjected) return;
+    modal.dataset.customControlsInjected = 'true';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'modal-custom-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+    closeBtn.onclick = () => closeModal(modal);
+    modal.appendChild(closeBtn);
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'modal-custom-arrow modal-custom-arrow--prev';
+    prevBtn.setAttribute('aria-label', 'Previous');
+    prevBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    prevBtn.onclick = () => navigateModal(modal, -1);
+    modal.appendChild(prevBtn);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'modal-custom-arrow modal-custom-arrow--next';
+    nextBtn.setAttribute('aria-label', 'Next');
+    nextBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    nextBtn.onclick = () => navigateModal(modal, 1);
+    modal.appendChild(nextBtn);
+
+    setupModalSwipe(modal);
+  }
+
+  function closeModal(modal) {
+    const closeNative = modal.querySelector('[data-close-modal], .modal__close-button, button[aria-label="Close dialog"]');
+    if (closeNative) { closeNative.click(); return; }
+    modal.removeAttribute('open');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function getModalSlides(modal) {
+    return Array.from(modal.querySelectorAll(
+      '.product-media-modal__content > *, .modal__content .product__media-item, [data-media-id], .slider__slide'
+    )).filter(el => el.offsetHeight > 0);
+  }
+
+  function getModalActiveIndex(slides) {
+    for (let i = 0; i < slides.length; i++) {
+      if (slides[i].classList.contains('is-active') ||
+          slides[i].getAttribute('aria-hidden') === 'false' ||
+          slides[i].hasAttribute('active')) return i;
+    }
+    return 0;
+  }
+
+  function navigateModal(modal, direction) {
+    const slides = getModalSlides(modal);
+    if (!slides.length) return;
+
+    if (direction === 1) {
+      const nativeNext = modal.querySelector('.slider-button--next, [name="next"]');
+      if (nativeNext) { nativeNext.click(); return; }
+    } else {
+      const nativePrev = modal.querySelector('.slider-button--prev, [name="previous"]');
+      if (nativePrev) { nativePrev.click(); return; }
+    }
+
+    let current = getModalActiveIndex(slides);
+    let next = current + direction;
+    if (next < 0) next = slides.length - 1;
+    if (next >= slides.length) next = 0;
+    slides.forEach(s => s.classList.remove('is-active'));
+    slides[next].classList.add('is-active');
+    slides[next].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  function setupModalSwipe(modal) {
+    let startX = 0, startY = 0, dragging = false;
+    modal.addEventListener('touchstart', function(e) {
+      startX = e.changedTouches[0].clientX;
+      startY = e.changedTouches[0].clientY;
+      dragging = false;
+    }, { passive: true });
+    modal.addEventListener('touchmove', function(e) {
+      const dx = Math.abs(e.changedTouches[0].clientX - startX);
+      const dy = Math.abs(e.changedTouches[0].clientY - startY);
+      if (dx > dy && dx > 10) { dragging = true; e.preventDefault(); }
+    }, { passive: false });
+    modal.addEventListener('touchend', function(e) {
+      if (!dragging) return;
+      const diff = startX - e.changedTouches[0].clientX;
+      if (diff > 50) navigateModal(modal, 1);
+      else if (diff < -50) navigateModal(modal, -1);
+      dragging = false;
+    }, { passive: true });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    const modal = document.querySelector(
+      'product-media-modal[open], .product-media-modal[open], dialog[open].product-media-modal, #ProductModal:not([hidden])'
+    );
+    if (!modal) return;
+    if (e.key === 'ArrowRight') navigateModal(modal, 1);
+    else if (e.key === 'ArrowLeft') navigateModal(modal, -1);
+    else if (e.key === 'Escape') closeModal(modal);
+  });
+
+  const bodyObserver = new MutationObserver(() => {
+    const modals = document.querySelectorAll(
+      'product-media-modal, .product-media-modal, #ProductModal, [id*="ProductModal"], [id*="MediaModal"]'
+    );
+    modals.forEach(modal => {
+      const isOpen =
+        modal.hasAttribute('open') ||
+        modal.getAttribute('aria-hidden') === 'false' ||
+        (!modal.hidden && modal.offsetHeight > 0 && getComputedStyle(modal).display !== 'none');
+      if (isOpen) injectModalControls(modal);
+    });
+  });
+
+  bodyObserver.observe(document.body, {
+    attributes: true,
+    subtree: true,
+    attributeFilter: ['open', 'aria-hidden', 'hidden', 'style', 'class']
+  });
+
+})();
+
+
+// ============================================================
+// CUSTOM VIDEO FULLSCREEN MODAL
+// Native browser fullscreen ke bajay apna modal use karta hai
+// Jisme cross button + prev/next arrows dikh sakte hain
+// ============================================================
+(function() {
+  'use strict';
+
+  const modal    = document.getElementById('custom-video-modal');
+  const cvmVideo = document.getElementById('cvm-video');
+  const cvmClose = document.getElementById('cvm-close');
+  const cvmPrev  = document.getElementById('cvm-prev');
+  const cvmNext  = document.getElementById('cvm-next');
+  const cvmCounter = document.getElementById('cvm-counter');
+
+  if (!modal || !cvmVideo) return;
+
+  // All gallery slides (collected fresh each time)
+  function getAllSlides() {
+    return Array.from(document.querySelectorAll('.product__media-item'));
+  }
+
+  function getCurrentIndex() {
+    const slides = getAllSlides();
+    return slides.findIndex(s => s.classList.contains('is-active'));
+  }
+
+  // ── Open modal with a given video source ──
+  function openModal(videoSrc, currentIdx, total) {
+    cvmVideo.src = videoSrc;
+    cvmVideo.load();
+    cvmVideo.play().catch(() => {});
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    updateModalUI(currentIdx, total);
+
+    // Trap focus
+    setTimeout(() => cvmClose.focus(), 100);
+  }
+
+  // ── Close modal ──
+  function closeModal() {
+    cvmVideo.pause();
+    cvmVideo.src = '';
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Update counter + arrow visibility ──
+  function updateModalUI(idx, total) {
+    if (cvmCounter) {
+      cvmCounter.textContent = total > 1 ? (idx + 1) + ' / ' + total : '';
+    }
+    cvmPrev.classList.toggle('hidden', total <= 1);
+    cvmNext.classList.toggle('hidden', total <= 1);
+  }
+
+  // ── Navigate slides from modal ──
+  function navigateSlide(direction) {
+    const slides = getAllSlides();
+    const currentIdx = getCurrentIndex();
+    const nextIdx = currentIdx + direction;
+
+    if (!slides.length) return;
+    let wrappedNextIdx = nextIdx;
+    if (wrappedNextIdx < 0) wrappedNextIdx = slides.length - 1;
+    if (wrappedNextIdx >= slides.length) wrappedNextIdx = 0;
+
+    // Check if next slide has a video
+    const nextSlide = slides[wrappedNextIdx];
+    const nextVideo = nextSlide.querySelector('video');
+    const nextSrc = nextVideo ? (nextVideo.currentSrc || nextVideo.src || nextVideo.querySelector('source')?.src) : null;
+
+    // Update active slide in gallery
+    slides.forEach(s => s.classList.remove('is-active'));
+    nextSlide.classList.add('is-active');
+    nextSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+
+    // Update gallery counters
+    document.querySelectorAll('.slider-counter--current').forEach(el => {
+      el.textContent = wrappedNextIdx + 1;
+    });
+
+    // Update gallery prev/next arrow states
+    document.querySelectorAll('[id^="galleryPrev-"], [id^="galleryNext-"]').forEach(btn => {
+      btn.disabled = slides.length <= 1;
+    });
+
+    if (nextSrc) {
+      // Next slide is also a video — stay in modal
+      cvmVideo.src = nextSrc;
+      cvmVideo.load();
+      cvmVideo.play().catch(() => {});
+      updateModalUI(wrappedNextIdx, slides.length);
+    } else {
+      // Next slide is an image — close modal
+      closeModal();
+    }
+  }
+
+  // ── Button events ──
+  cvmClose.onclick = closeModal;
+  cvmPrev.onclick  = () => navigateSlide(-1);
+  cvmNext.onclick  = () => navigateSlide(1);
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', function(e) {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape')      { closeModal(); }
+    else if (e.key === 'ArrowRight') { navigateSlide(1); }
+    else if (e.key === 'ArrowLeft')  { navigateSlide(-1); }
+  });
+
+  // ── Touch swipe inside modal ──
+  let touchStartX = 0, isDragging = false;
+  modal.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].clientX;
+    isDragging = false;
+  }, { passive: true });
+  modal.addEventListener('touchmove', e => {
+    if (Math.abs(e.changedTouches[0].clientX - touchStartX) > 10) isDragging = true;
+  }, { passive: true });
+  modal.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (diff > 50) navigateSlide(1);
+    else if (diff < -50) navigateSlide(-1);
+    isDragging = false;
+  }, { passive: true });
+
+  // ── Intercept fullscreen button clicks on videos ──
+  // We intercept the native fullscreen expand icon (⛶) click
+  // by listening to fullscreenchange and immediately exiting + opening our modal
+  function interceptVideoFullscreen(videoEl) {
+    if (videoEl.dataset.cvmIntercepted) return;
+    videoEl.dataset.cvmIntercepted = 'true';
+
+    // Method 1: Listen for fullscreenchange — exit immediately and open our modal
+    const handleFullscreen = function() {
+      const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+      if (fsEl && (fsEl === videoEl || fsEl.contains(videoEl))) {
+        // Exit native fullscreen immediately
+        if (document.exitFullscreen) document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+
+        // Open our custom modal
+        const src = videoEl.currentSrc || videoEl.src || videoEl.querySelector('source')?.src || '';
+        if (src) {
+          const slides = getAllSlides();
+          const slide = videoEl.closest('.product__media-item');
+          const idx = slide ? slides.indexOf(slide) : getCurrentIndex();
+          openModal(src, idx >= 0 ? idx : 0, slides.length);
+        }
+      }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreen);
+    document.addEventListener('webkitfullscreenchange', handleFullscreen);
+
+    // Method 2: Also intercept double-click (some browsers go fullscreen on dblclick)
+    videoEl.addEventListener('dblclick', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const src = videoEl.currentSrc || videoEl.src || videoEl.querySelector('source')?.src || '';
+      if (src) {
+        const slides = getAllSlides();
+        const slide = videoEl.closest('.product__media-item');
+        const idx = slide ? slides.indexOf(slide) : getCurrentIndex();
+        openModal(src, idx >= 0 ? idx : 0, slides.length);
+      }
+    });
+  }
+
+  // ── Add a custom "expand" button next to each video ──
+  function addExpandButton(videoEl) {
+    const container = videoEl.closest('.product__media-item, .deferred-media, [class*="media"]');
+    if (!container) return;
+    if (container.querySelector('.cvm-expand-btn')) return; // already added
+
+    const expandBtn = document.createElement('button');
+    expandBtn.className = 'cvm-expand-btn';
+    expandBtn.setAttribute('aria-label', 'Open fullscreen');
+    expandBtn.setAttribute('type', 'button');
+    expandBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`;
+
+    expandBtn.onclick = function(e) {
+      e.stopPropagation();
+      const src = videoEl.currentSrc || videoEl.src || videoEl.querySelector('source')?.src || '';
+      if (src) {
+        const slides = getAllSlides();
+        const slide = videoEl.closest('.product__media-item');
+        const idx = slide ? slides.indexOf(slide) : getCurrentIndex();
+        openModal(src, idx >= 0 ? idx : 0, slides.length);
+      }
+    };
+
+    // Position container relatively if not already
+    const pos = getComputedStyle(container).position;
+    if (pos === 'static') container.style.position = 'relative';
+
+    container.appendChild(expandBtn);
+  }
+
+  // ── Scan for videos and set up interception ──
+  function setupVideos() {
+    document.querySelectorAll('.product__media-list video, .product__media-item video').forEach(video => {
+      interceptVideoFullscreen(video);
+      addExpandButton(video);
+    });
+  }
+
+  // ── Init + watch for dynamically loaded videos ──
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupVideos);
+  } else {
+    setupVideos();
+  }
+
+  // Watch for deferred media loading
+  const videoObserver = new MutationObserver(() => {
+    setupVideos();
+  });
+  videoObserver.observe(document.body, { childList: true, subtree: true });
+
+})();
+</script>

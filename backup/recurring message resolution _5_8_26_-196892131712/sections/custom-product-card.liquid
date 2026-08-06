@@ -1,0 +1,289 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<section
+  id="category-slider-{{ section.id }}"
+  class="category-slider"
+  style="
+    padding: {{ section.settings.margin_top }}px 0 {{ section.settings.margin_bottom }}px;
+    background: {{ section.settings.section_bg }};
+  "
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="swiper categorySwiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <a href="{{ block.settings.link }}" class="card">
+            <div class="card-image">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | img_url: '600x' }}" alt="">
+              {% endif %}
+            </div>
+
+            <span class="line"></span>
+
+               {% if block.settings.title1 != blank %}
+<div class="text-un">{{ block.settings.title1 }}</div>
+      {% endif %}
+            <h3>{{ block.settings.title }}</h3>
+
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<style>
+
+@media(min-width: 768px){    
+#category-slider-{{ section.id }} .section-heading{
+  text-align:center;
+  color: {{ section.settings.text_color }};
+  margin-bottom: 40px;
+    font-weight: 900;
+    font-size: {{ section.settings.hd1 }}px;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: 'DM Sans';
+}
+.text-un {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+    color: white;
+    padding-bottom: 50px;
+}
+#category-slider-{{ section.id }}{
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_lr }}px {{ section.settings.padding_bottom }}px !important;
+}
+
+#category-slider-{{ section.id }} h3{
+  margin-bottom: 20px;
+  color: {{ section.settings.text_color }};
+    font-weight: 700;
+    font-size: {{ section.settings.w1 }}px;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+}
+}
+
+
+@media(max-width: 768px){    
+#category-slider-{{ section.id }} .section-heading{
+  text-align:center;
+  color: {{ section.settings.text_color }};
+    font-weight: 900;
+    width:80%;
+    margin: 0 auto;
+    font-size: {{ section.settings.hd2 }}px;;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+}
+.text-un {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+    color: white;
+    padding-bottom: 50px;
+}
+#category-slider-{{ section.id }} h3{
+  margin-bottom: 20px;
+  color: {{ section.settings.text_color }};
+    font-weight: 700;
+    font-size: {{ section.settings.w2 }}px;
+    line-height: 1.25em;
+    letter-spacing: 0px;
+    font-family: DM Sans,sans-serif;
+}
+}
+
+
+
+#category-slider-{{ section.id }} .card{
+  background: {{ section.settings.card_bg }};
+  padding: 15px;
+  margin: 12px;
+  border-radius: 16px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: {{ section.settings.text_color }};
+}
+
+#category-slider-{{ section.id }} .card-image img{
+  width:100%;
+  max-height: 360px;
+  object-fit:contain;
+}
+
+#category-slider-{{ section.id }} .line{
+  display:block;
+  width:100%;
+  height:2px;
+  background: {{ section.settings.line_color }};
+  margin: 20px 0;
+}
+
+#category-slider-{{ section.id }} .arrow{
+  width:40px;
+  height:40px;
+  background:#2d2a60;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  margin: 0 auto;
+}
+
+{% if section.settings.hide_arrow_desktop %}
+#category-slider-{{ section.id }} .swiper-button-next,
+#category-slider-{{ section.id }} .swiper-button-prev{display:none;}
+{% endif %}
+
+{% if section.settings.hide_dots_desktop %}
+#category-slider-{{ section.id }} .swiper-pagination{display:none;}
+{% endif %}
+
+@media(max-width:768px){
+  {% if section.settings.hide_arrow_mobile %}
+  #category-slider-{{ section.id }} .swiper-button-next,
+  #category-slider-{{ section.id }} .swiper-button-prev{display:none;}
+  {% endif %}
+
+  {% if section.settings.hide_dots_mobile %}
+  #category-slider-{{ section.id }} .swiper-pagination{display:none;}
+  {% endif %}
+}
+</style>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  new Swiper("#category-slider-{{ section.id }} .categorySwiper", {
+    slidesPerView: {{ section.settings.desktop_per_view }},
+    spaceBetween: {{ section.settings.gap }},
+    loop: true,
+    pagination: {
+      el: "#category-slider-{{ section.id }} .swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: "#category-slider-{{ section.id }} .swiper-button-next",
+      prevEl: "#category-slider-{{ section.id }} .swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: {{ section.settings.mobile_per_view }},
+        enabled: {{ section.settings.mobile_slider }}
+      },
+      769: {
+        slidesPerView: {{ section.settings.desktop_per_view }},
+        enabled: {{ section.settings.desktop_slider }}
+      }
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Category Slider",
+  "settings": [
+
+         {
+      "type": "range",
+      "id": "hd1",
+      "label": "Heading Size (Desktop)",
+      "min": 18,
+      "max": 70,
+      "step": 1,
+      "default": 40
+    },
+          {
+      "type": "range",
+      "id": "hd2",
+      "label": "Heading Size (Mobile)",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "default": 24
+    },
+             {
+      "type": "range",
+      "id": "w1",
+      "label": "Product Name Size (Desktop)",
+      "min": 15,
+      "max": 70,
+      "step": 1,
+      "default": 30
+    },
+          {
+      "type": "range",
+      "id": "w2",
+      "label": "Product Name Size (Mobile)",
+      "min": 10,
+      "max": 70,
+      "step": 1,
+      "default": 30
+    },
+    { "type": "text", "id": "heading", "label": "Heading" },
+
+    { "type": "color", "id": "section_bg", "label": "Section BG", "default": "#eef2f5" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#000" },
+    { "type": "color", "id": "line_color", "label": "Line Color", "default": "#ff6a00" },
+    { "type": "color", "id": "card_bg", "label": "Card BG", "default": "#ffffff" },
+
+    { "type": "range", "id": "desktop_per_view", "label": "Desktop Per View", "min": 1, "max": 5, "step": 1, "default": 3 },
+    { "type": "range", "id": "mobile_per_view", "label": "Mobile Per View", "min": 1, "max": 3, "step": 1, "default": 1 },
+
+    { "type": "checkbox", "id": "desktop_slider", "label": "Enable Desktop Slider", "default": true },
+    { "type": "checkbox", "id": "mobile_slider", "label": "Enable Mobile Slider", "default": true },
+
+    { "type": "checkbox", "id": "hide_arrow_desktop", "label": "Hide Arrow Desktop" },
+    { "type": "checkbox", "id": "hide_arrow_mobile", "label": "Hide Arrow Mobile" },
+
+    { "type": "checkbox", "id": "hide_dots_desktop", "label": "Hide Dots Desktop" },
+    { "type": "checkbox", "id": "hide_dots_mobile", "label": "Hide Dots Mobile" },
+
+    { "type": "range", "id": "gap", "label": "Gap", "min": 0, "max": 50, "step": 2, "default": 30 },
+
+    { "type": "range", "id": "padding_top", "label": "Padding Top", "min": 0, "max": 120, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding Bottom", "min": 0, "max": 120, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_lr", "label": "Padding Left Right", "min": 0, "max": 100, "step": 4, "default": 20 },
+
+    { "type": "range", "id": "margin_top", "label": "padding Top", "min": 0, "max": 120, "step": 4, "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "padding Bottom", "min": 0, "max": 120, "step": 4, "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+          { "type": "text", "id": "title1", "label": "Product Title" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Category Slider" }
+  ]
+}
+{% endschema %}

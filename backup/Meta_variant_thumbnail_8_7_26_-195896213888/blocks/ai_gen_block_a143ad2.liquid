@@ -1,0 +1,833 @@
+
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign overlay_r = block.settings.overlay_color | color_extract: 'red'
+  assign overlay_g = block.settings.overlay_color | color_extract: 'green'
+  assign overlay_b = block.settings.overlay_color | color_extract: 'blue'
+  assign overlay_alpha_desktop = block.settings.overlay_opacity | divided_by: 100.0
+  assign overlay_alpha_mobile = block.settings.overlay_opacity_mobile | divided_by: 100.0
+%}
+
+{% style %}
+  .hero-video-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    {% if block.settings.section_height == 'full' %}
+      height: 100vh;
+      min-height: 400px;
+    {% else %}
+      height: {{ block.settings.custom_height }}px;
+    {% endif %}
+  }
+
+  .hero-video__media-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-video__video-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-video__fallback-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-video__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba({{ overlay_r }}, {{ overlay_g }}, {{ overlay_b }}, {{ overlay_alpha_desktop }});
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-video__content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 7%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: {{ block.settings.content_alignment_desktop }};
+    text-align: {% if block.settings.content_alignment_desktop == 'flex-start' %}left{% elsif block.settings.content_alignment_desktop == 'flex-end' %}right{% else %}center{% endif %};
+    padding: 40px 20px;
+  }
+  
+@media (max-width: 768px) {
+  .hero-video__content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: {{ block.settings.content_alignment_desktop }};
+    text-align: center !important;
+    padding: 40px 20px;
+  }
+  .hero-video__content-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {
+    left:0;
+    text-align: center;
+    align-items: center;
+  }
+  .hero-video__reviews-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {
+  color:#fff !important;
+   
+}
+  .hero-video__content-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {
+    background: rgba(0, 0, 0, 0.1);
+  }
+    .hero-video__text-{{ ai_gen_id }} {
+    color:#fff !important;
+ 
+  }
+}
+
+  .hero-video__content-inner-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: {% if block.settings.content_alignment_desktop == 'flex-start' %}flex-start{% elsif block.settings.content_alignment_desktop == 'flex-end' %}flex-end{% else %}center{% endif %};
+  }
+
+  .hero-video__heading-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.heading_size_desktop }}px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hero-video__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size_desktop }}px;
+    margin: 0;
+    line-height: 1.5;
+  }
+  a.jdgm-link {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  a.jdgm-link:hover,
+  a.jdgm-link:focus,
+  a.jdgm-link:active {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .hero-video__reviews-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.reviews_size }}px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+.hero-video__reviews-{{ ai_gen_id }} {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Container */
+.hero-video__reviews-{{ ai_gen_id }} {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Stars wrapper */
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px; /* tighter spacing like premium apps */
+}
+
+/* Base star */
+.star {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-size: 24px; /* desktop size */
+}
+
+/* Colors */
+.star.full {
+  color: #FFC107; /* bright yellow */
+}
+
+.star.empty {
+  color: #E5E7EB; /* softer grey */
+}
+
+.star.partial {
+  position: relative;
+  color: #E5E7EB;
+}
+
+.star.partial .star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #FFC107;
+  white-space: nowrap;
+}
+
+.star.partial .star-bg {
+  color: #E5E7EB;
+}
+
+/* Review text */
+.reviews-text {
+  font-size: 20px; /* desktop */
+  color: #333;
+  font-weight: 500;
+}
+
+/* ⭐ Tablet */
+@media (max-width: 991px) {
+  .star {
+    font-size: 18px;
+  }
+
+  .reviews-text {
+    font-size: 18px;
+  }
+}
+
+/* ⭐ Mobile */
+@media (max-width: 600px) {
+  .hero-video__reviews-{{ ai_gen_id }} {
+    gap: 6px;
+  }
+
+  .stars {
+    gap: 1px;
+  }
+
+  .star {
+    font-size: 16px; /* smaller for mobile */
+  }
+
+  .reviews-text {
+    font-size: 13px;
+  }
+}
+.reviews-text {
+  font-size: 17px;
+}
+  .hero-video__badge-{{ ai_gen_id }} {
+    display: inline-block;
+    background-color: {{ block.settings.badge_bg_color }};
+    color: {{ block.settings.badge_text_color }};
+    padding: 10px 20px;
+    border-radius: {{ block.settings.badge_radius }}px;
+    font-size: {{ block.settings.badge_size }}px;
+    font-weight: 600;
+  }
+
+  .hero-video__button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_radius }}px;
+    font-size: {{ block.settings.button_size_desktop }}px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hero-video__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+  }
+@media (max-width: 768px) {
+    .hero-video__content-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {
+        
+        background: rgb(46 46 47 / 30%);
+    }
+ .hero-video__heading-{{ ai_gen_id }} {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 749px) {
+    .hero-video__heading-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {
+        font-size: 32px;
+    }
+}
+  @media screen and (max-width: 749px) {
+    .hero-video-{{ ai_gen_id }} {
+      {% if block.settings.section_height == 'full' %}
+        height: {{ block.settings.mobile_height }}vh;
+      {% else %}
+        height: {{ block.settings.custom_height_mobile }}px;
+      {% endif %}
+    }
+
+    .hero-video__video-{{ ai_gen_id }} {
+      display: {% if block.settings.hide_video_mobile %}none{% else %}block{% endif %};
+    }
+
+    .hero-video__fallback-image-{{ ai_gen_id }} {
+      display: {% if block.settings.hide_video_mobile and block.settings.fallback_image %}block{% else %}none{% endif %};
+    }
+
+    .hero-video__overlay-{{ ai_gen_id }} {
+      background-color: rgba({{ overlay_r }}, {{ overlay_g }}, {{ overlay_b }}, {{ overlay_alpha_mobile }});
+    }
+
+    .hero-video__content-{{ ai_gen_id }} {
+      align-items: {{ block.settings.content_alignment_mobile }};
+      text-align: {% if block.settings.content_alignment_mobile == 'flex-start' %}left{% elsif block.settings.content_alignment_mobile == 'flex-end' %}right{% else %}center{% endif %};
+      padding: 30px 15px;
+    }
+
+    .hero-video__content-inner-{{ ai_gen_id }} {
+      align-items: {% if block.settings.content_alignment_mobile == 'flex-start' %}flex-start{% elsif block.settings.content_alignment_mobile == 'flex-end' %}flex-end{% else %}center{% endif %};
+      gap: 16px;
+    }
+
+    .hero-video__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .hero-video__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_mobile }}px;
+    }
+
+    .hero-video__button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_size_mobile }}px;
+      padding: 10px 15px;
+    }
+  }
+{% endstyle %}
+
+<div class="hero-video-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="hero-video__media-{{ ai_gen_id }}">
+    {% if block.settings.video_url != blank %}
+      <video
+        class="hero-video__video-{{ ai_gen_id }}"
+        autoplay
+        muted
+        loop
+        playsinline
+        {% if block.settings.lazy_load %}
+          loading="lazy"
+        {% endif %}
+      >
+        <source src="{{ block.settings.video_url }}" type="video/mp4">
+      </video>
+    {% endif %}
+
+    {% if block.settings.fallback_image %}
+      <img
+        class="hero-video__fallback-image-{{ ai_gen_id }}"
+        src="{{ block.settings.fallback_image | image_url: width: 2000 }}"
+        alt="{{ block.settings.fallback_image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.fallback_image.width }}"
+        height="{{ block.settings.fallback_image.height }}"
+        style="{% if block.settings.video_url != blank and block.settings.hide_video_mobile == false %}display: none;{% endif %}"
+      >
+    {% endif %}
+  </div>
+<!-- Start of Judge.me code -->
+  <div class='jdgm-widget jdgm-preview-badge'>
+    {{ card_product.metafields.judgeme.badge }}
+  </div>
+<!-- End of Judge.me code -->
+  <div class="hero-video__overlay-{{ ai_gen_id }}"></div>
+
+  <div class="hero-video__content-{{ ai_gen_id }}">
+    <div class="hero-video__content-inner-{{ ai_gen_id }}">
+      {% if block.settings.show_badge and block.settings.badge_text != blank %}
+        <div class="hero-video__badge-{{ ai_gen_id }}">
+          {{ block.settings.badge_text }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h1 class="hero-video__heading-{{ ai_gen_id }}">
+          {{ block.settings.heading }}
+        </h1>
+      {% endif %}
+
+      {% if block.settings.subheading != blank %}
+        <p class="hero-video__text-{{ ai_gen_id }}">
+          {{ block.settings.subheading }}
+        </p>
+      {% endif %}
+{% assign rating = 4.74 %}
+{% assign full_stars = rating | floor %}
+{% assign remainder = rating | minus: full_stars %}
+{% assign percent = remainder | times: 100 %}
+{% assign next_star = full_stars | plus: 1 %}
+
+{% if block.settings.show_reviews and block.settings.reviews_text != blank %}
+  <div class="hero-video__reviews-{{ ai_gen_id }}">
+    
+    <div class="stars">
+      {% for i in (1..5) %}
+        {% if i <= full_stars %}
+          <span class="star full">★</span>
+        {% elsif i == next_star %}
+          <span class="star partial">
+            <span class="star-fill" style="width:60%">★</span>
+            <span class="star-bg">★</span>
+          </span>
+        {% else %}
+          <span class="star empty">★</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <span class="reviews-text">{{ block.settings.reviews_text }}</span>
+  </div>
+{% endif %}
+
+{% comment %} {% assign my_product = all_products['the-phoenix-gravity-water-filter'] %}
+
+<a href="{{ my_product.url }}" class="jdgm-link">
+  <div class="jdgm-widget jdgm-preview-badge" data-id="{{ my_product.id }}">
+    {{ my_product.metafields.judgeme.badge }}
+  </div>
+</a> {% endcomment %}
+
+
+
+
+      {% if block.settings.button_label != blank %}
+        <a
+          href="{{ block.settings.button_link }}"
+          class="hero-video__button-{{ ai_gen_id }}"
+        >
+          {{ block.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero video",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Enter Shopify CDN video URL (e.g., https://cdn.shopify.com/s/files/1/xxxx/xxxx/files/video.mp4)"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback image"
+    },
+    {
+      "type": "checkbox",
+      "id": "lazy_load",
+      "label": "Lazy load video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_video_mobile",
+      "label": "Hide video on mobile",
+      "info": "Show fallback image on mobile instead",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section height"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Desktop height",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full viewport (100vh)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom height"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "custom_height",
+      "label": "Custom height (desktop)",
+      "min": 300,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 600,
+      "info": "Only applies when 'Custom height' is selected"
+    },
+    {
+      "type": "range",
+      "id": "custom_height_mobile",
+      "label": "Custom height (mobile)",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "default": 500,
+      "info": "Only applies when 'Custom height' is selected"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height (viewport)",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 70,
+      "info": "Only applies when 'Full viewport' is selected"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium Water Filtration"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Pure, clean water for your home"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Get £10 Off"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background",
+      "default": "#f5d24f"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "badge_radius",
+      "label": "Badge border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "badge_size",
+      "label": "Badge font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show reviews",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "reviews_text",
+      "label": "Reviews text",
+      "default": "Rated 5.0 by 1,000+ customers"
+    },
+    {
+      "type": "range",
+      "id": "reviews_size",
+      "label": "Reviews font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Layout - Desktop"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_desktop",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "header",
+      "content": "Layout - Mobile"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_mobile",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Overlay - Desktop"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Overlay - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity_mobile",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "label": "Subheading size (desktop)",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Subheading size (mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#f5d24f"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_size_desktop",
+      "label": "Font size (desktop)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero video"
+    }
+  ]
+}
+{% endschema %}

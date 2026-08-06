@@ -1,0 +1,405 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_text_section_FqzKEn": {
+      "type": "custom-text-section",
+      "custom_css": [],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#2d2d4f",
+        "bg_color": "#2f2954",
+        "padding_top": 5,
+        "padding_bottom": 40,
+        "show_bottom_buttons": true,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 170,
+        "btn_width_mobile": 155,
+        "btn_text_1": "All Products",
+        "btn_link_1": "#",
+        "btn_bg_1": "rgba(0,0,0,0)",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#f5d24f",
+        "btn_text_2": "Filters & Bundles",
+        "btn_link_2": "#filtration-products",
+        "btn_bg_2": "rgba(0,0,0,0)",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#f5d24f",
+        "btn_text_3": "Cartridges",
+        "btn_link_3": "#replacement-cartridges",
+        "btn_bg_3": "rgba(0,0,0,0)",
+        "btn_text_color_3": "#ffffff",
+        "btn_border_color_3": "#f5d24f",
+        "btn_text_4": "Accessories",
+        "btn_link_4": "#accessories",
+        "btn_bg_4": "rgba(0,0,0,0)",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#f5d24f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "custom_product_grid_JNME4a": {
+      "type": "custom-product-grid",
+      "blocks": {
+        "product_4L4Pix": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "the-phoenix-gravity-water-filter-12-litre",
+            "badge_text": "1–2 <br> people",
+            "review_text": "(4.7/5) - 846 Reviews"
+          }
+        },
+        "product_3CEBpK": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "the-phoenix-gravity-water-filter-8-litre",
+            "badge_text": "1–2 <br>people",
+            "review_text": "(4.7/5) - 846 Reviews"
+          }
+        },
+        "product_dfpLQF": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "the-phoenix-gravity-water-filter-6-litre",
+            "badge_text": "1–2 <br>people",
+            "review_text": "(4.7/5) - 846 Reviews"
+          }
+        },
+        "product_jQGEJr": {
+          "type": "product",
+          "settings": {
+            "product": "the-phoenix-gravity-water-filter",
+            "badge_text": "",
+            "review_text": " (4.74/5) - 769 Reviews"
+          }
+        },
+        "product_7aCEeh": {
+          "type": "product",
+          "settings": {
+            "product": "the-phoenix-gravity-mini-1l",
+            "badge_text": "1–2 people",
+            "review_text": " (4.74/5) - 769 Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "product_4L4Pix",
+        "product_3CEBpK",
+        "product_dfpLQF",
+        "product_jQGEJr",
+        "product_7aCEeh"
+      ],
+      "custom_css": [
+        ".page-width.gr-d {padding: 0;}",
+        ".product-badge {padding: 22px 14px; border-radius: 50%; line-height: 12px; border: 2px solid white;}",
+        ".product-title {color: #2f2954; margin-bottom: 0px;}",
+        "@media (min-width: 768px) {.product-title {font-size: 24px !important; } .filtration-card {padding-bottom: 0px !important; }}",
+        "h2.filtration-heading {margin: 10px;}",
+        "h3 a,h3 a:visited,h3 a:hover,h3 a:focus,h3 a:active {text-decoration: none !important; color: #000000 !important;}"
+      ],
+      "name": "Filtration Products Grid",
+      "settings": {
+        "b1": 40,
+        "b2": 24,
+        "desktop_columns": 3,
+        "mobile_columns": 1,
+        "heading1": "Filter Systems",
+        "heading": "",
+        "section_bg": "#eaeef2",
+        "card_bg": "#eaeef2",
+        "button_bg": "#f5d547",
+        "button_text": "#000000",
+        "button_label": "ADD TO CART",
+        "card_gap": 30,
+        "card_padding": 24,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_lr": 20,
+        "custom_anchor_id": "filtration-products"
+      }
+    },
+    "custom_product_grid_pFBdqV": {
+      "type": "custom-product-grid",
+      "blocks": {
+        "product_Vi3VyJ": {
+          "type": "product",
+          "settings": {
+            "product": "kokocarb-cartridges",
+            "badge_text": "",
+            "review_text": "(4.7/5) · 846 Reviews"
+          }
+        },
+        "product_iyfKqn": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "smart-carbon-cartridges",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 846 Reviews"
+          }
+        },
+        "product_UcNtVB": {
+          "type": "product",
+          "settings": {
+            "product": "postreat-fluoride-remover",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 846 Reviews"
+          }
+        },
+        "product_ypfRYM": {
+          "type": "product",
+          "settings": {
+            "product": "postreat-fluorid-media-refill",
+            "badge_text": "",
+            "review_text": "(4.6/5) - 52 Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "product_Vi3VyJ",
+        "product_iyfKqn",
+        "product_UcNtVB",
+        "product_ypfRYM"
+      ],
+      "custom_css": [
+        ".page-width.gr-d {padding: 0;}",
+        ".product-badge {padding: 22px 14px; border-radius: 50%; line-height: 12px; border: 2px solid white;}",
+        ".product-title {color: #2f2954; margin-bottom: 0px;}",
+        "@media (min-width: 768px) {.product-title {font-size: 24px !important; } .filtration-card {padding: 0px !important; } section#replacement-cartridges {padding: 1px !important; }}",
+        "h2.filtration-heading {margin: 10px;}",
+        "h3 a,h3 a:visited,h3 a:hover,h3 a:focus,h3 a:active {text-decoration: none !important; color: #000000 !important;}"
+      ],
+      "name": "Custom Products Grid",
+      "settings": {
+        "b1": 40,
+        "b2": 24,
+        "desktop_columns": 3,
+        "mobile_columns": 1,
+        "heading1": "",
+        "heading": "Replacement Cartridges",
+        "section_bg": "#eaeef1",
+        "card_bg": "#eaeef1",
+        "button_bg": "#f5d547",
+        "button_text": "#000000",
+        "button_label": "ADD TO CART",
+        "card_gap": 30,
+        "card_padding": 24,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_lr": 20,
+        "custom_anchor_id": "replacement-cartridges"
+      }
+    },
+    "custom_product_grid_c93FGz": {
+      "type": "custom-product-grid",
+      "blocks": {
+        "product_enktUg": {
+          "type": "product",
+          "settings": {
+            "product": "water-filter-teak-wood-stands",
+            "badge_text": "",
+            "review_text": "(3.49/5) - 35 Reviews"
+          }
+        },
+        "product_XqDHit": {
+          "type": "product",
+          "settings": {
+            "product": "water-filter-stands",
+            "badge_text": "",
+            "review_text": "(3.49/5) - 35 Reviews"
+          }
+        },
+        "product_h9R7JA": {
+          "type": "product",
+          "settings": {
+            "product": "black-stainless-steel-water-filter-stand",
+            "badge_text": "",
+            "review_text": "(3.49/5) - 35 Reviews"
+          }
+        },
+        "product_qCGE9C": {
+          "type": "product",
+          "settings": {
+            "product": "vision-tap-stainless-steel",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        },
+        "product_bbRWhm": {
+          "type": "product",
+          "settings": {
+            "product": "stainless-steel-tap",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        },
+        "product_qDV4nY": {
+          "type": "product",
+          "settings": {
+            "product": "knob",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        },
+        "product_JNbht7": {
+          "type": "product",
+          "settings": {
+            "product": "airlock-clip",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        },
+        "product_ELW7dy": {
+          "type": "product",
+          "settings": {
+            "product": "wingnut-washers",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        },
+        "product_kcAfgL": {
+          "type": "product",
+          "settings": {
+            "product": "pp-plugs",
+            "badge_text": "",
+            "review_text": "(4.7/5) - 32 Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "product_enktUg",
+        "product_XqDHit",
+        "product_h9R7JA",
+        "product_qCGE9C",
+        "product_bbRWhm",
+        "product_qDV4nY",
+        "product_JNbht7",
+        "product_ELW7dy",
+        "product_kcAfgL"
+      ],
+      "custom_css": [
+        ".page-width.gr-d {padding: 0;}",
+        ".product-badge {padding: 22px 14px; border-radius: 50%; line-height: 12px; border: 2px solid white;}",
+        ".product-title {color: #2f2954; margin-bottom: 0px;}",
+        "@media (min-width: 768px) {.product-title {font-size: 24px !important; } .filtration-card {padding: 0px !important; }}",
+        "h2.filtration-heading {margin: 10px;}",
+        "h3 a,h3 a:visited,h3 a:hover,h3 a:focus,h3 a:active {text-decoration: none !important; color: #000000 !important;}"
+      ],
+      "name": "Custom Products Grid",
+      "settings": {
+        "b1": 40,
+        "b2": 24,
+        "desktop_columns": 3,
+        "mobile_columns": 1,
+        "heading1": "",
+        "heading": "Accessories",
+        "section_bg": "#eaeef1",
+        "card_bg": "#eaeef1",
+        "button_bg": "#f5d547",
+        "button_text": "#000000",
+        "button_label": "ADD TO CART",
+        "card_gap": 22,
+        "card_padding": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_lr": 20,
+        "custom_anchor_id": "accessories"
+      }
+    },
+    "17772882396423e025": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_HUpnLh": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_HUpnLh"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "custom_text_section_FqzKEn",
+    "custom_product_grid_JNME4a",
+    "custom_product_grid_pFBdqV",
+    "custom_product_grid_c93FGz",
+    "17772882396423e025"
+  ]
+}

@@ -1,0 +1,460 @@
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init({
+      once: true,
+      duration: 900,
+      easing: 'ease-out-cubic'
+    });
+  });
+</script>
+
+
+{% liquid
+  assign uid = section.id
+%}
+
+<section
+  id="filtration-section-{{ uid }}"
+  class="filtration-section-{{ uid }}"
+  style="
+    background: {{ section.settings.section_bg }};
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_lr }}px {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="filtration-container-{{ uid }} {{ section.settings.cs1 }}" style="max-width: {{ section.settings.container_width }}px">
+
+    {% if section.settings.heading != blank %}
+      <h2
+        class="filtration-heading-{{ uid }}"
+        style="color: {{ section.settings.heading_color }}"
+      >
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="filtration-grid-{{ uid }}">
+
+      <!-- LEFT ICONS -->
+ <div
+  class="filtration-item-{{ uid }}"
+  data-aos="fade-right"
+>
+
+                     {% if section.settings.t2 != blank %}
+<div class="text-side-heading">
+             {{ section.settings.t2 }}
+</div>
+        {% endif %}
+        {% for block in section.blocks %}
+          {% if block.type == 'left_item' %}
+            <div class="filtration-item-{{ uid }}">
+              {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | image_url }}"
+                  class="filtration-icon-{{ uid }}"
+                  style="width: {{ section.settings.icon_size }}px"
+                >
+              {% endif %}
+
+              <h4 style="color: {{ section.settings.text_color }}">
+                {{ block.settings.title }}
+              </h4>
+
+              <p class="side{{forloop.index}}" style="color: {{ section.settings.text_color }}">
+                {{ block.settings.text }}
+              </p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- CENTER IMAGE -->
+     <div
+  class="filtration-image-wrap-{{ uid }}"
+  data-aos="zoom-in"
+>
+
+     {% if section.settings.center_image != blank %}
+  <img
+    src="{{ section.settings.center_image | image_url }}"
+    class="filtration-center-image-{{ uid }}"
+    {% unless section.settings.image_original %}
+      style="margin: {{ section.settings.image_margin }}px auto;"
+    {% endunless %}
+  >
+{% endif %}
+
+      </div>
+
+      <!-- RIGHT ICONS -->
+<div
+  class="filtration-item-{{ uid }}"
+  data-aos="fade-left"
+>
+
+             {% if section.settings.t1 != blank %}
+<div class="text-side-heading">
+             {{ section.settings.t1 }}
+</div>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'right_item' %}
+            <div class="filtration-item-{{ uid }}">
+              {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | image_url }}"
+                  class="filtration-icon-{{ uid }}"
+                  style="width: {{ section.settings.icon_size }}px"
+                >
+              {% endif %}
+
+              <h4 style="color: {{ section.settings.text_color }}">
+                {{ block.settings.title }}
+              </h4>
+
+              <p class="sids{{forloop.index}}" style="color: {{ section.settings.text_color }}">
+                {{ block.settings.text }}
+              </p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+.filtration-center-image-{{ uid }} {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* CUSTOM SIZE MODE */
+{% unless section.settings.image_original %}
+@media (min-width: 769px) {
+  .filtration-center-image-{{ uid }} {
+    width: {{ section.settings.image_width_desktop }}px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtration-center-image-{{ uid }} {
+    width: {{ section.settings.image_width_mobile }}px;
+  }
+}
+{% endunless %}
+
+
+
+
+
+
+  #filtration-section-{{ uid }} {
+    width: 100%;
+    overflow:hidden;
+  }
+
+  .filtration-container-{{ uid }} {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
+.filtration-grid-{{ uid }} {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start; /* LEFT & RIGHT top se start */
+  gap: 40px;
+}
+.filtration-image-wrap-{{ uid }} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+  .filtration-col-{{ uid }} {
+     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 85%;
+  }
+
+  .filtration-image-wrap-{{ uid }} img {
+    display: block;
+  }
+
+
+  @media (min-width: 768px) {
+ .filtration-item-{{ uid }} p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+    .filtration-heading-{{ uid }} {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+    .filtration-item-{{ uid }} h4 {
+    margin: 10px 0 5px;
+    font-size: {{ section.settings.w1}}px;
+  }
+  .text-side-heading p {
+    font-size: 24px;
+    font-weight: 800;
+    font-family: system-ui;
+    line-height: 150%;
+    /* width: 100%; */
+}
+}
+
+
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    .filtration-grid-{{ uid }} {
+      grid-template-columns: 1fr;
+    }
+      .filtration-heading-{{ uid }} {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+    .text-side-heading p {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: system-ui;
+    line-height: 150%;
+    /* width: 100%; */
+}
+      .filtration-item-{{ uid }} h4 {
+    margin: 10px 0 5px;
+    font-size: {{section.settings.w2}}px;
+  }
+     .filtration-item-{{ uid }} p {
+     font-size: 18px;
+    line-height: 1.6;
+    padding-bottom: 27px;
+  }
+
+.custom-slide-class.templates p{
+  text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    gap: 3px;
+    padding-bottom: 27px;
+}
+  }
+  
+</style>
+
+{% schema %}
+{
+  "name": "Filtration Icons Center",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Filtration At Its Finest"
+    },
+      {
+      "type": "range",
+      "id": "w1",
+      "label": "Icon Heading Font Size",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 21
+    },
+    {
+      "type": "range",
+      "id": "w2",
+      "label": "Icon Heading Font Size",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 18
+    },
+      {
+      "type": "richtext",
+      "id": "t1",
+      "label": "Right Heading"
+    },
+      {
+      "type": "richtext",
+      "id": "t2",
+      "label": "Left Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+      "default": "#4d97c3"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container Width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_lr",
+      "label": "Padding Left Right",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Image"
+    },
+{
+  "type": "checkbox",
+  "id": "image_original",
+  "label": "Use Original Image Size",
+  "default": false
+},
+{
+  "type": "range",
+  "id": "image_width_desktop",
+  "label": "Image Width (Desktop)",
+  "min": 150,
+  "max": 700,
+  "step": 10,
+  "default": 280
+},
+{
+  "type": "range",
+  "id": "image_width_mobile",
+  "label": "Image Width (Mobile)",
+  "min": 120,
+  "max": 400,
+  "step": 10,
+  "default": 220
+},
+
+    {
+      "type": "range",
+      "id": "image_margin",
+      "label": "Image Margin",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon Size",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+       {
+      "type": "text",
+      "id": "cs1",
+      "label": "Please do not edit"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "left_item",
+      "name": "Left Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "right_item",
+      "name": "Right Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Side Icons Center Image"
+    }
+  ]
+}
+{% endschema %}

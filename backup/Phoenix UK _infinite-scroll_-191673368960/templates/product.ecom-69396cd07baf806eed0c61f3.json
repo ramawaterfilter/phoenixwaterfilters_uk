@@ -1,0 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme",
+  "sections": {
+    "ecom-69396cd07baf806eed0c61f3-product": {
+      "type": "ecom-69396cd07baf806eed0c61f3-product",
+      "settings": {}
+    }
+  },
+  "order": [
+    "ecom-69396cd07baf806eed0c61f3-product"
+  ]
+}

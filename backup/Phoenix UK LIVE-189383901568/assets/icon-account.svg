@@ -1,0 +1,20 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  fill="none"
+  class="icon icon-account"
+>
+  <!-- Body -->
+  <path
+    d="M8 17h16a5 5 0 0 1 5 5v7h-2v-7a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v7H3v-7a5 5 0 0 1 5-5z"
+    fill="currentColor"
+  />
+
+  <!-- Head -->
+  <path
+    d="M16 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0-10a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"
+    fill="currentColor"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+  />
+</svg>

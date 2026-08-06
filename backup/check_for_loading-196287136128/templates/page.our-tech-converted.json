@@ -1,0 +1,943 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "video_with_overlay_text_DbDLec": {
+      "type": "video-with-overlay-text",
+      "name": "Video with overlay text",
+      "settings": {
+        "heading": "<strong>Welcome back to water</strong>",
+        "sub_heading": "",
+        "h1": "<strong>At Phoenix Gravity Water Filters, we’ve harnessed decades of innovation to bring you the purest drinking water.</strong>",
+        "text_position": "overlay",
+        "heading_size": "h0",
+        "overlay_position": "center",
+        "overlay_alignment": "center",
+        "overlay_style": "gradient",
+        "overlay_text_color": "#ffffff",
+        "overlay_opacity": 60,
+        "overlay_content_width": 700,
+        "overlay_mobile_padding": 20,
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/Stainless Phoenix Gravity_full_view.mp4",
+        "custom_video": "",
+        "video_url": "",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "icon_with_text_KrmAnk": {
+      "type": "icon-with-text",
+      "blocks": {
+        "item_FqDxed": {
+          "type": "item",
+          "settings": {
+            "icon": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/ecom-edit-image-gkB37NxTKv1.png",
+            "text": "10 year warranty"
+          }
+        },
+        "item_JCBhDU": {
+          "type": "item",
+          "settings": {
+            "icon": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
+            "text": "Up to 99.9% contaminants removed"
+          }
+        },
+        "item_bCViRb": {
+          "type": "item",
+          "settings": {
+            "icon": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/free_delivery_uk.png",
+            "text": "Free UK delivery over £99"
+          }
+        },
+        "item_MpmnqE": {
+          "type": "item",
+          "settings": {
+            "icon": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/ecom-edit-image-yKxj83fP6m2.png",
+            "text": "100 day money back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "item_FqDxed",
+        "item_JCBhDU",
+        "item_bCViRb",
+        "item_MpmnqE"
+      ],
+      "name": "Scrolling icon",
+      "settings": {
+        "page_width": 140,
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "bg_color": "#ffffff",
+        "bar_bg_color": "#ffffff",
+        "border_color": "#ffffff",
+        "text_color": "#10284a",
+        "icon_color": "#8d98a8",
+        "icon_size": 20,
+        "mobile_icon_size": 15,
+        "text_size": 18,
+        "mobile_text_size": 13,
+        "text_weight": "500",
+        "icon_text_gap": 7,
+        "item_width": 180,
+        "mobile_item_width": 145,
+        "item_padding_vertical": 12,
+        "item_padding_horizontal": 16,
+        "mobile_item_padding_vertical": 10,
+        "mobile_item_padding_horizontal": 12,
+        "scroll_speed": 80,
+        "pause_on_hover": true
+      }
+    },
+    "card_slider_3FdqGx": {
+      "type": "card-slider",
+      "blocks": {
+        "contaminant_aPwUNR": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Chlorine",
+            "description": "<p>Chlorine reacts with organic matter in water, forming disinfection byproducts linked to health risks.</p>"
+          }
+        },
+        "contaminant_xGN88K": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.999%",
+            "title": "Bacteria",
+            "description": "<p>Bacteria in drinking water can lead to illnesses such as gastrointestinal issues and infections.</p>"
+          }
+        },
+        "contaminant_pWNExf": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.66%",
+            "title": "PFAS",
+            "description": "<p>PFAS in drinking water has been linked to hormonal disruption, weakened immune systems and liver problems.</p>"
+          }
+        },
+        "contaminant_YeVcWj": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Viruses",
+            "description": "<p>Viruses in drinking water can lead to hepatitis, vomiting, diarrhoea and fever.</p>"
+          }
+        },
+        "contaminant_TPnjpy": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Microplastics",
+            "description": "<p>Microplastics may pose potential health risks including endocrine disruption and cellular damage.</p>"
+          }
+        },
+        "contaminant_B8KRkh": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "99.9%",
+            "title": "Heavy Metals",
+            "description": "<p>Heavy metals can cause neurological damage, kidney and liver issues, and increase cancer risks.</p>"
+          }
+        },
+        "contaminant_f3Q8UM": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "95%",
+            "title": " Fluoride",
+            "description": "<p>Excess fluoride may lead to fluorosis; our filters remove over 95% so water stays balanced and safe.</p>"
+          }
+        },
+        "contaminant_jCgxeH": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "",
+            "title": "Pesticides",
+            "description": "<p>Pesticides from runoff may disrupt hormones and increase long-term health risks.</p>"
+          }
+        },
+        "contaminant_8iXUXW": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "",
+            "title": "Bad Taste",
+            "description": "<p>Unpleasant taste and smell often caused by chlorine, sulfur, or organic compounds; an indicator of contaminants.</p>"
+          }
+        },
+        "contaminant_qBBeWw": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "",
+            "title": "Pharmaceuticals",
+            "description": "<p>Pharmaceutical residues can affect hormones, organ function, and contribute to antibiotic resistance.</p>"
+          }
+        },
+        "contaminant_kkFYAN": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "",
+            "title": "& many more",
+            "description": "<p>Removes far more contaminants than standard filters—for cleaner, safer, better-tasting water.</p>"
+          }
+        },
+        "contaminant_hAUBhU": {
+          "type": "contaminant",
+          "settings": {
+            "percentage": "",
+            "title": "Lab Reports",
+            "description": "<p>Independently tested and verified. <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\" target=\"_blank\">View PDF</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "contaminant_aPwUNR",
+        "contaminant_xGN88K",
+        "contaminant_pWNExf",
+        "contaminant_YeVcWj",
+        "contaminant_TPnjpy",
+        "contaminant_B8KRkh",
+        "contaminant_f3Q8UM",
+        "contaminant_jCgxeH",
+        "contaminant_8iXUXW",
+        "contaminant_qBBeWw",
+        "contaminant_kkFYAN",
+        "contaminant_hAUBhU"
+      ],
+      "name": "Card slider",
+      "settings": {
+        "page_width": 140,
+        "heading": "Engineered to remove contaminants and improve taste ...",
+        "description": "<p>For drinking water that’s pure, fresh and worry-free – we remove impurities and pollutants including:</p>",
+        "heading_size": 46,
+        "description_size": 20,
+        "desktop_cards": 4,
+        "card_gap": 20,
+        "card_min_height": 240,
+        "card_radius": 14,
+        "card_heading_size": 23,
+        "card_text_size": 19,
+        "background_color": "#ffffff",
+        "heading_color": "#222150",
+        "text_color": "#222150",
+        "card_background": "#ffffff",
+        "badge_background": "#348bd9",
+        "badge_text_color": "#ffffff",
+        "arrow_background": "#2f295e",
+        "arrow_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_BewBf9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_tHcMeF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Nutrient_bg.jpg",
+            "title": "<strong>Ca</strong>",
+            "sub_title": "<strong>Calcium</strong>",
+            "text": "<p>A primary building block of bones and teeth.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_X7PCUg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Nutrient_bg.jpg",
+            "title": "<strong>Mg</strong>",
+            "sub_title": "<strong>Magnesium</strong>",
+            "text": "<p>Vital for muscle contraction and relaxation, preventing cramps.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EijV4h": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Nutrient_bg.jpg",
+            "title": "<strong>K</strong>",
+            "sub_title": "<strong>Potassium</strong>",
+            "text": "<p>Helps regulate fluid balance, and nerve signals.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_tHcMeF",
+        "column_X7PCUg",
+        "column_EijV4h"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 140,
+        "title": "...and retain minerals",
+        "sub_title": "Designed to preserve naturally occurring minerals ensuring healthy hydration and great taste.",
+        "w1": 40,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "overlay",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "custom_hero_video_YwjFkQ": {
+      "type": "custom-hero-video",
+      "custom_css": [
+        ".text-content h2,.text-content p {text-align: left !important;}",
+        ".video-text-wrapper {flex-direction: row-reverse;}",
+        "@media screen and (max-width: 767px) {.video-text-wrapper {flex-direction: column-reverse; } .text-content {position: relative; top: 0; left: 0; transform: unset; } .text-content p {color: black; } .video-text-wrapper {gap: 25px; }}"
+      ],
+      "name": "Video With Text + Overlay",
+      "settings": {
+        "page_width": 140,
+        "video": "shopify://files/videos/filtration-process- new.mp4",
+        "custom_video_code": "",
+        "w1": 32,
+        "w2": 22,
+        "w3": 18,
+        "w4": 16,
+        "heading": "The science behind Phoenix Gravity water filters",
+        "subheading": "For over 50 years we’ve been manufacturing water filters in-house in a solar-powered factory. Inventing this design in the ‘80s, we have continued to innovate using the highest grade materials and independent testing to produce a multi-stage filtration system free from electricity or plumbing.",
+        "button_text": "",
+        "button_link": "",
+        "video_height_desktop": "600px",
+        "video_height_mobile": "450px",
+        "bg_color": "#e9e9e5",
+        "button_bg": "#000000",
+        "button_text1": "#ffffff",
+        "overlay_color": "#000000",
+        "br1": 4,
+        "overlay_opacity": 0.3,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "gap": 40
+      }
+    },
+    "multicolumn_t7ptGJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WqPCKY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/NSF_logo_correction.png",
+            "title": "NSF Certified",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf"
+          }
+        },
+        "column_YfCk8n": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/anab_acc.png",
+            "title": "Environmental Monitoring Service",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf"
+          }
+        },
+        "column_E39HtD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/wqa_certified.png",
+            "title": "Water Quality Association",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf"
+          }
+        }
+      },
+      "block_order": [
+        "column_WqPCKY",
+        "column_YfCk8n",
+        "column_E39HtD"
+      ],
+      "custom_css": [
+        ".multicolumn .title-wrapper-with-link {align-items: center;}",
+        ".multicolumn-card__info .inline-richtext a {text-decoration: none;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 140,
+        "title": "We take our performance seriously",
+        "sub_title": "Our filters are independently tested and verified.",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "View Reports",
+        "button_link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "custom_three_video_eVegKx": {
+      "type": "custom-three-video",
+      "blocks": {
+        "item_wtxTny": {
+          "type": "item",
+          "settings": {
+            "video": "https://cdn.shopify.com/videos/c/o/v/48b31bed9fe44bba9cd6667ae8a6fa09.mp4",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "item_jJBcH9": {
+          "type": "item",
+          "settings": {
+            "video": "",
+            "image": "shopify://shop_images/cloudy_water_ot_a69f0c6c-89a9-4b36-9a03-6bb0b6a26f69.png",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "item_zAkMWr": {
+          "type": "item",
+          "settings": {
+            "video": "",
+            "image": "shopify://shop_images/clear_water_ot_7450ca91-26d6-4a4f-a6bd-ef855f953777.png",
+            "heading": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_wtxTny",
+        "item_jJBcH9",
+        "item_zAkMWr"
+      ],
+      "custom_css": [
+        ".main-container {text-align: center;}"
+      ],
+      "name": "Dynamic Video Features",
+      "settings": {
+        "page_width": 135,
+        "heading": "<h2>The difference real filtration makes</h2>",
+        "description": "Our filters remove contaminants that others don’t- both those you can see and those you can’t. Alongside our independent lab testing is our simple “Turmeric Test”. \nThis test uses turmeric as it’s extremely difficult to remove, demonstrating just a fraction of our filtration power.",
+        "section_text_alignment": "center",
+        "card_text_alignment": "center",
+        "heading_bottom_spacing": 40,
+        "heading_bottom_spacing_mobile": 28,
+        "media_height_desktop": 420,
+        "media_height_tablet": 360,
+        "media_height_mobile": 400,
+        "media_fit": "cover",
+        "media_position": "center center",
+        "media_radius": 0,
+        "media_background": "#f4f4f4",
+        "autoplay": true,
+        "muted": true,
+        "loop": true,
+        "hide_controls": true,
+        "gap": 30,
+        "mobile_gap": 30,
+        "padding_desktop": 0,
+        "padding_mobile": 0,
+        "bg_color": "#ffffff",
+        "heading_color": "#2a245e",
+        "text_color": "#4b4b4b",
+        "heading_size_desktop": 26,
+        "heading_size_mobile": 22,
+        "text_size_desktop": 16,
+        "text_size_mobile": 15
+      }
+    },
+    "image_with_text_zUGbzX": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tbJHEj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Experience healthier hydration",
+            "heading_size": "h1"
+          }
+        },
+        "text_NcdDQq": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Our advanced filtration technology delivers pure, healthy water that can positively impact your wellbeing.</h3><p>1. Cellular Regeneration</p><p>2. Optimal Sleep</p><p>3. Stronger Immune System</p><p>4. Enhanced Cognitive Function</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tbJHEj",
+        "text_NcdDQq"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 767px) {.image-with-text .image-with-text__text-item > * {padding: unset; } .image-with-text__media--small {height: 40.4rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "page_width": 140,
+        "image": "shopify://shop_images/ecom-edit-image-Uj6OzXkQh4Stronger_Immune_System_mobile.jpg",
+        "custom_text": "",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    },
+    "video_dFtBLL": {
+      "type": "video",
+      "custom_css": [
+        ".video-section .title-wrapper,.inline-richtext {text-align: center;}"
+      ],
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "page_width": 140,
+        "heading": "Go one step further for fluoride removal",
+        "sub_heading": "<strong>THE POSTREAT ADVANTAGE</strong>",
+        "h1": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/fluoride-removal.mp4",
+        "custom_video": "",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "multicolumn_UHpnWd": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_nN46Yy": {
+          "type": "column",
+          "settings": {
+            "title": "Effective",
+            "sub_title": "",
+            "text": "<p>Our advanced POSTreat filter provides over 95% fluoride removal for precise, targeted filtration.<br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PWkUwD": {
+          "type": "column",
+          "settings": {
+            "title": "Perfectly Paired",
+            "sub_title": "",
+            "text": "<p>Pairs seamlessly with Phoenix Gravity KoKoCarb Cartridges</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_p8gVV3": {
+          "type": "column",
+          "settings": {
+            "title": "Refillable",
+            "sub_title": "",
+            "text": "<p>Our POSTreat Fluoride Removal cartridges are made from stainless steel and are refillable- a world first!</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_nN46Yy",
+        "column_PWkUwD",
+        "column_p8gVV3"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 140,
+        "title": "",
+        "sub_title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "cs1": ""
+      }
+    },
+    "comparison_table_NEpxVp": {
+      "type": "comparison_table",
+      "blocks": {
+        "product_7CVUWg": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/filter_ot.png",
+            "product_name": "Phoenix Gravity Filter",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": true,
+            "feature_4": true,
+            "feature_5": true,
+            "feature_6": true,
+            "feature_7": true,
+            "feature_8": true,
+            "feature_9": true,
+            "feature_10": true
+          }
+        },
+        "product_BgYiKc": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/jug_ot.png",
+            "product_name": "Jug Filter System",
+            "feature_1": true,
+            "feature_2": false,
+            "feature_3": true,
+            "feature_4": false,
+            "feature_5": false,
+            "feature_6": false,
+            "feature_7": false,
+            "feature_8": true,
+            "feature_9": false,
+            "feature_10": false
+          }
+        },
+        "product_VRKHdr": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/inline_filter.png",
+            "product_name": "Inline Filter",
+            "feature_1": false,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": true,
+            "feature_5": false,
+            "feature_6": false,
+            "feature_7": true,
+            "feature_8": false,
+            "feature_9": true,
+            "feature_10": false
+          }
+        }
+      },
+      "block_order": [
+        "product_7CVUWg",
+        "product_BgYiKc",
+        "product_VRKHdr"
+      ],
+      "custom_css": [
+        ".comparison-container-heading {text-align: center;}",
+        ".comparison-sub-title {font-size: 20px;}"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "page_width": 140,
+        "section_title": "How the Phoenix Gravity Filter Compares",
+        "sub_title": "Why choose Phoenix Gravity",
+        "title_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "header_bg_color": "#2f2d63",
+        "header_text_color": "#ffffff",
+        "feature_column_title": "Feature",
+        "row_light_bg": "#ffffff",
+        "row_dark_bg": "#f3f8ff",
+        "feature_text_color": "#1e3a5f",
+        "check_color": "#00b815",
+        "cross_color": "#f48782",
+        "features_list": "No Electricity / Plumbing Required,High-Quality Materials,Space-Efficient Design,Improved Taste and Odor Removal,Sustainable & Reusable Filters,Cost-Effective Long-Term,Ideal for Larger Households,No Waste Water Produced,Multi-stage Filtration,Plastic Waste"
+      }
+    },
+    "nice_custom_video_text_NmybXF": {
+      "type": "nice-custom-video-text",
+      "blocks": {
+        "media_bwiEwf": {
+          "type": "media",
+          "settings": {
+            "background_color": "#f4f6fa",
+            "video": "shopify://files/videos/Easy installation (1).mp4",
+            "custom_video": "",
+            "video_url": "",
+            "media_height_desktop": "auto",
+            "media_height_mobile": "auto",
+            "heading": "",
+            "heading_size_mobile": 24,
+            "show_heading_line": false,
+            "line_color": "#ff7a00",
+            "line_width_mobile": 250,
+            "show_mobile_button": false,
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "text_f7QdXy": {
+          "type": "text",
+          "settings": {
+            "background_color": "rgba(0,0,0,0)",
+            "heading_color": "#000000",
+            "text_color": "#000000",
+            "section_heading": "",
+            "heading": "",
+            "text": "<h2>304-grade stainless steel</h2><p>Naturally BPA-free and rust-resistant for locked-in freshness. Our premium grade stainless steel comes with a 10 year warranty.</p><h2>Highest-grade activated coconut carbon</h2><p>We use CT90 premium coconut carbon for our KoKoCarb Cartridges. We form it into a highly dense porous carbon block. This enables us to continue removing 99.99% of contaminants for at least 12 months.</p><h2>20 x more powerful</h2><p>Our KoKoCarb Cartridges have a &lt;1 micron rating and an extended filtration contact time. Making them 20 x more effective than typical jug filters and those using granular carbon.</p>",
+            "show_underline": true,
+            "show_search": false,
+            "search_placeholder": "",
+            "search_button_text": "",
+            "button_text": "",
+            "button_link": "",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 20,
+            "text_size_desktop": 18,
+            "text_size_mobile": 16,
+            "list_padding_desktop": 100,
+            "list_padding_mobile": 40,
+            "underline_width_desktop": 360,
+            "line_width_mobile": 80,
+            "underline_margin_bottom": 0,
+            "underline_margin_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_bwiEwf",
+        "text_f7QdXy"
+      ],
+      "custom_css": [
+        ".page-widthh.video-text-wrapper {max-width: 140rem;}"
+      ],
+      "name": "Custom Video with text",
+      "settings": {
+        "page_width": 120,
+        "h1": "",
+        "hd1": 40,
+        "hd2": 22,
+        "w1": 21,
+        "w2": 16,
+        "u1": 50,
+        "un1": 30,
+        "b1": true,
+        "s1": true,
+        "pd1": 50,
+        "pd2": 40,
+        "heading1": "",
+        "heading": "Designed for durability",
+        "text": "<ul><li>High quality stainless steel</li><li>Rust resistant</li></ul>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 300,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "media_height_desktop": "auto",
+        "media_height_mobile": "auto",
+        "cs1": ""
+      }
+    },
+    "custom_three_video_BK3DrA": {
+      "type": "custom-three-video",
+      "blocks": {
+        "item_TVe8kN": {
+          "type": "item",
+          "settings": {
+            "video": "https://cdn.shopify.com/videos/c/o/v/1b8c74f29e50445f954ca75c947e905c.mp4",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "item_qb6BrM": {
+          "type": "item",
+          "settings": {
+            "video": "https://cdn.shopify.com/videos/c/o/v/b19c83cae91747a6b6f805916be16f25.mp4",
+            "heading": "",
+            "text": ""
+          }
+        },
+        "item_7maa6J": {
+          "type": "item",
+          "settings": {
+            "video": "https://cdn.shopify.com/videos/c/o/v/7d9cff59b2f54d9186b6e407aaa289e9.mp4",
+            "heading": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_TVe8kN",
+        "item_qb6BrM",
+        "item_7maa6J"
+      ],
+      "name": "Dynamic Video Features",
+      "settings": {
+        "page_width": 120,
+        "heading": "<h2>Hear from our water expert</h2>",
+        "description": "Learn why our water filtration is the ultimate health hack.",
+        "section_text_alignment": "center",
+        "card_text_alignment": "center",
+        "heading_bottom_spacing": 40,
+        "heading_bottom_spacing_mobile": 28,
+        "media_height_desktop": 420,
+        "media_height_tablet": 400,
+        "media_height_mobile": 400,
+        "media_fit": "cover",
+        "media_position": "center center",
+        "media_radius": 0,
+        "media_background": "#f4f4f4",
+        "autoplay": true,
+        "muted": true,
+        "loop": true,
+        "hide_controls": true,
+        "gap": 30,
+        "mobile_gap": 30,
+        "padding_desktop": 0,
+        "padding_mobile": 0,
+        "bg_color": "#ffffff",
+        "heading_color": "#2a245e",
+        "text_color": "#4b4b4b",
+        "heading_size_desktop": 26,
+        "heading_size_mobile": 22,
+        "text_size_desktop": 16,
+        "text_size_mobile": 15
+      }
+    },
+    "image_with_text_MpGP4P": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_KjXJBb": {
+          "type": "caption",
+          "settings": {
+            "caption": "Our PRODUCTS",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_Lpakx7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Don’t just take our word for it, try it for yourself",
+            "heading_size": "h1"
+          }
+        },
+        "text_Ud7Ykg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We highly recommend our best-selling system crafted with rust-resistant AISI 304 stainless steel, premium CTC-60 coconut carbon to remove up to 99.9% of contaminants, and our one-of-a-kind refillable POSTreat filters that reduce over 95% of fluoride.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_nWEeHE": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/the-phoenix-gravity-water-filter",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_KjXJBb",
+        "heading_Lpakx7",
+        "text_Ud7Ykg",
+        "button_nWEeHE"
+      ],
+      "custom_css": [
+        ".image-with-text__media-item {background: #2f2953; padding: 30px;}",
+        ".image_with_text a {color: white; text-decoration: none; font-size: 20px; font-weight: 800; padding: 10px 0;}",
+        ".image-with-text__media-item {height: fit-content;}",
+        "@media screen and (max-width: 767px) {.image-with-text__content {padding: 10px !important; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "page_width": 141,
+        "image": "shopify://shop_images/ecom-edit-image-tO7WAkVk6Tour_tech_filter.jpg",
+        "custom_text": "The Phoenix Gravity Water Filter",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "video_with_overlay_text_DbDLec",
+    "icon_with_text_KrmAnk",
+    "card_slider_3FdqGx",
+    "multicolumn_BewBf9",
+    "custom_hero_video_YwjFkQ",
+    "multicolumn_t7ptGJ",
+    "custom_three_video_eVegKx",
+    "image_with_text_zUGbzX",
+    "video_dFtBLL",
+    "multicolumn_UHpnWd",
+    "comparison_table_NEpxVp",
+    "nice_custom_video_text_NmybXF",
+    "custom_three_video_BK3DrA",
+    "image_with_text_MpGP4P"
+  ]
+}

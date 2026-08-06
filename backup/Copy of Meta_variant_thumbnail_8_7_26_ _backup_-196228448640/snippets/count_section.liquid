@@ -1,0 +1,134 @@
+<div
+  class="count-section count-section--{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  <ul class="count-section__list" role="list">
+
+    <li class="count-section__item">
+      {% if block.settings.heading_1 != blank %}
+        <span class="count-section__heading">
+          {{ block.settings.heading_1 }}
+        </span>
+      {% endif %}
+
+      {% if block.settings.text_1 != blank %}
+        <span class="count-section__text">
+          {{ block.settings.text_1 }}
+        </span>
+      {% endif %}
+    </li>
+
+    <li class="count-section__item">
+      {% if block.settings.heading_2 != blank %}
+        <span class="count-section__heading">
+          {{ block.settings.heading_2 }}
+        </span>
+      {% endif %}
+
+      {% if block.settings.text_2 != blank %}
+        <span class="count-section__text">
+          {{ block.settings.text_2 }}
+        </span>
+      {% endif %}
+    </li>
+
+    <li class="count-section__item">
+      {% if block.settings.heading_3 != blank %}
+        <span class="count-section__heading">
+          {{ block.settings.heading_3 }}
+        </span>
+      {% endif %}
+
+      {% if block.settings.text_3 != blank %}
+        <span class="count-section__text">
+          {{ block.settings.text_3 }}
+        </span>
+      {% endif %}
+    </li>
+
+    <li class="count-section__item">
+      {% if block.settings.heading_4 != blank %}
+        <span class="count-section__heading">
+          {{ block.settings.heading_4 }}
+        </span>
+      {% endif %}
+
+      {% if block.settings.text_4 != blank %}
+        <span class="count-section__text">
+          {{ block.settings.text_4 }}
+        </span>
+      {% endif %}
+    </li>
+
+  </ul>
+</div>
+
+{% style %}
+  .count-section--{{ block.id }} {
+    width: 100%;
+    padding-top: {{ block.settings.padding_top }}px;
+    padding-bottom: {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .count-section--{{ block.id }} .count-section__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: {{ block.settings.column_gap }}px;
+    width: 100%;
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .count-section--{{ block.id }} .count-section__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .count-section--{{ block.id }} .count-section__heading {
+    display: block;
+    margin: 0 0 7px;
+    color: {{ block.settings.heading_color }};
+    font-family: var(--font-heading-family);
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  .count-section--{{ block.id }} .count-section__text {
+    display: block;
+    max-width: 170px;
+    margin: 0;
+    color: {{ block.settings.text_color }};
+    font-family: var(--font-body-family);
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: 400;
+    line-height: 1.25;
+  }
+
+  @media screen and (max-width: 749px) {
+
+    .count-section--{{ block.id }} .count-section__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 15px;
+      row-gap: 28px;
+    }
+
+    .count-section--{{ block.id }} .count-section__heading {
+      font-size: {{ block.settings.mobile_heading_size }}px;
+    }
+
+    .count-section--{{ block.id }} .count-section__text {
+      max-width: 145px;
+      font-size: {{ block.settings.mobile_text_size }}px;
+    }
+  }
+{% endstyle %}

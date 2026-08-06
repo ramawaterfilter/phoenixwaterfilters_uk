@@ -1,0 +1,24 @@
+{%- liquid
+  assign visible_item_count = cart.item_count
+  for item in cart.items
+    if item.properties._bundle_type == 'phoenix-auto-subscription' and item.properties._bundle_role == 'subscription'
+      assign visible_item_count = visible_item_count | minus: item.quantity
+    endif
+  endfor
+-%}
+
+{% if visible_item_count == 0 %}
+  <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+{% else %}
+  <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+{% endif %}
+
+<span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+{%- if visible_item_count > 0 -%}
+  <div class="cart-count-bubble">
+    {%- if visible_item_count < 100 -%}
+      <span aria-hidden="true">{{ visible_item_count }}</span>
+    {%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: visible_item_count }}</span>
+  </div>
+{%- endif -%}

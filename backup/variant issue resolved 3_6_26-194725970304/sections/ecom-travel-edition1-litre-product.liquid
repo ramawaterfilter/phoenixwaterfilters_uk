@@ -1,0 +1,1636 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2026-02-04 05:52:14
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-simple_slider_css" href="https://cdn.ecomposer.app/vendors/css/ec_splide.min.css?ver=3.0" /><link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=2.1" /><noscript><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-simple_slider_css" href="https://cdn.ecomposer.app/vendors/css/ec_splide.min.css?ver=3.0" /><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=2.1" /></noscript><script type="text/javascript" asyc="async" id="ecom-vendors-simple_slider_js" src="https://cdn.ecomposer.app/vendors/js/ec-splide.min.js?ver=3.0" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-modal_js" src="https://cdn.ecomposer.app/vendors/js/ecom_modal_new.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-zoom_js" src="https://cdn.ecomposer.app/vendors/js/ecom_zoom.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-light_galerry" src="https://cdn.ecomposer.app/vendors/js/ecom-light-galerry.js" ></script>
+{%capture section_id %}ecom-travel-edition1-litre-product{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}<link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Albert+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+{{'ecom-65730589c97638d6bd065542.css' | asset_url | stylesheet_tag }}
+<script src="{{'ecom-65730589c97638d6bd065542.js' | asset_url }}" defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="65730589c97638d6bd065542";
+ window.EComposer.TEMPLATE = {"title":"The Phoenix Gravity Mini - 1L","type":"product","slug":"ecom-travel-edition1-litre","plan_id":4,"template_id":"65730589c97638d6bd065542"};
+ </script>
+{% render "ecom_template_product_before", product:product %}<div class="ecom-builder" id="ecom-travel-edition1-litre"><div class="ecom-sections" data-section-id="{{section.id}}">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = 'the-phoenix-gravity-mini-1l'
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-1drxjc7x364{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-1drxjc7x364" data-id="ecom-1drxjc7x364" style="z-index: inherit;"><div class="core__row--columns core__row--full"><div class="ecom-column ecom-core core__column--first core__column--last ecom-fszq94vs"><div class="core__column--wrapper" id="ecom-fszq94vs"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-dg7rta4t"><div class="ecom-row ecom-core core__block ecom-rtl19t36" data-id="ecom-rtl19t36" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-emj8mcfs"><div class="core__column--wrapper" id="ecom-emj8mcfs"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-cka7ucefkfj"><div class="ecom-element ecom-product-single ecom-product-single__media ecom-position-sticky" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__media-wrapper "><div class="ecom-product-single__media-container ecom-product-single__media--slider ecom-product-single__media--horizontal ecom-product-single__media-tablet--horizontal ecom-product-single__media-mobile--horizontal"><div class="ec_splide ecom-product-single__media--featured ecom-swiper-container" data-direction="ltr" data-breakpoints="{&quot;0&quot;:{},&quot;768&quot;:{},&quot;1025&quot;:{}}" data-priority="featured"><div class="ec_splide__track">
+ {% comment %}
+ Reactivity
+ *this.data.settings.image_action
+ *this.data.settings.enable_zoom
+ *this.data.settings.grid_advance_number_images
+ {% endcomment %}
+ 
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ 
+ 
+ 
+ {% assign img_padding = 1 | times: 1 %}
+ {% assign img_padding__tablet = 1 | times: 1 %}
+ {% assign img_padding__mobile = 1 | times: 1 %}
+ <div class="ec_splide__list ecom-swiper-wrapper ecom-product-single__media--images ecom-swiper-wrapper ecom-product-single__media--images-layout__slider{% if product.images.size == 1 %} ecom-product-single__only{% endif %}">
+ {% assign use_limit = undefined %}
+ {% assign limit_images = undefined %}
+ {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+ {% for media in product.media %}
+ {% assign media_ration = 1 | divided_by: media.aspect_ratio | times: 100 %}
+ {% assign img_ration = 1 | divided_by: media.aspect_ratio | times: 100 %}
+ 
+ {% assign image = media.preview_image %}
+ {% case media.media_type %}
+ {% when 'image' %}
+ {%if use_limit and forloop.index > limit_images%}{% break %}{% endif %}
+ {% assign fetchpriority = 'low'%}
+ {% assign lazyload = 'low'%}
+ {% if forloop.first %}
+ {% assign fetchpriority = 'high'%}
+ {% assign lazyload = 'eager'%}
+ {% endif %}
+ <div class="ec_splide__slide ec_splide__slide ecom-product-single__media--image ecom-splide-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile " data-index="{{forloop.index0}}" {% if variant_images contains media.src %} data-variant_id="{{ product.images | where: 'src', image.src | map: 'variants' | map: 'id' | join: ',' }}"{% endif %} style="--img_padding: {{ img_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ img_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ img_ration | divided_by: img_padding__mobile }}%" data-half-width="{% assign img_ration_half = 1 | divided_by: image.aspect_ratio | times: 50 %}{{img_ration_half}}" data-full-width="{% assign img_ration_full = 1 | divided_by: media.aspect_ratio | times: 100 %}{{img_ration_full}}">
+ 
+ 
+ {%- assign img_master = media | image_url: width: 2048 -%}
+ {{ media | image_url: width: 1946 | image_tag:
+ sizes: sizes,
+ widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+ class: 'ecom-image-default'
+ ,ecom-modal-source:img_master , ecom-modal:'image'
+ ,loading: lazyload
+ ,fetchpriority: fetchpriority
+ ,alt: media.alt | escape
+ }}
+ 
+ 
+ </div>
+ {% when 'external_video'%}
+ <div class="ec_splide__slide ecom-product-single__media--image ecom-splide-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media---external-video ecom-product-single__media--full" data-position="{{media.position}}" style="--img_padding: {{ media_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ media_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ media_ration | divided_by: img_padding__mobile }}%;" ecom-modal='iframe'>
+ {{ media | external_video_tag: image_size:'master' }}
+ </div>
+ {% when 'video' %}
+ {% assign videoUrl = '' %}
+ {% for source in media.sources %}
+ {% if source.format == "mp4" %}
+ {% assign videoUrl = source.url %}
+ {% break %}
+ {% endif %}
+ {% endfor %}
+ <div data-stopdrag="true" class="ec_splide__slide ecom-product-single__media--image ecom-splide-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-product-single__media--video ecom-product-single__media--full ecom-swiper-no-swiping" data-position="{{media.position}}" style="--img_padding: {{ img_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ img_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ img_ration | divided_by: img_padding__mobile }}%" ecom-modal-source="{{videoUrl}}" ecom-modal='video'>
+ {{ media | video_tag: image_size:'master', class: 'ecom-media-video', controls: true, autoplay: undefined, muted: undefined,loop: undefined }}
+ 
+ <button class="ecom-product-single__media--play-control" type="button">
+ <span class="ecom-product-single__media--play-control-wrapper">
+ <span class="visually-hidden">Play video</span>
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"></path></svg>
+ </span>
+ </button>
+ 
+ </div>
+ {% when 'model' %}
+ <div class="ec_splide__slide ecom-product-single__media--image ecom-splide-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--model ecom-product-single__media--full" data-stopdrag="true" data-position="{{media.position}}">
+ <div class="ecom-product-single__media--model-wrapper">
+ {{ media | model_viewer_tag: image_size:'master', reveal: 'interaction', toggleable: true, data-model-id: media.id }}
+ </div>
+ </div>
+ {% else %}
+ <div data-media-type="{{media.media_type}}" class="ec_splide__slide ecom-product-single__media--image ecom-splide-slide ecom-flex ecom-image-align-center ecom-image-align---tablet ecom-image-align---mobile ecom-swiper-no-swiping ecom-product-single__media--full" data-position="{{media.position}}">
+ <div class="ecom-product-single__media" style="--img_padding: {{ img_ration | divided_by: img_padding }}%;--img_padding__tablet: {{ img_ration | divided_by: img_padding__tablet }}%;--img_padding__mobile: {{ img_ration | divided_by: img_padding__mobile }}%">
+ {{ media | media_tag: image_size:'master', class: 'ecom-product-single__media--item' }}
+ </div>
+ </div>
+ {% endcase %}
+ {% endfor %}
+ </div>
+ </div><div class="ec_splide__arrows"><button type="button" class="ec_splide__arrow ec_splide__arrow--next ecom-swiper-button ecom-swiper-button-next ecom-swiper-controls"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+ </svg></button><button type="button" class="ec_splide__arrow ec_splide__arrow--prev ecom-swiper-button ecom-swiper-button-prev ecom-swiper-controls"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+ </svg></button></div><ul class="ec_splide__pagination ecom-swiper-pagination"></ul></div></div></div><div class="ecom-hidden-content">
+ <script type="application/json" id="Product-model-{{ product.id }}">
+ {{ product.media | where: 'media_type', 'model' | json }}
+ </script>
+ </div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-jdgxv07p"><div class="core__column--wrapper" id="ecom-jdgxv07p"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-9b1p5upkwd" id="complete"><div class="ecom-element ecom-product-single ecom-product-single__title" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__title-wrapper"><div class="ecom-product-single__title-container"><h1 class="ecom-product__heading" href="{{ product.url }}" title="{{ product.title }}">{{ product.title }}</h1></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-bun6hz91ylt"><div class="ecom__element ecom-element element__divi" section_id="ecom-1drxjc7x364"><div class="ecom__element-divi" style="--divi-line-height: 3px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.43; --flex-tablet: 0.43; --flex-mobile: 0.43; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-60amxypiuz4"><div class="ecom-row ecom-core core__block ecom-fa6bwzesmfl" data-id="ecom-fa6bwzesmfl" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-4cz5c96nql4"><div class="core__column--wrapper" id="ecom-4cz5c96nql4"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-srsxy82ld2"><div class="ecom-element ecom-product-single ecom-product-single__rating" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__rating-wrapper" data-review-platform="
+ {%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}
+ {{review_platform}}
+ "><div class="ecom-product-single__rating-container">
+ {%- if review_platform -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" product-handle="{{ product.handle }}" class="alireviews-review-star-rating"></div>
+ {%- when 'okendo' -%}
+ <div data-oke-star-rating="" data-oke-reviews-product-id="shopify-{{product.id}}"></div>
+ {%- when 'vital-reviews'-%}
+ <div class="bundle-aggregated_reviews"></div>
+ {%- when 'opinew-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div> 
+ {%- when 'product-reviews-addon' -%}
+ <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" style="display: inline-block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_header_stars"></div>
+ {%- when 'loox'-%}
+ <a href="#looxReviews">
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ </a>
+ {% when 'ryviu'%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">Ryviu</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ {%- else -%}
+ <div class="review-widget">
+ <ryviu-widget-total
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- endif -%}
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shop_booster_rate_6" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <a href="#scm-reviews-importer">
+ <div id="scm-product-detail-rate" class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ </a>
+ {%- when 'photo-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'lai-reviews' -%}
+ <div class="scm-reviews-rate" data-rate-version2="{{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json | escape }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-rating-widget" product-id="{{ product.id }}"></div>
+ {%- when 'ali-product-review' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div>
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Stars" data-review-avg="{{ product.metafields.air_reviews_product.review_avg }}" data-review-count="{{ product.metafields.air_reviews_product.review_count }}"></div>
+ {%- when 'ait-product-reviews' -%}
+ <span class="egg-product-reviews-rating" data-id="{{ product.id }}" id="{{ product.id }}"></span>
+ {%- when 'trustify-reviews' -%}
+ <div
+ class="trustify-review-stars"
+ data-review-type="product"
+ data-product-id="{{ product.id }}"
+ data-product-handle="{{ product.handle }}"
+ data-review-avg="{{ product.metafields.tr_reviews_product.review_avg }}"
+ data-review-count="{{ product.metafields.tr_reviews_product.review_count }}"
+ >
+ </div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {% endif %}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4hsqam1kddl"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-1drxjc7x364"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_4hsqam1kddl_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-zn950xvplo"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-1drxjc7x364"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_zn950xvplo_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-23kps6kwdlf"><div class="ecom-row ecom-core core__block ecom-p2y343bdxa8" data-id="ecom-p2y343bdxa8" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-dv2er65hd84"><div class="core__column--wrapper" id="ecom-dv2er65hd84"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-od9nkm93eb"><div class="ecom-element ecom-product-single ecom-product-single__price" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__price-wrapper"><div class="ecom-product-single__price-container"><div class="ecom-product-single__price-container-grid"><div class="ecom-product-single ecom-product-single__price--prices">
+ {%- liquid
+ if product.has_only_default_variant
+ assign target = product
+ else
+ assign target = product.selected_or_first_available_variant
+ endif
+ -%}
+ <div class="ecom-product-single__price--sale {% if target.compare_at_price == nil or target.compare_at_price <= target.price %} ecom-product-single__price-normal {% endif %}" data-price="{{target.price}}">
+ {%- if settings.currency_code_enabled -%}
+ {{target.price | money_with_currency}}
+ {%- else -%}
+ {{target.price| money }}
+ {%- endif -%}
+ </div>
+ 
+ 
+ <div class="ecom-product-single__price--regular" {%- if target.compare_at_price == nil or target.compare_at_price <= target.price -%} style="display:none" {% endif %}>
+ {%- if settings.currency_code_enabled -%}
+ {{target.compare_at_price | money_with_currency}}
+ {%- else -%}
+ {{target.compare_at_price | money }}
+ {%- endif -%}
+ </div>
+ 
+ {%- capture taxes_text -%}{{ 'sections.ecom-travel-edition1-litre-product.include_taxes_od9nkm93eb_html' | t }}{%- endcapture -%}
+ {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+ {% if taxes_text %}
+ <div class="ec-product__tax caption rte">
+ {%- if shop.taxes_included -%}
+ {{ 'sections.ecom-travel-edition1-litre-product.include_taxes_od9nkm93eb_html' | t }}
+ {%- endif -%}
+ {%- if shop.shipping_policy.body != blank -%}
+ {{ 'sections.ecom-travel-edition1-litre-product.shipping_policy_od9nkm93eb_html' | t: link:shop.shipping_policy.url }}
+ {%- endif -%}
+ </div>
+ {%- endif -%}
+ {%- endif -%}
+ </div><div class="ecom-product-single__price--badges-wrapper">
+ <div class="ecom-product-single__price--badges">
+ {%- assign savings = target.compare_at_price | minus: target.price | times: 100.0 | divided_by: target.compare_at_price | round -%}
+ 
+ <span class="ecom-product-single__price--badges-sale" data-have-sale="{%- unless target.compare_at_price == nil or target.compare_at_price <= target.price or target.available != true -%}true{%endunless%}" data-text=" {{ 'sections.ecom-travel-edition1-litre-product.product_single_sale_text_od9nkm93eb_html' | t }}" data-sale="{{savings}}" data-type="percent" style="{%- unless target.compare_at_price == nil or target.compare_at_price <= target.price or target.available != true -%} display: none;{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.product_single_sale_text_od9nkm93eb_html' | t }}
+ </span>
+ <span class="ecom-product-single__price--badges-sold-out" {% if target.available %} style="display:none" {% endif %}>
+ {{ 'sections.ecom-travel-edition1-litre-product.product_single_sold_text_od9nkm93eb_html' | t }}
+ </span>
+ </div>
+ </div></div><div class="ecom-product-single-afterpay">
+ 
+ </div></div></div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-sy008wujyi"><div class="core__column--wrapper" id="ecom-sy008wujyi"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block ecom-94tzahx343c"><div class="ecom-element ecom-product-single ecom-product-single__add-to-cart" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__add-to-cart-wrapper"><div class="ecom-product-single__add-to-cart-container"><div class="ecom-product-single__add-to-cart-buttons"><div class="ecom-product-single__add-to-cart-buttons-wrapper"><button type="submit" class="ecom-product-single__add-to-cart--submit ecom-flex" data-text-add-cart="{{ 'sections.ecom-travel-edition1-litre-product.add_to_cart_94tzahx343c_html' | t }}" data-text-pre-order="{{ 'sections.ecom-travel-edition1-litre-product.pre_order_94tzahx343c_html' | t }}" data-text-unavailable="{{ 'sections.ecom-travel-edition1-litre-product.product_unavailable_94tzahx343c_html' | t }}" data-text-outstock="{{ 'sections.ecom-travel-edition1-litre-product.out_stock_94tzahx343c_html' | t }}" data-text-added-cart="{{ 'sections.ecom-travel-edition1-litre-product.added_cart_text_94tzahx343c_html' | t }}" data-message-added-cart="{{ 'sections.ecom-travel-edition1-litre-product.added_cart_message_94tzahx343c_html' | t }}" data-href="#" data-target="" data-action="popup" data-variant-id="{{product.first_available_variant.id}}" name="add"><span class="ecom-add-to-cart-text">{{ 'sections.ecom-travel-edition1-litre-product.add_to_cart_94tzahx343c_html' | t }}</span><span class="ecom__element--button-icon"></span></button></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-cyelzyt3kzv"><div class="ecom-core ecom-group core__block ecom-dkzhjkkpu95"> <div class="core__group--wrapper ecom-accordion__wrapper ecom-flex ecom-column ecom-w__full ecom__element ecom__accordion ecom-accordion-close-all" data-r="" style=""><div class="core__group--items"><div id="ecom-9t42ibjclu4" class="core__group--item ecom-accordion__item" data-id="ecom-9t42ibjclu4" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-9t42ibjclu4"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h1 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_0_dkzhjkkpu95_html' | t }}</h1></div></div><div class="core__group--body ecom-accordion__body ecom-accordion__body--auto-height"><div class="ec-flex-wp ecom-flex">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-1drxjc7x364{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-vo1n4dvx9s9"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_description| metafield_tag }}</div></div></div></div> </div></div></div>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-9t42ibjclu4">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ </div></div></div><div id="ecom-s2c4etjpi4k" class="core__group--item ecom-accordion__item" data-id="ecom-s2c4etjpi4k" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-s2c4etjpi4k"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h1 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_1_dkzhjkkpu95_html' | t }}</h1></div></div><div class="core__group--body ecom-accordion__body ecom-accordion__body--auto-height"><div class="ec-flex-wp ecom-flex">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-1drxjc7x364{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-p60wswpeyvb"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.metafields.custom.key_features_phoenix_mainprod | metafield_tag }}</div></div></div></div> </div></div></div>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-s2c4etjpi4k">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ </div></div></div><div id="ecom-hdx9q5f1icq" class="core__group--item ecom-accordion__item" data-id="ecom-hdx9q5f1icq" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-hdx9q5f1icq"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M488 231.1C501.3 231.1 512 242.7 512 255.1C512 269.3 501.3 279.1 488 279.1H280V488C280 501.3 269.3 512 255.1 512C242.7 512 231.1 501.3 231.1 488V279.1H23.1C10.74 279.1-.0006 269.3-.0006 255.1C-.0006 242.7 10.74 231.1 23.1 231.1H231.1V24C231.1 10.75 242.7 0 255.1 0C269.3 0 280 10.75 280 24V231.1H488z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor"><path d="M432 256C432 269.3 421.3 280 408 280H40c-13.25 0-24-10.74-24-23.99C16 242.8 26.75 232 40 232h368C421.3 232 432 242.8 432 256z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h1 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_2_dkzhjkkpu95_html' | t }}</h1></div></div><div class="core__group--body ecom-accordion__body ecom-accordion__body--auto-height"><div class="ec-flex-wp ecom-flex">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-1drxjc7x364{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-v4umhnyddge"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-1drxjc7x364"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.metafields.custom.shipping_returns_mainprod| metafield_tag }}</div></div></div></div> </div></div></div>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-hdx9q5f1icq">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ </div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-7oyr16oeb6k"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-1drxjc7x364"><div class="delivery-widget__manual"></div>
+</div></div> <div class="ecom-block ecom-core core__block ecom-jzg97krb1pm"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-1drxjc7x364"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_jzg97krb1pm_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-j93wy6ats6a"><div class="ecom__element ecom-element element__divi" section_id="ecom-1drxjc7x364"><div class="ecom__element-divi" style="--divi-line-height: 3px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.275; --flex-tablet: 0.275; --flex-mobile: 0.275; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-rnqdhmarsm"><div class="ecom-row ecom-core core__block ecom-qlwl1da8op" data-id="ecom-qlwl1da8op" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-ew634ym89zi"><div class="core__column--wrapper" id="ecom-ew634ym89zi"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5380606wc27"><div class="ecom-element ecom-products-related" section_id="ecom-1drxjc7x364"><div class="ecom-product-related__content"><div class="ecom-product-related__content-list-wrapper">
+ {%- capture badge_tags -%}Hot,Best Selling,Trending Item{%- endcapture -%}
+ {%-assign badge_tags = badge_tags | strip | split: ','-%}
+ {%- assign tmp_product = product -%}
+ {%- capture product_list -%}
+ smart-carbon-cartridges
+ {%- endcapture -%}
+ {%- assign product_list = product_list | split: "," -%}
+ {%- capture current_product_handle -%}{{product.handle}}{%- endcapture -%}
+ {%- liquid
+ assign you_may_also_like = product.metafields.ecomposer
+ if you_may_also_like.size > 0
+ assign meta_name = 'you_may_also_like'
+ if you_may_also_like[meta_name].value != blank
+ assign product_list = you_may_also_like[meta_name].value
+ endif
+ endif
+ -%}
+ {% if product_list != blank %}
+ <div class="ecom-product-related__content-list">
+ {%- for product_handle in product_list -%}
+ {%- assign product = all_products[product_handle] -%}
+ {%- if you_may_also_like[meta_name].value != blank -%}
+ {%- assign product = product_handle -%}
+ {%- endif -%}
+ <div class="ecom-product-related__item {% if product.handle == current_product_handle %}ecom-product-related__item-current{%endif%}">
+ {% if product.featured_media %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}"" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img srcset="{%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+ {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+ {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+ {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+ src="{{ product.featured_media | img_url: '533x' }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_media.alt | escape }}"
+ loading="lazy"
+ width="{{ product.featured_media.width }}"
+ height="{{ product.featured_media.height }}"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-center">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-end">
+ 
+ <span class="ecom-product-related__badge--sold-out " aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_5380606wc27_html' | t }}
+ </span>
+ 
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_5380606wc27_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_5380606wc27_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_5380606wc27_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div>
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__url ecom-product-related__url-ellipsis">
+ {{ product.title }}
+ </a>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.selected_or_first_available_variant.price | money }}</div>
+ {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+ <div class="ecom-product-related__price--regular">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+ {% endif %}
+ </div>
+ 
+ </div>
+ {% else %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img
+ src="https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_300x.gif"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ <span class="ecom-product-related__badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_5380606wc27_html' | t }}
+ </span>
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_5380606wc27_html' | t }}
+ </span>
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_5380606wc27_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_5380606wc27_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.price | money }}</div>
+ <div class="ecom-product-related__price--regular">{{ product.compare_at_price | money }}</div>
+ </div>
+ 
+ <a href="{{ product.url }}" title="{{ product.title | escape }}"
+ class="ecom-product-related__url"
+ >
+ {{ product.title }}
+ </a>
+ {% endif %}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ 
+ {% endif %}
+ {%- assign product = tmp_product -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-fatw449vvn7"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-1drxjc7x364"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="{{ecom_root_url}}products/smart-carbon-cartridges"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_fatw449vvn7_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-j434pd5pztq"><div class="core__column--wrapper" id="ecom-j434pd5pztq"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-24fmzdbr8cz"><div class="ecom-element ecom-products-related" section_id="ecom-1drxjc7x364"><div class="ecom-product-related__content"><div class="ecom-product-related__content-list-wrapper">
+ {%- capture badge_tags -%}Hot,Best Selling,Trending Item{%- endcapture -%}
+ {%-assign badge_tags = badge_tags | strip | split: ','-%}
+ {%- assign tmp_product = product -%}
+ {%- capture product_list -%}
+ the-phoenix-gravity-water-filter-8-litre
+ {%- endcapture -%}
+ {%- assign product_list = product_list | split: "," -%}
+ {%- capture current_product_handle -%}{{product.handle}}{%- endcapture -%}
+ {%- liquid
+ assign you_may_also_like = product.metafields.ecomposer
+ if you_may_also_like.size > 0
+ assign meta_name = 'you_may_also_like'
+ if you_may_also_like[meta_name].value != blank
+ assign product_list = you_may_also_like[meta_name].value
+ endif
+ endif
+ -%}
+ {% if product_list != blank %}
+ <div class="ecom-product-related__content-list">
+ {%- for product_handle in product_list -%}
+ {%- assign product = all_products[product_handle] -%}
+ {%- if you_may_also_like[meta_name].value != blank -%}
+ {%- assign product = product_handle -%}
+ {%- endif -%}
+ <div class="ecom-product-related__item {% if product.handle == current_product_handle %}ecom-product-related__item-current{%endif%}">
+ {% if product.featured_media %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}"" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img srcset="{%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+ {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+ {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+ {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+ src="{{ product.featured_media | img_url: '533x' }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_media.alt | escape }}"
+ loading="lazy"
+ width="{{ product.featured_media.width }}"
+ height="{{ product.featured_media.height }}"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-center">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-end">
+ 
+ <span class="ecom-product-related__badge--sold-out " aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_24fmzdbr8cz_html' | t }}
+ </span>
+ 
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_24fmzdbr8cz_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_24fmzdbr8cz_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_24fmzdbr8cz_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div>
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__url ecom-product-related__url-ellipsis">
+ {{ product.title }}
+ </a>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.selected_or_first_available_variant.price | money }}</div>
+ {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+ <div class="ecom-product-related__price--regular">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+ {% endif %}
+ </div>
+ 
+ </div>
+ {% else %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img
+ src="https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_300x.gif"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ <span class="ecom-product-related__badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_24fmzdbr8cz_html' | t }}
+ </span>
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_24fmzdbr8cz_html' | t }}
+ </span>
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_24fmzdbr8cz_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_24fmzdbr8cz_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.price | money }}</div>
+ <div class="ecom-product-related__price--regular">{{ product.compare_at_price | money }}</div>
+ </div>
+ 
+ <a href="{{ product.url }}" title="{{ product.title | escape }}"
+ class="ecom-product-related__url"
+ >
+ {{ product.title }}
+ </a>
+ {% endif %}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ 
+ {% endif %}
+ {%- assign product = tmp_product -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1srw1od9auq"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-1drxjc7x364"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="{{ecom_root_url}}products/the-phoenix-gravity-water-filter-6-litre"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_1srw1od9auq_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-2xt6b3c6yq2"><div class="core__column--wrapper" id="ecom-2xt6b3c6yq2"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-slphq9i6vs8"><div class="ecom-element ecom-products-related" section_id="ecom-1drxjc7x364"><div class="ecom-product-related__content"><div class="ecom-product-related__content-list-wrapper">
+ {%- capture badge_tags -%}Hot,Best Selling,Trending Item{%- endcapture -%}
+ {%-assign badge_tags = badge_tags | strip | split: ','-%}
+ {%- assign tmp_product = product -%}
+ {%- capture product_list -%}
+ water-filter-teak-wood-stands
+ {%- endcapture -%}
+ {%- assign product_list = product_list | split: "," -%}
+ {%- capture current_product_handle -%}{{product.handle}}{%- endcapture -%}
+ {%- liquid
+ assign you_may_also_like = product.metafields.ecomposer
+ if you_may_also_like.size > 0
+ assign meta_name = 'you_may_also_like'
+ if you_may_also_like[meta_name].value != blank
+ assign product_list = you_may_also_like[meta_name].value
+ endif
+ endif
+ -%}
+ {% if product_list != blank %}
+ <div class="ecom-product-related__content-list">
+ {%- for product_handle in product_list -%}
+ {%- assign product = all_products[product_handle] -%}
+ {%- if you_may_also_like[meta_name].value != blank -%}
+ {%- assign product = product_handle -%}
+ {%- endif -%}
+ <div class="ecom-product-related__item {% if product.handle == current_product_handle %}ecom-product-related__item-current{%endif%}">
+ {% if product.featured_media %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}"" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img srcset="{%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+ {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+ {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+ {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+ src="{{ product.featured_media | img_url: '533x' }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_media.alt | escape }}"
+ loading="lazy"
+ width="{{ product.featured_media.width }}"
+ height="{{ product.featured_media.height }}"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-center">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-end">
+ 
+ <span class="ecom-product-related__badge--sold-out " aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_slphq9i6vs8_html' | t }}
+ </span>
+ 
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_slphq9i6vs8_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_slphq9i6vs8_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_slphq9i6vs8_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div>
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__url ecom-product-related__url-ellipsis">
+ {{ product.title }}
+ </a>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.selected_or_first_available_variant.price | money }}</div>
+ {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+ <div class="ecom-product-related__price--regular">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+ {% endif %}
+ </div>
+ 
+ </div>
+ {% else %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img
+ src="https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_300x.gif"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ <span class="ecom-product-related__badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_slphq9i6vs8_html' | t }}
+ </span>
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_slphq9i6vs8_html' | t }}
+ </span>
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_slphq9i6vs8_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_slphq9i6vs8_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.price | money }}</div>
+ <div class="ecom-product-related__price--regular">{{ product.compare_at_price | money }}</div>
+ </div>
+ 
+ <a href="{{ product.url }}" title="{{ product.title | escape }}"
+ class="ecom-product-related__url"
+ >
+ {{ product.title }}
+ </a>
+ {% endif %}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ 
+ {% endif %}
+ {%- assign product = tmp_product -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-hha4duuvpn4"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-1drxjc7x364"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="{{ecom_root_url}}products/the-phoenix-gravity-water-filter-6-litre"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_hha4duuvpn4_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-9sembentw1g"><div class="core__column--wrapper" id="ecom-9sembentw1g"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-b8sfvy843ko"><div class="ecom-element ecom-products-related" section_id="ecom-1drxjc7x364"><div class="ecom-product-related__content"><div class="ecom-product-related__content-list-wrapper">
+ {%- capture badge_tags -%}Hot,Best Selling,Trending Item{%- endcapture -%}
+ {%-assign badge_tags = badge_tags | strip | split: ','-%}
+ {%- assign tmp_product = product -%}
+ {%- capture product_list -%}
+ stainless-steel-tap
+ {%- endcapture -%}
+ {%- assign product_list = product_list | split: "," -%}
+ {%- capture current_product_handle -%}{{product.handle}}{%- endcapture -%}
+ {%- liquid
+ assign you_may_also_like = product.metafields.ecomposer
+ if you_may_also_like.size > 0
+ assign meta_name = 'you_may_also_like'
+ if you_may_also_like[meta_name].value != blank
+ assign product_list = you_may_also_like[meta_name].value
+ endif
+ endif
+ -%}
+ {% if product_list != blank %}
+ <div class="ecom-product-related__content-list">
+ {%- for product_handle in product_list -%}
+ {%- assign product = all_products[product_handle] -%}
+ {%- if you_may_also_like[meta_name].value != blank -%}
+ {%- assign product = product_handle -%}
+ {%- endif -%}
+ <div class="ecom-product-related__item {% if product.handle == current_product_handle %}ecom-product-related__item-current{%endif%}">
+ {% if product.featured_media %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}"" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img srcset="{%- if product.featured_media.width >= 533 -%}{{ product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+ {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+ {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+ {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+ src="{{ product.featured_media | img_url: '533x' }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_media.alt | escape }}"
+ loading="lazy"
+ width="{{ product.featured_media.width }}"
+ height="{{ product.featured_media.height }}"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-center">
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <div class="ecom-product-related__badge ecom-product-related__badge-end">
+ 
+ <span class="ecom-product-related__badge--sold-out " aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_b8sfvy843ko_html' | t }}
+ </span>
+ 
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_b8sfvy843ko_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_b8sfvy843ko_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_b8sfvy843ko_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div>
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__url ecom-product-related__url-ellipsis">
+ {{ product.title }}
+ </a>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.selected_or_first_available_variant.price | money }}</div>
+ {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+ <div class="ecom-product-related__price--regular">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+ {% endif %}
+ </div>
+ 
+ </div>
+ {% else %}
+ <div class="ecom-product-related__item-media">
+ <a href="{{ product.url }}" title="{{ product.title | escape }}" class="ecom-product-related__image">
+ <div class="ecom-product-related__item-media-container">
+ <div class="ecom-product-related__product-media-img">
+ <img
+ src="https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_300x.gif"
+ />
+ </div>
+ </div>
+ <div class="ecom-product-related__badge">
+ 
+ 
+ <span class="ecom-product-related__badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sold_text_b8sfvy843ko_html' | t }}
+ </span>
+ <span class="ecom-product-related__badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_text_b8sfvy843ko_html' | t }}
+ </span>
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-product-related__badge--custom ecom-product-related__badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-product-related__price--bage-sale">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_b8sfvy843ko_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-product-related__price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-travel-edition1-litre-product.sale_badge_b8sfvy843ko_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ </div>
+ <div class="ecom-product-related__price">
+ <div class="ecom-product-related__price--sale">{{ product.price | money }}</div>
+ <div class="ecom-product-related__price--regular">{{ product.compare_at_price | money }}</div>
+ </div>
+ 
+ <a href="{{ product.url }}" title="{{ product.title | escape }}"
+ class="ecom-product-related__url"
+ >
+ {{ product.title }}
+ </a>
+ {% endif %}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ 
+ {% endif %}
+ {%- assign product = tmp_product -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-nm6en84xssb"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-1drxjc7x364"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="{{ecom_root_url}}products/the-phoenix-gravity-water-filter-6-litre"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_nm6en84xssb_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-1drxjc7x364">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-caqdekncs5o" data-id="ecom-caqdekncs5o" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-hfsa6xgp0ys"><div class="core__column--wrapper" id="ecom-hfsa6xgp0ys"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-yiv869h2syo"><div class="ecom-element ecom-base-iconlist" section_id="ecom-caqdekncs5o"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="true"></span><div class="ecom-iconlist--image ecom-image-default"><img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/100_days_5.png?v=1709702046" alt="100_days_5" class="ecom-image-default"></div><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecomyiv869h2syo_yiv869h2syo_html' | t }}</p></div></div></li></ul></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-5ybqzruj7aj" data-id="ecom-5ybqzruj7aj" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-saro8floyha"><div class="core__column--wrapper" id="ecom-saro8floyha"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-pgohf5az5m"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-5ybqzruj7aj"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Retains" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/6.1.png?v=1701847473"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_pgohf5az5m_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="traval" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/global.png?v=1702037711"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title1_pgohf5az5m_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="304-stainless" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/304ss250.png?v=1704342876"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title2_pgohf5az5m_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="less waste" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/11.png?v=1701847902"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title3_pgohf5az5m_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="better taste" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/7_1.png?v=1701150991"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title4_pgohf5az5m_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-tlhdb0zujb" data-id="ecom-tlhdb0zujb" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-014akf0jh53r"><div class="core__column--wrapper" id="ecom-014akf0jh53r"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-kzm5oz6ibyf"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-tlhdb0zujb"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_kzm5oz6ibyf_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-eli665m4bn"><div class="ecom__element ecom-element element__divi" section_id="ecom-tlhdb0zujb"><div class="ecom__element-divi" style="--divi-line-height: 3px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.25; --flex-tablet: 0.25; --flex-mobile: 0.45; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-cao9ecqh0v hide-on-mobile" data-id="ecom-cao9ecqh0v" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-pbp6q7hlll"><div class="core__column--wrapper" id="ecom-pbp6q7hlll"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-asu4o5w8vv"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-cao9ecqh0v"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_asu4o5w8vv_html' | t }}</div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-lks9nwvw5g"><div class="core__column--wrapper" id="ecom-lks9nwvw5g"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-fwioclzh6w5"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-cao9ecqh0v"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_fwioclzh6w5_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = 'the-phoenix-gravity-mini-1l'
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-bqrd8vwfux7{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click ec-hide-on-desktop", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-bqrd8vwfux7 hide-on-screen hide-on-desktop hide-on-tablet" data-id="ecom-bqrd8vwfux7" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-zlvdcmdoea8"><div class="core__column--wrapper" id="ecom-zlvdcmdoea8"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-mjxa45idisl"><div class="ecom-element ecom-product-single ecom-product-single__description" section_id="ecom-bqrd8vwfux7"><div class="ecom-product-single__description-wrapper"><div class="ecom-product-single__description-container" data-show-type="full"><div class="ecom-product-single__description--paragraph"><div class="ecom-html-des" style="max-height: var(--ecom-description-height);">{{product.description}}</div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-bqrd8vwfux7">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-9f1p3zfw9y" data-id="ecom-9f1p3zfw9y" style="z-index: inherit;"><div class="core__row--columns core__row--full"><div class="ecom-column ecom-core core__column--first ecom-f378fe4dq5a"><div class="core__column--wrapper" id="ecom-f378fe4dq5a"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5jtoi2jpzei"><div class="ecom-row ecom-core core__block ecom-xc4hsb41l7" data-id="ecom-xc4hsb41l7" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-ojea6pkuw0h"><div class="core__column--wrapper" id="ecom-ojea6pkuw0h"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-1bq8trsa4is"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-9f1p3zfw9y"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_1bq8trsa4is_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-0bjyqwllrl2"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-9f1p3zfw9y"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_0bjyqwllrl2_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-9vey233ueko"><div class="core__column--wrapper" id="ecom-9vey233ueko"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-vembtq2k4o"><div class="ecom__element element__video ecom-element" section_id="ecom-9f1p3zfw9y"><div class="ecom-element_video-iframe ecom-element-overlay"><video id="ecom-elements__popup-video-ecom-vembtq2k4o" class="ecom_video" autoplay="" loop="" playsinline="true" preload="true" muted="" style="display: flex !important;"><source src="https://cdn.shopify.com/videos/c/vp/d27b3bf424824fc3b64ce6263d683bf9/d27b3bf424824fc3b64ce6263d683bf9.HD-1080p-2.5Mbps-25616206.mp4" data-source="https://cdn.shopify.com/videos/c/vp/d27b3bf424824fc3b64ce6263d683bf9/d27b3bf424824fc3b64ce6263d683bf9.HD-1080p-2.5Mbps-25616206.mp4"></video></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-a9ra78udm6p" data-id="ecom-a9ra78udm6p" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-an357gf7dmp"><div class="core__column--wrapper" id="ecom-an357gf7dmp"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-jvm5gffk0zq"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-a9ra78udm6p"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_jvm5gffk0zq_html' | t }}</h3></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-iupny2d4zv"><div class="core__column--wrapper" id="ecom-iupny2d4zv"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-z4lc50doji"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-a9ra78udm6p"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="#complete"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_z4lc50doji_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-pxt6qk580jn" data-id="ecom-pxt6qk580jn" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-oxy2mb2mdo8"><div class="core__column--wrapper" id="ecom-oxy2mb2mdo8"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-chk5cqu3dlu"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-pxt6qk580jn"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_chk5cqu3dlu_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-t4al5pf1akc" data-id="ecom-t4al5pf1akc" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-qzfqdk5hwb"><div class="core__column--wrapper" id="ecom-qzfqdk5hwb"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block ecom-qbl9yeq98wd"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="removes contaminants" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/14_6b75726e-1a75-467c-8445-8e40a3d8b663.png?v=1701855028"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_qbl9yeq98wd_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-pmbsjl1za78"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="ss steel" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/21.png?v=1701855182"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_pmbsjl1za78_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-xv01ui46n9"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="activated corbon" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/191.png?v=1701855236"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_xv01ui46n9_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-57aimt3wvo6"><div class="core__column--wrapper" id="ecom-57aimt3wvo6"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-wrecwa6xnp"><div class="ecom-element ecom-base-image" section_id="ecom-t4al5pf1akc"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img class="" loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/post_long_1.webp?v=1756968748" alt="post_long_1" width="587" height="1075"></picture></div></div></figure></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-zppjfs66vc"><div class="core__column--wrapper" id="ecom-zppjfs66vc"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block ecom-tbtc9rzqz8"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="planet-friendly" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/12_c19e6900-9faa-487c-9540-7f6a7f7db6b0.png?v=1701855283"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_tbtc9rzqz8_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-t7rxsyn67ls"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="fresh taste" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/206_3fba39af-9c11-42f2-a7e4-d51a8d4c0a37.png?v=1701855330"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_t7rxsyn67ls_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-6vjhvj0ej8j"><div class="ecom__element ecom-element element__featured ecom-html" section_id="ecom-t4al5pf1akc"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="warranty" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/94.png?v=1701855368"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-travel-edition1-litre-product.title0_6vjhvj0ej8j_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-ws7zuaqfpul" data-id="ecom-ws7zuaqfpul" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-upfi9e0rrea"><div class="core__column--wrapper" id="ecom-upfi9e0rrea"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block ecom-36lvlbzar38" ec-delay="400"><div class="ecom-element ecom-base-iconlist" section_id="ecom-ws7zuaqfpul"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256c0 13.25-10.75 24-24 24H24C10.75 280 0 269.3 0 256s10.75-24 24-24h464C501.3 232 512 242.8 512 256z"></path></svg></span><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecom36lvlbzar38_36lvlbzar38_html' | t }}</p></div></div></li></ul></div></div> <div class="ecom-animation ecom-block ecom-core core__block ecom-yoedyuks08" ec-delay="500"><div class="ecom-element ecom-base-iconlist" section_id="ecom-ws7zuaqfpul"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256c0 13.25-10.75 24-24 24H24C10.75 280 0 269.3 0 256s10.75-24 24-24h464C501.3 232 512 242.8 512 256z"></path></svg></span><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecomyoedyuks08_yoedyuks08_html' | t }}</p></div></div></li></ul></div></div> <div class="ecom-animation ecom-block ecom-core core__block ecom-9aeratndwo" ec-delay="600"><div class="ecom-element ecom-base-iconlist" section_id="ecom-ws7zuaqfpul"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256c0 13.25-10.75 24-24 24H24C10.75 280 0 269.3 0 256s10.75-24 24-24h464C501.3 232 512 242.8 512 256z"></path></svg></span><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecom9aeratndwo_9aeratndwo_html' | t }}</p></div></div></li></ul></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-ex5lq8ohuip"><div class="core__column--wrapper" id="ecom-ex5lq8ohuip"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block elmspace ecom-0a16t29o4iig"><div class="ecom-element ecom-base-image" section_id="ecom-ws7zuaqfpul"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img class="" loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/post_long.webp?v=1755847327" alt="The Phoenix Gravity Mini - 1L" width="587" height="1075"></picture></div></div></figure></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-xqvouxd4jhj"><div class="core__column--wrapper" id="ecom-xqvouxd4jhj"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-animation ecom-block ecom-core core__block ecom-fpwbf8lnf87" ec-delay="400"><div class="ecom-element ecom-base-iconlist" section_id="ecom-ws7zuaqfpul"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256c0 13.25-10.75 24-24 24H24C10.75 280 0 269.3 0 256s10.75-24 24-24h464C501.3 232 512 242.8 512 256z"></path></svg></span><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecomfpwbf8lnf87_fpwbf8lnf87_html' | t }}</p></div></div></li></ul></div></div> <div class="ecom-animation ecom-block ecom-core core__block ecom-1ps46lznnnv" ec-delay="500"><div class="ecom-element ecom-base-iconlist" section_id="ecom-ws7zuaqfpul"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M512 256c0 13.25-10.75 24-24 24H24C10.75 280 0 269.3 0 256s10.75-24 24-24h464C501.3 232 512 242.8 512 256z"></path></svg></span><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecom1ps46lznnnv_1ps46lznnnv_html' | t }}</p></div></div></li></ul></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-mm87xldipsc" data-id="ecom-mm87xldipsc" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-yf88gamw8o8"><div class="core__column--wrapper" id="ecom-yf88gamw8o8"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ejd86hagbhs"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-mm87xldipsc"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_ejd86hagbhs_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-70oj56rg3op"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-mm87xldipsc"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_70oj56rg3op_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-y46de0mlwlb hide-on-mobile" data-id="ecom-y46de0mlwlb" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-e6y8yi1kgvj"><div class="core__column--wrapper" id="ecom-e6y8yi1kgvj"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3gnhs2z3e31"><div class="ecom-element ecom-base-image" section_id="ecom-y46de0mlwlb"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img class="" loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Comparion_chart.jpg?v=1707289238" srcset="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Comparion_chart.jpg?v=1707289238 1920w, https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Comparion_chart.jpg?v=1707289238&amp;width=600&amp;crop=center 600w" sizes="(max-width: 600px) 600px, 1920px" alt="Comparion_chart" width="1920" height="1080"></picture></div></div></figure></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-pkee1rua8qf hide-on-screen hide-on-desktop hide-on-tablet" data-id="ecom-pkee1rua8qf" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-ovq0oyprghc"><div class="core__column--wrapper" id="ecom-ovq0oyprghc"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-uc3bfru0zx"><div class="ecom-element ecom-base-image" section_id="ecom-pkee1rua8qf"><figure><div class="ecom-container-image ecom-image-align"><div class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img class="" loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Comparion_chart_mobile_5e32ec40-8c37-4d4e-8175-2a544f5678c1.jpg?v=1707289347" alt="Comparion_chart" width="600" height="450"></picture></div></div></figure></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-mpb58j62aq" data-id="ecom-mpb58j62aq" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first ecom-ec08375jur"><div class="core__column--wrapper" id="ecom-ec08375jur"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-a9tc0o6j4tn"><div class="ecom-element ecom-base-iconlist" section_id="ecom-mpb58j62aq"><ul class="ecom-iconlist--list" data-layout="default"><li class="ecom-iconlist--item ecom-html"><div class="ecom-iconlist--container"><span class="ecom-iconlist--icon" data-image="true"></span><div class="ecom-iconlist--image ecom-image-default"><img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/208.png?v=1697778090" alt="208" class="ecom-image-default"></div><div class="ecom-iconlist-content"><p class="ecom-iconlist--title">{{ 'sections.ecom-travel-edition1-litre-product.ecomiconlisttitle0_ecoma9tc0o6j4tn_a9tc0o6j4tn_html' | t }}</p></div></div></li></ul></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-wwloch1rfyh"><div class="core__column--wrapper" id="ecom-wwloch1rfyh"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-sxfsbvemo98"><div class="ecom__element ecom-element-button ecom-button-default" section_id="ecom-mpb58j62aq"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="{{ecom_root_url}}pages/delivery-and-returns"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-travel-edition1-litre-product.buttoncontent_sxfsbvemo98_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-ykko39oc22l" data-id="ecom-ykko39oc22l" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-y2kqf74voza"><div class="core__column--wrapper" id="ecom-y2kqf74voza"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5ax63qnj3ex"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-ykko39oc22l"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_5ax63qnj3ex_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-3n193eqzgh1"><div class="ecom__element ecom-element element__divi" section_id="ecom-ykko39oc22l"><div class="ecom__element-divi" style="--divi-line-height: 3px;"><div class="divi-line divi-style" style="display: block;"></div><div class="divi-cont" style="--flex-desktop: 0.19; --flex-tablet: 0.19; --flex-mobile: 0.19; --divider-width: auto; --divider-width-tablet: auto; --divider-width-mobile: auto; display: none;"><div class="divi-cont-before divi-style" style="display: block;"></div><div class="divi-cont-after divi-style" style="display: block;"></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-litzivsfk9" data-id="ecom-litzivsfk9" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-stggov62u"><div class="core__column--wrapper" id="ecom-stggov62u"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-zp6deot6r3q"><div class="ecom-core ecom-group core__block ecom-obyhwb3w3en"> <div class="core__group--wrapper ecom-accordion__wrapper ecom-flex ecom-column ecom-w__full ecom__element ecom__accordion ecom-accordion-close-all" data-r="" style=""><div class="core__group--items"><div id="ecom-w1qwezmvl2" class="core__group--item ecom-accordion__item" data-id="ecom-w1qwezmvl2" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-w1qwezmvl2"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M360.5 217.5l-152 143.1C203.9 365.8 197.9 368 192 368s-11.88-2.188-16.5-6.562L23.5 217.5C13.87 208.3 13.47 193.1 22.56 183.5C31.69 173.8 46.94 173.5 56.5 182.6L192 310.9l135.5-128.4c9.562-9.094 24.75-8.75 33.94 .9375C370.5 193.1 370.1 208.3 360.5 217.5z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M23.5 294.5l152-143.1C180.1 146.2 186.1 144 192 144s11.88 2.188 16.5 6.562l152 143.1c9.625 9.125 10.03 24.31 .9375 33.93c-9.125 9.688-24.38 10.03-33.94 .9375l-135.5-128.4l-135.5 128.4c-9.562 9.094-24.75 8.75-33.94-.9375C13.47 318.9 13.87 303.7 23.5 294.5z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_0_obyhwb3w3en_html' | t }}</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="ec-flex-wp ecom-flex"><div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-y6qiw5zx0mi"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-litzivsfk9"><div class="text-content ecom-html has-drop-cap-view-framed">The Phoenix Gravity is one of the most advanced filtration systems on the market. With a Phoenix Gravity System, your water is purified through three-stages of activated carbon filtration to remove 99.9% of contaminants including bacteria, parasites, cysts, pesticides, heavy metals and more. Our highly dense filtration system uses the highest quality coconut shells (CTC 60) to create a tortuous path that traps physical contaminants that are more than 20 times smaller than jug filters. <div><br><div>Our stainless steel chambers not only prevent microplastics and other harmful chemicals from leaching into your water, but also hold significantly more purified water than the average jug. This makes it even easier for you to enjoy fresh, nutrient-rich hydration - whenever you need it most. Unlike Reverse Osmosis (RO) filters, the gravity system does not require electricity to run or a plumber to install - and it won’t strip your water of the healthy nutrients your body benefits from.
+</div></div></div></div></div> </div></div></div></div></div></div><div id="ecom-djnqhoagnwb" class="core__group--item ecom-accordion__item" data-id="ecom-djnqhoagnwb" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-djnqhoagnwb"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M360.5 217.5l-152 143.1C203.9 365.8 197.9 368 192 368s-11.88-2.188-16.5-6.562L23.5 217.5C13.87 208.3 13.47 193.1 22.56 183.5C31.69 173.8 46.94 173.5 56.5 182.6L192 310.9l135.5-128.4c9.562-9.094 24.75-8.75 33.94 .9375C370.5 193.1 370.1 208.3 360.5 217.5z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M23.5 294.5l152-143.1C180.1 146.2 186.1 144 192 144s11.88 2.188 16.5 6.562l152 143.1c9.625 9.125 10.03 24.31 .9375 33.93c-9.125 9.688-24.38 10.03-33.94 .9375l-135.5-128.4l-135.5 128.4c-9.562 9.094-24.75 8.75-33.94-.9375C13.47 318.9 13.87 303.7 23.5 294.5z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_1_obyhwb3w3en_html' | t }}</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="ec-flex-wp ecom-flex"><div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-gpc60jvzbtw"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-litzivsfk9"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_gpc60jvzbtw_html' | t }}</div></div></div> </div></div></div></div></div></div><div id="ecom-qrla2ztc1j" class="core__group--item ecom-accordion__item" data-id="ecom-qrla2ztc1j" style=""><div class="ecom-accordion__title ecom-flex ecom-w__full ecom-al_center ecom-items" data-target="#undefined" data-target-id="#ecom-qrla2ztc1j"><div class="ecom-accordion_nav--icon ecom-items--icon" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M360.5 217.5l-152 143.1C203.9 365.8 197.9 368 192 368s-11.88-2.188-16.5-6.562L23.5 217.5C13.87 208.3 13.47 193.1 22.56 183.5C31.69 173.8 46.94 173.5 56.5 182.6L192 310.9l135.5-128.4c9.562-9.094 24.75-8.75 33.94 .9375C370.5 193.1 370.1 208.3 360.5 217.5z"></path></svg></div><div class="ecom-accordion_nav--icon ecom-items--icon ecom-items-icon-active" style="order: 1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M23.5 294.5l152-143.1C180.1 146.2 186.1 144 192 144s11.88 2.188 16.5 6.562l152 143.1c9.625 9.125 10.03 24.31 .9375 33.93c-9.125 9.688-24.38 10.03-33.94 .9375l-135.5-128.4l-135.5 128.4c-9.562 9.094-24.75 8.75-33.94-.9375C13.47 318.9 13.87 303.7 23.5 294.5z"></path></svg></div><div class="ecom-accordion_wrapper-info ecom-flex ecom-al_center"><span class="ecom-items--icon ecom-accordion_icon-title" data-image="false"></span><h3 class="ecom-accordion__title-text ecom-items--text">{{ 'sections.ecom-travel-edition1-litre-product.item_title_2_obyhwb3w3en_html' | t }}</h3></div></div><div class="core__group--body ecom-accordion__body"><div class="ec-flex-wp ecom-flex"><div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-ucnm135xkt"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-litzivsfk9"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-travel-edition1-litre-product.textcontent_ucnm135xkt_html' | t }}</div></div></div> </div></div></div></div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-fse1zusv2u9"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-litzivsfk9"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_fse1zusv2u9_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-bl25frnn77r" data-id="ecom-bl25frnn77r" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-levyk644ypb"><div class="core__column--wrapper" id="ecom-levyk644ypb"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-7dack5fmz5p"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-bl25frnn77r"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-travel-edition1-litre-product.headingtext_7dack5fmz5p_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = 'the-phoenix-gravity-mini-1l'
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-oujiqu7udz9{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-oujiqu7udz9" data-id="ecom-oujiqu7udz9" style="z-index: inherit;"><div class="core__row--columns"><div class="ecom-column ecom-core core__column--first core__column--last ecom-vu0sprv7lq"><div class="core__column--wrapper" id="ecom-vu0sprv7lq"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-hdjlzwh1p8"><div class="ecom-element ecom-product-single ecom-product-single__review" section_id="ecom-oujiqu7udz9"><div class="ecom-product-single__review-wrapper" data-review-platform="{%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}{{review_platform}}"><div class="ecom-product-single__review-container">
+ {%- if review_platform and review_platform != 'none' -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M416 176C416 78.8 322.9 0 208 0S0 78.8 0 176c0 41.48 17.07 79.54 45.44 109.6c-15.17 32.34-38.65 58.07-38.95 58.38c-6.514 6.836-8.309 16.91-4.568 25.67C5.754 378.4 14.26 384 23.66 384c54.19 0 97.76-20.73 125.9-39.17C168.1 349.4 187.7 352 208 352C322.9 352 416 273.2 416 176zM208 320c-16.96 0-34.04-2.098-50.75-6.232L143.7 310.4L132 318.1c-20.43 13.38-51.58 28.99-89.85 32.97c9.377-12.11 22.3-30.63 32.24-51.82l9.242-19.71L68.72 263.7C44.7 238.2 32 207.9 32 176C32 96.6 110.1 32 208 32S384 96.6 384 176S305 320 208 320zM606.4 435.4C627.6 407.1 640 372.9 640 336C640 238.8 554 160 448 160c-.3145 0-.6191 .041-.9336 .043C447.5 165.3 448 170.6 448 176c0 5.43-.4668 10.76-.9414 16.09C447.4 192.1 447.7 192 448 192c88.22 0 160 64.6 160 144c0 28.69-9.424 56.45-27.25 80.26l-13.08 17.47l11.49 18.55c6.568 10.61 13.18 19.74 18.61 26.74c-18.26-1.91-36.45-6.625-54.3-14.09l-12.69-5.305l-12.58 5.557C495.9 475 472.3 480 448 480c-75.05 0-137.7-46.91-154.9-109.7c-10.1 3.336-20.5 6.132-31.2 8.271C282.7 455.1 357.1 512 448 512c29.82 0 57.94-6.414 83.12-17.54C555 504.5 583.7 512 616.3 512c9.398 0 17.91-5.57 21.73-14.32c3.74-8.758 1.945-18.84-4.568-25.67C633.3 471.8 619.6 456.8 606.4 435.4z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The review element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the integrated review app platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div class="alireviews-review-box"></div>
+ {%- when 'opinew-reviews' -%}
+ <div style="clear:both;"></div><div id="opinew-reviews-product-page-code" class="opw-widget-wrapper-default">
+ <span id="opinew-plugin" data-server-address="https://api.opinew.com"
+ data-opw-prodreviews="{{ product.metafields.opinew_metafields['product_plugin'] }}"
+ data-opinew-shop-id="{{ shop.id }}" data-shop-url="{{shop.domain}}"
+ data-platform-product-id="{{product.id}}">
+ <span id="opinew_product_plugin_app"></span>
+ </span>
+ </div>
+ {%- when 'judgeme' -%}
+ <div style='clear:both'></div>
+ <div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.widget }}
+ </div>
+ {%- when 'product-reviews-addon' -%}
+ <div id="stamped-main-widget"
+ data-widget-style="standard"
+ data-product-id="{{ product.id }}"
+ data-name="{{ product.title | escape }}"
+ data-url="{{ shop.url }}{{ product.url }}"
+ data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+ data-description="{{ product.description | escape }}"
+ data-product-sku="{{product.handle}}"
+ data-widget-language="{{ language }}">
+ </div>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="page-full">{%- render 'aliexpress_reviews', product: product-%}</div>
+ {%- when 'loox'-%}
+ <div id="looxReviews" data-product-id="{{product.id}}" >{{- product.metafields.loox.reviews -}}</div>
+ {% when 'ryviu'%}
+ <div class="lt-block-reviews">
+ <ryviu-widget product_id="{{product.id}}" handle="{{product.handle}}" title_product="{{product.title}}" image_product="{{ product.featured_image.src | image_url: width: 100 }}"></ryviu-widget>
+ </div>
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shopbooster-ali" product-id="{{ product.id }}" ></div>
+ {%- when 'rivyo-product-review'-%}
+ <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}" data-limit="0"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_reviews %}{% render 'socialshopwave-widget-recommends' with 1, product: product %}{% endcapture %}
+ {% unless the_snippet_reviews contains 'Liquid error' %}
+ {{ the_snippet_reviews }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ {% render "reviews-importer" product: product%}
+ {%- when 'vital-reviews'-%}
+ <div id="bundle-product_reviews"></div>
+ {%- when 'photo-reviews' -%}
+ <div style="clear:both;"></div>
+ <div id="opinew-reviews-product-page-code" class="">
+ <span id="opinew-plugin" data-server-address="https://www.opinew.com" data-opw-prodreviews="{{ product.metafields.opinew_metafields['product_plugin'] }}" data-opinew-shop-id="{{ shop.id }}" data-shop-url="{{shop.domain}}" data-platform-product-id="{{product.id}}">
+ <span id="opinew_product_plugin_app"></span>
+ </span>
+ </div>
+ {%- when 'product-reviews' -%}
+ <div id="shopify-product-reviews" data-id="{{product.id}}">{{- product.metafields.spr.reviews -}}</div>
+ {%- when 'lai-reviews' -%}
+ {%- if EComBuilderMode -%}
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="Lai review form will display when published to Online store"></div>
+ {%- endif -%}
+ {% assign smaTemplatePageBuilderCurrent = template | split: '.' | first %}
+ {% if smaTemplatePageBuilderCurrent != 'product' %}
+ <div class="scm-container custom" style="display: none;">
+ <div id="scm-reviews-importer" class="scm-reviews-importer">
+ <iframe id="scm-reviews-importer-iframe" width="100%"></iframe>
+ </div>
+ </div>
+ {% endif %}
+ {% assign random_number = "now" | date: "%N" | modulo: 1000 | plus: 0 %}<script>var sectionConfig= (typeof sectionConfig == "undefined" || sectionConfig == null) ? {} : sectionConfig;var scmCustomData= (typeof scmCustomData == "undefined" || scmCustomData == null) ? {} : scmCustomData;var scmCustomDataWigetAll= (typeof scmCustomDataWigetAll == "undefined" || scmCustomDataWigetAll == null) ? [] : scmCustomDataWigetAll; scmCustomDataWigetAll['{{ random_number }}'] ={"id_iframe" : "{{ random_number }}","productId" : "{{ product.id }}","typePage" : 'productPage',"sectionConfig" : JSON.stringify(sectionConfig),"scmCustomData" : JSON.stringify(scmCustomData),'dataProduct' : []};sectionConfig= null;scmCustomData= null;scmCustomDataWigetAll['{{ random_number }}'].dataProduct['product']= {{ product | json }};{% for metafieldValue in product.metafields.scm_review_importer %}scmCustomDataWigetAll['{{ random_number }}'].dataProduct['{{ metafieldValue[0] }}']= `{{ metafieldValue[1] | json }}`;{% endfor %}</script>
+ <div class="scm-container" style="display: none;">
+ <div class="scm-reviews-importer" data-product-id= {{ product.id }}>
+ <iframe class="scm-reviews-importer-iframe" width="100%" title="Sma reviews section Product page" data-idIframe="{{ random_number }}"></iframe>
+ </div>
+ </div>
+ {%- when 'rivyo' -%}
+ <div id="wc_review_section" class="wc_review_main_content" data-url="{{ shop.url }}" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}" data-limit="0"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-review-widget" style="width:100%"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div id="klaviyo-reviews-all" data-id="{{product.id}}"></div> 
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Block"></div>
+ {%- when 'ait-product-reviews' -%}
+ <div id="aio-product-detial-reviews" class="page-width" attr-value="{{ product.id }}"></div>
+ {%- when 'trustify-reviews' -%}
+ <div class="trustify-review-box"></div>
+ {% else %}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>The reivew platform not supported</p>
+ </div>
+ {%-endcase-%}
+ {%- endif -%}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the integrated review app platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-oujiqu7udz9">
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-m3z917o6z3" data-id="ecom-m3z917o6z3" style="z-index: inherit;"><div class="core__row--columns core__row--full"><div class="ecom-column ecom-core core__column--first core__column--last ecom-2isrejpym0l"><div class="core__column--wrapper" id="ecom-2isrejpym0l"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-tlv7yyjt3vm"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-m3z917o6z3"><style>
+/* ===== FOOTER BAR ===== */
+.phoenix-footer-timer {
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ background: #21a9d6;
+ color: #fff;
+ padding: 10px 8px;
+ z-index: 9999;
+ font-family: 'DM Sans', sans-serif;
+ box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.phoenix-timer-container {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 14px;
+ flex-wrap: wrap; /* 🔑 IMPORTANT FOR MOBILE */
+}
+
+/* ===== SALE TEXT ===== */
+.phoenix-flash-badge {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ text-align: center;
+ flex-wrap: wrap;
+}
+
+img.badge-icon {
+ width: 32px;
+ height: 32px;
+}
+
+span.badge-text {
+ font-size: 16px;
+ font-weight: 600;
+}
+
+/* ===== COUNTDOWN ===== */
+.phoenix-countdown {
+ display: flex;
+ align-items: center;
+ gap: 4px;
+}
+
+.phoenix-time-unit {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ min-width: 28px;
+}
+
+.phoenix-time-number {
+ font-size: 13px;
+ font-weight: bold;
+ background: rgba(255,255,255,0.25);
+ padding: 2px 5px;
+ border-radius: 4px;
+}
+
+.phoenix-time-label {
+ font-size: 9px;
+}
+
+.phoenix-separator {
+ font-weight: bold;
+ font-size: 12px;
+}
+
+/* ===== BUTTON ===== */
+#phoenix-open-klaviyo {
+ background: #ffffff;
+ color: #000;
+ padding: 6px 12px;
+ border-radius: 6px;
+ text-decoration: none;
+ font-size: 13px;
+ font-weight: 500;
+ white-space: nowrap;
+}
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 480px) {
+ .phoenix-timer-container {
+ flex-direction: column; /* 🔑 STACK ITEMS */
+ gap: 6px;
+ }
+
+ span.badge-text {
+ font-size: 13px;
+ }
+
+ img.badge-icon {
+ width: 22px;
+ height: 22px;
+ }
+
+ .phoenix-countdown {
+ justify-content: center;
+ }
+
+ #phoenix-open-klaviyo {
+ font-size: 12px;
+ padding: 5px 10px;
+ }
+ .phoenix-footer-timer {
+ height: 190px;
+}
+}
+</style>
+
+<div class="phoenix-footer-timer">
+ <div class="phoenix-timer-container">
+
+ 
+ <div class="phoenix-flash-badge">
+ <img src="https://cdn.shopify.com/s/files/1/0735/1821/9557/files/2_50af5177-f9f8-4adc-ab43-4ccb9ff864f8.png?v=1767099579" class="badge-icon">
+ <span class="badge-text">
+ <b>Winter Sale – 26% off</b> Filter Systems
+ </span>
+ </div>
+
+ 
+ <div class="phoenix-countdown">
+ <div class="phoenix-time-unit">
+ <span class="phoenix-time-number" id="phoenix-days">00</span>
+ <span class="phoenix-time-label">Days</span>
+ </div>
+ <span class="phoenix-separator">:</span>
+ <div class="phoenix-time-unit">
+ <span class="phoenix-time-number" id="phoenix-hours">00</span>
+ <span class="phoenix-time-label">Hrs</span>
+ </div>
+ <span class="phoenix-separator">:</span>
+ <div class="phoenix-time-unit">
+ <span class="phoenix-time-number" id="phoenix-minutes">00</span>
+ <span class="phoenix-time-label">Min</span>
+ </div>
+ <span class="phoenix-separator">:</span>
+ <div class="phoenix-time-unit">
+ <span class="phoenix-time-number" id="phoenix-seconds">00</span>
+ <span class="phoenix-time-label">Sec</span>
+ </div>
+ </div>
+
+ 
+ <a href="javascript:void(0);" id="phoenix-open-klaviyo">
+ Get the discount
+ </a>
+
+ </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+ /* Klaviyo popup */
+ const btn = document.getElementById("phoenix-open-klaviyo");
+ btn.addEventListener("click", function (e) {
+ e.preventDefault();
+ window._klOnsite = window._klOnsite || [];
+ window._klOnsite.push(['openForm', 'SL2vUR']);
+ });
+
+ /* Countdown – Jan 12 */
+ const endTime = new Date(2026, 0, 12, 23, 59, 59).getTime();
+
+ function updateCountdown() {
+ const now = Date.now();
+ const diff = endTime - now;
+
+ if (diff <= 0) return;
+
+ document.getElementById("phoenix-days").textContent =
+ String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+ document.getElementById("phoenix-hours").textContent =
+ String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+ document.getElementById("phoenix-minutes").textContent =
+ String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+ document.getElementById("phoenix-seconds").textContent =
+ String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+ }
+
+ updateCountdown();
+ setInterval(updateCountdown, 1000);
+});
+</script>
+</div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+</div></div>{% capture ecom_google_snippet %}{% render 'ecom_google_snippet' %}{% endcapture %}{% unless ecom_google_snippet contains 'Liquid error' %}{{ ecom_google_snippet }}{% endunless %}{% render "ecom_template_product_after", product:product %}
+{% schema %}
+{
+ "name": "The Phoenix Gravity Mini",
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n Please don't add Shopify sections to EComposer's page in the theme customize. If you do this, Shopify sections will be deleted when you republish your page in EComposer\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/ecomposer.app\/shop?open_builder=1&page=product&id=65730589c97638d6bd065542&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ],
+ "locales": {
+ "en": {
+ "textcontent_4hsqam1kddl_html": "Advanced and sustainable on-the-go gravity filtration removes 99.99% of contaminants while retaining the nutrients your body needs. Perfect for travelling, hiking, camping - or whenever you need it most.",
+ "textcontent_zn950xvplo_html": "Looking for a bigger size? <a href=\"\/products\/the-phoenix-gravity-water-filter\">Find it here.<\/a>",
+ "include_taxes_od9nkm93eb_html": "Tax included.",
+ "shipping_policy_od9nkm93eb_html": "<a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
+ "product_single_sale_text_od9nkm93eb_html": "Sale {price}%",
+ "product_single_sold_text_od9nkm93eb_html": "Out of Stock",
+ "add_to_cart_94tzahx343c_html": "ADD",
+ "pre_order_94tzahx343c_html": "Pre Order",
+ "product_unavailable_94tzahx343c_html": "Unavailable",
+ "out_stock_94tzahx343c_html": "Out of Stock",
+ "added_cart_text_94tzahx343c_html": "ADD",
+ "added_cart_message_94tzahx343c_html": "Added to cart",
+ "item_title_0_dkzhjkkpu95_html": "What\u2019s in the box?",
+ "item_title_1_dkzhjkkpu95_html": "Key Features",
+ "item_title_2_dkzhjkkpu95_html": "Shipping and Returns",
+ "headingtext_jzg97krb1pm_html": "You may be looking for:",
+ "sold_text_5380606wc27_html": "Sold out",
+ "sale_text_5380606wc27_html": "Sale",
+ "sale_badge_5380606wc27_html": "Save {{sale}}%",
+ "buttoncontent_fatw449vvn7_html": "ADD",
+ "sold_text_24fmzdbr8cz_html": "Sold out",
+ "sale_text_24fmzdbr8cz_html": "Sale",
+ "sale_badge_24fmzdbr8cz_html": "Save {{sale}}%",
+ "buttoncontent_1srw1od9auq_html": "ADD",
+ "sold_text_slphq9i6vs8_html": "Sold out",
+ "sale_text_slphq9i6vs8_html": "Sale",
+ "sale_badge_slphq9i6vs8_html": "Save {{sale}}%",
+ "buttoncontent_hha4duuvpn4_html": "ADD",
+ "sold_text_b8sfvy843ko_html": "Sold out",
+ "sale_text_b8sfvy843ko_html": "Sale",
+ "sale_badge_b8sfvy843ko_html": "Save {{sale}}%",
+ "buttoncontent_nm6en84xssb_html": "ADD",
+ "ecomiconlisttitle0_ecomyiv869h2syo_yiv869h2syo_html": "100 day money back guarantee & 10 year warranty",
+ "title0_pgohf5az5m_html": "Retaines 100% nutrients",
+ "title1_pgohf5az5m_html": "Travel-friendly for on-the-go purification",
+ "title2_pgohf5az5m_html": "304-grade stainless steel, designed for durability ",
+ "title3_pgohf5az5m_html": "Less waste, fewer refills, lower cost",
+ "title4_pgohf5az5m_html": "Better taste you can trust for 40+ years",
+ "headingtext_kzm5oz6ibyf_html": "Product description:",
+ "textcontent_asu4o5w8vv_html": "<ul><li>The Phoenix Gravity Mini is easy to set up in under 10 minutes.\n<\/li><li>Housed in 304-grade stainless steel, naturally toxin-free, BPA-free, non-leaching.\n<\/li><li>Impregnated with silver to prevent bacteria growth.\n<\/li><li>Fuses natural force of gravity with modern technology and the highest-grade environmentally friendly materials for the most effective, sustainable and durable filtration on the market.\n<br><\/li><\/ul>",
+ "textcontent_fwioclzh6w5_html": "<ul><li>Perfect to travel with, holding up to 1L of spring-like water any time.\n<\/li><li>Activated three-stage carbon filters made from highest grade coconut shells (CTC 60), removes 99.99% of contaminants while preserving 100% of the nutrients your body needs.\n<\/li><li>Our cartridges use an activated carbon block that traps physical contaminants more than 20 times smaller than jug filters. \n<br><\/li><\/ul>",
+ "view_more_text_mjxa45idisl_html": "View more",
+ "view_less_text_mjxa45idisl_html": "View less",
+ "headingtext_1bq8trsa4is_html": "Designed for durability",
+ "textcontent_0bjyqwllrl2_html": " <ul><li>Unlike plastic filters, Phoenix Gravity\u2019s 304-grade stainless steel housing won\u2019t leach toxins, polyurethane, microplastics or harmful chemicals into your water.\n<\/li><li>Rust-resistant to withstand the rigours of everyday use for 10+ years.\n<\/li><li>Our all-purpose activated carbon cartridges last up to two years. This means fewer replacements and lower cost per litre. \n<br><\/li><\/ul>",
+ "headingtext_jvm5gffk0zq_html": "Better quality you can taste, on tap.",
+ "buttoncontent_z4lc50doji_html": "Complete Purchase",
+ "headingtext_chk5cqu3dlu_html": "Filtration At Its Finest",
+ "title0_qbl9yeq98wd_html": "Removes 99.9% <br>of contaminants",
+ "title0_pmbsjl1za78_html": "Highest-grade <br> stainless steel",
+ "title0_xv01ui46n9_html": "Natural activated <br>carbon filtration",
+ "title0_tbtc9rzqz8_html": "Planet-friendly <br> purification",
+ "title0_t7rxsyn67ls_html": "Fresh taste you <br> can trust",
+ "title0_6vjhvj0ej8j_html": "10 year warranty, 100 day <br>money back guarantee",
+ "ecomiconlisttitle0_ecom36lvlbzar38_36lvlbzar38_html": "Fresh, nutrient-rich water funnels from streams into public water systems.",
+ "ecomiconlisttitle0_ecomyoedyuks08_yoedyuks08_html": "It\u2019s exposed to contaminants including heavy metals, parasites, chemical waste, pesticides + more.",
+ "ecomiconlisttitle0_ecom9aeratndwo_9aeratndwo_html": "The Phoenix Gravity Filter purifies tap water through activated carbon cartridges made from the highest quality coconut shells",
+ "ecomiconlisttitle0_ecomfpwbf8lnf87_fpwbf8lnf87_html": "The dense, porous wall removes 99.99% of contaminants - without altering your water\u2019s oxygen or mineral content.",
+ "ecomiconlisttitle0_ecom1ps46lznnnv_1ps46lznnnv_html": "You and your loved ones enjoy fresh, nutrient-rich water with ease - just as nature intended",
+ "headingtext_ejd86hagbhs_html": "The Phoenix Difference",
+ "textcontent_70oj56rg3op_html": "Our three-stage activated carbon cartridges are designed for maximum reuse and minimum replacement, lasting up to 18 months. \n",
+ "ecomiconlisttitle0_ecoma9tc0o6j4tn_a9tc0o6j4tn_html": "If you don\u2019t like your water filter within 100 days, we\u2019ll give you a full refund.",
+ "buttoncontent_sxfsbvemo98_html": "Refund Policy",
+ "headingtext_5ax63qnj3ex_html": "FAQs",
+ "item_title_0_obyhwb3w3en_html": "How does the Phoenix Gravity Filter compare to plastic jugs or other filters?",
+ "item_title_1_obyhwb3w3en_html": "Can I set it up myself?",
+ "item_title_2_obyhwb3w3en_html": "Can I clean my filter?",
+ "textcontent_gpc60jvzbtw_html": "Absolutely. The Phoenix Gravity Mini is designed for easy DIY set-up within minutes - no plumber, electricity or prior knowledge required. We\u2019ll send detailed instructions, along with instructions on how to prime your cartridge, with your Phoenix Gravity Mini.<div><br><\/div>",
+ "textcontent_ucnm135xkt_html": "Yes, it\u2019s simple! You can easily clean your filter in your home using tap water and a soft brush or mild abrasive. We\u2019ll include detailed instructions when we send your Phoenix Gravity Filter. \n<div><br><\/div>",
+ "headingtext_fse1zusv2u9_html": "Still have a burning question? See our full FAQs <a href=\"\/pages\/faq\">here.<\/a>",
+ "headingtext_7dack5fmz5p_html": "The Phoenix difference, straight from the source(s)."
+ }
+ }
+}
+{% endschema %}

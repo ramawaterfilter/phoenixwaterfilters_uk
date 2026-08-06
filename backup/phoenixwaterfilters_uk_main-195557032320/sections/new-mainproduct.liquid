@@ -1,0 +1,1854 @@
+
+{% comment %}
+  Main Product
+{% endcomment %}
+
+
+{%- assign default_size = "2.25 Gallon" -%}
+{%- assign default_filter = "2 Carbon Filter Elements" -%}
+{%- assign default_stand = "No Stand" -%}
+
+{%- assign default_variant = product.variants
+  | where: "option1", default_size
+  | where: "option2", default_filter
+  | where: "option3", default_stand
+  | first
+-%}
+
+{%- assign current_variant = default_variant | default: product.selected_or_first_available_variant -%}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11 col-lg-6">
+      <div class="position-relative {% if product.images.size <= 0 %}h-100{% endif %}">
+        {% render 'product-badge'
+          , product: product %}
+
+        {% if product.images.size > 1 %}
+
+          <div
+            class="swiper-container swiper"
+            data-slidestoshow="1"
+            id="product-slider">
+            <div class="swiper-wrapper">
+              
+              {% for media in product.media %}
+                {% assign thisVariantID = "" %}
+
+                {% for variant in product.variants %}
+                  {% if variant.featured_image == media.src %}
+                    {% assign thisVariantID = variant.id %}
+                  {% endif %}
+                {% endfor %}
+
+                {% if media.media_type == "image" %}
+                  <div
+                    class="swiper-slide"
+                    data-variant-id="{{ thisVariantID }}"
+                    data-slide-index="{{ forloop.index }}">
+                    <a
+                      data-fancybox="gallery"
+                      href="{{ media | image_url: width: 2560 }}"
+                      class="product-image d-block main-variant-image">
+                      {{ media | image_url: width: 1200 | image_tag }}
+                    </a>
+                  </div>
+
+              
+                {% elsif media.media_type == "external_video" %}
+                  <div
+                    class="swiper-slide"
+                    data-variant-id="{{ thisVariantID }}"
+                    data-slide-index="{{ forloop.index }}">
+                    <a
+                      data-fancybox="gallery"
+                      href="{{ media | external_video_url: autoplay: 'true' }}"
+                      class="product-image product-image--video d-block">
+                      {{ media.preview_image | image_url: width: 1200 | image_tag }}
+                    </a>
+                   
+                  </div>
+                  {% elsif media.media_type == "video" %}
+                    <div class="swiper-slide">
+                      <a
+                        data-fancybox="gallery" aria-label="Play product video"
+                        href="{{ media.sources[1].url }}"
+                        class="product-image--video">
+                        {{ media.preview_image | image_url: width: 1200 | image_tag }}
+                      </a>
+                    
+                    </div>
+                  {% endif %}                  
+              {% endfor %}   
+                
+            </div>
+
+            
+             <div class="swiper-nav">
+    <div class="swiper-button-prev swiper-prev"></div>
+    <div class="swiper-button-next swiper-next"></div>
+  </div>
+          </div>
+         <div class="swiper-container swiper control 
+  {% if product.media.size == 3 %} control-three {% endif %}
+  {% if product.media.size == 5 %}control-five {% else %}product-thumbnails{% endif %}"
+  id="product-slider-nav">
+  <div class="custom-swiper-dots"></div>
+  <div class="swiper-wrapper {% if product.media.size == 3 or product.media.size == 5 %}wide{% endif %}">
+
+    {% for media in product.media %}
+      {% if media.media_type == "external_video" %}
+          <div class="swiper-slide">
+    {{ media | media_tag: loading: 'lazy' }}
+  </div>
+
+      {% elsif media.media_type == "image" %}
+        <div class="swiper-slide">
+          {% if forloop.first %}
+            <img id="main-variant-image" src="{{ media | image_url: width: 1200 }}" alt="Main Product Image">
+          {% else %}
+            <img src="{{ media | image_url: width: 1200 }}" alt="Product Image">
+          {% endif %}
+        </div>
+
+      {% elsif media.media_type == "video" %}
+        <div class="swiper-slide">
+          {{ media.preview_image | image_url: width: 600 | image_tag }}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+        {% elsif product.featured_image %}
+          <a
+            data-fancybox="gallery"
+            href="{{ product.featured_image | image_url: width: 2560 }}"
+            class="product-image d-block">
+            {{ product.featured_image | image_url: width: 1200 | image_tag }}
+          </a>
+        {% else %}
+
+          <div class="placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+
+        {% endif %}
+
+      </div>
+    </div>
+    {% assign empty_object = '{}' %}
+
+  
+<!-- Swiper Button Code  -->
+
+<div class="swiper-pagination mobile-only"></div>            
+                    
+
+    
+<script>
+  window.metafieldImages = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {{ variant.metafields.custom.variant_combo_image | json }}
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
+
+<script>
+  // Image lookup based on Filter Type + Stand
+  window.variantComboImages = {
+    {% for variant in product.variants %}
+      "{{ variant.options[1] }}|{{ variant.options[2] }}": {{ variant.metafields.custom.variant_combo_image | json }}
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  // Full variant list
+  window.productVariants = [
+    {% for variant in product.variants %}
+      {
+        id: {{ variant.id }},
+        options: [{% for opt in variant.options %}"{{ opt }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+      }{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+  const comboImages = window.variantComboImages || {};
+  const variants = window.productVariants || [];
+
+  const anchor = document.querySelector('.main-variant-image');
+  const img = anchor?.querySelector('img') || anchor;
+  const variantSelect = document.querySelector('form[action^="/cart/add"] select[name="id"]');
+
+  if (!img || !anchor || !variantSelect) {
+    console.warn("❌ Required DOM elements not found");
+    return;
+  }
+
+function updateImageFromVariant() {
+  const variantId = variantSelect.value;
+  const variant = variants.find(v => v.id == variantId);
+  if (!variant) return;
+
+  const comboKey = `${variant.options[1]}|${variant.options[2]}`;
+  const imageUrl = comboImages[comboKey];
+
+  const anchor = document.querySelector('.main-variant-image');
+  const img = anchor?.querySelector('img') || anchor;
+
+  if (imageUrl && img) {
+    if (anchor.tagName === 'A') {
+      anchor.href = imageUrl;
+    }
+
+    // ✅ Set new image
+    img.src = imageUrl;
+    img.srcset = imageUrl;
+    img.alt = comboKey;
+
+    // ✅ Wait for image to load before resetting Swiper
+    img.onload = () => {
+      if (typeof mainSwiper !== 'undefined' && typeof mainSwiper.slideTo === 'function') {
+        mainSwiper.slideTo(0); // Reset main Swiper
+      }
+
+      const navSwiper = document.querySelector('#product-slider-nav')?.swiper;
+      if (navSwiper && typeof navSwiper.slideTo === 'function') {
+        navSwiper.slideTo(0); // Reset thumbnail Swiper (if used)
+      }
+    };
+
+    console.log("✅ Updated image to:", imageUrl);
+  } else {
+    console.warn("⚠️ No image found for combo:", comboKey);
+  }
+}
+   // This code fr after swap the images the first image rturn after click the varient
+
+  variantSelect.addEventListener("change", () => {
+    updateImageFromVariant();
+    if (typeof mainSwiper !== 'undefined') {
+      mainSwiper.slideToLoop(0); 
+    }
+  });
+  // Optional: run on page load
+  updateImageFromVariant();
+});
+
+  variantSelect.addEventListener("change", () => {
+  updateImageFromVariant();
+
+  
+  const allSwipers = document.querySelectorAll('.swiper');
+  allSwipers.forEach(swiperEl => {
+    if (swiperEl.swiper && typeof swiperEl.swiper.slideTo === 'function') {
+      swiperEl.swiper.slideTo(0);
+    }
+  });
+});
+</script>
+
+
+    
+    <div class="col-11 col-lg-6 mt-3 mt-lg-0">
+
+      {% render 'product-hero-countdown'
+        , section: section %}
+
+      <h1 class="t12">{{ product.title }}</h1>
+      <div class="product-rating">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when '@app' %}
+              {% render block %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      {% comment %} {% render 'best-for-tag' %} {% endcomment %}
+
+<!-- changes by k -->
+      
+<div id="variant-popup-overlay" style="display:none;" class="variant-main-wrapper">
+  <div class="variant-wrapper">
+    <div id="variant-popup-image" class="variant-picture-area"></div>
+    <div id="variant-popup-text" class="variant-text-area">
+      <h2 id="variant-popup-title">Loading...</h2>
+      <p id="variant-popup-description">Please wait...</p>
+    </div>
+    <span id="variant-popup-close" class="variant-exit-btn">×</span>
+  </div>
+</div>
+
+
+<!-- Start of Judge.me code -->
+<div style='{{ jm_style }}' 
+     class='jdgm-widget jdgm-preview-badge' 
+     data-id='{{ product.id }}' 
+     data-auto-install='false'>
+  {{ product.metafields.judgeme.badge }}
+</div>
+<!-- End of Judge.me code -->
+
+<!-- Above changes by k -->
+ 
+
+      {% if product.description != blank or product.metafields.custom.product_usps.value.size > 0 %}
+       <div class="product-description">
+          {{ product.description }}
+
+          {% if product.metafields.custom.product_usps.value.size > 0 %}
+            <ul class="product-description__usps">
+              {% for usp in product.metafields.custom.product_usps.value %}
+                <li>{{ usp }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div> 
+      {% endif %}
+
+      {% if settings.enable_minmax_buys %}
+        {% assign min_buy = settings.min_buy_qty %}
+        {% assign max_buy = settings.max_buy_qty %}
+      {% endif %}
+
+      {% if min_buy == nil %}
+        {% assign min_buy = 1 %}
+      {% endif %}
+
+      {% if product.available and product.variants.size > 1 %}
+
+                        <!-- Display Controllers -->
+            
+           <div id="product-variants" class="d-flex flex-column justify-content-start align-items-start">  
+
+            <!-- Loop through each option and display its name and values -->
+
+            {% for option in product.options_with_values %}
+             
+                <div class="step step-{{ option.name | downcase | replace: ' ', '-' }} mb-3" style="justify-content: space-between; width: 100%;">
+                    <div style="display: flex; align-items: center; gap: 1rem;"> 
+                      <div class="step-number">{{ forloop.index }}</div>
+                      <div class="step-title">Select {{ option.name }}
+                        - 
+                        {% for value in option.values %}
+                          <span class="{{ value }}" style="display:{% if forloop.first %}unset;{% else %} none;{% endif %}">
+                            {% if option.name == 'Size' %} 
+                              {% capture size_for_key %}size_for_{{ forloop.index }}{% endcapture %}
+                              {{ settings[size_for_key] }}
+                            {% else %}
+                              {{ value }} 
+                            {% endif %}
+                          </span>
+                        
+                        {% endfor %}
+                      </div>
+                    </div>
+
+                    
+           {% if option.name == "Filter Type" %}
+  <button id="filter-popup-btn" class="load-more-button">Load More</button>
+
+{% elsif option.name == "Stand" %}
+  <button id="stand-popup-btn" class="load-more-button">Size Guide</button>
+
+{% elsif option.name == "Size" %}
+  <button id="size-popup-btn" class="load-more-button">Size Guide</button>
+{% endif %}
+
+
+
+                    {% if option.name contains 'Size' %}
+                  <!--    <span class="Size-Guide">Size Guide</span> -->
+                    {% endif %}
+                </div>
+
+                <div id="{{ option.name | downcase | replace: ' ', '-' }}-options" class="info-field-container d-flex flex-row radio-selectors mb-3">
+                   
+                  {% for value in option.values %}
+{% if option.name == 'Size' and value == '1.5 Gallon' %}
+  {% continue %}
+{% endif %}
+
+                    {% assign variant_match = false %}
+                    {% for variant in product.variants %}
+                      {% for option_index in (0..product.options.size) %}
+                        {% assign variant_option_name = product.options[option_index] %}
+                        {% assign variant_option_value = variant.options[option_index] %}
+                        {% if variant_option_name == option.name and variant_option_value == value %}
+                          {% assign variant_match = variant %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+
+       
+                    <div class="radio-option d-flex">
+                   
+                  <input
+  type="radio"
+  class="variant-radio"
+  data-option-index="{{ forloop.parentloop.index0 }}"
+  data-option-value="{{ value }}"
+  name="{{ option.name | handleize }}"
+  id="{{ option.name | handleize }}-{{ value | handleize }}"
+  value="{{ value }}"
+  {% if current_variant.options[forloop.parentloop.index0] == value %}checked{% endif %}
+
+>
+                  {% if option.name == 'Filter Type' %}
+                      {% capture filter_image_key %}filter_image_{{ forloop.index }}{% endcapture %}
+              
+                      <div class="details product-image">
+                        <img src="{{ settings[filter_image_key]  | image_url: width: 180 }}" alt="size {{ forloop.index }}" class="size-icon" />
+                      </div>
+                    
+
+                  {% elsif option.name == 'Size' %}
+                      {% capture size_icon_key %}size_icon_{{ forloop.index }}{% endcapture %}
+                       {% capture size_content_key %}size_content_{{ forloop.index }}{% endcapture %}
+                     {% capture size_for_key %}size_for_{{ forloop.index }}{% endcapture %}
+     
+                      <div class="details h-100">
+                        <div class="product-icon">
+                          <img src="{{ settings[size_icon_key]  | image_url: width: 40 }}" alt="size {{ forloop.index }}" class="size-icon" />
+                        </div>
+                      <p><strong>{{ settings[size_for_key] }}</strong></p> 
+                      {{ settings[size_content_key] }}
+
+                      </div>
+
+                    {% else option.name == 'Stand' %}
+                     {% capture stand_key %}stand_{{ forloop.index }}{% endcapture %}
+              
+                      <div class="details product-image stand">
+                        <img src="{{ settings[stand_key]  | image_url: width: 180 }}" alt="size {{ forloop.index }}" class="size-icon" />
+                      </div>
+
+
+                      
+                  {% endif %}
+              </div>
+            {% endfor %}
+            </div>
+
+         
+          {% endfor %}
+          </div> 
+             
+    
+    {% endif %}
+
+      <form
+        action="/cart/add"
+        method="post"
+        enctype="multipart/form-data"
+        id="add-to-cart"
+        data-min="{{ min_buy }}"
+        data-max="{{ max_buy }}">
+
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when '@app' %}
+              {% render block %}
+          {% endcase %}
+        {% endfor %}
+
+  
+
+       
+        <input
+          type="hidden"
+          name="handle"
+          value="{{ product.handle }}">
+
+
+{% comment %} Selling Plans  {% endcomment %}
+
+ <div id="variants" class="info-field-container d-flex flex-column justify-content-start align-items-center">          
+        <div class="selector-wrap sr-only">
+                        <select id="product-selectors" name="id">
+  {% for variant in product.variants %}
+  {% if variant.option1 == '1.5 Gallon' %}
+    {% continue %}
+  {% endif %}
+
+  <option
+    value="{{ variant.id }}"
+    data-available="{{ variant.available }}"
+    data-price="{{ variant.price }}"
+    data-compare="{{ variant.compare_at_price }}"
+    {% if variant == current_variant %}selected{% endif %}
+  >
+    {{ variant.title }}
+    {% unless variant.available %} - SOLD OUT{% endunless %}
+  </option>
+{% endfor %}
+</select>
+
+       
+           </div>
+            </div>
+   
+
+        <div class="offers-container" style="display: none;">
+            <div class="offers-item">Get additional $10 OFF on 1.5 Gallon Water Filter System! Use Code "US10" at the checkout.</div>
+        </div>
+        
+        <div class="priceline my-5">
+            <span data-price class="product-dyn-price m-0">
+            {{ product.variants.first.price | money }}
+            </span>
+            <span data-compare>
+            <s>
+                {% if product.variants.first.compare_at_price %}
+                {{ product.variants.first.compare_at_price | money }} {{ shop.currency }}
+                {% endif %}
+            </s>
+            </span>
+        {% comment %} <script>
+  // VARIANT IDS THAT SHOULD ALWAYS BE SOLD OUT
+  const alwaysSoldOutVariants = [
+    43027397017643,
+    43027397083179
+  ];
+
+  function updateStock(variantId, available) {
+    const container = document.getElementById('inventory-indicator');
+    if (!container) return;
+
+    // Force sold out for specific variant IDs
+    if (alwaysSoldOutVariants.includes(Number(variantId))) {
+      container.innerHTML = `
+        <span class="inventory-status inventory-unavailable">
+          Sold Out
+        </span>
+      `;
+      return;
+    }
+
+    // Normal behavior
+    if (available) {
+      container.innerHTML = `
+        <span class="inventory-status inventory-available">
+          In Stock
+        </span>
+      `;
+    } else {
+      container.innerHTML = `
+        <span class="inventory-status inventory-unavailable">
+          Sold Out
+        </span>
+      `;
+    }
+  }
+
+  // Listen to variant changes
+  document.addEventListener('change', function (e) {
+    if (e.target.name === 'id') {
+      const selected = e.target.options[e.target.selectedIndex];
+      const variantId = selected.value;
+      const available = selected.dataset.available === "true";
+
+      updateStock(variantId, available);
+    }
+  });
+</script>
+
+<div id="inventory-indicator" class="inventory-box">
+    {% if current_variant.available %}
+        <span class="inventory-status inventory-available">
+              In Stock 
+                  </span>
+                    {% else %}
+                        <span class="inventory-status inventory-unavailable">
+                              Sold Out
+                                  </span>
+                                    {% endif %}
+                                    </div>
+                                    
+<script>
+  function updateStock(variant) {
+    const container = document.getElementById('inventory-indicator');
+    if (!container || !variant) return;
+
+    if (variant.available) {
+      container.innerHTML = `
+        <span class="inventory-status inventory-available">
+          In Stock
+        </span>
+      `;
+    } else {
+      container.innerHTML = `
+        <span class="inventory-status inventory-unavailable">
+          Sold Out
+        </span>
+      `;
+    }
+  }
+
+  /* Listen to variant changes */
+  document.addEventListener('change', function (e) {
+    if (e.target.name === 'id') {
+      const selected = e.target.options[e.target.selectedIndex];
+      const available = selected.dataset.available === "true";
+
+      updateStock({ available });
+    }
+  });
+</script>  {% endcomment %}
+
+<div id="inventory-indicator" class="inventory-box">
+  {% if current_variant.available %}
+    <span class="inventory-status inventory-available">In Stock</span>
+  {% else %}
+    <span class="inventory-status inventory-unavailable">Sold Outj</span>
+  {% endif %}
+</div>
+<script>
+  /* 🔒 Variant IDs that must ALWAYS be out of stock */
+ const FORCED_OUT_OF_STOCK = [
+  "41681640423467",
+  "41681640521771",
+  "41868948963371", // new variant
+  "41868949028907"  // new variant
+];
+
+  function updateStock(variant) {
+    const container = document.getElementById('inventory-indicator');
+    if (!container || !variant) return;
+
+    if (variant.available) {
+      container.innerHTML = `
+        <span class="inventory-status inventory-available">
+          In Stock
+        </span>
+      `;
+    } else {
+      container.innerHTML = `
+        <span class="inventory-status inventory-unavailable">
+          Sold Out
+        </span>
+      `;
+    }
+  }
+
+  /* ✅ Listen to variant changes */
+  document.addEventListener('change', function (e) {
+    if (e.target.name === 'id') {
+      const selected = e.target.options[e.target.selectedIndex];
+      const variantId = selected.value;
+
+      /* 🔒 FORCE OOS CHECK */
+      const forcedOut = FORCED_OUT_OF_STOCK.includes(variantId);
+
+      updateStock({
+        available: forcedOut ? false : selected.dataset.available === "true"
+      });
+    }
+  });
+
+  /* ✅ Run once on page load */
+  document.addEventListener("DOMContentLoaded", function () {
+    const select = document.querySelector('select[name="id"]');
+    if (!select) return;
+
+    const selected = select.options[select.selectedIndex];
+    const variantId = selected.value;
+
+    const forcedOut = FORCED_OUT_OF_STOCK.includes(variantId);
+
+    updateStock({
+      available: forcedOut ? false : selected.dataset.available === "true"
+    });
+  });
+</script>
+
+        </div>
+
+
+            {% if product.available %}
+              <div class="product-quantity mb-5" style="display: none;">
+                <div class="qty-container">
+                  <label for="Quantity">{{ 'products.product.quantity.label' | t }} &nbsp; </label>
+                  <span class="qty-btn decrease js-qty-update">-</span>
+                  <input type="number" id="Quantity" name="quantity" data-qtt-id value="{{ min_buy }}" min="{{ min_buy }}" max="{{ max_buy }}">
+                  <span class="qty-btn increase js-qty-update">+</span>
+                  
+                 
+                  
+                </div>
+               
+    
+ 
+                  
+              </div>
+              <p class="js-availability-notice product-availability disabled {% if product.variants.size > 1 %} invalid {% endif %}">
+                  There are only <strong class="js-availablilty">{{ current_variant.inventory_quantity }}</strong> {{ product.title }}
+                  {% if product.variants.size > 1 %}
+                    <span class="js-varient">({{ product.variants.first.title.title }})</span>
+                  {% endif %}
+                  available in stock.
+                </p>
+                 {% assign empty_object = '{}' %}
+<script>
+  window.variantComboImages = {{ product.metafields.custom.variant_combo_image | default: empty_object }};
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const variantSelect = document.getElementById("product-selectors");
+  const priceEl = document.querySelector("[data-price]");
+  const compareEl = document.querySelector("[data-compare]");
+  const addToCartBtn = document.getElementById("product-add-to-cart");
+
+  if (!variantSelect || !priceEl) return;
+
+  function updatePrice() {
+    const option = variantSelect.options[variantSelect.selectedIndex];
+
+    const price = option.dataset.price;
+    const compare = option.dataset.compare;
+    const available = option.dataset.available === "true";
+
+    // ✅ Update price
+    priceEl.innerHTML = Shopify.formatMoney(price);
+
+    // ✅ Compare at price
+    if (compare && compare > price) {
+      compareEl.innerHTML = `<s>${Shopify.formatMoney(compare)}</s>`;
+    } else {
+      compareEl.innerHTML = "";
+    }
+
+    // ✅ Handle stock state
+    if (!available) {
+      addToCartBtn.setAttribute("disabled", "disabled");
+      addToCartBtn.innerText = "SOLD OUT";
+    } else {
+      addToCartBtn.removeAttribute("disabled");
+      addToCartBtn.innerText = "Add to cart";
+    }
+  }
+
+  variantSelect.addEventListener("change", updatePrice);
+  updatePrice(); // run on load
+});
+
+
+</script>
+            {% else %}
+              <div class="select-product d-flex flex-row align-items-center mt-5 "> 
+                <input name="id" data-productid="{{ product.id }}" value="{{ product.variants.first.id }}" type="hidden" />
+                <button class="btn btn-large btn-primary btn-product" name="add" disabled type="submit">
+                  {{ 'products.product.sold_out' | t }}
+                </button>
+            {% endif %}
+
+ 
+        {% comment %} <div id="afterpay-element"></div> {% endcomment %}
+
+        {% if product.available %}
+            
+            {% if current_variant.inventory_quantity > 0 or current_variant.inventory_management == null %}
+              
+              <button
+                class="btn btn-large btn-secondary btn-product d-flex flex-row justify-content-center align-items-center carty"
+                type="submit"
+                name="add"
+                id="product-add-to-cart">
+                {{ 'products.product.add_to_cart' | t }} &nbsp;
+              </button>
+
+            {% comment %} Continue selling when out of stock is checked {% endcomment %}
+
+            {% elsif current_variant.inventory_policy == "continue" %}
+            
+              <button
+                class="btn btn-large btn-primary  btn-product"
+                type="submit"
+                name="add"
+                id="product-add-to-cart">
+                {{ 'products.product.pre_order' | t }}
+              </button>
+            {% endif %}
+
+          {% comment %} <div class="trust-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+                  <path d="M22.5 0.5H2.5C1.96957 0.5 1.46086 0.710714 1.08579 1.08579C0.710714 1.46086 0.5 1.96957 0.5 2.5V9.5C0.5 16.09 3.69 20.0837 6.36625 22.2738C9.24875 24.6313 12.1163 25.4312 12.2413 25.465C12.4131 25.5118 12.5944 25.5118 12.7663 25.465C12.8913 25.4312 15.755 24.6313 18.6413 22.2738C21.31 20.0837 24.5 16.09 24.5 9.5V2.5C24.5 1.96957 24.2893 1.46086 23.9142 1.08579C23.5391 0.710714 23.0304 0.5 22.5 0.5ZM18.21 9.2075L11.21 16.2075C11.1171 16.3005 11.0068 16.3742 10.8854 16.4246C10.764 16.4749 10.6339 16.5008 10.5025 16.5008C10.3711 16.5008 10.241 16.4749 10.1196 16.4246C9.99816 16.3742 9.88787 16.3005 9.795 16.2075L6.795 13.2075C6.60736 13.0199 6.50194 12.7654 6.50194 12.5C6.50194 12.2346 6.60736 11.9801 6.795 11.7925C6.98264 11.6049 7.23714 11.4994 7.5025 11.4994C7.76786 11.4994 8.02236 11.6049 8.21 11.7925L10.5 14.0863L16.7925 7.7925C16.8854 7.69959 16.9957 7.62589 17.1171 7.57561C17.2385 7.52532 17.3686 7.49944 17.5 7.49944C17.6314 7.49944 17.7615 7.52532 17.8829 7.57561C18.0043 7.62589 18.1146 7.69959 18.2075 7.7925C18.3004 7.88541 18.3741 7.99571 18.4244 8.1171C18.4747 8.2385 18.5006 8.36861 18.5006 8.5C18.5006 8.6314 18.4747 8.7615 18.4244 8.8829C18.3741 9.00429 18.3004 9.11459 18.2075 9.2075H18.21Z" fill="#153A5B"/> 
+                  
+                </svg>
+         Try It Risk Free! 100-Day Money Back Guarantee
+         </div>   {% endcomment %}
+          <div class="payment-icons d-flex justify-content-center align-items-center gap-3">
+            
+   <img src="https://cdn.shopify.com/s/files/1/2644/2852/files/Payment_1.png?v=1767767460"  alt="payment"   height="22.41" width="300" />
+          </div>
+          <div class="below-atc-icons">
+            {% comment %} <div>
+              <img src="{{ 'icon-truck.png' | asset_url }}" alt="Truck Icon">
+              <span>Free Shipping in the US Mainland</span>
+            </div> {% endcomment %}
+              <div>
+              <img src="https://cdn.shopify.com/s/files/1/2644/2852/files/Free_shipping.png?v=1761290560" alt="free">
+              <span>Free Shipping in the US Mainland </span>
+            </div>
+            <div>
+              <img src="{{ 'icon-tag.png' | asset_url }}" alt="Tag Icon">
+              <span>100 Day Trial</span>
+            </div>
+            <div>
+              <img src="{{ 'icon-award.png' | asset_url }}" alt="Award Icon">
+              <span>10 Year Warranty</span>
+            </div>
+            <div>
+              <img src="{{ 'icon-headset.png' | asset_url }}" alt="Headset Icon">
+              <span>Customer Support</span>
+            </div>
+             {% comment %} <div>
+              <img src="https://cdn.shopify.com/s/files/1/2644/2852/files/product_warehouse.png" alt="Warehouse">
+              <span>US-Based Warehouse Shipping </span>
+            </div> {% endcomment %}
+             <div>
+              <img src="https://cdn.shopify.com/s/files/1/2644/2852/files/nsf-01.png?v=1751276325" alt="NSF">
+              <span>NSF Certified </span>
+            </div>
+             
+              <div>
+      <img src="https://cdn.shopify.com/s/files/1/2644/2852/files/product_warehouse.png" alt="Warehouse">
+       <span>US-Based Warehouse Shipping </span>
+       </div>
+          </div>
+
+
+          <!-- changes by k -->
+
+      
+<div class="swiper-container main-swiper">
+  <div class="swiper-wrapper">
+    {% for image in product.images %}
+      <div class="swiper-slide">
+        <img src="{{ image | img_url: 'master' }}" alt="{{ image.alt }}">
+      </div>
+   
+    {% endfor %}
+  </div>
+
+          </div>
+          
+            <!-- Above  changes by k -->
+      
+
+ {% else %}
+
+          <input
+            name="id"
+            data-productid="{{ product.id }}"
+            value="{{ product.variants.first.id }}"
+            type="hidden" />
+
+          <button
+            class="btn btn-primary  btn-product"
+            name="add"
+            disabled
+            type="submit">
+            {{ 'products.product.sold_out' | t }}
+          </button>
+
+        {% endif %}
+              
+      </form>
+              
+    </div>
+  </div>
+</div>
+ 
+ 
+ 
+
+{% render 'sticky-add-to-cart' %}
+
+ 
+{% unless product == empty %}
+	<script>
+	    window.product = {{ product | json }} || {};
+
+		// If product exists, add this metafield to to the product json.
+		{% if product.metafields.custom.product_badge_text.value != blank %}
+			if(typeof product !== "undefined"){
+				product['badge'] = "{{ product.metafields.custom.product_badge_text.value }}";
+			}
+		{% endif %}
+
+		let metaInfo = product.handle + '?view=metafields'
+
+		// Get the metaInfo and add it to the product json.
+		fetch(metaInfo)
+			.then(response => response.json())
+			.then(pageMeta => {
+				// Combine all the information to 1 object
+				window.product = Object.assign(product, pageMeta);
+
+				if( document.readyState !== 'loading' ) {
+					initProductScript(window.product, 'product-selectors', document);
+				} else {
+					document.addEventListener('DOMContentLoaded', function () {
+						initProductScript(window.product, 'product-selectors', document);
+					});
+				}
+
+			})
+			.catch(error => {
+				console.error('Error fetching page meta:', error);
+			});
+
+
+  ///  Variant Controller
+
+  const selectElement = document.querySelector("#product-selectors");
+  
+  document.addEventListener('DOMContentLoaded', function() {
+      
+  // General function to set up synchronization between radio button groups
+
+    function setupRadioSync(primarySelector, secondarySelector) {
+      const primaryRadioButtons = document.querySelectorAll(primarySelector);
+
+      // Function to update secondary radio buttons and dispatch a change event
+      const updateSecondaryRadios = (selectedValue) => {
+        const secondaryRadioButtons = document.querySelectorAll(secondarySelector);
+        let foundMatch = false;
+
+        secondaryRadioButtons.forEach(radio => {
+          if (radio.value === selectedValue) {
+            if (!radio.checked) {
+              radio.checked = true;
+              foundMatch = true;
+              // Dispatch the change event
+              radio.dispatchEvent(new Event('change', { 'bubbles': true }));
+              selectElement.dispatchEvent(new Event('change', { 'bubbles': true }));
+            }
+          } else {
+            if (radio.checked) {
+              radio.checked = false;
+              // Dispatch the change event for unchecked state as well if needed
+              radio.dispatchEvent(new Event('change', { 'bubbles': true }));
+              selectElement.dispatchEvent(new Event('change', { 'bubbles': true }));
+            }
+          }
+        });
+        if (!foundMatch) {
+          console.log('No match found in secondary radios for value:', selectedValue);
+        }
+      };
+
+      // Listen for changes on primary radio buttons
+
+      primaryRadioButtons.forEach(radio => {
+        radio.addEventListener('change', function() {
+          if (radio.checked) {
+            updateSecondaryRadios(radio.value);
+          }
+        });
+      });
+    }
+
+    // Setup synchronization for both filter and size options
+
+    setupRadioSync('#filter-type-options input[type="radio"]', '.radio-selector__option input[name="filter-type-radio"]');
+    setupRadioSync('#size-options input[type="radio"]', '.radio-selector__option input[name="size-radio"]');
+    setupRadioSync('#stand-options input[type="radio"]', '.radio-selector__option input[name="stand-radio"]');
+  });
+
+
+  ///  Toggle Variant Titles
+
+document.addEventListener('DOMContentLoaded', function() {
+    // General function to handle changes in option containers
+    function handleOptionChange(containerId, stepClass) {
+      const container = document.getElementById(containerId);
+      if (container) {
+        container.addEventListener('change', function(event) {
+          if (event.target.type === 'radio' && event.target.name.split(" ").join("-") === stepClass.toLowerCase()) {
+            // Get all span elements in the specified .step class container
+            const spans = document.querySelectorAll(`.step.step-${stepClass} span`);
+            
+            // Hide all spans first
+            spans.forEach(span => {
+              span.style.display = 'none';
+            });
+  
+            // Construct a selector that matches the class attribute exactly
+            const optionValue = event.target.value;
+            const escapedOptionValue = optionValue.replace(/([\.\s])/g, "\\$1");
+            const selector = `.step.step-${stepClass} span[class="${escapedOptionValue}"]`;
+  
+            // Find the span that matches the value of the selected radio button and show it
+            const selectedSpan = document.querySelector(selector);
+            if (selectedSpan) {
+              selectedSpan.style.display = 'unset';  
+            }
+          }
+        });
+      } else {
+        console.log(`Container #${containerId} not found.`);
+      }
+    }
+  
+    // Setup listeners for 'Size' and 'Filter'
+   handleOptionChange('stand-options', 'stand');
+    handleOptionChange('size-options', 'size');
+    handleOptionChange('filter-type-options', 'filter-type');
+  });
+ 
+	</script>
+
+{% endunless %}
+
+ 
+<script>
+    (()=>{
+    try {
+        var e = navigator
+          , t = e.userAgent
+          , r = 0
+          , a = (e,t,r)=>e.setAttribute(t, r)
+          , o = (e,t)=>e.removeAttribute(t)
+          , d = "tagName"
+          , n = "forEach"
+          , l = "indexOf";
+        (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) && new MutationObserver((e=>{
+            e[n]((({addedNodes: e})=>{
+                e[n]((e=>{
+                    1 === e.nodeType && ("IFRAME" === e[d] && (a(e, "loading", "lazy"),
+                    a(e, "data-src", e.src),
+                    o(e, "src")),
+                    "IMG" === e[d] && r++ > 20 && a(e, "loading", "lazy"),
+                    "SCRIPT" === e[d] && (a(e, "data-src", e.src),
+                    o(e, "src"),
+                    e.type = "text/lazyload"))
+                }
+                ))
+            }
+            ))
+        }
+        )).observe(document.documentElement, {
+            childList: !0,
+            subtree: !0
+        });
+        var c = e=>document.querySelector(e)
+          , s = ()=>Date.now()
+          , i = s()
+          , u = ()=>{
+            if (!(s() - i > 500)) {
+                if (!c("body>meta"))
+                    return setTimeout(u, 5);
+                var e = c("head");
+                document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t=>e.append(t)))
+            }
+        }
+        ;
+        u()
+    } catch (m) {}
+}
+)();
+
+  </script>
+
+{% schema %}
+  {
+    "name": "Product Hero OG Alt",
+    "tag": "section",
+    "class": "section-producthero og",
+    "settings": [
+      {
+        "type": "text",
+        "id": "countdown_text",
+        "label": "Countdown Text",
+        "info": "Use the [month] shortcode to output the current month, and the [time] shortcode to output the countdown timer."
+      }, {
+        "type": "text",
+        "id": "countdown_time",
+        "label": "Countdown Time",
+        "info": "Date, time and timezone in the format: YYYY-MM-DDTHH:mm:ss+10:00. OR for an evergreen timer, enter the number of minutes followed by the word 'minutes'. e.g. 15 minutes"
+      }, {
+        "type": "product_list",
+        "id": "countdown_products",
+        "label": "Show Countdown On Products",
+        "info": "Only show the countdown on these products. Leave blank to show on all."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Hero Alt"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["product"]
+    }
+  }
+{% endschema %}
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("variant-popup-overlay");
+  const closeBtn = document.getElementById("variant-popup-close");
+  const imgDiv = document.getElementById("variant-popup-image");
+  const titleEl = document.getElementById("variant-popup-title");
+  const descEl = document.getElementById("variant-popup-description");
+  const variantSelect = document.querySelector('#product-selectors');
+  const wrapper = document.querySelector(".variant-wrapper");
+  const textArea = document.getElementById("variant-popup-text");
+  const variants = window.productVariants || [];
+
+  // ✅ Popup content database
+  const filterPopupData = {
+    "2 Carbon Filter Elements": {
+      title: "2 Carbon Filter Elements",
+      desc: "Our carbon filter elements are made from 100% natural coconut shells, known for their excellent adsorption properties. For optimal performance, we recommend replacing them <strong>every 12 months</strong>.",
+      img: "https://cdn.shopify.com/s/files/1/2644/2852/files/Learn_more_Carbon_2.jpg?v=1750924148"
+    },
+    "2 Carbon Filters + POSTreat Fluoride and Arsenic Reduction Filter Elements": {
+      title: "POSTreat + Carbon Filters",
+      desc: "Built with AISI 304 stainless steel, the POSTreat filters house our proprietary Fluorid™™™ media, specifically designed to reduce fluoride and other persistent impurities. To ensure continued effectiveness, the filter media should be replaced <strong> every 4 months </strong>, while the stainless steel casing is reusable.",
+      img: "https://cdn.shopify.com/s/files/1/2644/2852/files/Convenient_1.jpg?v=1750924148"
+    }
+  };
+
+ const standPopupData = {
+       "Stainless Steel Stand": {
+       title: "Stainless Steel Stand",
+       desc: "Choose the right size that fits your Place",
+        img: "https://cdn.shopify.com/s/files/1/2644/2852/files/Stainless_Stand.jpg?v=1751539237"
+    },
+
+     "No Stand": {
+       title: "Filter System",
+       desc: "Choose the right size that fits your Place",
+        img: "https://cdn.shopify.com/s/files/1/2644/2852/files/Img_2_eng_USA.jpg?v=1765541721"
+    },
+   "Teak Wood Stand": {
+      title: "Teak Wood Stand",
+desc: "Choose the right size that fits your Place",
+
+        img: "https://cdn.shopify.com/s/files/1/2644/2852/files/Teak_Wood_Stand-varient.jpg?v=1751539320"
+    }
+  };
+
+  const staticPopupContent = {
+    size: {
+      title: "Size Guide",
+      desc: "Choose the right size that fills your family",
+      img: "https://cdn.shopify.com/s/files/1/2644/2852/files/image_112_6b13c989-b9fe-4a74-a49e-1c1803ae1fde.png?v=1750936024"
+      
+    }
+  };
+
+  // ✅ Open popup with layout mode
+  function openPopup({ title, desc, img, layout = "default" }) {
+    titleEl.textContent = title;
+    // descEl.textContent = desc;
+    descEl.innerHTML = desc;
+    imgDiv.style.backgroundImage = `url('${img}')`;
+
+    wrapper.classList.remove("filter-layout", "default-layout", "image-below-layout");
+
+    // 🔁 Reorder DOM based on layout
+    if (layout === "image-below") {
+      wrapper.classList.add("image-below-layout");
+      if (wrapper.lastElementChild !== imgDiv) {
+        wrapper.insertBefore(textArea, wrapper.firstChild);
+        wrapper.appendChild(imgDiv); // move image to bottom
+      }
+    } else {
+      wrapper.classList.add(layout === "filter" ? "filter-layout" : "default-layout");
+      if (wrapper.firstElementChild !== imgDiv) {
+        wrapper.insertBefore(imgDiv, wrapper.firstChild); // move image to top
+        wrapper.insertBefore(textArea, imgDiv.nextSibling);
+      }
+    }
+
+    popup.style.display = "flex";
+  }
+
+  // ✅ FILTER button
+  const filterBtn = document.getElementById("filter-popup-btn");
+  if (filterBtn) {
+    filterBtn.addEventListener("click", () => {
+      const selectedId = variantSelect?.value;
+      const variant = variants.find(v => v.id == selectedId);
+      if (!variant) return;
+      const filter = variant.options[1];
+      const data = filterPopupData[filter];
+      if (data) openPopup({ ...data, layout: "filter" });
+    });
+  }
+
+  // ✅ STAND button
+  const standBtn = document.getElementById("stand-popup-btn");
+  if (standBtn) {
+    standBtn.addEventListener("click", () => {
+      const selectedId = variantSelect?.value;
+      const variant = variants.find(v => v.id == selectedId);
+      if (!variant) return;
+      const stand = variant.options[2];
+      const data = standPopupData[stand];
+      if (data) openPopup({ ...data, layout: "image-below" });
+    });
+  }
+
+  // ✅ SIZE button
+  const sizeBtn = document.getElementById("size-popup-btn");
+  if (sizeBtn) {
+    sizeBtn.addEventListener("click", () => openPopup({ ...staticPopupContent.size, layout: "image-below" }));
+  }
+
+  // ✅ Close popup on click or overlay click
+  closeBtn.addEventListener("click", () => popup.style.display = "none");
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.style.display = "none";
+  });
+});
+  
+ document.addEventListener('DOMContentLoaded', function () {
+  const mainSwiper = new Swiper('.main-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    // 🔥 Add this navigation config
+    navigation: {
+      nextEl: '.swiper-next',
+      prevEl: '.swiper-prev'
+    },
+    pagination: {
+      el: '.custom-swiper-dots',
+      clickable: true,
+      bulletClass: 'custom-dot',
+      bulletActiveClass: 'custom-dot-active',
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
+      }
+    }
+  });
+});
+
+
+   // This code fr after swap the images the first image rturn after click the varient
+
+
+  // Below Code ARE Add By K For the Chages 
+
+
+</script>
+    <!-- changes For the Accordion -->
+
+<script>
+  window.sizeSpecsData = [];
+
+  {% for variant in product.variants %}
+    {% if variant.metafields.custom.accordions_datas != blank %}
+  window.sizeSpecsData.push(
+    {{ variant.metafields.custom.accordions_datas | json }}
+  );
+{% endif %}
+  {% endfor %}
+</script>
+
+<!-- below CoDE Add For tHe Add the Addition tap -->
+<script>
+  
+   
+
+      // Hide the Size guide Only For the No Stand 
+document.addEventListener("DOMContentLoaded", function () {
+  const variantSelect = document.getElementById("product-selectors");
+  const standBtn = document.getElementById("stand-popup-btn");
+  const variants = window.productVariants || [];
+
+  function updateStandButtonVisibility() {
+    const selectedId = variantSelect?.value;
+    const variant = variants.find(v => v.id == selectedId);
+    if (!variant) return;
+
+    {% comment %} const standOption = variant.options[2]; // 3rd option = Stand
+    if (standOption === "No Stand") {
+      standBtn.style.display = "inline-block";
+    } else {
+      standBtn.style.display = "inline-block"; // or "block" or "flex" as needed
+    }
+  } {% endcomment %}
+
+  // Run on page load
+  updateStandButtonVisibility();
+
+  // Update on variant change
+  variantSelect?.addEventListener("change", updateStandButtonVisibility);
+});
+
+
+</script>
+         <script>
+
+
+  
+  // dOT bUTTON Code
+ let mainSwiper;
+
+document.addEventListener('DOMContentLoaded', function () {
+  mainSwiper = new Swiper('.main-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-next',
+      prevEl: '.swiper-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      bulletClass: 'custom-dot',
+      bulletActiveClass: 'custom-dot-active',
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
+      }
+    }
+  });
+});
+// THis Code Add For the after swap image the image come back to first image 
+
+  
+</script>        
+<style>
+.offers-container {
+	border: 2px dashed #153a5b;
+	background-color: #98e4ff73;
+	padding: 15px;
+	width: fit-content;
+}
+
+.offers-item {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #153a5b;
+}
+
+.offers-divider {
+	border-top: 1px dashed #000;
+	margin: 10px 0;
+}
+
+.sale-badge {
+	color: #fff;
+	padding: 9px;
+	background-color: #153a5b;
+	display: inline-block;
+	font-weight: bold;
+	position: relative;
+	top: 0%;
+	left: 0%;
+	font-size: 15px;
+}
+
+@media only screen and (max-width: 786px) {
+	.sale-badge {
+		top: 0;
+		left: 0;
+    	background-color: #153a5b;
+	display: inline-block;
+	font-weight: bold;
+	position: relative;
+	top: 0%;
+	left: 0%;
+	font-size: 9px !important;
+	}
+
+	.offers-container {
+		margin-bottom: 10px;
+	}
+
+
+}
+
+.swiper-main-wrapper {
+	position: relative;
+}
+
+.swiper-nav {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+	z-index: 10;
+	pointer-events: none;
+	/* prevents blocking other interactions */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: auto;
+	z-index: 11;
+	width: 44px;
+	height: 44px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@media (min-width: 786px) {
+.ai-embed-code-heading-awk54zi9sv09xy3frbaigenblockff8d1fetqackn
+{
+width: 1400px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+ .ai-embed-code-heading-awk54zi9sv09xy3frbaigenblockff8d1fetqackn {
+     
+        width: 1400px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 768px) {
+	.section-producthero button {
+		margin-bottom: 0;
+		width: 150px;
+	}
+}
+ @media (min-width: 1200px) {
+    .section-producthero .control .swiper-slide {
+        padding-bottom: 12% !important;
+    }
+} 
+button#size-popup-btn {
+	display: none;
+}
+
+button#filter-popup-btn {
+	display: none;
+}
+
+.custom-swiper-dots {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.custom-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #bbb;
+	border-radius: 50%;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.custom-dot-active {
+	background: #333;
+}
+
+
+.load-more-button {
+	margin: -0.6rem 0 .2rem;
+	padding: 8px 16px;
+	background-color: transparent;
+
+	font-size: 12px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.load-more-button {
+		text-align: right !important;
+	}
+}
+
+.load-more-button:hover {
+	background-color: transparent !important;
+	color: #007bff;
+	text-decoration: underline;
+}
+
+
+#product-selectors {
+	display: block !important;
+}
+
+.variant-main-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 9999;
+}
+
+.variant-wrapper {
+	width: 500px;
+	height: 445px;
+	background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	position: relative;
+	display: flex;
+}
+
+/* Filter Layout: Image Left, Text Right */
+.variant-wrapper.filter-layout {
+	flex-direction: row;
+}
+
+.variant-wrapper.filter-layout .variant-picture-area {
+	flex: 1;
+	min-height: 450px;
+	background-size: cover;
+	background-position: center;
+}
+
+.variant-wrapper.filter-layout .variant-text-area {
+	flex: 1;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	text-align: left;
+}
+
+/* Default Layout (Image Above Text) */
+.variant-wrapper.default-layout {
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.variant-wrapper.default-layout .variant-text-area {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.variant-wrapper.default-layout .variant-picture-area {
+	width: 100%;
+	height: 310px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* Image BELOW content */
+.variant-wrapper.image-below-layout {
+	flex-direction: column;
+	align-items: left;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.variant-wrapper.image-below-layout .variant-text-area {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+}
+
+.variant-wrapper.image-below-layout .variant-picture-area {
+	width: 100%;
+	height: 350px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 10px;
+}
+
+.variant-text-area h2 {
+	margin: 0px !important;
+	color: #000;
+	font-size: 24px;
+}
+
+.variant-text-area p {
+	margin: 0;
+	color: #333;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.variant-exit-btn {
+	position: absolute;
+	top: 22px;
+    right: 17px;
+    font-size: 58px;
+	cursor: pointer;
+}
+
+@media (max-width:768px) {
+
+	.swiper-thumbs,
+	.swiper-grid,
+	.swiper-grid-column {
+		display: none !important;
+	}
+}
+
+@media (max-width:768px) {
+	.variant-wrapper.image-below-layout .variant-picture-area {
+		height: 375px !important;
+	}
+
+	.variant-wrapper {
+
+		height: 375px !important;
+
+	}
+
+	.variant-wrapper {
+		width: 375px !important;
+	}
+
+	.variant-text-area p {
+
+		font-size: 12px;
+
+	}
+}
+
+
+/* for pagenation  */
+
+/* Only show dots on mobile */
+.swiper-pagination.mobile-only {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.swiper-pagination.mobile-only {
+		display: block;
+		text-align: center;
+		margin-top: 12px;
+	}
+}
+
+.custom-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #ccc;
+	border-radius: 50%;
+	margin: 0 4px;
+	cursor: pointer;
+}
+
+.custom-dot-active {
+	background: #000;
+}
+
+.afterpay-main-text{
+    display:none !important;
+}
+
+
+a.btn.klaviyo-bis-trigger {
+    DISPLAY: NONE ! IMPORTANT;
+}
+.radio-option.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.radio-option.disabled img {
+  filter: grayscale(100%);
+}
+/* ===============================
+   Filter type options
+================================ */
+.section-producthero 
+#product-variants 
+.info-field-container#filter-type-options 
+.radio-option 
+.details {
+  padding: 5px !important;
+}
+
+/* ============================= */
+/* Inventory Box */
+/* ============================= */
+.inventory-box {
+  margin-top: -5px;
+  padding: 4px 7px;
+  font-weight: bold !important;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* ============================= */
+/* Status Text */
+/* ============================= */
+.inventory-status {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  position: relative !important;
+}
+
+/* ============================= */
+/* Blinking Circle */
+/* ============================= */
+.inventory-status::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: inventory-blink 1.2s infinite ease-in-out;
+  -webkit-animation: inventory-blink 1.2s infinite ease-in-out;
+  will-change: opacity;
+}
+
+/* ============================= */
+/* In Stock */
+/* ============================= */
+.inventory-available {
+  color: #15803d !important;
+}
+.inventory-available::before {
+  background-color: #15803d !important;
+}
+
+/* ============================= */
+/* Out of Stock */
+/* ============================= */
+.inventory-unavailable {
+  color: #dc2626 !important;
+}
+.inventory-unavailable::before {
+  background-color: #dc2626 !important;
+}
+
+/* ============================= */
+/* Blink Animation */
+/* ============================= */
+@-webkit-keyframes inventory-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes inventory-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* ============================= */
+/* Mobile Adjustments */
+/* ============================= */
+@media only screen and (max-width: 768px) {
+  .inventory-status {
+    font-size: 18px !important;
+  }
+
+  .inventory-status::before {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+  }
+}
+
+.timesact-selling-plan-description{
+  font-size:15px !important;
+    color:#000 !important;
+    text-align: left;
+    font-weight:900 !important;
+    font-style: normal;
+    display: flex;
+    margin-bottom:20px !important;
+    justify-content:center !important;
+    align-content:center !important;
+    margin-top: 5px !important;
+}
+ </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // IMPORTANT: Use the actual option values (not label text)
+  const DEFAULT_OPTIONS = [
+    "2.25 Gallon",
+    "2 Carbon Filter Elements",
+    "No Stand"
+  ];
+
+  const variantSelect = document.querySelector('#product-selectors');
+  const variants = window.productVariants || [];
+
+  if (!variantSelect || !variants.length) return;
+
+  setTimeout(() => {
+    // Find matching variant
+    const defaultVariant = variants.find(v =>
+      v.options[0] === DEFAULT_OPTIONS[0] &&
+      v.options[1] === DEFAULT_OPTIONS[1] &&
+      v.options[2] === DEFAULT_OPTIONS[2]
+    );
+
+    if (!defaultVariant) {
+      console.warn("Default variant not found:", DEFAULT_OPTIONS);
+      return;
+    }
+
+    // Set select
+    variantSelect.value = defaultVariant.id;
+    variantSelect.dispatchEvent(new Event("change", { bubbles: true }));
+
+    // Set radios
+    document.querySelectorAll(".variant-radio").forEach(radio => {
+      const index = Number(radio.dataset.optionIndex);
+      if (DEFAULT_OPTIONS[index] === radio.value) {
+        radio.checked = true;
+      }
+    });
+
+    // Trigger your UI label script + price script
+    variantSelect.dispatchEvent(new Event("change", { bubbles: true }));
+  }, 300);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const variantSelect = document.getElementById("product-selectors");
+  if (variantSelect) {
+    variantSelect.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+});
+</script>

@@ -1,0 +1,449 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_hKwdRg": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"underline-title\"></div>"
+          }
+        },
+        "judge_me_reviews_preview_badge_yQQi69": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "custom_liquid_zAkcJc": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"underline-title\">{{ product.metafields.custom.learn_more_centent | metafield_tag }}</div>"
+          }
+        },
+        "text_67PpMK": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_liquid_WpQAQN": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<span class=\"appstle_stand_alone_price_display_selector\" data-product-data=\"{{ product | json | escape }}\" style=\"display:none;\"></span>"
+          }
+        },
+        "custom_liquid_kYcLy7": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<span class=\"appstle_stand_alone_price_display_selector\" data-product-data=\"{{ product | json | escape }}\" style=\"display:none;\"></span>"
+          }
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_ndQjnn": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        },
+        "custom_liquid_EkwQza": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_7wgRGz": {
+          "type": "custom_liquid",
+          "name": "100 D GMB",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"guarantee-wrapper\">\n  <div class=\"guarantee-title\">100-Day Money Back Guarantee</div>\n</div>\n\n<style>\n  .guarantee-wrapper {\n    width: 100%;\n    text-align: center;\n    padding-top: 0px;\n    padding-bottom: 0px;\n    margin-top: 4px;\n  }\n\n  .guarantee-title {\n    margin: 0 auto;\n    text-align: center;\n    font-size: 15px;\n    line-height: 1.2;\n    font-weight: 600;\n    color: #24214f;\n  }\n\n  @media screen and (max-width: 749px) {\n    .guarantee-wrapper {\n      padding-top: 0px;\n      padding-bottom: 0px;\n      margin-top: 3px;\n    }\n\n    .guarantee-title {\n      font-size: 12px;\n      line-height: 1.2;\n      padding: 0 15px;\n    }\n  }\n</style>"
+          }
+        },
+        "complementary_TGVRW4": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "More Products",
+            "make_collapsible_row": false,
+            "icon": "none",
+            "product_list_limit": 10,
+            "products_per_page": 4,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": true
+          }
+        },
+        "icon_with_text_j3aQXj": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/100_Years.svg",
+            "heading_1": "100 Day Trial",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/delivery_28d070a8-d149-42f8-8db0-36695c273f7e.svg",
+            "heading_2": "Fast & Free Shipping",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/10_Years.svg",
+            "heading_3": "10 Year Warranty",
+            "icon_4": "none",
+            "image_4": "shopify://shop_images/CS.svg",
+            "heading_4": "<strong>Customer Support</strong>"
+          }
+        },
+        "icon_with_text_3yWehV": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/output-onlinepngtools_1.png",
+            "heading_1": "NSF 372  ANSI 42 Certified",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/delivery_28d070a8-d149-42f8-8db0-36695c273f7e.svg",
+            "heading_2": "Fast & Free Shipping",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/10_Years.svg",
+            "heading_3": "10 Year Warranty",
+            "icon_4": "none",
+            "image_4": "shopify://shop_images/CS.svg",
+            "heading_4": "<strong>Customer Support</strong>"
+          }
+        },
+        "collapsible_tab_ET3qfP": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "accordian_description",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_yGYd4C": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Technical specifications",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "variant_specification",
+            "image_metafield_key": "variant_image_specification",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_WRPzJX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What’s in the box?",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "box_contains",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_nFbX67": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Compatibility",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "variant_compatibility",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "custom_liquid_hKwdRg",
+        "judge_me_reviews_preview_badge_yQQi69",
+        "custom_liquid_zAkcJc",
+        "text_67PpMK",
+        "description",
+        "variant_picker",
+        "price",
+        "custom_liquid_WpQAQN",
+        "custom_liquid_kYcLy7",
+        "appstle_subscription_appstle_subscription_product_page_widget_ndQjnn",
+        "custom_liquid_EkwQza",
+        "quantity_selector",
+        "buy_buttons",
+        "custom_liquid_7wgRGz",
+        "complementary_TGVRW4",
+        "icon_with_text_j3aQXj",
+        "icon_with_text_3yWehV",
+        "collapsible_tab_ET3qfP",
+        "collapsible_tab_yGYd4C",
+        "collapsible_tab_WRPzJX",
+        "collapsible_tab_nFbX67"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 38rem; }}",
+        ".product-form {margin-bottom: -5px;}",
+        ".variant-wrapper--text {min-height: fit-content;}"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "p1": "",
+        "color_scheme": "scheme-2",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 32,
+        "cs1": "custom-class-mwf"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_XAf8Rd": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_bmKLFA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "row_content": "<p>Enhance your filtration system with our durable and stylish Premium Wooden Stand. Designed for both functionality and style, this stand provides a stable, raised platform for your 6-litre, 8-litre and 12-litre Phoenix Water Filter Systems.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VhjmTy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Technical specifications",
+            "icon": "none",
+            "row_content": "<p><strong>Material: </strong>Solid, premium teak wood for natural aesthetics and long-lasting durability.</p><p><strong>Load Capacity:</strong> Supports up to 55 lbs.</p><p><strong>Compatibility:</strong></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_A6HgPk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's in box?",
+            "icon": "none",
+            "row_content": "<p>1 x Premium Wooden Stand</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fWQU9a": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Compatibility",
+            "icon": "none",
+            "row_content": "<p>Compatible with Phoenix Gravity, Berkey®, Waterdrop®, Purewell® and similar gravity-fed water filter systems with a 7.5-inch base diameter.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CahFHm": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Shipping and Returns",
+            "icon": "none",
+            "row_content": "<ul><li>Refunds are processed within 2 business days upon receiving and inspecting the returned product, and the amount will be credited to your original payment method within 7 business days.</li><li>A full refund is issued only if the complete product is returned; partial returns receive partial refunds.</li><li>Exchanges are available only for items with manufacturing defects or faults.</li><li>Return shipping is the customer’s responsibility and is non-refundable. For items over £99, we recommend using a trackable shipping service <a href=\"https://phoenixwaterfilters.co.uk/pages/terms-and-conditions\" title=\"Terms-and-conditions\">T&Cs apply.</a></li></ul>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_bmKLFA",
+        "collapsible_row_VhjmTy",
+        "collapsible_row_A6HgPk",
+        "collapsible_row_fWQU9a",
+        "collapsible_row_CahFHm"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "anchor_id": "",
+        "caption": "",
+        "c1": "#ffffff",
+        "heading": "",
+        "heading1": "",
+        "h1": 50,
+        "h2": 24,
+        "w1": 21,
+        "w2": 16,
+        "w3": 16,
+        "w4": 14,
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "cs1": ""
+      }
+    },
+    "new_image_banner_4w4P78": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/Wooden_stand_01-desk.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "mobile_text_position": "below_image",
+        "mobile_content_alignment": "center",
+        "cs1": ""
+      }
+    },
+    "new_image_banner_DCDxJA": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/wooden_2.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "mobile_text_position": "below_image",
+        "mobile_content_alignment": "center",
+        "cs1": ""
+      }
+    },
+    "new_image_banner_bxkxMf": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/wooden_3.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "mobile_text_position": "below_image",
+        "mobile_content_alignment": "center",
+        "cs1": ""
+      }
+    },
+    "new_image_banner_TTdWnn": {
+      "type": "new-image-banner",
+      "disabled": true,
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/wooden_4.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "mobile_text_position": "below_image",
+        "mobile_content_alignment": "center",
+        "cs1": ""
+      }
+    },
+    "new_image_banner_ify79H": {
+      "type": "new-image-banner",
+      "name": "New Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/wooden_5.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "mobile_text_position": "below_image",
+        "mobile_content_alignment": "center",
+        "cs1": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "collapsible_content_XAf8Rd",
+    "new_image_banner_4w4P78",
+    "new_image_banner_DCDxJA",
+    "new_image_banner_bxkxMf",
+    "new_image_banner_TTdWnn",
+    "new_image_banner_ify79H"
+  ]
+}

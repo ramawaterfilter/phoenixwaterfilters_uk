@@ -1,0 +1,554 @@
+{% assign total_columns = section.blocks.size | plus: 1 %}
+{% assign grid_cols = '' %}
+{% assign feature_col = '1.3fr ' %}
+{% assign product_col = '1fr ' %}
+{% assign grid_cols = feature_col %}
+{% for i in (1..section.blocks.size) %}
+  {% assign grid_cols = grid_cols | append: product_col %}
+{% endfor %}
+
+<div class="comparison-section" style="
+  background-color: {{ section.settings.background_color }};
+  padding: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+">
+  <div class="comparison-container page-width">
+    <div class="comparison-container-heading">
+    {% if section.settings.sub_title != blank %}
+      <div class="comparison-sub-title">
+        {{ section.settings.sub_title }}
+      </div>
+    {% endif %}
+    {% if section.settings.section_title != blank %}
+      <h2 class="comparison-title" style="
+        color: {{ section.settings.title_color }};
+      ">
+        {{ section.settings.section_title }}
+      </h2>
+    {% endif %}
+    </div>
+
+    <div class="comparison-table">
+      {%- comment -%} Header Row {%- endcomment -%}
+      <div class="comparison-row comparison-header" style="background-color: {{ section.settings.header_bg_color }}; --grid-cols: {{ grid_cols }};">
+        <div class="comparison-cell feature-cell" style="color: {{ section.settings.header_text_color }};">
+          {{ section.settings.feature_column_title }}
+        </div>
+        
+        {% for block in section.blocks %}
+          <div class="comparison-cell product-cell" style="color: {{ section.settings.header_text_color }};">
+            {% if block.settings.product_image != blank %}
+              <img src="{{ block.settings.product_image | image_url: width: 150 }}" 
+                   alt="{{ block.settings.product_name }}"
+                   class="product-image"
+                   loading="lazy">
+            {% endif %}
+            <h3 class="product-name">
+              {{ block.settings.product_name }}
+            </h3>
+          </div>
+        {% endfor %}
+      </div>
+
+      {%- comment -%} Feature Rows {%- endcomment -%}
+      {% assign features_array = section.settings.features_list | split: ',' %}
+      {% for feature in features_array %}
+        {% assign feature_index = forloop.index %}
+        {% assign row_class = 'comparison-row-light' %}
+        {% assign mod_check = forloop.index0 | modulo: 2 %}
+        {% if mod_check == 1 %}
+          {% assign row_class = 'comparison-row-dark' %}
+        {% endif %}
+        
+        <div class="comparison-row {{ row_class }}" style="
+          background-color: {% if row_class == 'comparison-row-light' %}{{ section.settings.row_light_bg }}{% else %}{{ section.settings.row_dark_bg }}{% endif %};
+          --grid-cols: {{ grid_cols }};
+        ">
+          <div class="comparison-cell feature-cell" style="color: {{ section.settings.feature_text_color }};">
+            {{ feature }}
+          </div>
+          
+          {% for block in section.blocks %}
+            {% assign check_setting = 'feature_' | append: feature_index %}
+            <div class="comparison-cell product-cell">
+              {% if block.settings[check_setting] %}
+                <span class="phxtech-check">✓</span>
+              {% else %}
+                <span class="phxtech-cross">×</span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.comparison-container.page-width{max-width:{{ section.settings.page_width }}rem;}
+.phxtech-check{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+    background: #00b815;
+}
+.phxtech-cross{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+    background: #f48782;
+}
+
+h2.comparison-title {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 130%;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+@media(max-width:786px){
+  h2.comparison-title {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}
+
+.comparison-row.comparison-header {
+    align-items: center;
+}
+
+.comparison-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+.comparison-title {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.comparison-table {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* KEY FIX: use CSS custom property --grid-cols set inline by Liquid */
+.comparison-row {
+  display: grid;
+  grid-template-columns: var(--grid-cols, 1.3fr 1fr 1fr 1fr);
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-header {
+  font-weight: 600;
+}
+
+{% comment %} .product-cell {
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+} {% endcomment %}
+
+.product-image {
+  height: 180px;
+  margin-bottom: 15px;
+  object-fit: contain;
+}
+
+.product-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.check-icon,
+.cross-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .comparison-cell {
+    padding: 18px 0px;
+    font-size: 14px;
+  }
+  
+  .product-image {
+    max-width: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h3.product-name {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 22px;
+  }
+  .comparison-cell {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    {% comment %} min-height: 100px; {% endcomment %}
+  }
+  .comparison-row.comparison-header .feature-cell {
+    font-weight: 700;
+    font-size: 22px;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 30px;
+  }
+  .comparison-cell.feature-cell {
+    font-size: 18px;
+    align-items: flex-start;
+    text-align: left;
+    font-family: 'Montserrat';
+    padding-left: 30px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comparison-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .comparison-cell {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70px;
+  }
+  .comparison-cell.product-cell .product-image {
+    max-width: 65px;
+  }
+  .comparison-row.comparison-header {
+    display: flex;
+  }
+  .comparison-row.comparison-header .feature-cell {
+    font-weight: 700;
+    font-size: 14px;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .comparison-cell.feature-cell {
+    font-size: 12px;
+    width: 65%;
+    align-items: flex-start;
+    text-align: left;
+    font-family: 'Montserrat';
+    padding-left: 10px;
+    font-weight: 600;
+  }
+  h3.product-name {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 22px;
+  }
+  .comparison-cell {
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1px;
+  }
+  .product-cell {
+    display: flex;
+    width: 35%;
+  }
+  .product-cell::before {
+    content: attr(data-product);
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  .comparison-row:not(.comparison-header) .product-cell:first-of-type {
+    padding-top: 25px;
+  }
+}
+    {% comment %} .comparison-row.comparison-header .comparison-cell.product-cell:nth-of-type(2) {
+    background-color: #00897b;
+    } {% endcomment %}
+    .comparison-row.comparison-row-light .comparison-cell.product-cell:nth-of-type(2),
+    .comparison-row.comparison-row-dark .comparison-cell.product-cell:nth-of-type(2){
+    background-color:#eaedf5;
+    }
+    .section-{{ section.id }} .product-cell {
+     border-left: none;
+    }
+    .comparison-row{border-bottom: 1px solid #e4e9f0;border-top: 1px solid #e4e9f0;}
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "settings": [
+    {
+      "type":"range",
+      "id":"page_width",
+      "min":100,
+      "max":160,
+      "unit":"rem",
+      "label":"Page width",
+      "default":120
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub title",
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#1e3a5f"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header Background Color",
+      "default": "#0d3d4d"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Header Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "feature_column_title",
+      "label": "Feature Column Title",
+      "default": "Feature"
+    },
+    {
+      "type": "header",
+      "content": "Row Colors"
+    },
+    {
+      "type": "color",
+      "id": "row_light_bg",
+      "label": "Light Row Background",
+      "default": "#f5f7fa"
+    },
+    {
+      "type": "color",
+      "id": "row_dark_bg",
+      "label": "Dark Row Background",
+      "default": "#e8ecf1"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature Text Color",
+      "default": "#1e3a5f"
+    },
+    {
+      "type": "header",
+      "content": "Check/Cross Icons"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Check Mark Color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "color",
+      "id": "cross_color",
+      "label": "Cross Mark Color",
+      "default": "#ef4444"
+    },
+    {
+      "type": "header",
+      "content": "Features List"
+    },
+    {
+      "type": "text",
+      "id": "features_list",
+      "label": "Features (comma separated)",
+      "default": "Removes Bacteria & Viruses, No Electricity Required, Cost-Effective, Eco-Friendly, Removes Heavy Metals, Improves Taste, Easy Maintenance, Portable, Long Filter Life, Removes Chlorine, Reduces TDS, NSF Certified, BPA Free, Removes Sediments, UV Protection",
+      "info": "Enter up to 15 features separated by commas"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Product Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_1",
+          "label": "Feature 1",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_2",
+          "label": "Feature 2",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_3",
+          "label": "Feature 3",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_4",
+          "label": "Feature 4",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_5",
+          "label": "Feature 5",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_6",
+          "label": "Feature 6",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_7",
+          "label": "Feature 7",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_8",
+          "label": "Feature 8",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_9",
+          "label": "Feature 9",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_10",
+          "label": "Feature 10",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Phoenix Gravity Filter",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": true,
+            "feature_4": true,
+            "feature_5": true
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Jug Filter System",
+            "feature_1": false,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": false
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Inline Filter",
+            "feature_1": true,
+            "feature_2": false,
+            "feature_3": false,
+            "feature_4": true,
+            "feature_5": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

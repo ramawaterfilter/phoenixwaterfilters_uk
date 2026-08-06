@@ -1,0 +1,88 @@
+<div class="report-links">
+  <div class="report-item">
+    <img
+      src="{{ section.settings.icon_1 | image_url }}"
+      alt="{{ section.settings.heading_1 }}"
+      width="80"
+      height="80"
+      loading="lazy"
+    >
+    <h3>{{ section.settings.heading_1 }}</h3>
+    <a href="{{ section.settings.link_1 }}">See more ›</a>
+  </div>
+
+  <div class="report-item">
+    <img
+      src="{{ section.settings.icon_2 | image_url }}"
+      alt="{{ section.settings.heading_2 }}"
+      width="80"
+      height="80"
+      loading="lazy"
+    >
+    <h3>{{ section.settings.heading_2 }}</h3>
+    <a href="{{ section.settings.link_2 }}">See more ›</a>
+  </div>
+
+  <div class="report-item">
+    <img
+      src="{{ section.settings.icon_3 | image_url }}"
+      alt="{{ section.settings.heading_3 }}"
+      width="80"
+      height="80"
+      loading="lazy"
+    >
+    <h3>{{ section.settings.heading_3 }}</h3>
+    <a href="{{ section.settings.link_3 }}">See more ›</a>
+  </div>
+</div>
+
+<style>
+.report-links{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.report-item img{
+    max-width:90px;
+    margin:0 auto 20px;
+    display:block;
+}
+
+.report-item h3{
+    font-size:42px;
+    line-height:1.15;
+    font-weight:700;
+    text-transform:uppercase;
+    color:#2d275f;
+    margin:0 0 20px;
+}
+
+.report-item a{
+    color:#1593f5;
+    font-size:28px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.report-item a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:767px){
+    .report-links{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .report-item h3{
+        font-size:28px;
+    }
+
+    .report-item a{
+        font-size:22px;
+    }
+}
+</style>

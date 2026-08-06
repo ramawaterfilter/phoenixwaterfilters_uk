@@ -1,0 +1,690 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "{background: #eaeef1;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_text_section_QgXgb6": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (max-width: 768px) {section.custom-class-2.gh .both-cta-txt {width: 100%; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading2": "",
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "Register your product now and activate the 10-year warranty on your stainless steel system.",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "<p>(Product purchases from this store do not need registration they are automatically registered.)</p>",
+        "bottom_button_text": "Register here",
+        "bottom_button_link": "https://phoenixwaterfilters.co.uk/pages/product-registration",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#222222",
+        "bg_color": "#4994bf",
+        "padding_top": 25,
+        "padding_bottom": 25,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-class-2 gh"
+      }
+    },
+    "custom_video_text_k8ULab": {
+      "type": "custom-video-text",
+      "custom_css": [
+        "@media (min-width: 768px) {.video-text-content {width: 75%; }}",
+        "@media (max-width: 768px) {.video-text-content {padding: 0 30px; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 50,
+        "hd2": 24,
+        "w1": 50,
+        "w2": 16,
+        "u1": 0,
+        "un1": 0,
+        "b1": false,
+        "s1": false,
+        "pd1": 68,
+        "pd2": 40,
+        "heading1": "Need Help With Your Phoenix Gravity Water Filter?",
+        "heading": "",
+        "text": "<p>You're In The Right Place.</p>",
+        "show_search": true,
+        "search_placeholder": "Search...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/image_3_1.webp",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "#ffffff",
+        "text_color": "#272953",
+        "underline_color": "#ff7a00",
+        "underline_width_desktop": 120,
+        "underline_width_mobile": 80,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "300px",
+        "cs1": "get-help-class jko"
+      }
+    },
+    "custom_box_a9yJdP": {
+      "type": "custom-box",
+      "blocks": {
+        "card_NxVfQw": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/220.png",
+            "heading": "How to set up your filter",
+            "b2": "shopify://pages/set-up",
+            "h10": "",
+            "r1": "",
+            "text_color": "#548153",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "https://phoenixwaterfilters.co.uk/pages/get-help",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_8wzdJH": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/217.png",
+            "heading": "Additional resources",
+            "b2": "shopify://pages/blogs",
+            "h10": "",
+            "r1": "",
+            "text_color": "#f5d24f",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#ffffff",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "https://phoenixwaterfilters.co.uk/pages/blogs",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_6MVnNX": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/218.png",
+            "heading": "How the Phoenix Gravity System works",
+            "b2": "shopify://pages/new-our-tech",
+            "h10": "",
+            "r1": "",
+            "text_color": "#ff7a00",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "https://phoenixwaterfilters.co.uk/pages/new-our-tech",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_tkyQEQ": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/216.png",
+            "heading": "FAQs",
+            "b2": "shopify://pages/faqs",
+            "h10": "",
+            "r1": "",
+            "text_color": "#deb1b2",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "https://phoenixwaterfilters.co.uk/pages/new-our-tech",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_NxVfQw",
+        "card_8wzdJH",
+        "card_6MVnNX",
+        "card_tkyQEQ"
+      ],
+      "custom_css": [
+        ".card-front {flex-direction: column-reverse;}",
+        ".card-front.hhi a {z-index: 9999;}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": false,
+        "hd1": 40,
+        "hd2": 24,
+        "hd3": 40,
+        "hd4": 24,
+        "enable_mobile_hover": true,
+        "h3": "",
+        "h1": "",
+        "h2": "",
+        "section_bg": "#eaeef1",
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "desktop_columns": 2,
+        "mobile_columns": 1,
+        "gap": 30,
+        "card_padding": 24,
+        "radius": 0,
+        "button_radius": 0,
+        "icon_size": 110,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_lr": 100,
+        "p1": 0,
+        "p3": 0,
+        "p2": 10,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "multicolumn_jcKxrA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UR6Qce": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/van.png",
+            "title": "Free UK delivery over £99",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UaRThg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/jpeg-optimizer_warranty-10.png",
+            "title": "10 year warranty",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_9xTEqp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/virus_3.png",
+            "title": "99.99% contaminants removed",
+            "sub_title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_UR6Qce",
+        "column_UaRThg",
+        "column_9xTEqp"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.multicolumn-card.content-container {gap: 25px; }}",
+        ".multicolumn-card__info {padding: 0px !important;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 120,
+        "title": "",
+        "sub_title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-bb321c69-eeab-4fee-a276-48f584ba0dde",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "cs1": "multi-column-desktop jh"
+      }
+    },
+    "rich_text_7C6FCB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PLrFhi": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>We take our performance seriously.</strong>",
+            "heading_size": "h0"
+          }
+        },
+        "text_VB66AG": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our products undergo rigorous, independent testing to ensure our filtration - and your water - is of the highest (and tastiest) quality</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PLrFhi",
+        "text_VB66AG"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.rich-text__blocks.center {max-width: 90%; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-28e7d7f4-be6d-4938-9db0-49950925a788",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_box_yLgmWR": {
+      "type": "custom-box",
+      "blocks": {
+        "card_Fnp7Eb": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/205.png",
+            "heading": "Our Service",
+            "b2": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Environmental_monitoring_service_Carbon_Filter_Cartridge.zip?v=1709728560",
+            "h10": "",
+            "r1": "#f0831f",
+            "text_color": "#2f2953",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/205.png?v=1700476779",
+            "card_bg": "#eaeef1",
+            "aos_animation": "fade-up",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_NPrkXd": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/204.png",
+            "heading": "CVR Labs Limited",
+            "b2": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Lab_Reports_-cvr.zip?v=1709728495",
+            "h10": "",
+            "r1": "#f1d14e",
+            "text_color": "#2f2953",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#eaeef1",
+            "aos_animation": "fade-up",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_WUcN6p": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/205.png",
+            "heading": "Water Quality Association",
+            "b2": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__WQA_Certificate.zip?v=1709728408",
+            "h10": "",
+            "r1": "#548153",
+            "text_color": "#2f2953",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#eaeef1",
+            "aos_animation": "fade-up",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_ycDmP7": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/204.png",
+            "heading": "Contaminants Removed",
+            "b2": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901",
+            "h10": "",
+            "r1": "#deb1b2",
+            "text_color": "#2f2953",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#eaeef1",
+            "aos_animation": "fade-up",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_Fnp7Eb",
+        "card_NPrkXd",
+        "card_WUcN6p",
+        "card_ycDmP7"
+      ],
+      "custom_css": [
+        ".card-front {flex-direction: column-reverse;}",
+        ".icon {border-radius: 50%;}",
+        ".card-front h3 {margin-top: 6px;}",
+        ".card-front h3 {font-size: 24px;}",
+        ".heading-box {text-decoration: underline; text-underline-offset: 16px; text-decoration-color: #deb1b2;}",
+        ".card-front.hhi a {z-index: 9999;}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": false,
+        "hd1": 40,
+        "hd2": 24,
+        "hd3": 40,
+        "hd4": 24,
+        "enable_mobile_hover": true,
+        "h3": "",
+        "h1": "View our test reports:",
+        "h2": "",
+        "section_bg": "#eaeef1",
+        "desktop_height": 300,
+        "mobile_height": 80,
+        "desktop_columns": 4,
+        "mobile_columns": 1,
+        "gap": 5,
+        "card_padding": 10,
+        "radius": 0,
+        "button_radius": 0,
+        "icon_size": 200,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_lr": 0,
+        "p1": 0,
+        "p3": 0,
+        "p2": 51,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "custom_box_p6gQAk": {
+      "type": "custom-box",
+      "blocks": {
+        "card_GYJfTN": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#000000",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#f5d24f",
+            "button_text_color": "#000000",
+            "hover_heading": "Product & health tips",
+            "sub_heading": "",
+            "button_text": "Here",
+            "button_link": "shopify://pages/blogs",
+            "card_bg": "#f0831f",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_HT6AMX": {
+          "type": "card",
+          "settings": {
+            "heading": "",
+            "b2": "",
+            "h10": "",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#000000",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#f5d24f",
+            "button_text_color": "#000000",
+            "hover_heading": "View our FAQs",
+            "sub_heading": "",
+            "button_text": "Here",
+            "button_link": "shopify://pages/faqs",
+            "card_bg": "#548153",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_GYJfTN",
+        "card_HT6AMX"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.card-hover h3 {font-size: 50px; padding-bottom: 30px !important; }}",
+        ".card-hover a {padding: 14px 60px;}",
+        ".card-hover {gap: 28px;}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": false,
+        "hd1": 40,
+        "hd2": 24,
+        "hd3": 40,
+        "hd4": 24,
+        "enable_mobile_hover": false,
+        "h3": "",
+        "h1": "",
+        "h2": "",
+        "section_bg": "#ffffff",
+        "desktop_height": 410,
+        "mobile_height": 250,
+        "desktop_columns": 2,
+        "mobile_columns": 1,
+        "gap": 0,
+        "card_padding": 10,
+        "radius": 0,
+        "button_radius": 0,
+        "icon_size": 60,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_lr": 0,
+        "p1": 0,
+        "p3": 0,
+        "p2": 0,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "custom_product_card_TDPVnC": {
+      "type": "custom-product-card",
+      "blocks": {
+        "item_DdFKfK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/image_3_1.webp",
+            "title1": "",
+            "title": "Gravity Filter",
+            "link": "shopify://products/the-phoenix-gravity-water-filter"
+          }
+        },
+        "item_GDCwPg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_34625446_1.png",
+            "title1": "",
+            "title": "Carbon Cartridge",
+            "link": "shopify://products/smart-carbon-cartridges"
+          }
+        },
+        "item_jAkErB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/pos110_1_1.webp",
+            "title1": "",
+            "title": "POSTreat",
+            "link": "shopify://products/postreat-fluoride-remover"
+          }
+        }
+      },
+      "block_order": [
+        "item_DdFKfK",
+        "item_GDCwPg",
+        "item_jAkErB"
+      ],
+      "custom_css": [
+        "span.arrow {display: none !important;}",
+        "@media (min-width: 768px) {h3 {background: #f1d14e; width: 45%; padding: 11px 0px; margin: 0 auto; border-radius: 12px; font-size: 22px !important; font-weight: 400 !important; font-family: sans-serif; }}",
+        "h3 {background: #f1d14e; width: 69%; padding: 11px 0px; margin: 0 auto; border-radius: 12px; font-size: 22px !important; font-weight: 400 !important; font-family: sans-serif;}"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "hd1": 50,
+        "hd2": 24,
+        "w1": 30,
+        "w2": 30,
+        "heading": "Say hello to healthier hydration",
+        "section_bg": "#4994bf",
+        "text_color": "#222222",
+        "line_color": "rgba(0,0,0,0)",
+        "card_bg": "#4994bf",
+        "desktop_per_view": 3,
+        "mobile_per_view": 1,
+        "desktop_slider": true,
+        "mobile_slider": true,
+        "hide_arrow_desktop": false,
+        "hide_arrow_mobile": true,
+        "hide_dots_desktop": false,
+        "hide_dots_mobile": false,
+        "gap": 30,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_lr": 20,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_text_section_QgXgb6",
+    "custom_video_text_k8ULab",
+    "custom_box_a9yJdP",
+    "multicolumn_jcKxrA",
+    "rich_text_7C6FCB",
+    "custom_box_yLgmWR",
+    "custom_box_p6gQAk",
+    "custom_product_card_TDPVnC"
+  ]
+}

@@ -1,0 +1,980 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "custom_liquid_hnTKVh": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'custom-arrow' %}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_yQQi69": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "custom_liquid_zAkcJc": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"underline-title\">{{ product.metafields.custom.learn_more_centent | metafield_tag }}</div>\n\n<div class=\"alink-p\">Looking for the complete Phoenix Gravity System? <a href=\"/products/the-phoenix-gravity-water-filter\">Find it here.</a></div>"
+          }
+        },
+        "text_67PpMK": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_668qaB": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"heading-line\">What's in the box:</div>\n\n<div class=\"subheading-line\">\n{{ product.metafields.custom.what_s_inside_box | metafield_tag }}\n</div></div>"
+          }
+        },
+        "complementary_PX6CbV": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "You might be looking for",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
+        "icon_with_text_j3aQXj": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "none",
+            "image_1": "shopify://shop_images/jpeg-optimizer_100_days.webp",
+            "heading_1": "100 Day Trial",
+            "icon_2": "none",
+            "image_2": "shopify://shop_images/jpeg-optimizer_delivery.webp",
+            "heading_2": "Fast & Free Shipping",
+            "icon_3": "none",
+            "image_3": "shopify://shop_images/jpeg-optimizer_10_year.webp",
+            "heading_3": "10 Year Warranty",
+            "icon_4": "none",
+            "image_4": "shopify://shop_images/jpeg-optimizer_customer__service.webp",
+            "heading_4": "<strong>Customer Support</strong>"
+          }
+        },
+        "collapsible_tab_WRPzJX": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "What’s in the box?",
+            "icon": "none",
+            "content": "<ul><li>1 x 304-grade Stainless Steel housing unit of 6 Litre capacity</li><li>1 x 304-grade Stainless Steel tap</li><li>2 x Smart Carbon cartridges</li></ul>",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_yGYd4C": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Key Features",
+            "icon": "none",
+            "content": "<ul><li>The Phoenix gravity system is a powerful and easy-to-set-up worktop filtration solution that requires no plumbing or electricity.</li><li>Crafted from high-grade AISI 304 stainless steel, the housing is naturally BPA-free and non-leaching.</li><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving the essential minerals.</li><li>With a filtration capacity 20X better than a typical jug filters and GAC, Phoenix delivers cleaner, healthier water using the natural force of gravity offering a sustainable, long-lasting alternative built with eco-friendly materials.</li><li>Phoenix Gravity Smart Carbon Cartridges are precisely engineered for compatibility with almost all gravity-fed water systems, delivering consistent performance and clean, safe water you can rely on.</li></ul>",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_nFbX67": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Shipping and Returns",
+            "icon": "none",
+            "content": "<ul><li>Refunds are processed within 2 business days upon receiving and inspecting the returned product, and the amount will be credited to your original payment method within 7 business days.</li><li>A full refund is issued only if the complete product is returned; partial returns receive partial refunds.</li><li>Exchanges are available only for items with manufacturing defects or faults.</li><li>Return shipping is the customer’s responsibility and is non-refundable. For items over £99, we recommend using a trackable shipping service.</li></ul>",
+            "c1": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_hnTKVh",
+        "title",
+        "judge_me_reviews_preview_badge_yQQi69",
+        "custom_liquid_zAkcJc",
+        "text_67PpMK",
+        "description",
+        "variant_picker",
+        "price",
+        "quantity_selector",
+        "buy_buttons",
+        "custom_liquid_668qaB",
+        "complementary_PX6CbV",
+        "icon_with_text_j3aQXj",
+        "collapsible_tab_WRPzJX",
+        "collapsible_tab_yGYd4C",
+        "collapsible_tab_nFbX67"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "p1": "",
+        "color_scheme": "scheme-2",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 32,
+        "cs1": ""
+      }
+    },
+    "custom_text_section_FyNMRm": {
+      "type": "custom-text-section",
+      "disabled": true,
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "rgba(0,0,0,0)",
+        "line_width_desktop": 40,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_icon": "shopify://shop_images/jpeg-optimizer_warranty-10.png",
+        "bottom_heading": "100 day money-back guarantee when purchased with the complete Phoenix Gravity system",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#ffffff",
+        "bg_color": "#deb1b2",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_pfeYBW": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7x6ahp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/29_0ed4d05b-6680-4f5f-bf25-369b2a4d8e07.png",
+            "title": "Extremely easyto assemble",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_E3JcCq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/25kg.png",
+            "title": "Supports upto 25kg",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EgNNzL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/star.png",
+            "title": "Stylish appearance",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_7x6ahp",
+        "column_E3JcCq",
+        "column_EgNNzL"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 64,
+        "padding_bottom": 0,
+        "cs1": ""
+      }
+    },
+    "custom_icon_image_slider_if6Ktg": {
+      "type": "custom-icon-image-slider",
+      "blocks": {
+        "logo_icEG8F": {
+          "type": "logo",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "link_url": ""
+          }
+        },
+        "logo_rBpRJd": {
+          "type": "logo",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "link_url": ""
+          }
+        },
+        "logo_Hh77Ub": {
+          "type": "logo",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "link_url": ""
+          }
+        },
+        "logo_4hM3FX": {
+          "type": "logo",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_icEG8F",
+        "logo_rBpRJd",
+        "logo_Hh77Ub",
+        "logo_4hM3FX"
+      ],
+      "disabled": true,
+      "name": "Logo Slider Swipe",
+      "settings": {
+        "heading": "",
+        "bg_color": "#ffffff",
+        "text_color": "#000000",
+        "heading_size": 28,
+        "heading_size_mobile": 22,
+        "logo_size_desktop": 150,
+        "logo_size_mobile": 100,
+        "desktop_slides": 5,
+        "tablet_slides": 4,
+        "mobile_slides": 2,
+        "autoplay_speed": 2000,
+        "show_arrows": false,
+        "show_dots": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "custom_text_section_9EqMzU": {
+      "type": "custom-text-section",
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 32,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "Product Description",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 400,
+        "line_width_mobile": 260,
+        "left_content": "<ul><li>The stand is easy to assemble and aesthetically pleasing in either a natural teak wood finish or sleek stainless steel.</li></ul>",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "<ul><li>Supports up to 25kg.</li><li>Compatible with 6L and 8L Phoenix Water Filter Systems.</li></ul>",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#121212",
+        "bg_color": "#eaeef1",
+        "padding_top": 60,
+        "padding_bottom": 85,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "custom_text_section_WJkaK8": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; }}",
+        "@media (max-width: 768px) {.cta-headings {text-align: center; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 40,
+        "line_width_mobile": 40,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "Better quality you can taste, on tap.",
+        "w1": 29,
+        "w2": 19,
+        "bottom_heading1": "",
+        "bottom_button_text": "Complete Purchase",
+        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#132555",
+        "text_color": "#000000",
+        "bg_color": "#deb1b2",
+        "padding_top": 15,
+        "padding_bottom": 25,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 170,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-class-2"
+      }
+    },
+    "multicolumn_CRin9i": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_w8mEDY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/list1.png",
+            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity WaterFilter with Smart Carbon</a>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hPyMwW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/list2.png",
+            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal</a>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fwd6bq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/list3.png",
+            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal + Teak Wood Stand</a>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_w8mEDY",
+        "column_hPyMwW",
+        "column_fwd6bq"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 68,
+        "padding_bottom": 36,
+        "cs1": "multi-column-tem"
+      }
+    },
+    "custom_text_section_pRnN49": {
+      "type": "custom-text-section",
+      "custom_css": [
+        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; }}",
+        "@media (max-width: 768px) {.cta-headings {text-align: center; }}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "If you don’t like your water filter with in 100 days, we’ll give you a full refund.",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "Complete Purchase",
+        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#ffffff",
+        "bg_color": "#33523b",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#f5d24f",
+        "btn_text_color_1": "#000000",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "image_with_text_baXir8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zadMCy": {
+          "type": "heading",
+          "settings": {
+            "heading": "POSTreat Fluoride Removal Filter Cartridge",
+            "heading_size": "h1"
+          }
+        },
+        "text_rph3tA": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "button_MjfBDp": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zadMCy",
+        "text_rph3tA",
+        "button_MjfBDp"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/postreat_landscape_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_text_section_ddrd4c": {
+      "type": "custom-text-section",
+      "disabled": true,
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 32,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "FAQs",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 100,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#2d2d4f",
+        "bg_color": "#eaeef1",
+        "padding_top": 5,
+        "padding_bottom": 5,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "collapsible_content_jF6Q7J": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_D7di3E": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which size filter is best for me?",
+            "icon": "none",
+            "row_content": "<p>This depends on how many people will be using your Phoenix Gravity Water Filter, and how much water you drink! Generally, we recommend:6-Litre - Perfect pairing, for up to 1-2 people8-Litre - In the middle, for up to 2-4 people12-Litre - Family friendly, for 3-4 + people</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_W4xnAC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I clean my filter?",
+            "icon": "none",
+            "row_content": "<p><strong>Gravity Filter:</strong>We recommend hand washing using warm soapy water and a non-abrasive cloth or sponge. Then, leave to air dry or buff with a microfiber cloth. (Don’t forget to remove your cartridges first!)</p><p><strong>Cartridges:</strong>Wash these under cold running water only and using a mildly abrasive scourer or brush, gently massage along cartridges from mount to end only - to avoid contamination.</p><p><strong>POSTreat:</strong>Again, use warm soapy water and a non-abrasive cloth/ sponge. Then, leave to air dry or buff with a microfiber cloth. (Don’t forget to remove the media first!)</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_tWhmT6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I set it up myself?",
+            "icon": "none",
+            "row_content": "<p>Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.We include full instructions with every unit and we’re always here to help. You can contact us <a href=\"https://phoenixwaterfilters.co.uk/pages/help-center\">here.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_H8Qyp3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the Phoenix Gravity Filter compare to plastic jugs or other filters?",
+            "icon": "none",
+            "row_content": "<p>The Phoenix Gravity is one of the most advanced filtration systems on the market. With a Phoenix Gravity System, your water is purified through two-stages of activated carbon filtration to remove 99.9% of contaminants including bacteria, parasites, cysts, pesticides, heavy metals and more.  This means we can trap physical contaminants that are more than 20 times smaller than jug filters. Combined with our higher filtration contact time we are 20 times more powerful than typical jug filters and those using granular carbon.</p><p>Our stainless steel chambers not only prevent microplastics and other harmful chemicals from leaching into your water, but also hold significantly more purified water than the average jug. This makes it even easier for you to enjoy fresh, nutrient-rich hydration - whenever you need it most. Unlike Reverse Osmosis (RO) filters, the gravity system does not require electricity to run or a plumber to install - and it won’t strip your water of the healthy nutrients your body benefits from.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UHMcUe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Phoenix Gravity Smart Carbon Cartridges compatible with my gravity-fed system?",
+            "icon": "none",
+            "row_content": "<p>Yes! Phoenix Gravity Smart Carbon Cartridges are precision-engineered to work with nearly all gravity-fed water systems. They’re built for reliable performance and deliver clean, safe, great-tasting water every time.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_D7di3E",
+        "collapsible_row_W4xnAC",
+        "collapsible_row_tWhmT6",
+        "collapsible_row_H8Qyp3",
+        "collapsible_row_UHMcUe"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "anchor_id": "",
+        "caption": "",
+        "c1": "#deb1b2",
+        "heading": "",
+        "h1": 50,
+        "h2": 24,
+        "w1": 21,
+        "w2": 16,
+        "w3": 16,
+        "w4": 14,
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-8efd1a73-9ed1-49b6-8319-034af3ed416a",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "cs1": ""
+      }
+    },
+    "rich_text_3CWq7r": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xn8h7z": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Still have a burning question? See all our  <a href=\"/pages/faq\" title=\"Faq\">FAQs </a> here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_xn8h7z"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 52
+      }
+    },
+    "custom_text_section_ffY7mW": {
+      "type": "custom-text-section",
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 32,
+        "hd2": 24,
+        "show_heading_line": true,
+        "c1": false,
+        "heading": "The Phoenix difference, straight from the source(s).",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 780,
+        "line_width_mobile": 310,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#2d2d4f",
+        "bg_color": "#eaeef1",
+        "padding_top": 15,
+        "padding_bottom": 5,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "17682225923f240bf1": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_CrYUGw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_CrYUGw"
+      ],
+      "custom_css": [
+        "{background: #eaeef1;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_text_section_FyNMRm",
+    "related-products",
+    "multicolumn_pfeYBW",
+    "custom_icon_image_slider_if6Ktg",
+    "custom_text_section_9EqMzU",
+    "custom_text_section_WJkaK8",
+    "multicolumn_CRin9i",
+    "custom_text_section_pRnN49",
+    "image_with_text_baXir8",
+    "custom_text_section_ddrd4c",
+    "collapsible_content_jF6Q7J",
+    "rich_text_3CWq7r",
+    "custom_text_section_ffY7mW",
+    "17682225923f240bf1"
+  ]
+}

@@ -1,0 +1,292 @@
+<section class="pg-comparison-chart">
+  <div class="pg-comparison-chart__wrapper">
+
+    <table class="pg-comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+
+          <th class="pg-brand-column">
+            {% if section.settings.logo != blank %}
+              <img 
+                src="{{ section.settings.logo | image_url: width: 140 }}" 
+                alt="Phoenix Gravity" 
+                class="pg-logo"
+                width="140"
+                height="{{ 140 | divided_by: section.settings.logo.aspect_ratio | round }}"
+              >
+            {% else %}
+              <div class="pg-logo-text">PHOENIX<br>GRAVITY</div>
+            {% endif %}
+          </th>
+
+          <th>Plumbed-In<br>System</th>
+          <th>Bottled<br>Water</th>
+          <th>Jugs</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Affordable</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+        </tr>
+
+        <tr>
+          <td>Portable</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+        </tr>
+
+        <tr>
+          <td>Durable 304 Stainless Steel</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+        </tr>
+
+        <tr>
+          <td>100 Day Money Back Guarantee</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+        </tr>
+
+        <tr>
+          <td>Easy To Maintain</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+        </tr>
+
+        <tr>
+          <td>Large Capacity</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-cross">x</span></td>
+        </tr>
+
+        <tr>
+          <td>No Plumbing Required</td>
+          <td class="pg-brand-column"><span class="pg-check">✓</span></td>
+          <td><span class="pg-cross">x</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+          <td><span class="pg-check dark">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<style>
+  .pg-comparison-chart {
+    background: {{ section.settings.background_color }};
+    padding: 40px 16px;
+  }
+
+  .pg-comparison-chart__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pg-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    font-family: inherit;
+  }
+
+  .pg-comparison-table th,
+  .pg-comparison-table td {
+    padding: 24px 14px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 3px solid {{ section.settings.line_color }};
+    word-break: normal;
+  }
+
+  .pg-comparison-table thead th {
+    font-size: clamp(12px, 1.8vw, 22px);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .pg-comparison-table thead th:first-child {
+    width: 36%;
+  }
+
+  .pg-comparison-table thead th:not(:first-child) {
+    width: 16%;
+  }
+
+  .pg-comparison-table tbody td:first-child {
+    font-size: clamp(12px, 1.8vw, 21px);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .pg-brand-column {
+    background: {{ section.settings.brand_column_color }};
+    color: #ffffff;
+  }
+
+  .pg-logo {
+    width: clamp(42px, 7vw, 80px);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .pg-logo-text {
+    font-size: clamp(8px, 1.2vw, 12px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    color: {{ section.settings.text_color }};
+  }
+
+  .pg-check,
+  .pg-cross {
+    font-size: clamp(18px, 4vw, 38px);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pg-check {
+    color: #ffffff;
+  }
+
+  .pg-check.dark {
+    color: {{ section.settings.text_color }};
+  }
+
+  .pg-cross {
+    color: {{ section.settings.text_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .pg-comparison-chart {
+      padding: 20px 8px;
+    }
+
+    .pg-comparison-table th,
+    .pg-comparison-table td {
+      padding: 18px 5px;
+      border-bottom-width: 2px;
+    }
+
+    .pg-comparison-table thead th:first-child {
+      width: 34%;
+    }
+
+    .pg-comparison-table thead th:not(:first-child) {
+      width: 16.5%;
+    }
+
+    .pg-comparison-table thead th {
+      font-size: 12px;
+    }
+
+    .pg-comparison-table tbody td:first-child {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .pg-check,
+    .pg-cross {
+      font-size: 22px;
+    }
+
+    .pg-logo {
+      width: 42px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .pg-comparison-chart {
+      padding: 20px 5px;
+    }
+
+    .pg-comparison-table th,
+    .pg-comparison-table td {
+      padding: 15px 3px;
+    }
+
+    .pg-comparison-table thead th {
+      font-size: 12px;
+      line-height: 1.15;
+    }
+
+    .pg-comparison-table tbody td:first-child {
+      font-size: 12px;
+      line-height: 1.15;
+    }
+
+    .pg-check,
+    .pg-cross {
+      font-size: 19px;
+    }
+
+    .pg-logo {
+      width: 36px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Chart",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Phoenix Gravity Logo"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#eef4f7"
+    },
+    {
+      "type": "color",
+      "id": "brand_column_color",
+      "label": "Phoenix Column Color",
+      "default": "#4598bd"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#07143d"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line Color",
+      "default": "#07143d"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Chart"
+    }
+  ]
+}
+{% endschema %}

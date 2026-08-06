@@ -1,0 +1,686 @@
+<section class="overlay-feature-card section-{{ section.id }}">
+  <div class="overlay-feature-card__container">
+
+    <div class="overlay-feature-card__banner">
+
+      {% if section.settings.image != blank %}
+        <picture>
+          {% if section.settings.mobile_image != blank %}
+            <source
+              media="(max-width: 767px)"
+              srcset="{{ section.settings.mobile_image | image_url: width: 900 }}"
+            >
+          {% endif %}
+
+          <img
+            src="{{ section.settings.image | image_url: width: 2000 }}"
+            alt="{{ section.settings.heading | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        </picture>
+      {% else %}
+        <div class="overlay-feature-card__placeholder">
+          Upload image from customizer
+        </div>
+      {% endif %}
+
+      <div class="overlay-feature-card__content">
+        {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.show_line %}
+          <div class="overlay-feature-card__line"></div>
+        {% endif %}
+
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.settings.point != blank %}
+              <li {{ block.shopify_attributes }}>
+                {{ block.settings.point }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding-top: {{ section.settings.desktop_padding_top }}px;
+  padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+}
+
+.section-{{ section.id }} .overlay-feature-card__container {
+  margin: 0 auto;
+}
+
+.section-{{ section.id }} .overlay-feature-card__banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: {{ section.settings.desktop_ratio_width }} / {{ section.settings.desktop_ratio_height }};
+  overflow: hidden;
+  border-radius: {{ section.settings.banner_radius }}px;
+  background: {{ section.settings.image_bg }};
+}
+
+.section-{{ section.id }} .overlay-feature-card__banner picture,
+.section-{{ section.id }} .overlay-feature-card__banner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.section-{{ section.id }} .overlay-feature-card__banner img {
+  object-fit: {{ section.settings.image_fit }};
+  object-position: {{ section.settings.image_position }};
+}
+
+.section-{{ section.id }} .overlay-feature-card__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #111111;
+  font-size: 22px;
+}
+
+.section-{{ section.id }} .overlay-feature-card__content {
+  position: absolute;
+  z-index: 2;
+  left: {{ section.settings.desktop_card_left }}%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: {{ section.settings.desktop_card_width }}%;
+  background: {{ section.settings.card_bg }};
+  border-radius: {{ section.settings.card_radius }}px;
+  padding: {{ section.settings.desktop_card_padding }}px;
+  color: {{ section.settings.text_color }};
+  box-shadow: {% if section.settings.card_shadow %}0 8px 30px rgba(0,0,0,0.24){% else %}none{% endif %};
+}
+
+.section-{{ section.id }} .overlay-feature-card__content h2 {
+  margin: 0;
+  color: {{ section.settings.heading_color }};
+  font-size:50px;
+  line-height: 1.12;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-transform: {% if section.settings.uppercase_heading %}uppercase{% else %}none{% endif %};
+}
+
+.section-{{ section.id }} .overlay-feature-card__line {
+  width: {{ section.settings.line_width }}%;
+  height: {{ section.settings.line_height }}px;
+  background: {{ section.settings.line_color }};
+  margin-top: {{ section.settings.line_margin_top }}px;
+  margin-bottom: {{ section.settings.line_margin_bottom }}px;
+}
+
+.section-{{ section.id }} .overlay-feature-card__content ul {
+  margin: 0;
+  padding-left: {{ section.settings.desktop_bullet_indent }}px;
+}
+
+.section-{{ section.id }} .overlay-feature-card__content li {
+  color: {{ section.settings.text_color }};
+  font-size:28px ;
+  line-height: 1.38;
+  margin-bottom: {{ section.settings.desktop_bullet_gap }}px;
+}
+
+.section-{{ section.id }} .overlay-feature-card__content li:last-child {
+  margin-bottom: 0;
+}
+
+.section-{{ section.id }} .overlay-feature-card__content li::marker {
+  color: {{ section.settings.bullet_color }};
+  font-size: 0.8em;
+}
+
+/* Mobile - same replica layout */
+@media screen and (max-width: 767px) {
+  .section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_top }}px;
+    padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__container {
+    padding-left: {{ section.settings.mobile_side_padding }}px;
+    padding-right: {{ section.settings.mobile_side_padding }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__banner {
+    aspect-ratio: {{ section.settings.mobile_ratio_width }} / {{ section.settings.mobile_ratio_height }};
+    border-radius: {{ section.settings.mobile_banner_radius }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__banner img {
+    object-fit: {{ section.settings.mobile_image_fit }};
+    object-position: {{ section.settings.mobile_image_position }};
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__content {
+    left: {{ section.settings.mobile_card_left }}%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: {{ section.settings.mobile_card_width }}%;
+    padding: {{ section.settings.mobile_card_padding }}px;
+    border-radius: {{ section.settings.mobile_card_radius }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__content h2 {
+    font-size: 22px;
+    line-height: 1.12;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__line {
+    width: {{ section.settings.mobile_line_width }}%;
+    height: 1px;
+    margin-top: {{ section.settings.mobile_line_margin_top }}px;
+    margin-bottom: {{ section.settings.mobile_line_margin_bottom }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__content ul {
+    padding-left: {{ section.settings.mobile_bullet_indent }}px;
+  }
+
+  .section-{{ section.id }} .overlay-feature-card__content li {
+    font-size: 14px;
+    line-height: 1.35;
+    margin-bottom: {{ section.settings.mobile_bullet_gap }}px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "New custom image banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image optional"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Desktop image fit",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_fit",
+      "label": "Mobile image fit",
+      "default": "contain",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Desktop image position",
+      "default": "center center",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "right center",
+          "label": "Right center"
+        },
+        {
+          "value": "left center",
+          "label": "Left center"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "default": "center center",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "right center",
+          "label": "Right center"
+        },
+        {
+          "value": "left center",
+          "label": "Left center"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FEATURES OF STAINLESS STEEL TAP"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_heading",
+      "label": "Uppercase heading",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show divider line",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_side_padding",
+      "label": "Desktop side padding",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_card_left",
+      "label": "Desktop card left position",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "desktop_card_width",
+      "label": "Desktop card width",
+      "min": 25,
+      "max": 60,
+      "step": 1,
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "desktop_card_padding",
+      "label": "Desktop card padding",
+      "min": 10,
+      "max": 90,
+      "step": 2,
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_ratio_width",
+      "label": "Mobile ratio width",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_ratio_height",
+      "label": "Mobile ratio height",
+      "min": 6,
+      "max": 18,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_side_padding",
+      "label": "Mobile side padding",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_left",
+      "label": "Mobile card left position",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_width",
+      "label": "Mobile card width",
+      "min": 35,
+      "max": 65,
+      "step": 1,
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile card padding",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "image_bg",
+      "label": "Image background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Text card background",
+      "default": "#f2f2f2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Bullet text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bullet_color",
+      "label": "Bullet color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Divider line color",
+      "default": "#c7c7c7"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "range",
+      "id": "banner_radius",
+      "label": "Desktop banner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_banner_radius",
+      "label": "Mobile banner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Desktop card radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_radius",
+      "label": "Mobile card radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Enable card shadow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Divider line"
+    },
+    {
+      "type": "range",
+      "id": "line_width",
+      "label": "Desktop line width",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "default": 65
+    },
+    {
+      "type": "range",
+      "id": "mobile_line_width",
+      "label": "Mobile line width",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "Desktop line height",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "line_margin_top",
+      "label": "Desktop line top spacing",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "line_margin_bottom",
+      "label": "Desktop line bottom spacing",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "mobile_line_margin_top",
+      "label": "Mobile line top spacing",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_line_margin_bottom",
+      "label": "Mobile line bottom spacing",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "header",
+      "content": "Bullet spacing"
+    },
+    {
+      "type": "range",
+      "id": "desktop_bullet_indent",
+      "label": "Desktop bullet indent",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_bullet_indent",
+      "label": "Mobile bullet indent",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "desktop_bullet_gap",
+      "label": "Desktop bullet gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "mobile_bullet_gap",
+      "label": "Mobile bullet gap",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet point",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "point",
+          "label": "Bullet text",
+          "default": "Made from high-quality, food-grade stainless steel, ensuring safety and reliability."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New custom image banner",
+      "blocks": [
+        {
+          "type": "bullet",
+          "settings": {
+            "point": "Made from high-quality, food-grade stainless steel, ensuring safety and reliability."
+          }
+        },
+        {
+          "type": "bullet",
+          "settings": {
+            "point": "Sleek and Modern Design."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
