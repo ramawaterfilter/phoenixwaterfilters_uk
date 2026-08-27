@@ -73,6 +73,7 @@
             "subheading": "",
             "subheading_color": "#ffffff",
             "heading": "<p>We're bringing <em>water</em> back</p>",
+            "heading1": "",
             "heading_color": "#000000",
             "description": "<p>Advanced purification for straight-from-the-source hydration, wherever you need it most</p>",
             "text_alignment": "left",
@@ -91,7 +92,8 @@
             "mobile_image": "shopify://shop_images/about_banner-2.jpg",
             "subheading": "",
             "subheading_color": "#ffffff",
-            "heading": "<p>Better <em>living</em> starts here</p>",
+            "heading": "",
+            "heading1": "<p>Better <em>living</em> starts here</p>",
             "heading_color": "#ffffff",
             "description": "",
             "text_alignment": "left",
@@ -109,7 +111,8 @@
         "banner_pqe4UN"
       ],
       "custom_css": [
-        "h2 {border-bottom: 3px solid #deb1b2;}"
+        "h2,h1 {border-bottom: 3px solid #deb1b2;}",
+        "h1.phoenix-banner-heading.banner-bb1 p {margin: 0px;}"
       ],
       "name": "Phoenix Full Width Banner",
       "settings": {
@@ -126,7 +129,7 @@
         "subheading_weight": "400",
         "subheading_transform": "none",
         "subheading_spacing": 10,
-        "heading_size_desktop": 50,
+        "heading_size_desktop": 56,
         "heading_size_mobile": 32,
         "heading_weight": "700",
         "heading_spacing": 0,
@@ -1189,11 +1192,12 @@
       ],
       "name": "Category Slider",
       "settings": {
+        "heading": "Say hello to healthier hydration",
+        "heading1": "",
         "hd1": 40,
         "hd2": 24,
         "w1": 30,
         "w2": 30,
-        "heading": "Say hello to healthier hydration",
         "section_bg": "#4994bf",
         "text_color": "#000000",
         "line_color": "rgba(0,0,0,0)",

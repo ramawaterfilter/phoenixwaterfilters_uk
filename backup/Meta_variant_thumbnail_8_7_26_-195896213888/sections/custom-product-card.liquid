@@ -8,6 +8,11 @@
     background: {{ section.settings.section_bg }};
   "
 >
+
+    {% if section.settings.heading1 != blank %}
+    <h1 class="section-heading">{{ section.settings.heading1 }}</h1>
+  {% endif %}
+
   {% if section.settings.heading != blank %}
     <h2 class="section-heading">{{ section.settings.heading }}</h2>
   {% endif %}
@@ -205,7 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
 {
   "name": "Category Slider",
   "settings": [
-
+        { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "heading1", "label": "Heading H1" },
          {
       "type": "range",
       "id": "hd1",
@@ -242,7 +248,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "step": 1,
       "default": 30
     },
-    { "type": "text", "id": "heading", "label": "Heading" },
 
     { "type": "color", "id": "section_bg", "label": "Section BG", "default": "#eef2f5" },
     { "type": "color", "id": "text_color", "label": "Text Color", "default": "#000" },

@@ -1,6 +1,362 @@
 <!doctype html>
 <html class="js" lang="en-gb">
   <head>
+{% comment %} /////////////////////////////////////////////////////////////////////faq-schema////////////////////////////////////////////////////// {% endcomment %}
+{%- if page.handle == 'faqs' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://phoenixwaterfilters.co.uk/pages/faqs#faq",
+  "url": "https://phoenixwaterfilters.co.uk/pages/faqs",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it essential to prime the Carbon Cartridges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Priming the Carbon Cartridges is the first step to ensuring your cartridges are completely free of any residuals from the manufacturing process. The residuals are completely normal and safe but can lead to cloudy water if the cartridges are not correctly primed. We recommend priming your Carbon Cartridges for at least three minutes. If not primed sufficiently, the first four rounds of filtered water may have cloudy white particles that can be safely discarded. The recommended number of priming rounds depends on the type of cartridge you have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my water cloudy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cloudy water after initial installation is normal and completely harmless. It is simply safe residual dust from the manufacturing process. It can occur if the cartridges are not correctly primed, and we recommend priming cartridges fully. If it is not primed, it can take about four rounds of filtered water to clear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will my Carbon Cartridges last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend replacing your Carbon Cartridges every 12 months. The lifespan of a pair of Phoenix Gravity Carbon Cartridges is about 20,000 litres. A subscription service is available to have your filters replaced automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will the POSTreat Fluoride Removal filters last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our POSTreat Filter Cartridges are made from 304 Stainless Steel and are designed to last for years, which is why we include a 10 year warranty with our products. The media inside our proprietary FluoRid media will last for 4,000 litres and needs replacing approximately every 4 months. A subscription service is also available for replacement media."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will the FluoRid Media in the POSTreat last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The lifespan of a pair of POSTreat Fluoride Removal filters is up to 4,000 litres. It is recommended to replace the media with FluoRid Media Refill every 4 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I be able to assemble my system and change my cartridges myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our systems are designed to be extremely easy to assemble and everything you need is included. You can do it yourself with just your hands, with no specialist tools, plumbers or electricians required. Full instructions are included with every unit and support is always available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My Phoenix Gravity Water Filter has water dripping between the Upper and Lower Chambers. What does this mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is caused by over-filling the Water Filter System. Careful use can help prevent overfilling by checking how much water is in the lower chamber before filling the upper chamber. A vision tap is also available which allows you to see the water level from the outside."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How frequently do I need to change my cartridges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This depends on the usage frequency and quality of your water input. As a guide, we recommend replacing Carbon Cartridges every 12 months or 20,000 litres, and POSTreat (FluoRid Media Refill) every 4 months. A subscription service is available that offers a discount on every order and reminds you when a change is due."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is our stainless steel different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is made from premium AISI 304 stainless steel, known for its durability, rust resistance, and long-lasting performance. The 8K finish adds a sleek, polished look while keeping the system naturally BPA-free, non-leaching, and built to withstand everyday home and outdoor use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the filter cartridges made of plastic? Is the filter system made of any plastic elements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our filter housings are constructed from durable and safe 304-grade stainless steel. The carbon cartridges are made from CTC-60 coconut shell activated carbon and are encased in Noryl, a food-grade material that is free of BPA. This combination ensures the highest quality and safety standards for your drinking water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Phoenix Gravity filters work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use the highest grade 304 stainless steel, natural coconut carbon and other natural materials, combined with the force of gravity. Our advanced filtration system removes up to 99.99% of commonly occurring contaminants and retains up to 100% of minerals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the carbon cartridges made of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our KoKo Carb cartridges are made with CTC60 grade activated carbon, helping remove both physical and chemical contaminants from your water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the carbon cartridges work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our KokoCarb Cartridges sit in a gravity-fed filtration process where water naturally passes through them. The dense porous wall captures physical contaminants like sediments, bacteria, cysts, and microplastics, while the silver-impregnated activated carbon helps reduce chemical contaminants such as chlorine, PFAS, and pesticides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity Filters remove residual pharmaceutical waste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, up to 99.99%. Our primary Smart Carbon Cartridges have been independently tested for many Volatile Organic Compounds including 1,4-dichlorobenzene, 2-Butanone, Acetone, Allyl Chloride and many more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the Phoenix Carbon Cartridges remove fluoride?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with our specialist fluoride cartridge called the POSTreat, which removes over 95% of fluoride from tap water. Made from the highest grade stainless steel, it is completely reusable and refillable, and can be used alongside the primary Carbon Cartridges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Carbon Cartridges eliminate phthalates from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While phthalate removal has not been specifically tested, our Phoenix Carbon Cartridges are made with highest grade activated coconut carbon, which is known for its effectiveness in adsorbing phthalates from water. Testing is ongoing and continually improving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity filters remove estrogen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While estrogen removal has not been specifically tested, our Phoenix Carbon Filters are made with activated coconut carbon, which is known for its effectiveness in adsorbing estrogen from water. Supporting research is also available via published studies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it filter PFAS and pesticides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The activated carbon uses adsorption technology to help reduce PFAS, pesticides, and other chemical contaminants by more than 99.66% from your water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Phoenix Gravity Filters and cartridges compare to others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phoenix Gravity is one of the leaders in advanced gravity filtration, with over 40 years of in-house manufacturing experience, giving complete control over the process and quality of the filters and cartridges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Phoenix Gravity filters as comprehensive as Berkey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Extensive independent tests have been run on our filters for microbiological contaminants such as E. coli bacteria and MS2 Phage viruses, and chemical contaminants such as lead, chlorine, chromium, volatile organic compounds and 100 more, backed by over 40 years of in-house manufacturing experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity Filters lower the TDS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDS stands for Total Dissolved Solids, measured in parts per million (ppm) or parts per billion (ppb), representing the water's organic and inorganic content including minerals. Around 300 ppm is generally accepted as a good mineral content. We purposely do not bring TDS to zero, because we are focused on preserving the minerals your body needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will Phoenix Gravity Filters remove water hardness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Phoenix Carbon Filter Cartridges are designed to remove up to 99.99% of bacteria, viruses, chlorine, lead and over 100 other unwanted substances, but they are not designed to lower water hardness, since many of the natural minerals that make water hard are essential to good health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fluoride filter made of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The filter is housed in high-quality 304 stainless steel, a safe and chemically neutral material designed for durable everyday water filtration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do your filters remove arsenic from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Phoenix Gravity filter systems can help reduce arsenic in water. For the most effective results, we recommend using our KokoCarb Cartridges together with the POSTreat Fluoride Removal Filter Cartridge, a combination that has been shown to remove over 99.9% of arsenic and over 95% of fluoride when used correctly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it remove hormones and pharmaceutical residues from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our Phoenix Gravity Water Filter uses activated carbon to effectively reduce hormones such as oestrogen, along with other pharmaceutical-related contaminants and harmful substances from your drinking water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications do Phoenix Gravity Water Filters have, and which products do they apply to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phoenix Gravity Water Filters are independently certified to NSF/ANSI 42, 372, and 401 standards, covering contaminant reduction, material safety, and emerging contaminants such as PFAS and microplastics. Carbon Cartridges are certified to NSF/ANSI 42, and the Filter System is certified to NSF/ANSI 42 and NSF/ANSI/CAN 372."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Phoenix products are third-party tested and under what standards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Phoenix Gravity Water Systems and KokoCarb Cartridges are independently tested and verified by accredited third-party laboratories under NSF/WQA standards to ensure performance, safety, and filtration effectiveness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any natural vitamins and minerals left after the filtration process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our gravity filtration system is designed to retain many beneficial naturally occurring minerals in water, such as calcium, magnesium, and potassium, while reducing unwanted contaminants like chlorine, heavy metals, sediment, and other impurities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it remove chloramine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Phoenix Gravity Filters are designed to effectively reduce chloramine from water. The activated carbon filtration media helps remove up to 99.9% of chloramine, along with chlorine, bad tastes, odours, and other common contaminants, while still retaining beneficial natural minerals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Phoenix Gravity water filters remove limescale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our filters do not remove limescale, as it is primarily made up of calcium and magnesium, which are essential minerals your body needs. The system is designed to remove harmful contaminants while retaining beneficial minerals, so a small amount of limescale is completely normal and does not affect the quality or safety of the filtered water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have a different stand alone system. Can I use Phoenix Gravity cartridges with them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our Phoenix Gravity KokoCarb Cartridges are compatible with most stand-alone gravity-fed water filtration systems, designed for easy installation and reliable filtration performance across similar gravity filtration units."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these Phoenix Gravity cartridges compatible with the Berkey system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our Phoenix Gravity KokoCarb Cartridges are fully compatible with Berkey water filter systems, designed to fit seamlessly into compatible gravity-fed systems while providing reliable and effective filtration performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the TDS value change after the filtration is done?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the TDS value may change slightly after filtration, but Phoenix Gravity Water Filters are designed to remove unwanted impurities while retaining beneficial natural minerals like calcium and magnesium. Zero TDS does not mean perfect water; ideal drinking water typically falls within 100 to 500 ppm TDS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Phoenix Gravity ship to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently ship to the UK and all of Europe, and we are working on adding more locations. Orders for the United States are served by our dedicated US store at phoenixwaterfilters.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does shipping cost in Europe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer free standard shipping on all Filter Systems and orders over 99 GBP to the UK. Shipping costs outside of the UK depend on local delivery requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does shipping take in Europe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work with trusted couriers to ensure you receive your products in the quickest, safest way possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does UK shipping take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We deliver within the UK in 2 to 4 working days. Expedited delivery is available at checkout for an additional fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your return and exchange policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Returns can be accepted if initiated within 30 days of purchase. You are responsible for the safe return of the item, which must arrive in a resealable condition in the original packaging. Once the return is accepted, a refund is issued via the original payment method within 7 working days. A 100 Day Money-back Guarantee also applies to complete Gravity Water Filter Systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My item has arrived damaged or incorrect, what can I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Please send a photograph of your full order including the packaging along with your order number to the support team, and you will receive a response as a matter of priority within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the 100-Day Money-Back Guarantee work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 100-Day Money Back Guarantee applies only to Phoenix Gravity Systems purchased with the stainless steel housings via our website, and does not apply to replacement filters and accessories purchased separately. If you are not satisfied within 100 days of delivery, contact support to initiate a return. The system must be returned complete with all original parts and packaging, undamaged. Once received and inspected, a full refund is issued to the original payment method within up to 10 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the 100-day return policy valid if I order from Amazon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Phoenix Gravity Filter system must be purchased via our website to qualify for the 100-day money back guarantee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the warranty work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer a 10 year warranty on our Stainless Steel Gravity Water Filter system housings, covering defects in material and workmanship. Phoenix Gravity Stainless Steel Tap and Carbon Cartridges carry a 1 year warranty, and all other parts and accessories carry a 6 month warranty, each covering defects in material and workmanship."
+      }
+    }
+  ]
+}
+</script>
+{%- endif -%}
+{% comment %} /////////////////////////////////////////////////////////////////////faq-schema////////////////////////////////////////////////////// {% endcomment %}
+
+
+
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +364,7 @@
 <link rel="preload" href="{{ 'global.js' | asset_url }}" as="script">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 
- <script>
-if (window.location.pathname === '/collections/all') {
-  window.location.replace('all-collections');
-}
-</script> 
+
 <script>
 if (window.location.pathname === "/collections/accessories/products/vision-tap-stainless-steel") {
   window.location.replace("/");
@@ -20,21 +372,30 @@ if (window.location.pathname === "/collections/accessories/products/vision-tap-s
 </script>
 
 {% comment %} //////////////////////////////////noindex////////////////////////////////////////// {% endcomment %}
+{% if collection and collection.metafields.seo.hidden.value == 1 %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
+
+
+{% if blog and blog.metafields.seo.hidden.value == 1 %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
+
+
 {% if request.path == '/collections/accessories/products/vision-tap-stainless-steel' %}
   <meta name="robots" content="noindex, nofollow">
 {% endif %}
 
-{% assign noindex_pages = 'winter-sale,product-test-page,product-registration-1,demo-1,quiz-01-22-2026-2,untitled,welcome-to-phoenix,ccpa-privacy-policy,lgpd-privacy-policy,appi-privacy-policy,pipeda-privacy-policy,gdpr-privacy-policy,phoenix-gravity-filtration-contaminants-lab-report' | split: ',' %}
+{% assign noindex_pages = 'winter-sale,product-test-page,product-registration-1,demo-1,quiz-01-22-2026-2,untitled,welcome-to-phoenix,ccpa-privacy-policy,lgpd-privacy-policy,appi-privacy-policy,pipeda-privacy-policy,gdpr-privacy-policy' | split: ',' %}
 
-{% assign noindex_collections = 'all-1,tax,testing,save_subscribe,alls,replacement-cartridges,add-to-your-order,water-filter-systems' | split: ',' %}
+{% assign noindex_collections = 'all-1,replacement-cartridges,add-to-your-order,water-filter-systems' | split: ',' %}
 
 {% if template == 'page' and noindex_pages contains page.handle %}
   <meta name="robots" content="noindex, nofollow">
 {% elsif template == 'collection' and noindex_collections contains collection.handle %}
   <meta name="robots" content="noindex, nofollow">
-{% elsif template == 'blog' and blog.handle == 'water-club' %}
-  <meta name="robots" content="noindex, nofollow">
 {% endif %}
+
 {% comment %} //////////////////////////////////noindex////////////////////////////////////////// {% endcomment %}
 
 
@@ -514,9 +875,9 @@ jdgm.loadCSS(jdgm.CDN_HOST+"widget/base.css"):jdgm.loadCSS(jdgm.CDN_HOST+"shopif
   {{ collection.metafields.custom.href_lang }}
 {% endif %}
 
-{% comment %} {% if product.metafields.custom.href_lang != blank %}
+ {% if product.metafields.custom.href_lang != blank %}
   {{ product.metafields.custom.href_lang }}
-{% endif %} {% endcomment %}
+{% endif %} 
 
 {% if page.metafields.custom.href_lang != blank %}
   {{ page.metafields.custom.href_lang }}

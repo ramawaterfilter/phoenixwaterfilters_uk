@@ -318,7 +318,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/6.1_1.webp",
-            "title": "Retains 100% nutrients",
+            "title": "Retains your water’s essential minerals.",
             "sub_title": "",
             "text": "",
             "link_label": "",
@@ -1235,8 +1235,10 @@
       "type": "custom-video-text",
       "disabled": true,
       "custom_css": [
-        "@media (max-width: 768px) {h2.video-text-heading {width: 90%; margin: 0 auto; }}",
-        "@media (min-width: 768px) {img {width: 85%; } .video-text-wrapper {align-items: flex-start; }}"
+        "@media (max-width: 768px) {h2.video-text-heading {width: 90%; margin: 0 auto; } .mobile-media {width: 40%; object-fit: contain; height: auto; }}",
+        "@media (min-width: 768px) {img {width: 50%; } .video-text-wrapper {align-items: flex-start; }}",
+        ".video-text-wrapper {flex-direction: column-reverse;}",
+        ".video-text-content {width: 100%;}"
       ],
       "name": "Video with Text (Fully Dynamic)",
       "settings": {
@@ -1271,7 +1273,7 @@
         "underline_width_mobile": 350,
         "padding_top": 0,
         "padding_bottom": 0,
-        "media_height_desktop": "500px",
+        "media_height_desktop": "300px",
         "media_height_mobile": "300px",
         "cs1": "left-padding-class"
       }

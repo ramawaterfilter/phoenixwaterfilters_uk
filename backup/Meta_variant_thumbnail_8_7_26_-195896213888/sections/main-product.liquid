@@ -125,7 +125,7 @@
   <div class="page-width custom-width-product {{ section.settings.cs1 }}">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-          {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template'%}
+          {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template' or template.suffix == 'postreat_version2-v1'%}
           {% render 'product-media-gallery-variant',
           variant_images: variant_images
           %}
@@ -337,7 +337,7 @@
               
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <details id="Details-{{ block.id }}-{{ section.id }} name="ProductAccordionGroup-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
@@ -1060,6 +1060,68 @@
     } else {
       defineVariantMetafieldAccordion();
     }
+  })();
+</script>
+
+<script>
+  (() => {
+    const sectionId = '{{ section.id }}';
+
+    window.__productSingleAccordion =
+      window.__productSingleAccordion || {};
+
+    if (window.__productSingleAccordion[sectionId]) {
+      return;
+    }
+
+    window.__productSingleAccordion[sectionId] = true;
+
+    document.addEventListener(
+      'toggle',
+      function (event) {
+        const currentDetails = event.target;
+
+        if (
+          !(currentDetails instanceof HTMLDetailsElement) ||
+          !currentDetails.open
+        ) {
+          return;
+        }
+
+        const productInfo = currentDetails.closest(
+          '#ProductInfo-{{ section.id }}'
+        );
+
+        if (!productInfo) {
+          return;
+        }
+
+        /*
+         * Only target the actual product accordion tabs.
+         * This includes:
+         * - collapsible_tab
+         * - variant_metafield_tab
+         */
+        if (
+          !currentDetails.matches(
+            '.product__accordion > details'
+          )
+        ) {
+          return;
+        }
+
+        productInfo
+          .querySelectorAll(
+            '.product__accordion > details[open]'
+          )
+          .forEach((details) => {
+            if (details !== currentDetails) {
+              details.removeAttribute('open');
+            }
+          });
+      },
+      true
+    );
   })();
 </script>
 

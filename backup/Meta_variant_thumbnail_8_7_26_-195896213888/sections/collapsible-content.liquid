@@ -195,6 +195,35 @@
   </div>
 </div>
 
+<script>
+  (() => {
+    const section = document.getElementById(
+      'shopify-section-{{ section.id }}'
+    );
+
+    if (!section) return;
+
+    const accordionItems = section.querySelectorAll(
+      '.accordion > details'
+    );
+
+    accordionItems.forEach((currentItem) => {
+      currentItem.addEventListener('toggle', () => {
+        if (!currentItem.open) return;
+
+        accordionItems.forEach((otherItem) => {
+          if (
+            otherItem !== currentItem &&
+            otherItem.open
+          ) {
+            otherItem.removeAttribute('open');
+          }
+        });
+      });
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "t:sections.collapsible_content.name",

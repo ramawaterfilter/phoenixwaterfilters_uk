@@ -287,11 +287,12 @@
       ],
       "name": "Category Slider",
       "settings": {
+        "heading": "",
+        "heading1": "Say hello to healthier hydration.",
         "hd1": 40,
         "hd2": 24,
         "w1": 30,
         "w2": 20,
-        "heading": "Say hello to healthier hydration.",
         "section_bg": "#eaeef1",
         "text_color": "#000000",
         "line_color": "#ff6a00",

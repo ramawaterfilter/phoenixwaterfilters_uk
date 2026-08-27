@@ -165,7 +165,7 @@
         "collapsible_tab_yGYd4C": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Technical Specification",
+            "heading": "Technical Specifications",
             "icon": "none",
             "content": "",
             "product_metafield_key": "variant_specification",
@@ -197,10 +197,6 @@
             "c1": "",
             "page": ""
           }
-        },
-        "sw_back_in_stock_product_restore_email_3JKHQJ": {
-          "type": "shopify://apps/sw-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
-          "settings": {}
         }
       },
       "block_order": [
@@ -225,8 +221,7 @@
         "collapsible_tab_tQp7jG",
         "collapsible_tab_yGYd4C",
         "collapsible_tab_WRPzJX",
-        "collapsible_tab_nFbX67",
-        "sw_back_in_stock_product_restore_email_3JKHQJ"
+        "collapsible_tab_nFbX67"
       ],
       "custom_css": [
         "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 38rem; }}",
@@ -361,6 +356,7 @@
       "block_order": [
         "heading_WEEdVN"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -416,7 +412,7 @@
         "text_EcW88e": {
           "type": "text",
           "settings": {
-            "text": "<p>High-quality stainless steel make, Resists corrosion, rust, and everyday wear and tear, ensuring a long lifespan. Sturdy design that Provides strong support for your gravity water filter system, even when filled with water.</p>",
+            "text": "<p>High-quality stainless steel construction, Resists corrosion, rust, and everyday wear and tear, ensuring a long lifespan. Its sturdy design provides strong support for your gravity water filter system, even when filled with water.</p>",
             "text_style": "body"
           }
         }
@@ -475,7 +471,7 @@
         "text_VJ4PXW": {
           "type": "text",
           "settings": {
-            "text": "<p>An elevated position helps to raise your filter off the counter, making it easier to dispense water and fill glasses or bottles. Space optimization, Creates additional space underneath the filter, keeping it off the ground and potentially freeing up counter space.</p>",
+            "text": "<p>An elevated position helps to raise your filter off the counter, making it easier to dispense water and fill glasses or bottles. Space optimisation: Creates additional space underneath the filter, keeping it off the ground and potentially freeing up worktop space.</p>",
             "text_style": "body"
           }
         }
@@ -516,7 +512,7 @@
         "text_WqT6W3": {
           "type": "text",
           "settings": {
-            "text": "<p>The non-porous surface of Stainless steel is naturally non-porous, preventing the harboring of bacteria and promoting hygiene. Easy to clean, Smooth surface allows for effortless cleaning and maintenance with just a wipe-down</p>",
+            "text": "<p>The non-porous stainless steel surface helps preventing the harbouring of bacteria and promoting hygiene. Easy to clean, Smooth surface allows for effortless cleaning and maintenance with just a wipe-down</p>",
             "text_style": "body"
           }
         }

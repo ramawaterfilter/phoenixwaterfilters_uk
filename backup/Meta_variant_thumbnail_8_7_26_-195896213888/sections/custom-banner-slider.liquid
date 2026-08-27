@@ -57,7 +57,17 @@
                 <h1 class="phoenix-banner-heading banner-bb{{ forloop.index }}" style="color: {{ block.settings.heading_color | default: block.settings.text_color }}">
                   {{ block.settings.heading }}
                 </h1>
+
               {% endif %}
+
+    {% if block.settings.heading1 != blank %}
+                <h2 class="phoenix-banner-heading banner-bb{{ forloop.index }}" style="color: {{ block.settings.heading_color | default: block.settings.text_color }}">
+                  {{ block.settings.heading1 }}
+                </h2>
+                
+              {% endif %}
+
+
               
               {% if block.settings.description != blank %}
                 <div class="phoenix-banner-description">
@@ -845,6 +855,11 @@ h2.phoenix-banner-heading p {
           "type": "richtext",
           "id": "heading",
           "label": "Heading"
+        },
+             {
+          "type": "richtext",
+          "id": "heading1",
+          "label": "Heading H1"
         },
         {
           "type": "color",

@@ -38,8 +38,19 @@
           "disabled": true,
           "settings": {}
         },
+        "variant_picker_X8rUKF": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
         "price": {
           "type": "price",
+          "settings": {}
+        },
+        "appstle_subscription_appstle_subscription_product_page_widget_E8rJKT": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-product-page-widget/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
           "settings": {}
         },
         "buy_buttons": {
@@ -73,7 +84,9 @@
           "settings": {
             "heading": "What’s in the box?",
             "icon": "none",
-            "content": "",
+            "content": "{{ product.metafields.custom.learn_more_centent_01 | metafield_tag }}",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -83,7 +96,9 @@
           "settings": {
             "heading": "Key Features",
             "icon": "none",
-            "content": "<ul><li>The Phoenix gravity system is a powerful and easy-to-set-up worktop filtration solution that requires no plumbing or electricity.</li><li>Crafted from high-grade AISI 304 stainless steel, the housing is naturally BPA-free and non-leaching.</li><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving the essential minerals.</li><li>Phoenix Gravity Smart Carbon Cartridges are precisely engineered for compatibility with almost all gravity-fed water systems, delivering consistent performance and clean, safe water you can rely on.</li></ul>",
+            "content": "{{ product.metafields.custom.key_features_phoenix_mainprod | metafield_tag }}",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -93,7 +108,9 @@
           "settings": {
             "heading": "Shipping and Returns",
             "icon": "none",
-            "content": "<ul><li>Refunds are processed within 2 business days upon receiving and inspecting the returned product, and the amount will be credited to your original payment method within 7 business days.</li><li>A full refund is issued only if the complete product is returned; partial returns receive partial refunds.</li><li>Exchanges are available only for items with manufacturing defects or faults.</li><li>Return shipping is the customer’s responsibility and is non-refundable. For items over £99, we recommend using a trackable shipping service.</li></ul>",
+            "content": "{{ product.metafields.custom.shipping_returns_mainprod | metafield_tag }}",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -105,6 +122,8 @@
             "heading": "Compatibility",
             "icon": "none",
             "content": "<p>Our Smart Carbon Cartridges are precision-designed to fit seamlessly with nearly all gravity-fed water filtration systems, including Berkey. Whether you’re replacing existing filters or setting up a new system, these cartridges deliver reliable performance and universal compatibility you can trust.<br/><br/>With Phoenix Gravity, you’re not just replacing a cartridge, you’re upgrading to smarter, cleaner, and more dependable water filtration.</p>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -129,7 +148,9 @@
         "custom_liquid_zAkcJc",
         "text_67PpMK",
         "description",
+        "variant_picker_X8rUKF",
         "price",
+        "appstle_subscription_appstle_subscription_product_page_widget_E8rJKT",
         "buy_buttons",
         "icon_with_text_j3aQXj",
         "collapsible_tab_WRPzJX",
@@ -138,12 +159,15 @@
         "collapsible_tab_VyEEwT",
         "complementary_wK87pw"
       ],
+      "custom_css": [
+        ".metafield-rich_text_field a {color: #f1d14e; text-decoration: none;}"
+      ],
       "settings": {
         "enable_sticky_info": true,
-        "p1": "Tax included",
+        "p1": "",
         "color_scheme": "scheme-2",
         "media_size": "medium",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
@@ -152,23 +176,21 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 32,
+        "padding_bottom": 20,
         "cs1": ""
       }
     },
     "custom_text_section_FyNMRm": {
       "type": "custom-text-section",
-      "custom_css": [
-        "img {width: 40px;}"
-      ],
       "name": "Custom Text",
       "settings": {
-        "hd1": 21,
-        "hd2": 21,
-        "show_heading_line": false,
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": true,
         "c1": false,
-        "heading": "Our POSTreat cartridges, designed to remove over 95% of fluoride, are not suitable for use with <br> the One Quart Water Filter System. They are compatible exclusively with the 6, 8, and 12 litre systems.",
-        "heading_color": "#2f2953",
+        "heading2": "",
+        "heading": "",
+        "heading_color": "#1e1e1e",
         "line_color": "rgba(0,0,0,0)",
         "line_width_desktop": 40,
         "line_width_mobile": 80,
@@ -178,7 +200,8 @@
         "text_width": 1200,
         "cl1": "#2f2954",
         "right_content": "",
-        "bottom_heading": "",
+        "bottom_icon": "shopify://shop_images/100_days_5.png",
+        "bottom_heading": "100 day money-back guarantee when purchased with the complete Phoenix Gravity system",
         "w1": 24,
         "w2": 16,
         "bottom_heading1": "",
@@ -186,7 +209,7 @@
         "bottom_button_link": "",
         "button_bg": "#ff7a00",
         "button_text_color": "#ffffff",
-        "text_color": "#2f2954",
+        "text_color": "#ffffff",
         "bg_color": "#deb1b2",
         "padding_top": 10,
         "padding_bottom": 10,
@@ -250,8 +273,9 @@
         "column_7x6ahp": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/6.1_1.webp",
-            "title": "Retains 100% nutrients",
+            "image": "shopify://shop_images/141.png",
+            "title": "Removes more than95% of fluoride",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -260,8 +284,9 @@
         "column_E3JcCq": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/global.png",
-            "title": "Travel-friendly for on-the-go purification",
+            "image": "shopify://shop_images/211.png",
+            "title": "Housed in highest-grade stainless steel",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -270,8 +295,9 @@
         "column_WqUY88": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/304ss250_3d272151-dddd-4059-bece-61f82bd052d7.png",
-            "title": "304-grade stainless steel, designed for durability",
+            "image": "shopify://shop_images/4_3.png",
+            "title": "Perfectly compatible with Phoenix Gravity Filter System",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -282,6 +308,7 @@
           "settings": {
             "image": "shopify://shop_images/11.webp",
             "title": "Less waste, fewer refills, lower cost",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -292,6 +319,7 @@
           "settings": {
             "image": "shopify://shop_images/7_1.webp",
             "title": "Better taste you can trust for 40+ years",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -307,13 +335,16 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
+        "page_width": 120,
         "title": "",
-        "w1": 21,
-        "w2": 18,
+        "sub_title": "",
+        "w1": 19,
+        "w2": 16,
         "p1": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
+        "text_layout": "below",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 5,
@@ -322,8 +353,8 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 64,
-        "padding_bottom": 20,
+        "padding_top": 28,
+        "padding_bottom": 0,
         "cs1": ""
       }
     },
@@ -393,23 +424,27 @@
     },
     "custom_text_section_9EqMzU": {
       "type": "custom-text-section",
+      "custom_css": [
+        "a {color: #f1d14e !important;}"
+      ],
       "name": "Custom Text",
       "settings": {
         "hd1": 32,
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "Product Description",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
         "line_width_desktop": 290,
         "line_width_mobile": 260,
-        "left_content": "<ul><li>The Phoenix Gravity Mini is easy to set up in under 10 minutes.</li><li>Housed in 304-grade stainless steel, naturally toxin-free, BPA-free, non-leaching.</li><li>Impregnated with silver to prevent bacteria growth.</li><li>Fuses natural force of gravity with modern technology and the highest-grade environmentally friendly materials for the most effective, sustainable and durable filtration on the market.</li></ul>",
+        "left_content": "<ul><li>World’s first refillable fluoride removal cartridge uses advanced technology to remove more than 95% of fluoride, without using reverse osmosis.</li><li>Fuses natural force of gravity with the highest-grade environmentally-friendly materials for the most effective and sustainable Fluoride removal on the market.</li><li>Less waste and plastic than other fluoride removal cartridges - no electricity required.</li></ul>",
         "t1": 18,
         "t2": 18,
         "text_width": 1200,
         "cl1": "#2f2954",
-        "right_content": "<ul><li>Perfect to travel with, holding up to 1L of spring-like water any time.</li><li>Activated three-stage carbon filters made from highest grade coconut shells (CTC 60), removes 99.99% of contaminants while preserving 100% of the nutrients your body needs.</li><li>Our cartridges use an activated carbon block that traps physical contaminants more than 20 times smaller than jug filters.</li></ul>",
+        "right_content": "<ul><li>Housed in 304 stainless steel, the most chemically-neutral and safe material for domestic water filtration, perfectly compatible with all Gravity Systems and easy to set up.</li><li>The POSTreat is designed for maximum re-use, with our replaceable proprietary <a href=\"https://phoenixwaterfilters.co.uk/products/postreat-fluorid-media-refill\" title=\"https://phoenixwaterfilters.co.uk/products/postreat-fluorid-media-refill\">FluoRid Filtration media-</a> refillable every 4 months.</li></ul>",
         "bottom_heading": "",
         "w1": 24,
         "w2": 16,
@@ -421,7 +456,7 @@
         "text_color": "#121212",
         "bg_color": "#eaeef1",
         "padding_top": 5,
-        "padding_bottom": 30,
+        "padding_bottom": 15,
         "show_bottom_buttons": false,
         "buttons_per_row_desktop": 4,
         "buttons_per_row_mobile": 2,
@@ -491,7 +526,9 @@
       "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "page_width": 120,
         "image": "shopify://shop_images/postreat_landscape_1.jpg",
+        "custom_text": "",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -509,11 +546,12 @@
     "custom_video_text_VnLUkL": {
       "type": "custom-video-text",
       "custom_css": [
-        ".video-text-content {background: #548153; height: -webkit-fill-available; justify-content: flex-start !important; display: flex;}",
+        ".video-text-content {background: #548153; height: -webkit-fill-available; justify-content: flex-start !important; display: flex; padding: 10px;}",
         ".video-text-contents {display: flex; align-items: center; justify-content: center;}",
         "h2.video-text-heading {color: black;}",
         "li {color: white;}",
-        ".video-text-media {display: flex;}"
+        ".video-text-media {display: flex;}",
+        "@media (max-width: 768px) {h2 {font-size: 24px; }}"
       ],
       "name": "Video with Text (Fully Dynamic)",
       "settings": {
@@ -526,15 +564,17 @@
         "un1": 30,
         "b1": false,
         "s1": false,
-        "pd1": 29,
-        "pd2": 16,
+        "pd1": 11,
+        "pd2": 46,
+        "heading1": "",
         "heading": "",
-        "text": "<h2>Designed for durability</h2><ul><li>Unlike plastic filters, Phoenix Gravity’s 304-grade stainless steel housing won’t leach toxins, polyurethane, microplastics or harmful chemicals into your water.</li><li>Rust-resistant to withstand the rigours of everyday use for 10+ years.</li><li>Our all-purpose activated carbon cartridges last up to two years. This means fewer replacements and lower cost per litre.</li></ul>",
+        "text": "<h2>Designed for durability</h2><ul><li>Like the Phoenix Gravity System, the POSTreat has a stainless steel housing that won't leach polyurethane, microplastics, toxins or harmful chemicals into your water over time.</li><li>Rust-resistant to withstand the rigours of everyday use for 10+ years.</li><li>The uniquely replaceable FluoRid Media sachets last for 4 months.</li></ul>",
         "show_search": false,
         "search_placeholder": "Search products...",
         "search_btn_text": "Search",
-        "video": "shopify://files/videos/Rama Water Filters - Filter with containments MB v_1.mp4",
         "custom_video": "",
+        "image": "shopify://shop_images/postreat_image_1.png",
+        "image_mobile_1": "shopify://shop_images/postreat_image_1.png",
         "button_text": "",
         "button_link": "",
         "video_url": "",
@@ -545,8 +585,8 @@
         "underline_width_desktop": 610,
         "underline_width_mobile": 345,
         "padding_top": 0,
-        "padding_bottom": 20,
-        "media_height_desktop": "auto",
+        "padding_bottom": 30,
+        "media_height_desktop": "400px",
         "media_height_mobile": "auto",
         "cs1": "left-padding-class"
       }
@@ -563,6 +603,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -621,6 +662,52 @@
         "cs1": ""
       }
     },
+    "custom_video_text_9JaigG": {
+      "type": "custom-video-text",
+      "custom_css": [
+        "h2.video-text-heading {padding-left: 10%;}",
+        "h2 {margin-left: 70px;}",
+        "@media (min-width:768px){.video-text-content {width: 60%;}.video-text-media {width: 40%;}}",
+        "@media (max-width: 768px) {h2 {width: 85%; margin: auto; text-align: center; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 32,
+        "hd2": 24,
+        "w1": 21,
+        "w2": 16,
+        "u1": 34,
+        "un1": 70,
+        "b1": true,
+        "s1": true,
+        "pd1": 100,
+        "pd2": 40,
+        "heading1": "",
+        "heading": "Go one step further for fluoride removal:",
+        "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/postreat_image_1.png",
+        "image_mobile_1": "shopify://shop_images/postreat_image_1.png",
+        "button_text": "Shop now",
+        "button_link": "shopify://products/postreat-fluorid-media-refill",
+        "video_url": "",
+        "video_position": "left",
+        "bg_color": "#f4f6fa",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "underline_width_desktop": 470,
+        "underline_width_mobile": 210,
+        "padding_top": 10,
+        "padding_bottom": 20,
+        "media_height_desktop": "400px",
+        "media_height_mobile": "auto",
+        "cs1": ""
+      }
+    },
     "rich_text_TGEg6T": {
       "type": "rich-text",
       "name": "t:sections.rich-text.presets.name",
@@ -640,7 +727,7 @@
           "type": "right_item",
           "settings": {
             "icon": "shopify://shop_images/12_c19e6900-9faa-487c-9540-7f6a7f7db6b0.png",
-            "title": "Planet-friendlypurification",
+            "title": "Planet-friendly purification",
             "text": ""
           }
         },
@@ -648,15 +735,15 @@
           "type": "right_item",
           "settings": {
             "icon": "shopify://shop_images/206_3fba39af-9c11-42f2-a7e4-d51a8d4c0a37.png",
-            "title": "Fresh taste youcan trust",
+            "title": "Fresh taste you can trust",
             "text": ""
           }
         },
         "right_item_DNP9Pk": {
           "type": "right_item",
           "settings": {
-            "icon": "shopify://shop_images/94.png",
-            "title": "10 year warranty, 100 daymoney back guarantee",
+            "icon": "shopify://shop_images/1_2_eea731d1-2b0b-4789-b33f-0773edee5c49.png",
+            "title": "Less waste, fewerrefills, lower cost",
             "text": ""
           }
         },
@@ -681,24 +768,24 @@
         "left_item_8WgtrQ": {
           "type": "left_item",
           "settings": {
-            "icon": "shopify://shop_images/14_6b75726e-1a75-467c-8445-8e40a3d8b663.png",
-            "title": "Removes 99.9%of contaminants",
+            "icon": "shopify://shop_images/141_1.png",
+            "title": "Removes more than 95%of fluoride",
             "text": ""
           }
         },
         "left_item_TDiBYT": {
           "type": "left_item",
           "settings": {
-            "icon": "shopify://shop_images/21.png",
-            "title": "Highest-gradestainless steel",
+            "icon": "shopify://shop_images/4.1.png",
+            "title": "Compatible with PhoenixGravity Filter System",
             "text": ""
           }
         },
         "left_item_K6FtDb": {
           "type": "left_item",
           "settings": {
-            "icon": "shopify://shop_images/191.png",
-            "title": "Natural activatedcarbon filtration",
+            "icon": "shopify://shop_images/21.png",
+            "title": "Highest-gradestainless steel",
             "text": ""
           }
         },
@@ -747,14 +834,14 @@
         "section_bg": "#4d97c3",
         "container_width": 1600,
         "padding_top": 20,
-        "padding_bottom": 40,
+        "padding_bottom": 20,
         "padding_lr": 35,
-        "center_image": "shopify://shop_images/post_long_1.webp",
+        "center_image": "shopify://shop_images/postreat_image_1.png",
         "image_original": false,
-        "image_width_desktop": 500,
-        "image_width_mobile": 250,
+        "image_width_desktop": 590,
+        "image_width_mobile": 400,
         "image_margin": 0,
-        "icon_size": 110,
+        "icon_size": 105,
         "text_color": "#ffffff",
         "cs1": ""
       }
@@ -805,6 +892,7 @@
         "right_item_jQQhJE",
         "right_item_g6VNxr"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {p {font-size: 21px; text-align: left; padding-bottom: 15%; }}"
       ],
@@ -818,8 +906,8 @@
         "heading_color": "#000000",
         "section_bg": "#eaeef1",
         "container_width": 1300,
-        "padding_top": 30,
-        "padding_bottom": 30,
+        "padding_top": 80,
+        "padding_bottom": 80,
         "padding_lr": 0,
         "center_image": "shopify://shop_images/post_long_1.webp",
         "image_original": false,
@@ -827,12 +915,13 @@
         "image_width_mobile": 220,
         "image_margin": 0,
         "icon_size": 105,
-        "text_color": "#2f2954",
-        "cs1": "custom-slide-class templates"
+        "text_color": "#000000",
+        "cs1": "custom-slide-class"
       }
     },
     "custom_text_section_C8qwW6": {
       "type": "custom-text-section",
+      "disabled": true,
       "custom_css": [
         ".diffrent-class-text .cta-heading {width: 100% !important;}"
       ],
@@ -842,6 +931,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "The Phoenix Difference",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -902,9 +992,10 @@
     },
     "image_banner_xCpEer": {
       "type": "image-banner",
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Comparion_chart.webp",
+        "image": "shopify://shop_images/Comparion_chart-desktop.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -942,6 +1033,7 @@
         "hd2": 24,
         "show_heading_line": false,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1008,6 +1100,7 @@
           "settings": {
             "image": "shopify://shop_images/list1.png",
             "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity WaterFilter with Smart Carbon</a>",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -1018,6 +1111,7 @@
           "settings": {
             "image": "shopify://shop_images/list2.png",
             "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal</a>",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -1028,6 +1122,7 @@
           "settings": {
             "image": "shopify://shop_images/list3.png",
             "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal + Teak Wood Stand</a>",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -1042,13 +1137,16 @@
       "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
+        "page_width": 120,
         "title": "",
+        "sub_title": "",
         "w1": 24,
         "w2": 18,
         "p1": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
+        "text_layout": "below",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
@@ -1065,42 +1163,43 @@
     "custom_text_section_J8htEn": {
       "type": "custom-text-section",
       "custom_css": [
-        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; } .cta-heading {width: 90%; }}"
+        "@media (min-width: 768px) {.bottom-cta {justify-content: space-evenly !important; }}",
+        "@media (max-width: 768px) {.cta-headings {text-align: center; }}"
       ],
       "name": "Custom Text",
       "settings": {
-        "hd1": 40,
-        "hd2": 24,
-        "show_heading_line": false,
-        "c1": false,
+        "hd1": 18,
+        "hd2": 16,
+        "show_heading_line": true,
+        "c1": true,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
         "line_width_desktop": 120,
-        "line_width_mobile": 80,
+        "line_width_mobile": 40,
         "left_content": "",
-        "t1": 18,
-        "t2": 18,
+        "t1": 12,
+        "t2": 12,
         "text_width": 1200,
         "cl1": "#2f2954",
         "right_content": "",
-        "bottom_icon": "shopify://shop_images/100_days_5.png",
-        "bottom_heading": "If you don’t like your water filter, within 100 days we’ll give you a full refund.",
-        "w1": 24,
-        "w2": 16,
+        "bottom_heading": "Ready To Experience Water, As It Should Be?",
+        "w1": 29,
+        "w2": 19,
         "bottom_heading1": "",
         "bottom_button_text": "Complete Purchase",
         "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
         "button_bg": "#f5d24f",
-        "button_text_color": "#ffffff",
-        "text_color": "#ffffff",
-        "bg_color": "#33523b",
-        "padding_top": 25,
-        "padding_bottom": 0,
-        "show_bottom_buttons": true,
+        "button_text_color": "#000000",
+        "text_color": "#000000",
+        "bg_color": "#4d97c3",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "show_bottom_buttons": false,
         "buttons_per_row_desktop": 4,
         "buttons_per_row_mobile": 2,
-        "btn_width_desktop": 200,
+        "btn_width_desktop": 250,
         "btn_width_mobile": 155,
         "btn_text_1": "",
         "btn_link_1": "",
@@ -1140,6 +1239,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "FAQs",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1204,9 +1304,9 @@
         "collapsible_row_D7di3E": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How does the Phoenix Gravity Filter compare to plastic jugs or other filters?",
+            "heading": "Is the POSTtreat compatible with all gravity filters or just the Phoenix Gravity Filter?",
             "icon": "none",
-            "row_content": "<p>The Phoenix Gravity is one of the most advanced filtration systems on the market. With a Phoenix Gravity System, your water is purified through three-stages of activated carbon filtration to remove 99.9% of contaminants including bacteria, parasites, cysts, pesticides, heavy metals and more. Our highly dense filtration system uses the highest quality coconut shells (CTC 60) to create a tortuous path that traps physical contaminants that are more than 20 times smaller than jug filters.</p><p>Our stainless steel chambers not only prevent microplastics and other harmful chemicals from leaching into your water, but also hold significantly more purified water than the average jug. This makes it even easier for you to enjoy fresh, nutrient-rich hydration - whenever you need it most. Unlike Reverse Osmosis (RO) filters, the gravity system does not require electricity to run or a plumber to install - and it won’t strip your water of the healthy nutrients your body benefits from.</p>",
+            "row_content": "<p>The POSTreat is compatible with all gravity filtration systems. Remember, it can’t be used alone - so you must have a gravity filtration system and existing Carbon Cartridge to use it.</p>",
             "page": ""
           }
         },
@@ -1215,16 +1315,16 @@
           "settings": {
             "heading": "Can I set it up myself?",
             "icon": "none",
-            "row_content": "<p>Absolutely. The Phoenix Gravity Mini is designed for easy DIY set-up within minutes - no plumber, electricity or prior knowledge required. We’ll send detailed instructions, along with instructions on how to prime your cartridge, with your Phoenix Gravity Mini.</p>",
+            "row_content": "<p>Absolutely. The POSTtreat is designed for easy DIY set-up with your Phoenix Gravity System. You simply attach your POSTtreat cartridges to the exposed thread of the Carbon Cartridges. We’ll send detailed assembly instructions with your POSTreat filter.</p>",
             "page": ""
           }
         },
         "collapsible_row_tWhmT6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I clean my carbon cartridges?",
+            "heading": "Can I clean my POSTtreat Fluoride Filter?",
             "icon": "none",
-            "row_content": "<p>Yes, it’s simple! You can easily clean your filter in your home using tap water and a soft brush or mild abrasive. We’ll include detailed instructions when we send your Phoenix Gravity Filter.</p>",
+            "row_content": "<p>Yes, it’s simple! You can clean the stainless steel casing of the POSTreat filter - without the FluoRid media inside - in your home using tap water and a soft brush or mild abrasive. The FluoRid media itself will need to be replaced every 4 months. We’ll include detailed instructions when we send it to you.</p>",
             "page": ""
           }
         },
@@ -1262,11 +1362,12 @@
         "caption": "",
         "c1": "rgba(0,0,0,0)",
         "heading": "",
+        "heading1": "",
         "h1": 50,
         "h2": 24,
         "w1": 26,
-        "w2": 21,
-        "w3": 18,
+        "w2": 18,
+        "w3": 21,
         "w4": 16,
         "heading_size": "h1",
         "heading_alignment": "center",
@@ -1287,15 +1388,12 @@
         "text_xn8h7z": {
           "type": "text",
           "settings": {
-            "text": "<p>Still have a burning question? See all our  <a href=\"/pages/faqs\" title=\"New FAQ\">FAQs </a> here.</p>"
+            "text": "<p>Still have a burning question? See our full FAQs <a href=\"/pages/faqs\" title=\"New FAQ\">here.</a></p>"
           }
         }
       },
       "block_order": [
         "text_xn8h7z"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 750px) {.rich-text__wrapper {max-width: 97%; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -1304,7 +1402,7 @@
         "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 12,
-        "padding_bottom": 8
+        "padding_bottom": 52
       }
     },
     "custom_text_section_ffY7mW": {
@@ -1315,6 +1413,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "The Phoenix difference, straight from the source(s).",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1336,7 +1435,7 @@
         "button_text_color": "#ffffff",
         "text_color": "#2d2d4f",
         "bg_color": "#eaeef1",
-        "padding_top": 5,
+        "padding_top": 15,
         "padding_bottom": 5,
         "show_bottom_buttons": false,
         "buttons_per_row_desktop": 4,
@@ -1390,9 +1489,14 @@
         "judge_me_reviews_review_widget_CrYUGw"
       ],
       "custom_css": [
-        "{background: #eaeef1;}",
-        ".jm-stack {padding-top: 0px !important;}"
+        "{background: #eaeef1;}"
       ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "177192782539c9440e": {
+      "type": "apps",
       "settings": {
         "include_margins": true
       }
@@ -1408,6 +1512,7 @@
     "image_with_text_baXir8",
     "custom_video_text_VnLUkL",
     "custom_text_section_WJkaK8",
+    "custom_video_text_9JaigG",
     "rich_text_TGEg6T",
     "custom_side_icons_8nbxxy",
     "custom_side_icons_tJBD7w",
@@ -1421,6 +1526,7 @@
     "collapsible_content_jF6Q7J",
     "rich_text_3CWq7r",
     "custom_text_section_ffY7mW",
-    "17682225923f240bf1"
+    "17682225923f240bf1",
+    "177192782539c9440e"
   ]
 }

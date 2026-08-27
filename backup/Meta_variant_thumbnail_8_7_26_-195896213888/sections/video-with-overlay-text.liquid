@@ -256,7 +256,9 @@
             </h2>
           </div>
         {%- endunless -%}
+        
       </div>
+      
     {%- endif -%}
 
     <div
@@ -365,7 +367,9 @@
                   </h2>
                 </div>
               {%- endunless -%}
-
+  <h1 class="title inline-richtext {{ section.settings.heading_size }}">
+                    {{ section.settings.heading1 }}
+                  </h1>
               {%- unless section.settings.h1 == blank -%}
                 <div class="video-bottom-heading-{{ section.id }}">
                   {{ section.settings.h1 }}
@@ -481,6 +485,11 @@
       "id": "heading",
       "default": "t:sections.video.settings.heading.default",
       "label": "t:sections.video.settings.heading.label"
+    },
+       {
+      "type": "inline_richtext",
+      "id": "heading1",
+      "label": "Heading H1"
     },
     {
       "type": "inline_richtext",

@@ -156,8 +156,6 @@
         "settings": {
           "greeting_message": "",
           "button_color": "#000000",
-          "secondary_color": "#ffffff",
-          "ternary_color": "#6a6a6a",
           "button_icon": "chat_bubble",
           "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
@@ -234,6 +232,11 @@
       "10142937387702430166": {
         "type": "shopify://apps/timesact-pre-order/blocks/app-embed/bf6c109b-79b5-457c-8752-0e5e9e9676e7",
         "disabled": false,
+        "settings": {}
+      },
+      "12657775114333427046": {
+        "type": "shopify://apps/essential-countdown-timer/blocks/app_embed/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
+        "disabled": true,
         "settings": {}
       }
     },

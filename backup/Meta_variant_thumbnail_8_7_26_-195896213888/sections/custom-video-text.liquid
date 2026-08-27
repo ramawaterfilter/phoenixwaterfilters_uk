@@ -11,7 +11,7 @@
     <h2 class="video-text-heading hh">{{ section.settings.h1 }}</h2>
   {% endif %}
 
-  <div class="page-widthh video-text-wrapper {% if section.settings.video_position == 'right' %}reverse{% endif %}">
+  <div class="{% if product.template_suffix == 'default_product_variant' %} page-width {% else %} page-widthh {% endif %} video-text-wrapper {% if section.settings.video_position == 'right' %}reverse{% endif %}">
     <!-- TEXT CONTENT -->
     <div class="video-text-content">
       {% if section.settings.heading1 != blank %}

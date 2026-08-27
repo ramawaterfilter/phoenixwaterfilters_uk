@@ -517,6 +517,7 @@
         "media_bwiEwf",
         "text_f7QdXy"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "Custom Video with text",
       "settings": {
@@ -580,9 +581,9 @@
         "text_hqqxrf": {
           "type": "text",
           "settings": {
-            "background_color": "#07726f",
+            "background_color": "#eaeef1",
             "heading_color": "#000000",
-            "text_color": "#ffffff",
+            "text_color": "#2f2954",
             "section_heading": "",
             "heading": "How do KokoCarb Cartridges work?",
             "text": "<p><strong>Stage One: Advanced Carbon Filtration</strong><br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as Microplastics, Cysts, and Bacteria. Its powerful adsorptive properties also target chemicals including Chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p><strong>Stage Two: Built-in Sterilisation</strong><br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mould within the filter, supporting long-lasting purity and protection.</p><p></p>",
@@ -609,9 +610,104 @@
         "media_Qt6f3j",
         "text_hqqxrf"
       ],
-      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.page-widthh.video-text-wrapper {max-width: 100%; } .video-text-content {width: 100%; background: #eaeef1 !important; } .video-text-wrapper {display: flex; flex-direction: column-reverse !important; } .video-text-media {width: 100%; } .heading-underline {width: 30%; margin: auto; } .video-text-heading {text-align: center; color: #2f2953 !important; } .video-text-desc {width: 100%; display: flex; color: #2f2953; } .video-text-desc p {width: 49%; color: #2f2953; }}"
+      ],
+      "name": "Custom Video with text",
+      "settings": {
+        "page_width": 120,
+        "h1": "",
+        "hd1": 40,
+        "hd2": 22,
+        "w1": 21,
+        "w2": 16,
+        "u1": 50,
+        "un1": 30,
+        "b1": true,
+        "s1": true,
+        "pd1": 50,
+        "pd2": 40,
+        "heading1": "",
+        "heading": "Designed for durability",
+        "text": "<ul><li>High quality stainless steel</li><li>Rust resistant</li></ul>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "right",
+        "bg_color": "#f4f6fa",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 300,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "media_height_desktop": "auto",
+        "media_height_mobile": "auto",
+        "cs1": ""
+      }
+    },
+    "nice_custom_video_text_kzzAFh": {
+      "type": "nice-custom-video-text",
+      "blocks": {
+        "media_Jyj7jm": {
+          "type": "media",
+          "settings": {
+            "background_color": "#f4f6fa",
+            "video": "shopify://files/videos/filtration-process- new.mp4",
+            "custom_video": "",
+            "video_url": "",
+            "media_height_desktop": "auto",
+            "media_height_mobile": "auto",
+            "heading": "How do KokoCarb Cartridges work?",
+            "heading_size_mobile": 24,
+            "show_heading_line": true,
+            "line_color": "#ff7a00",
+            "line_width_mobile": 250,
+            "show_mobile_button": false,
+            "button_text": "Learn more",
+            "button_link": ""
+          }
+        },
+        "text_w4YEtH": {
+          "type": "text",
+          "settings": {
+            "background_color": "#eaeef1",
+            "heading_color": "#000000",
+            "text_color": "#2f2954",
+            "section_heading": "",
+            "heading": "How do KokoCarb Cartridges work?",
+            "text": "<p><strong>Stage One: Advanced Carbon Filtration</strong><br/><br/>The activated carbon creates a highly complex structure that helps reduce contaminants such as Microplastics, Cysts, and Bacteria. Its powerful adsorptive properties also target chemicals including Chlorine, lead, and pesticides, delivering cleaner, safer water.</p><p><strong>Stage Two: Built-in Sterilisation</strong><br/><br/>Silver-infused technology helps inhibit the growth of bacteria and mould within the filter, supporting long-lasting purity and protection.</p><p></p>",
+            "show_underline": true,
+            "show_search": false,
+            "search_placeholder": "Search products...",
+            "search_button_text": "Search",
+            "button_text": "",
+            "button_link": "",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 20,
+            "text_size_desktop": 18,
+            "text_size_mobile": 16,
+            "list_padding_desktop": 100,
+            "list_padding_mobile": 40,
+            "underline_width_desktop": 360,
+            "line_width_mobile": 80,
+            "underline_margin_bottom": 0,
+            "underline_margin_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_Jyj7jm",
+        "text_w4YEtH"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.video-text-content {width: 100%; background: #eaeef1 !important; } .video-text-wrapper {display: flex; flex-direction: column-reverse !important; } .video-text-media {width: 100%; } .heading-underline {width: 30%; margin: auto; } .video-text-heading {text-align: center; color: #2f2953 !important; } .video-text-desc {width: 100%; display: flex; color: #2f2953; } .video-text-desc p {width: 49%; color: #2f2953; }}",
+        "@media screen and (max-width: 767px) {.video-text-desc {display: none; }}"
       ],
       "name": "Custom Video with text",
       "settings": {
@@ -737,6 +833,62 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "collapsible_content_PyMQAf": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_TepATw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Stage One: Advanced Carbon Filtration",
+            "icon": "none",
+            "row_content": "<p>The activated carbon creates a highly complex structure that helps reduce contaminants such as Microplastics, Cysts, and Bacteria. Its powerful adsorptive properties also target chemicals including Chlorine, lead, and pesticides, delivering cleaner, safer water.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_E6q6qN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Stage Two: Built-in Sterilisation",
+            "icon": "none",
+            "row_content": "<p>Silver-infused technology helps inhibit the growth of bacteria and mould within the filter, supporting long-lasting purity and protection.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_TepATw",
+        "collapsible_row_E6q6qN"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "anchor_id": "",
+        "caption": "",
+        "c1": "#deb1b2",
+        "heading": "",
+        "heading1": "",
+        "h1": 50,
+        "h2": 24,
+        "w1": 21,
+        "w2": 16,
+        "w3": 16,
+        "w4": 14,
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "cs1": ""
       }
     },
     "variant_conditional_content_peWxRU": {
@@ -1261,8 +1413,10 @@
     "rich_text_n9a6Ja",
     "nice_custom_video_text_NmybXF",
     "nice_custom_video_text_99gkAC",
+    "nice_custom_video_text_kzzAFh",
     "custom_text_section_XRM4CG",
     "video_LFfEHe",
+    "collapsible_content_PyMQAf",
     "variant_conditional_content_peWxRU",
     "custom_text_section_C8qwW6",
     "comparison_cart_KBm9AY",
