@@ -4,6 +4,10 @@
 
   <variant-conditional-content
     class="variant-conditional-content color-{{ section.settings.color_scheme }} gradient"
+    style="
+      --section-padding-mobile: {{ section.settings.padding_mobile }}px;
+      --section-padding-desktop: {{ section.settings.padding_desktop }}px;
+    "
     data-product-handle="{{ product.handle | escape }}"
     data-target-variant-id="{{ target_variant_id | escape }}"
     {% unless selected_variant_id == target_variant_id %}
@@ -124,7 +128,7 @@
 {% stylesheet %}
   .variant-conditional-content {
     display: block;
-    padding-block: 40px;
+    padding-block: var(--section-padding-mobile);
   }
 
   .variant-conditional-content[hidden] {
@@ -280,7 +284,7 @@
 
   @media screen and (min-width: 750px) {
     .variant-conditional-content {
-      padding-block: 64px;
+      padding-block: var(--section-padding-desktop);
     }
 
     .variant-feature-marquee {
@@ -349,7 +353,14 @@
         }
 
         setVisibility(variantId) {
-          this.hidden = String(variantId) !== this.dataset.targetVariantId;
+          const shouldShow = String(variantId) === this.dataset.targetVariantId;
+          this.hidden = !shouldShow;
+
+          if (shouldShow) {
+            requestAnimationFrame(() => {
+              this.querySelectorAll('variant-feature-marquee').forEach((marquee) => marquee.refresh());
+            });
+          }
         }
       }
     );
@@ -426,6 +437,11 @@
 
           this.position %= this.contentWidth;
           this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
+          this.start();
+        }
+
+        refresh() {
+          this.setup();
         }
 
         start() {
@@ -533,6 +549,30 @@
       "id": "button_style_secondary",
       "label": "Use secondary button style",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile vertical padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop vertical padding",
+      "default": 64
     }
   ],
   "blocks": [

@@ -2327,6 +2327,32 @@
             "heading_3": {
               "label": "Heading",
               "default": "Heading"
+            },
+            "pairing_4": {
+            "label": "Pairing 4"
+            },             
+            "icon_4": {
+              "label": "Icon"
+            },
+            "image_4": {
+              "label": "Image"
+            },
+            "heading_4": {
+              "label": "Heading",
+              "default": "Heading"
+            },
+            "pairing_5": {
+            "label": "Pairing 5"
+            },             
+            "icon_5": {
+              "label": "Icon"
+            },
+            "image_5": {
+              "label": "Image"
+            },
+            "heading_5": {
+              "label": "Heading",
+              "default": "Heading"
             }
           }
         }
@@ -3050,6 +3076,9 @@
           },
           "options__3": {
             "label": "Numbers"
+          },
+          "option__4":{
+            "label":"None"
           }
         },
         "auto_rotate": {

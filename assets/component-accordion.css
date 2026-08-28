@@ -56,3 +56,9 @@
 .accordion__content img {
   max-width: 100%;
 }
+
+@media screen and (max-width:767px){
+  .accordion {
+  margin-top: 0;
+  }
+}

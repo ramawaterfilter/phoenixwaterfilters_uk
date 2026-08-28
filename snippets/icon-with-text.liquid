@@ -3,6 +3,7 @@
   assign heading_2_empty = false
   assign heading_3_empty = false
   assign heading_4_empty = false
+  assign heading_5_empty = false
   assign text_only_all_items = true
 
   if block.settings.heading_1 == empty
@@ -21,6 +22,10 @@
     assign heading_4_empty = true
   endif
 
+  if block.settings.heading_5 == empty
+    assign heading_5_empty = true
+  endif
+
   if heading_1_empty == false and block.settings.icon_1 != 'none' or block.settings.image_1 != null
     assign text_only_all_items = false
   elsif heading_2_empty == false and block.settings.icon_2 != 'none' or block.settings.image_2 != null
@@ -28,6 +33,8 @@
   elsif heading_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
     assign text_only_all_items = false
   elsif heading_4_empty == false and block.settings.icon_4 != 'none' or block.settings.image_4 != null
+    assign text_only_all_items = false
+  elsif heading_5_empty == false and block.settings.icon_5 != 'none' or block.settings.image_5 != null
     assign text_only_all_items = false
   endif
 -%}
@@ -76,7 +83,7 @@
           loading="lazy"
         >
       {%- endif -%}
-      <span class="h4 inline-richtext">
+      <span class="h4 inline-richtext shipping-benefit-text">
         {{- block.settings.heading_2 -}}
       </span>
     </li>
@@ -127,4 +134,60 @@
       </span>
     </li>
   {%- endunless -%}
+
+  {%- unless heading_5_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_5 == null -%}
+        {%- render 'icon-accordion', icon: block.settings.icon_5 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_5 | image_url }}"
+          {% if block.settings.image_5.alt != blank %}
+            alt="{{ block.settings.image_5.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_5 -}}
+      </span>
+    </li>
+  {%- endunless -%}
 </ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function updateShippingBenefitText() {
+    var shippingText = document.querySelector('.shipping-benefit-text');
+
+    if (!shippingText) return;
+
+    var selectedSellingPlan = document.querySelector(
+      'input[name="selling_plan"]:checked, select[name="selling_plan"]'
+    );
+
+    if (selectedSellingPlan && selectedSellingPlan.value !== '') {
+      shippingText.textContent = 'Free Shipping';
+    } else {
+      shippingText.textContent = 'Fast Shipping';
+    }
+  }
+
+  document.addEventListener('change', function (event) {
+    if (
+      event.target.matches('input[name="selling_plan"]') ||
+      event.target.matches('select[name="selling_plan"]') ||
+      event.target.closest('.appstle_subscription_wrapper') ||
+      event.target.closest('[class*="appstle"]')
+    ) {
+      setTimeout(updateShippingBenefitText, 200);
+    }
+  });
+
+  setTimeout(updateShippingBenefitText, 800);
+});
+</script>

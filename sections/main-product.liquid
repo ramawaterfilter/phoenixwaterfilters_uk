@@ -291,11 +291,34 @@
                   {%- endif -%}
                 </p>
               {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+              {%- assign selected_variant = product.selected_or_first_available_variant -%}
+              {%- assign variant_description = selected_variant.metafields.custom.variant_level_description -%}
+
+              <div
+                class="product__description-wrapper quick-add-hidden"
+                {{ block.shopify_attributes }}
+              >
+                <div
+                  id="ProductDescription-{{ section.id }}"
+                  class="product__description rte"
+                >
+                  {%- if variant_description != blank -%}
+                    {{ variant_description | metafield_tag }}
+                  {%- else -%}
                     {{ product.description }}
-                  </div>
-                {%- endif -%}
+                  {%- endif -%}
+                </div>
+
+                <button
+                  type="button"
+                  class="product__description-read-more is-hidden"
+                  id="ProductDescriptionToggle-{{ section.id }}"
+                  hidden
+                >
+                  Read more
+                </button>
+              </div>
+
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -332,8 +355,44 @@
 
                     </div>
                   </details>
-        
+                  </div>
 
+              {%- when 'variant_metafield_tab' -%}
+                {%- liquid
+                  assign selected_variant = product.selected_or_first_available_variant
+                  assign metafield_namespace = block.settings.metafield_namespace | strip
+                  assign metafield_key = block.settings.metafield_key | strip
+                  assign variant_metafield = selected_variant.metafields[metafield_namespace][metafield_key]
+                -%}
+                <variant-metafield-accordion
+                  id="VariantMetafieldAccordion-{{ block.id }}-{{ section.id }}"
+                  class="product__accordion accordion quick-add-hidden"
+                  {% if block.settings.hide_when_empty and variant_metafield == blank %}
+                    hidden
+                  {% endif %}
+                  {{ block.shopify_attributes }}
+                >
+                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                    <summary>
+                      <div class="summary__title">
+                        {% render 'icon-accordion', icon: block.settings.icon %}
+                        <h2 class="h4 accordion__title inline-richtext">
+                          {{ block.settings.heading | escape }}
+                        </h2>
+                      </div>
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </summary>
+                    <div
+                      class="accordion__content rte"
+                      data-variant-metafield-content
+                      id="ProductAccordion-{{ block.id }}-{{ section.id }}"
+                    >
+                      {%- if variant_metafield != blank -%}
+                        {{ variant_metafield | metafield_tag }}
+                      {%- endif -%}
+                    </div>
+                  </details>
+                </variant-metafield-accordion>
 
               {%- when 'quantity_selector' -%}
                 <div
@@ -681,6 +740,7 @@
                           >
                             {% assign skip_card_product_styles = false %}
                             {%- for i in (1..number_of_slides) -%}
+                              {%- assign product_offset = forloop.index0 | times: block.settings.products_per_page -%}
                               <div
                                 id="Slide-{{ block.id }}-{{ forloop.index }}"
                                 class="complementary-slide complementary-slide--{{ settings.card_style }} grid__item slider__slide slideshow__slide"
@@ -694,7 +754,7 @@
                                 <ul class="list-unstyled" role="list">
                                   {%- for product in recommendations.products
                                     limit: block.settings.products_per_page
-                                    offset: continue
+                                    offset: product_offset
                                   -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
@@ -833,20 +893,253 @@
       </script>
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
-
-    {%- liquid
-      if product.selected_or_first_available_variant.featured_media
-        assign seo_media = product.selected_or_first_available_variant.featured_media
-      else
-        assign seo_media = product.featured_media
-      endif
-    -%}
-
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
   </div>
 </product-info>
+
+<script>
+  (() => {
+    const defineVariantMetafieldAccordion = () => {
+      if (!customElements.get('variant-metafield-accordion')) {
+        customElements.define(
+          'variant-metafield-accordion',
+          class VariantMetafieldAccordion extends HTMLElement {
+            connectedCallback() {
+              this.unsubscribe = subscribe(PUB_SUB_EVENTS.variantChange, ({ data }) => {
+                const source = data?.html?.getElementById(this.id);
+                const sourceContent = source?.querySelector('[data-variant-metafield-content]');
+                const currentContent = this.querySelector('[data-variant-metafield-content]');
+
+                if (!source || !sourceContent || !currentContent) {
+                  this.hidden = true;
+                  return;
+                }
+
+                currentContent.innerHTML = sourceContent.innerHTML;
+                this.hidden = source.hidden;
+              });
+            }
+
+            disconnectedCallback() {
+              this.unsubscribe?.();
+            }
+          }
+        );
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', defineVariantMetafieldAccordion, { once: true });
+    } else {
+      defineVariantMetafieldAccordion();
+    }
+  })();
+</script>
+
+<script type="application/json" id="ProductDescriptionData-{{ section.id }}">
+    {
+      "product": {{ product.description | json }},
+      "variants": {
+        {%- for variant in product.variants -%}
+          {%- capture v_description -%}
+            {%- if variant.metafields.custom.variant_level_description != blank -%}
+              {{ variant.metafields.custom.variant_level_description | metafield_tag }}
+            {%- endif -%}
+          {%- endcapture -%}
+          "{{ variant.id }}": {{ v_description | strip | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      }
+    }
+  </script>
+
+  <script>
+    (function () {
+      function initDescriptionReadMore() {
+        const description = document.getElementById('ProductDescription-{{ section.id }}');
+        const toggleButton = document.getElementById('ProductDescriptionToggle-{{ section.id }}');
+        const dataScript = document.getElementById('ProductDescriptionData-{{ section.id }}');
+
+        if (!description || !toggleButton || !dataScript) return;
+
+        let descriptionData = {
+          product: description.innerHTML,
+          variants: {}
+        };
+
+        try {
+          descriptionData = JSON.parse(dataScript.textContent);
+        } catch (error) {}
+
+        const sectionRoot =
+          document.getElementById('shopify-section-{{ section.id }}') ||
+          description.closest('.shopify-section') ||
+          document;
+
+        const markers = ['12months', '12 months'];
+
+        let originalHtml = '';
+        let activeVariantId = '';
+        let loadedHtml = '';
+
+        function hasRealContent(element) {
+          const text = (element.textContent || '').replace(/[.\s…,:;!?-]/g, '');
+          const hasText = text.length > 0;
+          const hasMedia = element.querySelector('img, video, iframe, table, ul, ol');
+
+          return hasText || !!hasMedia;
+        }
+
+        function findMarker(root) {
+          const walker = document.createTreeWalker(
+            root,
+            NodeFilter.SHOW_TEXT,
+            {
+              acceptNode: function (node) {
+                const value = (node.nodeValue || '').toLowerCase();
+
+                const found = markers.some(function (marker) {
+                  return value.indexOf(marker.toLowerCase()) !== -1;
+                });
+
+                return found ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+              }
+            }
+          );
+
+          const node = walker.nextNode();
+
+          if (!node) return null;
+
+          const value = node.nodeValue || '';
+          const lowerValue = value.toLowerCase();
+
+          let bestMatch = null;
+
+          markers.forEach(function (marker) {
+            const index = lowerValue.indexOf(marker.toLowerCase());
+
+            if (index !== -1 && (!bestMatch || index < bestMatch.index)) {
+              bestMatch = {
+                node: node,
+                index: index,
+                marker: marker
+              };
+            }
+          });
+
+          return bestMatch;
+        }
+
+        function applyReadMoreSplit() {
+          if (originalHtml) {
+            description.innerHTML = originalHtml;
+          } else {
+            originalHtml = description.innerHTML;
+          }
+
+          toggleButton.hidden = true;
+          toggleButton.classList.add('is-hidden');
+          toggleButton.textContent = 'Read more';
+
+          description.classList.remove('is-description-expanded');
+
+          const match = findMarker(description);
+
+          if (!match) return;
+
+          let splitIndex = match.index + match.marker.length;
+          const textValue = match.node.nodeValue || '';
+
+          while (
+            splitIndex < textValue.length &&
+            /[\s.,:;!?…-]/.test(textValue.charAt(splitIndex))
+          ) {
+            splitIndex++;
+          }
+
+          const afterNode = match.node.splitText(splitIndex);
+
+          const range = document.createRange();
+          range.setStartBefore(afterNode);
+          range.setEndAfter(description.lastChild);
+
+          const hiddenFragment = range.extractContents();
+
+          const moreWrapper = document.createElement('div');
+          moreWrapper.className = 'product__description-more';
+          moreWrapper.hidden = true;
+          moreWrapper.appendChild(hiddenFragment);
+
+          if (!hasRealContent(moreWrapper)) return;
+
+          description.appendChild(moreWrapper);
+
+          toggleButton.hidden = false;
+          toggleButton.classList.remove('is-hidden');
+        }
+
+        function getCurrentVariantId() {
+          const variantInput = sectionRoot.querySelector(
+            'form[action*="/cart/add"] input[name="id"], input.product-variant-id[name="id"]'
+          );
+
+          return variantInput ? variantInput.value : null;
+        }
+
+        function renderCurrentVariantDescription() {
+          const variantId = getCurrentVariantId();
+
+          const variantHtml =
+            variantId &&
+            descriptionData.variants &&
+            descriptionData.variants[variantId]
+              ? descriptionData.variants[variantId]
+              : descriptionData.product;
+
+          if (
+            activeVariantId !== String(variantId || '') ||
+            loadedHtml !== variantHtml
+          ) {
+            description.innerHTML = variantHtml || '';
+            originalHtml = description.innerHTML;
+            activeVariantId = String(variantId || '');
+            loadedHtml = variantHtml || '';
+          }
+
+          applyReadMoreSplit();
+        }
+
+        toggleButton.addEventListener('click', function () {
+          const moreContent = description.querySelector('.product__description-more');
+
+          if (!moreContent) return;
+
+          const isExpanded = description.classList.toggle('is-description-expanded');
+
+          moreContent.hidden = !isExpanded;
+          toggleButton.textContent = isExpanded ? 'Read less' : 'Read more';
+        });
+
+        renderCurrentVariantDescription();
+
+        document.addEventListener('variant:change', function () {
+          setTimeout(renderCurrentVariantDescription, 100);
+        });
+
+        sectionRoot.addEventListener('change', function () {
+          setTimeout(renderCurrentVariantDescription, 100);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDescriptionReadMore);
+      } else {
+        initDescriptionReadMore();
+      }
+    })();
+  </script>
 
 {% schema %}
 {
@@ -1277,6 +1570,66 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "variant_metafield_tab",
+      "name": "Variant metafield tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Variant information",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "clipboard",
+              "label": "Clipboard"
+            },
+            {
+              "value": "question_mark",
+              "label": "Question mark"
+            },
+            {
+              "value": "ruler",
+              "label": "Ruler"
+            }
+          ],
+          "default": "check_mark",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "metafield_namespace",
+          "default": "custom",
+          "label": "Metafield namespace",
+          "info": "The namespace of the product variant metafield."
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "default": "what_in_the_box",
+          "label": "Metafield key",
+          "info": "The key of the product variant metafield."
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_when_empty",
+          "default": true,
+          "label": "Hide tab when metafield is empty"
         }
       ]
     },
@@ -2204,7 +2557,7 @@
         },
          {
           "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
+          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_4.label"
         },
 
 
@@ -2402,6 +2755,206 @@
           "id": "heading_4",
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
+          "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_5.label"
+        },
+        {
+          "type": "select",
+          "id": "icon_5",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+            },
+            {
+              "value": "apple",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+            },
+            {
+              "value": "banana",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+            },
+            {
+              "value": "bottle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+            },
+            {
+              "value": "box",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+            },
+            {
+              "value": "carrot",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+            },
+            {
+              "value": "check_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+            },
+            {
+              "value": "clipboard",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+            },
+            {
+              "value": "dairy",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+            },
+            {
+              "value": "dairy_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+            },
+            {
+              "value": "dryer",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+            },
+            {
+              "value": "eye",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+            },
+            {
+              "value": "fire",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+            },
+            {
+              "value": "gluten_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+            },
+            {
+              "value": "heart",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+            },
+            {
+              "value": "iron",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+            },
+            {
+              "value": "leaf",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+            },
+            {
+              "value": "leather",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+            },
+            {
+              "value": "lipstick",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+            },
+            {
+              "value": "lock",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+            },
+            {
+              "value": "map_pin",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+            },
+            {
+              "value": "nut_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+              "value": "pants",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+            },
+            {
+              "value": "paw_print",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+            },
+            {
+              "value": "pepper",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+            },
+            {
+              "value": "perfume",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+            },
+            {
+              "value": "plane",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+            },
+            {
+              "value": "plant",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+            },
+            {
+              "value": "price_tag",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+            },
+            {
+              "value": "question_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+            },
+            {
+              "value": "recycle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+            },
+            {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+            },
+            {
+              "value": "serving_dish",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+            },
+            {
+              "value": "snowflake",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+            },
+            {
+              "value": "stopwatch",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            }
+          ],
+          "default": "truck",
+          "label": "t:sections.main-product.blocks.icon_with_text.settings.icon_5.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "t:sections.main-product.blocks.icon_with_text.settings.image_5.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_5",
+          "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_5.default",
+          "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_5.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         },
   
@@ -2676,7 +3229,7 @@ document.addEventListener("DOMContentLoaded", function() {
   height: 1rem;
   flex-shrink: 0;
 }
-
+.product__accordion .summary__title + .icon-plus{position:relative;top:8px;}
     
         
 /* ============================= */

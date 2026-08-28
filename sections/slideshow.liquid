@@ -44,7 +44,7 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
+      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %} {% if section.settings.slider_visual == 'none'%} disable_pagination {% endif %}">
         {%- if section.settings.slider_visual == 'counter' -%}
           <span class="slider-counter--current">1</span>
           <span aria-hidden="true"> / </span>
@@ -256,7 +256,23 @@
     </div>
   {%- endif -%}
 </slideshow-component>
-
+<style>
+  .disable_pagination{display:none;}
+  .disable_pagination .slider-button--prev{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .disable_pagination .slider-button--next{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+</style>
 {%- if request.design_mode -%}
   <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
@@ -325,6 +341,10 @@
         {
           "value": "numbers",
           "label": "t:sections.slideshow.settings.slider_visual.options__3.label"
+        },
+        {
+          "value":"none",
+          "label":"t:sections.slideshow.settings.slider_visual.option__4.label"
         }
       ],
       "default": "counter",

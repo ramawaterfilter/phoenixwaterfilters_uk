@@ -3638,3 +3638,29 @@ details-disclosure > details {
 .size-guide-close{
   display:none !important;
 }
+
+.product__description-wrapper {
+  position: relative;
+}
+
+.product__description {
+  line-height: 24px;
+}
+
+.product__description-more[hidden],
+.product__description-read-more[hidden],
+.product__description-read-more.is-hidden {
+  display: none !important;
+}
+
+.product__description-read-more {
+  margin-top: 10px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}

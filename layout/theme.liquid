@@ -562,29 +562,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% endif %}
 }
 </script>
-
-
-{% if product.metafields.custom.faq_question_1 %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": {{ product.metafields.custom.faq_question_1 | json }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ product.metafields.custom.faq_answer_1 | json }}
-      }
-    }
-  ]
-}
-
-</script>
-
 {% endif %}
-{% endif %}
+
+
+
+
 <script>
   window.developer = atob("S2FsaWVzd2FyYW4gLSBXZWJzaXRlIERldmVsb3Blcg==");
 </script>
@@ -622,9 +604,34 @@ jdgm.loadCSS(jdgm.CDN_HOST+"widget/base.css"):jdgm.loadCSS(jdgm.CDN_HOST+"shopif
       }, 2000);
     </script>
     <!-- End of Judge.me Core -->
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang start/////////////////////////////////////////////////////////////////// {% endcomment %}
+
+{% if template == 'index' %}
+<link rel="alternate" hreflang="en-us" href="https://phoenixwaterfilters.com/" />
+<link rel="alternate" hreflang="en-gb" href="https://phoenixwaterfilters.co.uk/" />
+<link rel="alternate" hreflang="fr-fr" href="https://phoenixwaterfilters.fr/" />
+<link rel="alternate" hreflang="x-default" href="https://phoenixwaterfilters.com/" />
+{% endif %}
+
+{% if product.metafields.custom.href_lang != blank %}
+  {{ product.metafields.custom.href_lang }}
+{% endif %}
+{% if collection.metafields.custom.href_lang != blank %}
+  {{ collection.metafields.custom.href_lang }}
+{% endif %}
+{% if page.metafields.custom.href_lang != blank %}
+  {{ page.metafields.custom.href_lang }}
+{% endif %}
+
+{% if blog.metafields.custom.href_lang != blank %}
+  {{ blog.metafields.custom.href_lang }}
+{% endif %}
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang end/////////////////////////////////////////////////////////////////// {% endcomment %}
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient {% if template.suffix != blank %}template-{{ template.suffix | handle }} {% else %} default-template {% endif %} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -643,7 +650,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-    
+
     {% sections 'footer-group' %}
 
     <ul hidden>
