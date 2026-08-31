@@ -17,8 +17,10 @@
   }
 {%- endstyle -%}
 
+{%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
+{%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
 <div
-  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  class="gradient color-{{ section.settings.color_scheme }}{% if phoenix_visible_cart_count == 0 %} is-empty{% endif %}"
   id="main-cart-footer"
   data-id="{{ section.id }}"
 >
@@ -110,7 +112,7 @@
                   id="checkout"
                   class="cart__checkout-button button"
                   name="checkout"
-                  {% if cart == empty %}
+                  {% if phoenix_visible_cart_count == 0 %}
                     disabled
                   {% endif %}
                   form="cart"

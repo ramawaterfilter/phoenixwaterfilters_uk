@@ -198,10 +198,6 @@
             "c1": "",
             "page": ""
           }
-        },
-        "sw_back_in_stock_product_restore_email_3JKHQJ": {
-          "type": "shopify://apps/sw-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
-          "settings": {}
         }
       },
       "block_order": [
@@ -226,8 +222,7 @@
         "collapsible_tab_yJEeBr",
         "collapsible_tab_WRPzJX",
         "collapsible_tab_yGYd4C",
-        "collapsible_tab_nFbX67",
-        "sw_back_in_stock_product_restore_email_3JKHQJ"
+        "collapsible_tab_nFbX67"
       ],
       "custom_css": [
         "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 38rem; }}",

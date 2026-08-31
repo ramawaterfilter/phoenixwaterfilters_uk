@@ -1,5 +1,8 @@
-{%- if cart != empty -%}
+{%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
+{%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
+{%- if phoenix_visible_cart_count > 0 -%}
   {%- for item in cart.items -%}
+    {%- unless item.properties._bundle_type == 'phoenix-auto-subscription' and item.properties._bundle_role == 'subscription' -%}
     <div id="cart-notification-product-{{ item.key }}" class="cart-item">
       {%- assign variant_cart_image = item.properties._variant_image -%}
       {%- if variant_cart_image != blank -%}
@@ -60,5 +63,6 @@
         {%- endif -%}
       </div>
     </div>
+    {%- endunless -%}
   {%- endfor -%}
 {%- endif -%}

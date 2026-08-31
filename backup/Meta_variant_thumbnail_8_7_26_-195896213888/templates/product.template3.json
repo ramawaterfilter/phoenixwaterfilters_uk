@@ -60,10 +60,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "sw_back_in_stock_product_restore_email_EFXEzy": {
-          "type": "shopify://apps/sw-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
-          "settings": {}
-        },
         "icon_with_text_j3aQXj": {
           "type": "icon-with-text",
           "disabled": true,
@@ -148,7 +144,6 @@
         "price",
         "appstle_subscription_appstle_subscription_product_page_widget_E8rJKT",
         "buy_buttons",
-        "sw_back_in_stock_product_restore_email_EFXEzy",
         "icon_with_text_j3aQXj",
         "collapsible_tab_WRPzJX",
         "collapsible_tab_yGYd4C",

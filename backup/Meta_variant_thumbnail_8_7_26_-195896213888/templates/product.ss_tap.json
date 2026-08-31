@@ -80,7 +80,6 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -362,6 +361,7 @@
       "block_order": [
         "heading_xVp9j3"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.rich-text__blocks {max-width: 100%; } .h1 {font-size: 32px; }}",
         "@media screen and (max-width: 767px) {.h1 {font-size: 12px; }}"
@@ -392,6 +392,7 @@
       "block_order": [
         "heading_xkmN4G"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 767px) {.ss_tap_banner_1 .banner__content {width: 50%; }}"
       ],
@@ -424,6 +425,7 @@
       "block_order": [
         "heading_dHTWB7"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.rich-text__blocks {max-width: 100%; } .h1 {font-size: 32px; }}",
         "@media screen and (max-width: 767px) {.h1 {font-size: 12px; }}"
@@ -440,6 +442,7 @@
     },
     "new_image_banner_DCDxJA": {
       "type": "new-image-banner",
+      "disabled": true,
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/ss_tap_2.jpg",
@@ -702,6 +705,26 @@
         "desktop_bullet_gap": 22,
         "mobile_bullet_gap": 0
       }
+    },
+    "1788003397cd799c85": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ArWAUF": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ArWAUF"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -717,6 +740,7 @@
     "new_image_banner_TTdWnn",
     "new_image_banner_ify79H",
     "new_custom_image_banner_tKTWA6",
-    "new_custom_image_banner_eLeeah"
+    "new_custom_image_banner_eLeeah",
+    "1788003397cd799c85"
   ]
 }

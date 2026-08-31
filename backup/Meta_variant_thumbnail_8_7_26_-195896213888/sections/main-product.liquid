@@ -337,7 +337,7 @@
               
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }} name="ProductAccordionGroup-{{ section.id }}">
+                  <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
@@ -1063,68 +1063,6 @@
   })();
 </script>
 
-<script>
-  (() => {
-    const sectionId = '{{ section.id }}';
-
-    window.__productSingleAccordion =
-      window.__productSingleAccordion || {};
-
-    if (window.__productSingleAccordion[sectionId]) {
-      return;
-    }
-
-    window.__productSingleAccordion[sectionId] = true;
-
-    document.addEventListener(
-      'toggle',
-      function (event) {
-        const currentDetails = event.target;
-
-        if (
-          !(currentDetails instanceof HTMLDetailsElement) ||
-          !currentDetails.open
-        ) {
-          return;
-        }
-
-        const productInfo = currentDetails.closest(
-          '#ProductInfo-{{ section.id }}'
-        );
-
-        if (!productInfo) {
-          return;
-        }
-
-        /*
-         * Only target the actual product accordion tabs.
-         * This includes:
-         * - collapsible_tab
-         * - variant_metafield_tab
-         */
-        if (
-          !currentDetails.matches(
-            '.product__accordion > details'
-          )
-        ) {
-          return;
-        }
-
-        productInfo
-          .querySelectorAll(
-            '.product__accordion > details[open]'
-          )
-          .forEach((details) => {
-            if (details !== currentDetails) {
-              details.removeAttribute('open');
-            }
-          });
-      },
-      true
-    );
-  })();
-</script>
-
   <script type="application/json" id="ProductDescriptionData-{{ section.id }}">
     {
       "product": {{ product.description | json }},
@@ -1440,6 +1378,68 @@
       window.addEventListener('popstate', delayedUpdate);
     });
   </script>
+
+  <script>
+  (() => {
+    const sectionId = '{{ section.id }}';
+
+    window.__productSingleAccordion =
+      window.__productSingleAccordion || {};
+
+    if (window.__productSingleAccordion[sectionId]) {
+      return;
+    }
+
+    window.__productSingleAccordion[sectionId] = true;
+
+    document.addEventListener(
+      'toggle',
+      function (event) {
+        const currentDetails = event.target;
+
+        if (
+          !(currentDetails instanceof HTMLDetailsElement) ||
+          !currentDetails.open
+        ) {
+          return;
+        }
+
+        const productInfo = currentDetails.closest(
+          '#ProductInfo-{{ section.id }}'
+        );
+
+        if (!productInfo) {
+          return;
+        }
+
+        /*
+         * Only target the actual product accordion tabs.
+         * This includes:
+         * - collapsible_tab
+         * - variant_metafield_tab
+         */
+        if (
+          !currentDetails.matches(
+            '.product__accordion > details'
+          )
+        ) {
+          return;
+        }
+
+        productInfo
+          .querySelectorAll(
+            '.product__accordion > details[open]'
+          )
+          .forEach((details) => {
+            if (details !== currentDetails) {
+              details.removeAttribute('open');
+            }
+          });
+      },
+      true
+    );
+  })();
+</script>
 
 {% schema %}
 {

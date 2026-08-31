@@ -5,6 +5,9 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
+{%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
+{%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -25,7 +28,7 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+<cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if phoenix_visible_cart_count == 0 %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link">
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
@@ -51,7 +54,7 @@
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
-          {%- if cart != empty -%}
+          {%- if phoenix_visible_cart_count > 0 -%}
             <table class="cart-items">
               <caption class="visually-hidden">
                 {{ 'sections.cart.title' | t }}
@@ -79,6 +82,7 @@
 
               <tbody>
                 {%- for item in cart.items -%}
+                  {%- unless item.properties._bundle_type == 'phoenix-auto-subscription' and item.properties._bundle_role == 'subscription' -%}
                   <tr
                     class="cart-item {% if item.parent_relationship.parent != null %}cart-item__nested-line{% endif %}"
                     id="CartItem-{{ item.index | plus: 1 }}"
@@ -449,6 +453,7 @@
                       </div>
                     </td>
                   </tr>
+                  {%- endunless -%}
                 {%- endfor -%}
               </tbody>
             </table>

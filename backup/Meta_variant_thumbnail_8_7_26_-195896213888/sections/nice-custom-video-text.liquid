@@ -142,6 +142,13 @@
 </section>
 
 <style>
+
+  {% if product.template_suffix == 'kokocarb' %}
+    @media screen and (max-width:767px){
+    .video-text-desc{display:none;}
+    }
+  {% endif %}
+
   .page-widthh.video-text-wrapper{max-width:{{ section.settings.page_width }}rem;margin:auto;}
   #video-text-{{ section.id }} .video-text-search {
     margin-top: 25px;

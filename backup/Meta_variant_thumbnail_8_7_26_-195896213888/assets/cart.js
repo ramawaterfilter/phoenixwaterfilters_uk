@@ -161,8 +161,15 @@ class CartItems extends HTMLElement {
       .then((response) => {
         return response.text();
       })
-      .then((state) => {
-        const parsedState = JSON.parse(state);
+      .then(async (state) => {
+        let parsedState = JSON.parse(state);
+        if (window.PhoenixAutoSubscription) {
+          parsedState = await window.PhoenixAutoSubscription.syncCart(
+            parsedState,
+            this.getSectionsToRender().map((section) => section.section),
+            window.location.pathname
+          );
+        }
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections`, () => {
           const quantityElement =

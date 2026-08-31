@@ -1,1 +1,3 @@
-{{ 'general.cart.view' | t: count: cart.item_count }}
+{%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
+{%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
+{{- 'general.cart.view' | t: count: phoenix_visible_cart_count -}}

@@ -108,6 +108,7 @@
         },
         "variant_metafield_tab_pCqtfF": {
           "type": "variant_metafield_tab",
+          "disabled": true,
           "settings": {
             "heading": "Key Features",
             "icon": "none",
@@ -116,7 +117,43 @@
             "hide_when_empty": true
           }
         },
+        "variant_metafield_tab_ej7ezG": {
+          "type": "variant_metafield_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "What's New",
+            "icon": "none",
+            "metafield_namespace": "custom",
+            "metafield_key": "variant_specification",
+            "hide_when_empty": true
+          }
+        },
         "collapsible_tab_XbtdzM": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Key Features",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "<style>\n  .icon_with_text_collap {\n    width: 100%;\n    padding: 28px 40px 22px;\n    box-sizing: border-box;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 40px;\n    align-items: start;\n  }\n\n  .icon_with_text_collap_block1,\n  .icon_with_text_collap_block2,\n  .icon_with_text_collap_block3,\n  .icon_with_text_collap_block4 {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n  }\n\n  .icon_with_text_collap_image {\n    height: 70px;\n    margin-bottom: 18px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .icon_with_text_collap_image img {\n    width: 58px;\n    height: 58px;\n    object-fit: contain;\n    display: block;\n  }\n\n  .icon_with_text_collap_text {\n    color: #27294f;\n    font-size: 18px;\n    line-height: 1.25;\n    font-weight: 600;\n    max-width: 320px;\n    margin: 0 auto;\n  }\n\n\n  /* Tablet */\n  @media screen and (max-width: 990px) {\n    .icon_with_text_collap {\n      grid-template-columns: repeat(2, 1fr);\n      gap: 40px 25px;\n      padding: 30px 20px;\n    }\n\n    .icon_with_text_collap_text {\n      font-size: 22px;\n    }\n  }\n\n\n  /* Mobile */\n  @media screen and (max-width: 600px) {\n    .icon_with_text_collap {\n      grid-template-columns: repeat(2, 1fr);\n      gap: 35px 15px;\n      padding: 28px 15px;\n    }\n\n    .icon_with_text_collap_image {\n      height: 55px;\n      margin-bottom: 12px;\n    }\n\n    .icon_with_text_collap_image img {\n      width: 46px;\n      height: 46px;\n    }\n\n    .icon_with_text_collap_text {\n      font-size: 16px;\n      line-height: 1.35;\n      max-width: 180px;\n    }\n  }\n</style>\n\n\n<div class=\"icon_with_text_collap\">\n\n  <div class=\"icon_with_text_collap_block1\">\n\n    <div class=\"icon_with_text_collap_image\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/6.1_1.webp\"\n        alt=\"Essential minerals\"\n        loading=\"lazy\"\n      >\n    </div>\n\n    <div class=\"icon_with_text_collap_text\">\n      Retains your water’s essential minerals.\n    </div>\n\n  </div>\n\n\n  <div class=\"icon_with_text_collap_block2\">\n\n    <div class=\"icon_with_text_collap_image\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/1911.png\"\n        alt=\"Coconut shells\"\n        loading=\"lazy\"\n      >\n    </div>\n\n    <div class=\"icon_with_text_collap_text\">\n      Highest grade (CTC 60) coconut shells\n    </div>\n\n  </div>\n\n\n  <div class=\"icon_with_text_collap_block3\">\n\n    <div class=\"icon_with_text_collap_image\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/214.png\"\n        alt=\"Silver impregnated\"\n        loading=\"lazy\"\n      >\n    </div>\n\n    <div class=\"icon_with_text_collap_text\">\n      Impregnated with silver to stop bacteria growth\n    </div>\n\n  </div>\n\n\n  <div class=\"icon_with_text_collap_block4\">\n\n    <div class=\"icon_with_text_collap_image\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/211.png\"\n        alt=\"Less waste\"\n        loading=\"lazy\"\n      >\n    </div>\n\n    <div class=\"icon_with_text_collap_text\">\n      Less waste, fewer refills, lower cost\n    </div>\n\n  </div>\n\n</div>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_AHaCpV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What's New",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "variant_specification",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_3bVbdY": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Compatibility",
@@ -143,7 +180,10 @@
         "collapsible_tab_WRPzJX",
         "collapsible_tab_K7fxqP",
         "variant_metafield_tab_pCqtfF",
-        "collapsible_tab_XbtdzM"
+        "variant_metafield_tab_ej7ezG",
+        "collapsible_tab_XbtdzM",
+        "collapsible_tab_AHaCpV",
+        "collapsible_tab_3bVbdY"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -610,6 +650,7 @@
         "media_Qt6f3j",
         "text_hqqxrf"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.page-widthh.video-text-wrapper {max-width: 100%; } .video-text-content {width: 100%; background: #eaeef1 !important; } .video-text-wrapper {display: flex; flex-direction: column-reverse !important; } .video-text-media {width: 100%; } .heading-underline {width: 30%; margin: auto; } .video-text-heading {text-align: center; color: #2f2953 !important; } .video-text-desc {width: 100%; display: flex; color: #2f2953; } .video-text-desc p {width: 49%; color: #2f2953; }}"
       ],
@@ -650,10 +691,10 @@
         "cs1": ""
       }
     },
-    "nice_custom_video_text_kzzAFh": {
+    "nice_custom_video_text_nKh6Vn": {
       "type": "nice-custom-video-text",
       "blocks": {
-        "media_Jyj7jm": {
+        "media_UDQXez": {
           "type": "media",
           "settings": {
             "background_color": "#f4f6fa",
@@ -672,7 +713,7 @@
             "button_link": ""
           }
         },
-        "text_w4YEtH": {
+        "text_NMJFA7": {
           "type": "text",
           "settings": {
             "background_color": "#eaeef1",
@@ -701,13 +742,11 @@
         }
       },
       "block_order": [
-        "media_Jyj7jm",
-        "text_w4YEtH"
+        "media_UDQXez",
+        "text_NMJFA7"
       ],
-      "disabled": true,
       "custom_css": [
-        "@media screen and (min-width: 768px) {.video-text-content {width: 100%; background: #eaeef1 !important; } .video-text-wrapper {display: flex; flex-direction: column-reverse !important; } .video-text-media {width: 100%; } .heading-underline {width: 30%; margin: auto; } .video-text-heading {text-align: center; color: #2f2953 !important; } .video-text-desc {width: 100%; display: flex; color: #2f2953; } .video-text-desc p {width: 49%; color: #2f2953; }}",
-        "@media screen and (max-width: 767px) {.video-text-desc {display: none; }}"
+        "@media screen and (min-width: 768px) {.page-widthh.video-text-wrapper {max-width: 100%; } .video-text-content {width: 100%; background: #eaeef1 !important; } .video-text-wrapper {display: flex; flex-direction: column-reverse !important; } .video-text-media {width: 100%; } .heading-underline {width: 30%; margin: auto; } .video-text-heading {text-align: center; color: #2f2953 !important; } .video-text-desc {width: 100%; display: flex; color: #2f2953; } .video-text-desc p {width: 49%; color: #2f2953; }}"
       ],
       "name": "Custom Video with text",
       "settings": {
@@ -835,22 +874,22 @@
         "padding_bottom": 0
       }
     },
-    "collapsible_content_PyMQAf": {
+    "collapsible_content_7amwJB": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_TepATw": {
+        "collapsible_row_BKwARK": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Stage One: Advanced Carbon Filtration",
+            "heading": "Stage 1: Advanced Carbon Filtration",
             "icon": "none",
             "row_content": "<p>The activated carbon creates a highly complex structure that helps reduce contaminants such as Microplastics, Cysts, and Bacteria. Its powerful adsorptive properties also target chemicals including Chlorine, lead, and pesticides, delivering cleaner, safer water.</p>",
             "page": ""
           }
         },
-        "collapsible_row_E6q6qN": {
+        "collapsible_row_XbhDBW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Stage Two: Built-in Sterilisation",
+            "heading": "Stage 2: Built-in Sterilisation",
             "icon": "none",
             "row_content": "<p>Silver-infused technology helps inhibit the growth of bacteria and mould within the filter, supporting long-lasting purity and protection.</p>",
             "page": ""
@@ -858,12 +897,12 @@
         }
       },
       "block_order": [
-        "collapsible_row_TepATw",
-        "collapsible_row_E6q6qN"
+        "collapsible_row_BKwARK",
+        "collapsible_row_XbhDBW"
       ],
-      "disabled": true,
       "custom_css": [
-        "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}"
+        "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}",
+        ".accordion {border-top: none;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
@@ -882,7 +921,7 @@
         "heading_alignment": "center",
         "layout": "none",
         "container_color_scheme": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
@@ -1413,10 +1452,10 @@
     "rich_text_n9a6Ja",
     "nice_custom_video_text_NmybXF",
     "nice_custom_video_text_99gkAC",
-    "nice_custom_video_text_kzzAFh",
+    "nice_custom_video_text_nKh6Vn",
     "custom_text_section_XRM4CG",
     "video_LFfEHe",
-    "collapsible_content_PyMQAf",
+    "collapsible_content_7amwJB",
     "variant_conditional_content_peWxRU",
     "custom_text_section_C8qwW6",
     "comparison_cart_KBm9AY",

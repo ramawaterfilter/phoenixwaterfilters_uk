@@ -287,19 +287,21 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      {%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
+      {%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
+        {% if phoenix_visible_cart_count == 0 %}
           <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
         {% else %}
           <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
         {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
+        {%- if phoenix_visible_cart_count > 0 -%}
           <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- if phoenix_visible_cart_count < 100 -%}
+              <span aria-hidden="true">{{ phoenix_visible_cart_count }}</span>
             {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: phoenix_visible_cart_count }}</span>
           </div>
         {%- endif -%}
       </a>
