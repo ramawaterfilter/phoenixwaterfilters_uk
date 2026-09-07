@@ -64,6 +64,7 @@
     },
     "banner_new_kgyqrE": {
       "type": "banner-new",
+      "disabled": true,
       "name": "Banner New",
       "settings": {
         "image": "shopify://shop_images/Website_Summer_-_Banner_Desktop_50cef950-0687-4f38-97a5-808ed9cb6c54.jpg",
@@ -134,7 +135,6 @@
       "block_order": [
         "ai_gen_block_a143ad2_NxHxVd"
       ],
-      "disabled": true,
       "custom_css": [
         ".hero-video__button-abxkrvdi2ek8zmm9huaigenblocka143ad2nxhxvd {padding: 9px 15px;}"
       ],

@@ -1,0 +1,1542 @@
+{% style %}
+  #tds-checker-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.background_color }};
+  }
+
+  #tds-checker-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__container {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* ============================
+     SEARCH CARD
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__search-card {
+    padding: 36px;
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-radius: 22px;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__eyebrow {
+    margin: 0 0 10px;
+    color: #68757d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__heading {
+    margin: 0;
+    color: #142229;
+    font-size: clamp(32px, 5vw, 38px);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__description {
+    margin: 18px 0 0;
+    color: #62727b;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* ============================
+     FORM
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__form {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__input {
+    flex: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 0 22px;
+    border: 1px solid #c8d1d6;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #142229;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__input::placeholder {
+    color: #8a959b;
+    text-transform: none;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__input:focus {
+    outline: 2px solid #17242b;
+    outline-offset: 2px;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__button {
+    min-width: 155px;
+    height: 50px;
+    padding: 0 26px;
+    border: 0;
+    border-radius: 14px;
+    background: {{ section.settings.button_color }};
+    color: {{ section.settings.button_text_color }};
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__button:hover {
+    opacity: 0.9;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__helper {
+    margin: 12px 0 0;
+    color: #839099;
+    font-size: 12px;
+  }
+
+  /* ============================
+     MESSAGE
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__message {
+    display: none;
+    margin-top: 14px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    background: #fff1ef;
+    color: #a23c34;
+    font-size: 13px;
+  }
+
+  /* ============================
+     RESULT
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__result {
+    display: none;
+    margin-top: 20px;
+    padding: 38px;
+    background: #ffffff;
+    border: 1px solid #dfe5e8;
+    border-radius: 22px;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__result.is-visible {
+    display: block;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__result-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.3fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  /* ============================
+     TDS VALUE
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__result-label {
+    margin-bottom: 12px;
+    color: #78858d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__value-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__value {
+    color: #142229;
+    font-size: clamp(58px, 6vw, 62px);
+    font-weight: 700;
+    line-height: 0.9;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__unit {
+    padding-bottom: 7px;
+    color: #6c7980;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  /* ============================
+     STATUS BADGE
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__level {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 9px 16px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__level.good {
+    background: #edf8f0;
+    border-color: #b8dec4;
+    color: #258348;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__level.moderate {
+    background: #fff8df;
+    border-color: #ead48c;
+    color: #9c7400;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__level.poor {
+    background: #fff0ee;
+    border-color: #e7b9b4;
+    color: #bd4038;
+  }
+
+  /* ============================
+     BAR LABELS
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  #tds-checker-{{ section.id }} .range-good {
+    color: #258348;
+  }
+
+  #tds-checker-{{ section.id }} .range-moderate {
+    color: #b48300;
+  }
+
+  #tds-checker-{{ section.id }} .range-poor {
+    color: #c73d35;
+  }
+
+  /* ============================
+     LIVE BAR
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background-color: #e4e9ec;
+    background-image: linear-gradient(
+      to right,
+      #45a968,
+      #45a968
+    );
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 0% 100%;
+    transition:
+      background-size 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ============================
+     RANGE VALUES
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: #89959c;
+    font-size: 11px;
+  }
+
+  /* ============================
+     THRESHOLDS
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__thresholds {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 10px;
+  }
+
+  #tds-checker-{{ section.id }} .threshold-good {
+    color: #3a8054;
+  }
+
+  #tds-checker-{{ section.id }} .threshold-moderate {
+    color: #987100;
+  }
+
+  #tds-checker-{{ section.id }} .threshold-poor {
+    color: #b64d45;
+  }
+
+  /* ============================
+     INFORMATION
+  ============================ */
+  #tds-checker-{{ section.id }} .tds-checker__info {
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #e3e8ea;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__explanation {
+    margin: 0;
+    color: #5b6b74;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  #tds-checker-{{ section.id }} .tds-checker__disclaimer {
+    margin: 10px 0 0;
+    color: #849199;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  /* ============================
+     MOBILE
+  ============================ */
+  @media screen and (max-width: 749px) {
+    #tds-checker-{{ section.id }} {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #tds-checker-{{ section.id }} .tds-checker__search-card,
+    #tds-checker-{{ section.id }} .tds-checker__result {
+      padding: 24px;
+      border-radius: 17px;
+    }
+
+    #tds-checker-{{ section.id }} .tds-checker__form {
+      flex-direction: column;
+    }
+
+    #tds-checker-{{ section.id }} .tds-checker__button {
+      width: 100%;
+    }
+
+    #tds-checker-{{ section.id }} .tds-checker__result-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    #tds-checker-{{ section.id }} .tds-checker__thresholds {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 7px 15px;
+    }
+  }
+{% endstyle %}
+<section
+  id="tds-checker-{{ section.id }}"
+  data-csv-url="{{ section.settings.csv_url | escape }}"
+>
+  <div class="tds-checker__container">
+    <!-- SEARCH -->
+    <div class="tds-checker__search-card">
+      {% if section.settings.eyebrow != blank %}
+        <p class="tds-checker__eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="tds-checker__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="tds-checker__description">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
+      <form
+        class="tds-checker__form"
+        data-tds-form
+      >
+        <input
+          type="text"
+          class="tds-checker__input"
+          data-postcode-input
+          placeholder="{{ section.settings.placeholder }}"
+          autocomplete="postal-code"
+          aria-label="UK postcode"
+        >
+        <button
+          type="submit"
+          class="tds-checker__button"
+          data-submit-button
+        >
+          {{ section.settings.button_label }}
+        </button>
+      </form>
+      {% if section.settings.helper_text != blank %}
+        <p class="tds-checker__helper">
+          {{ section.settings.helper_text }}
+        </p>
+      {% endif %}
+      <div
+        class="tds-checker__message"
+        data-message
+        aria-live="polite"
+      ></div>
+    </div>
+    <!-- RESULT -->
+    <div
+      class="tds-checker__result"
+      data-result
+      aria-live="polite"
+    >
+      <div class="tds-checker__result-grid">
+        <!-- VALUE -->
+        <div>
+          <div class="tds-checker__result-label">
+            Estimated TDS
+          </div>
+          <div class="tds-checker__value-wrap">
+            <span
+              class="tds-checker__value"
+              data-tds-value
+            >
+              —
+            </span>
+            <span class="tds-checker__unit">
+              ppm
+            </span>
+          </div>
+          <div
+            class="tds-checker__level"
+            data-tds-level
+          >
+            —
+          </div>
+        </div>
+        <!-- LIVE BAR -->
+        <div>
+          <div class="tds-checker__range-labels">
+            <span class="range-good">
+              Good
+            </span>
+            <span class="range-moderate">
+              Moderate
+            </span>
+            <span class="range-poor">
+              Poor
+            </span>
+          </div>
+          <div
+            class="tds-checker__bar"
+            data-tds-bar
+          ></div>
+          <div class="tds-checker__range-values">
+            <span>
+              0 ppm
+            </span>
+            <span>
+              {{ section.settings.maximum_tds }}+ ppm
+            </span>
+          </div>
+          <div class="tds-checker__thresholds">
+            <span class="threshold-good">
+              Good: &lt;100
+            </span>
+            <span class="threshold-moderate">
+              Moderate: 100–299
+            </span>
+            <span class="threshold-poor">
+              Poor: 300+
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- INFO -->
+      <div class="tds-checker__info">
+        <p
+          class="tds-checker__explanation"
+          data-explanation
+        ></p>
+        <p class="tds-checker__disclaimer">
+          Estimated from local postcode-area data.
+          This is not a direct measurement from your individual tap.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  const section =
+    document.getElementById(
+      'tds-checker-{{ section.id }}'
+    );
+  if (!section) return;
+  if (
+    section.dataset.initialized === 'true'
+  ) {
+    return;
+  }
+  section.dataset.initialized =
+    'true';
+  /* =========================
+     SETTINGS
+  ========================= */
+
+  const csvUrl =
+    section.dataset.csvUrl;
+
+  const maximumTds =
+    Number(
+      '{{ section.settings.maximum_tds }}'
+    ) || 600;
+
+  /* =========================
+     ELEMENTS
+  ========================= */
+  const form =
+    section.querySelector(
+      '[data-tds-form]'
+    );
+
+  const input =
+    section.querySelector(
+      '[data-postcode-input]'
+    );
+
+  const button =
+    section.querySelector(
+      '[data-submit-button]'
+    );
+
+  const message =
+    section.querySelector(
+      '[data-message]'
+    );
+
+  const result =
+    section.querySelector(
+      '[data-result]'
+    );
+
+  const tdsValue =
+    section.querySelector(
+      '[data-tds-value]'
+    );
+
+  const tdsLevel =
+    section.querySelector(
+      '[data-tds-level]'
+    );
+
+  const tdsBar =
+    section.querySelector(
+      '[data-tds-bar]'
+    );
+
+  const explanation =
+    section.querySelector(
+      '[data-explanation]'
+    );
+
+  /* =========================
+     NORMALIZE
+  ========================= */
+  function normalize(value) {
+    return String(value || '')
+      .toUpperCase()
+      .replace(/\s+/g, '')
+      .trim();
+  }
+
+  /* =========================
+     VALIDATE POSTCODE
+  ========================= */
+  function isValidUKPostcode(postcode) {
+    const value =
+      normalize(postcode);
+
+    return /^[A-Z]{1,2}[0-9][0-9A-Z]?[0-9][A-Z]{2}$/i.test(
+      value
+    );
+  }
+  /* =========================
+     GET OUTWARD CODE
+  ========================= */
+  function getOutwardCode(postcode) {
+    const value =
+      normalize(postcode);
+    return value.slice(
+      0,
+      -3
+    );
+  }
+
+  function parseCSV(csvText) {
+
+    csvText =
+      String(csvText || '')
+        .replace(/^\uFEFF/, '');
+
+
+    const rows = [];
+
+    let currentRow = [];
+    let currentValue = '';
+    let insideQuotes = false;
+
+
+    for (
+      let i = 0;
+      i < csvText.length;
+      i++
+    ) {
+
+      const char =
+        csvText[i];
+
+      const next =
+        csvText[i + 1];
+
+
+      if (char === '"') {
+
+        if (
+          insideQuotes &&
+          next === '"'
+        ) {
+
+          currentValue += '"';
+
+          i++;
+
+        } else {
+
+          insideQuotes =
+            !insideQuotes;
+
+        }
+
+      }
+
+
+      else if (
+        char === ',' &&
+        !insideQuotes
+      ) {
+
+        currentRow.push(
+          currentValue.trim()
+        );
+
+        currentValue = '';
+
+      }
+
+
+      else if (
+        (
+          char === '\n' ||
+          char === '\r'
+        ) &&
+        !insideQuotes
+      ) {
+
+        if (
+          char === '\r' &&
+          next === '\n'
+        ) {
+
+          i++;
+
+        }
+
+
+        currentRow.push(
+          currentValue.trim()
+        );
+
+
+        if (
+          currentRow.some(
+            function(cell) {
+              return cell !== '';
+            }
+          )
+        ) {
+
+          rows.push(
+            currentRow
+          );
+
+        }
+
+
+        currentRow = [];
+        currentValue = '';
+
+      }
+
+
+      else {
+
+        currentValue += char;
+
+      }
+
+    }
+
+
+    if (
+      currentValue ||
+      currentRow.length
+    ) {
+
+      currentRow.push(
+        currentValue.trim()
+      );
+
+
+      if (
+        currentRow.some(
+          function(cell) {
+            return cell !== '';
+          }
+        )
+      ) {
+
+        rows.push(
+          currentRow
+        );
+
+      }
+
+    }
+
+
+    /*
+      Remove header row.
+    */
+
+    const dataRows =
+      rows.slice(1);
+
+
+    /*
+      Only two columns required.
+    */
+
+    return dataRows
+      .map(function(row) {
+
+        return {
+
+          district:
+            String(
+              row[0] || ''
+            ).trim(),
+
+          tds:
+            String(
+              row[1] || ''
+            ).trim()
+
+        };
+
+      })
+      .filter(function(row) {
+
+        return (
+          row.district &&
+          row.tds
+        );
+
+      });
+
+  }
+
+
+
+  /* =========================
+     LOAD CSV
+  ========================= */
+
+  async function loadWaterData() {
+
+    if (!csvUrl) {
+
+      throw new Error(
+        'CSV URL has not been added.'
+      );
+
+    }
+
+
+    const separator =
+      csvUrl.includes('?')
+        ? '&'
+        : '?';
+
+
+    const freshUrl =
+      csvUrl +
+      separator +
+      '_tds=' +
+      Date.now();
+
+
+    const response =
+      await fetch(
+        freshUrl,
+        {
+          cache: 'no-store'
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'Unable to load TDS CSV.'
+      );
+
+    }
+
+
+    const csvText =
+      await response.text();
+
+
+    return parseCSV(
+      csvText
+    );
+
+  }
+
+
+
+  /* =========================
+     FIND DISTRICT
+  ========================= */
+
+  function findRecord(
+    data,
+    postcode
+  ) {
+
+    const outward =
+      getOutwardCode(
+        postcode
+      );
+
+
+    /*
+      Example:
+
+      EC1A 1BB
+      outward = EC1A
+
+      CSV = EC1
+
+      EC1A starts with EC1
+    */
+
+    const matches =
+      data.filter(function(row) {
+
+        const district =
+          normalize(
+            row.district
+          );
+
+
+        if (!district) {
+          return false;
+        }
+
+
+        return outward.startsWith(
+          district
+        );
+
+      });
+
+
+    if (!matches.length) {
+
+      return null;
+
+    }
+
+
+    /*
+      Prefer longest / most
+      specific district.
+
+      Example:
+      E1 preferred over E
+      E10 preferred over E1
+    */
+
+    matches.sort(function(a, b) {
+
+      return (
+        normalize(
+          b.district
+        ).length
+
+        -
+
+        normalize(
+          a.district
+        ).length
+      );
+
+    });
+
+
+    return matches[0];
+
+  }
+
+
+
+  /* =========================
+     TDS PROFILE
+  ========================= */
+
+  function getTdsProfile(value) {
+
+    if (
+      value < 100
+    ) {
+
+      return {
+
+        label:
+          'Good',
+
+        className:
+          'good',
+
+        color:
+          '#45a968',
+
+        text:
+          'This postcode area has a relatively low estimated TDS level.'
+
+      };
+
+    }
+
+
+    if (
+      value < 300
+    ) {
+
+      return {
+
+        label:
+          'Moderate',
+
+        className:
+          'moderate',
+
+        color:
+          '#e5b93d',
+
+        text:
+          'This postcode area has a moderate estimated TDS level.'
+
+      };
+
+    }
+
+
+    return {
+
+      label:
+        'Poor',
+
+      className:
+        'poor',
+
+      color:
+        '#d9534f',
+
+      text:
+        'This postcode area has a relatively high estimated TDS level.'
+
+    };
+
+  }
+
+
+
+  /* =========================
+     MESSAGE
+  ========================= */
+
+  function showError(text) {
+
+    message.textContent =
+      text;
+
+
+    message.style.display =
+      'block';
+
+
+    result.classList.remove(
+      'is-visible'
+    );
+
+
+    resetBar();
+
+  }
+
+
+
+  function hideError() {
+
+    message.textContent =
+      '';
+
+
+    message.style.display =
+      'none';
+
+  }
+
+
+
+  /* =========================
+     RESET BAR
+  ========================= */
+
+  function resetBar() {
+
+    if (!tdsBar) return;
+
+
+    tdsBar.style.transition =
+      'none';
+
+
+    tdsBar.style.backgroundSize =
+      '0% 100%';
+
+  }
+
+
+
+  /* =========================
+     LIVE BAR
+  ========================= */
+
+  function animateBar(
+    percentage,
+    color
+  ) {
+
+    if (!tdsBar) {
+      return;
+    }
+
+
+    percentage =
+      Math.min(
+        100,
+        Math.max(
+          0,
+          percentage
+        )
+      );
+
+
+    /*
+      Set bar colour.
+    */
+
+    tdsBar.style.backgroundImage =
+      'linear-gradient(to right, ' +
+      color +
+      ', ' +
+      color +
+      ')';
+
+
+    tdsBar.style.backgroundRepeat =
+      'no-repeat';
+
+
+    tdsBar.style.backgroundPosition =
+      'left center';
+
+
+    /*
+      Reset to zero.
+    */
+
+    tdsBar.style.transition =
+      'none';
+
+
+    tdsBar.style.backgroundSize =
+      '0% 100%';
+
+
+    /*
+      Force browser redraw.
+    */
+
+    void tdsBar.offsetWidth;
+
+
+    /*
+      Restore transition.
+    */
+
+    tdsBar.style.transition =
+      'background-size 0.9s cubic-bezier(0.22, 1, 0.36, 1)';
+
+
+    /*
+      Animate.
+    */
+
+    requestAnimationFrame(function() {
+
+      requestAnimationFrame(function() {
+
+        tdsBar.style.backgroundSize =
+          percentage + '% 100%';
+
+      });
+
+    });
+
+  }
+
+
+
+  /* =========================
+     SHOW RESULT
+  ========================= */
+
+  function showResult(record) {
+
+    const rawTds =
+      String(
+        record.tds || ''
+      ).trim();
+
+
+    const numericTds =
+      Number(
+        rawTds.replace(
+          /[^0-9.]/g,
+          ''
+        )
+      );
+
+
+    if (
+      !rawTds ||
+      !Number.isFinite(
+        numericTds
+      )
+    ) {
+
+      showError(
+        'TDS information is not available for this postcode.'
+      );
+
+      return;
+
+    }
+
+
+    const profile =
+      getTdsProfile(
+        numericTds
+      );
+
+
+    /*
+      Calculate progress.
+    */
+
+    let percentage =
+      (
+        numericTds /
+        maximumTds
+      ) * 100;
+
+
+    percentage =
+      Math.min(
+        100,
+        Math.max(
+          0,
+          percentage
+        )
+      );
+
+
+    /*
+      TDS value.
+    */
+
+    tdsValue.textContent =
+      numericTds;
+
+
+    /*
+      Status badge.
+    */
+
+    tdsLevel.textContent =
+      profile.label;
+
+
+    tdsLevel.classList.remove(
+      'good',
+      'moderate',
+      'poor'
+    );
+
+
+    tdsLevel.classList.add(
+      profile.className
+    );
+
+
+    /*
+      Description.
+    */
+
+    explanation.textContent =
+      profile.text +
+      ' TDS represents dissolved material and should not be interpreted by itself as a drinking-water safety measurement.';
+
+
+    /*
+      Show result before
+      starting animation.
+    */
+
+    result.classList.add(
+      'is-visible'
+    );
+
+
+    /*
+      Animate bar.
+    */
+
+    animateBar(
+      percentage,
+      profile.color
+    );
+
+  }
+
+
+
+  /* =========================
+     SUBMIT
+  ========================= */
+
+  form.addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+
+      const postcode =
+        input.value.trim();
+
+
+      /*
+        Empty postcode.
+      */
+
+      if (!postcode) {
+
+        showError(
+          'Please enter your postcode.'
+        );
+
+
+        input.focus();
+
+
+        return;
+
+      }
+
+
+      /*
+        Invalid postcode.
+      */
+
+      if (
+        !isValidUKPostcode(
+          postcode
+        )
+      ) {
+
+        showError(
+          'Please enter a valid UK postcode, for example EC1A 1BB.'
+        );
+
+
+        input.focus();
+
+
+        return;
+
+      }
+
+
+      hideError();
+
+
+      resetBar();
+
+
+      /*
+        Button loading state.
+      */
+
+      const originalText =
+        button.textContent;
+
+
+      button.disabled =
+        true;
+
+
+      button.textContent =
+        'Checking...';
+
+
+      try {
+
+
+        /*
+          Load CSV.
+        */
+
+        const data =
+          await loadWaterData();
+
+
+        console.log(
+          'TDS CSV data:',
+          data
+        );
+
+
+        /*
+          Match postcode district.
+        */
+
+        const record =
+          findRecord(
+            data,
+            postcode
+          );
+
+
+        console.log(
+          'Matched TDS row:',
+          record
+        );
+
+
+        /*
+          Not found.
+        */
+
+        if (!record) {
+
+          showError(
+            'TDS information is not currently available for this postcode.'
+          );
+
+
+          return;
+
+        }
+
+
+        /*
+          Show result.
+        */
+
+        showResult(
+          record
+        );
+
+
+      }
+
+
+      catch(error) {
+
+
+        console.error(
+          'TDS checker error:',
+          error
+        );
+
+
+        showError(
+          'Unable to check TDS. Please try again.'
+        );
+
+
+      }
+
+
+      finally {
+
+
+        button.disabled =
+          false;
+
+
+        button.textContent =
+          originalText;
+
+
+      }
+
+    }
+  );
+
+
+})();
+</script>
+
+
+
+{% schema %}
+{
+  "name": "TDS postcode checker",
+  "settings": [
+    {
+      "type": "text",
+      "id": "csv_url",
+      "label": "TDS CSV URL",
+      "info": "CSV needs only two columns: Postcode District and Estimated TDS."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Check your local water"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What’s your estimated TDS?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Enter your UK postcode to see the estimated TDS level for your local area."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input placeholder",
+      "default": "e.g. EC1A 1BB"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Check TDS"
+    },
+    {
+      "type": "text",
+      "id": "helper_text",
+      "label": "Helper text",
+      "default": "Area-based estimate · No email required"
+    },
+    {
+      "type": "range",
+      "id": "maximum_tds",
+      "min": 300,
+      "max": 1000,
+      "step": 50,
+      "unit": "ppm",
+      "label": "Maximum TDS shown on bar",
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#f7f9f9"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button colour",
+      "default": "#17242b"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top spacing",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom spacing",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "TDS postcode checker"
+    }
+  ]
+}
+{% endschema %}

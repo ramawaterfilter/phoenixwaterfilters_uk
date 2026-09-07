@@ -130,7 +130,6 @@
         },
         "collapsible_tab_XbtdzM": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "Key Features",
             "icon": "none",
@@ -902,7 +901,8 @@
       ],
       "custom_css": [
         "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}",
-        ".accordion {border-top: none;}"
+        ".accordion {border-top: none;}",
+        ".accordion__title{max-width: 100%;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {

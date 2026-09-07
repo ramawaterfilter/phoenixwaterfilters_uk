@@ -268,6 +268,26 @@
         "cs1": "custom-class-mwf"
       }
     },
+    "water_quality_checker_Bzd9BQ": {
+      "type": "water-quality-checker",
+      "disabled": true,
+      "name": "Water quality checker",
+      "settings": {
+        "csv_url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/water-data-UK.csv",
+        "eyebrow": "Check your local water",
+        "heading": "What’s your estimated TDS?",
+        "description": "Enter your UK postcode to see the estimated TDS level for your local area.",
+        "placeholder": "e.g. EC1A 1BB",
+        "button_label": "Check TDS",
+        "helper_text": "Area-based estimate · No email required",
+        "maximum_tds": 600,
+        "background_color": "#f7f9f9",
+        "button_color": "#17242b",
+        "button_text_color": "#ffffff",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
     "custom_feature_marquee_z7UAPD": {
       "type": "custom-feature-marquee",
       "blocks": {
@@ -735,6 +755,7 @@
   },
   "order": [
     "main",
+    "water_quality_checker_Bzd9BQ",
     "custom_feature_marquee_z7UAPD",
     "related-products",
     "technical_specification_jrc8Yg",

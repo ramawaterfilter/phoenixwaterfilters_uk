@@ -1024,6 +1024,22 @@
   </div>
 </product-info>
 
+<style>
+  {% if template.suffix == 'single_skew_page' %}
+    @media screen and (max-width:767px)
+    {
+    .video-text-section.single_skew .video-text-content{display:none;}
+    }
+    @media screen and (max-width:767px){
+      .product-media-container .product__media.media--transparent {
+        aspect-ratio: auto;
+        height:350px;
+        padding-top: 0%;
+      }
+    }
+  {% endif %}
+</style>
+
 <script>
   (() => {
     const defineVariantMetafieldAccordion = () => {
@@ -1380,66 +1396,66 @@
   </script>
 
   <script>
-  (() => {
-    const sectionId = '{{ section.id }}';
+    (() => {
+      const sectionId = '{{ section.id }}';
 
-    window.__productSingleAccordion =
-      window.__productSingleAccordion || {};
+      window.__productSingleAccordion =
+        window.__productSingleAccordion || {};
 
-    if (window.__productSingleAccordion[sectionId]) {
-      return;
-    }
+      if (window.__productSingleAccordion[sectionId]) {
+        return;
+      }
 
-    window.__productSingleAccordion[sectionId] = true;
+      window.__productSingleAccordion[sectionId] = true;
 
-    document.addEventListener(
-      'toggle',
-      function (event) {
-        const currentDetails = event.target;
+      document.addEventListener(
+        'toggle',
+        function (event) {
+          const currentDetails = event.target;
 
-        if (
-          !(currentDetails instanceof HTMLDetailsElement) ||
-          !currentDetails.open
-        ) {
-          return;
-        }
+          if (
+            !(currentDetails instanceof HTMLDetailsElement) ||
+            !currentDetails.open
+          ) {
+            return;
+          }
 
-        const productInfo = currentDetails.closest(
-          '#ProductInfo-{{ section.id }}'
-        );
+          const productInfo = currentDetails.closest(
+            '#ProductInfo-{{ section.id }}'
+          );
 
-        if (!productInfo) {
-          return;
-        }
+          if (!productInfo) {
+            return;
+          }
 
-        /*
-         * Only target the actual product accordion tabs.
-         * This includes:
-         * - collapsible_tab
-         * - variant_metafield_tab
-         */
-        if (
-          !currentDetails.matches(
-            '.product__accordion > details'
-          )
-        ) {
-          return;
-        }
+          /*
+          * Only target the actual product accordion tabs.
+          * This includes:
+          * - collapsible_tab
+          * - variant_metafield_tab
+          */
+          if (
+            !currentDetails.matches(
+              '.product__accordion > details'
+            )
+          ) {
+            return;
+          }
 
-        productInfo
-          .querySelectorAll(
-            '.product__accordion > details[open]'
-          )
-          .forEach((details) => {
-            if (details !== currentDetails) {
-              details.removeAttribute('open');
-            }
-          });
-      },
-      true
-    );
-  })();
-</script>
+          productInfo
+            .querySelectorAll(
+              '.product__accordion > details[open]'
+            )
+            .forEach((details) => {
+              if (details !== currentDetails) {
+                details.removeAttribute('open');
+              }
+            });
+        },
+        true
+      );
+    })();
+  </script>
 
 {% schema %}
 {

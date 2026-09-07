@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_rPctjf": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Summer Sale 26% OFF",
             "icon": "shopify://shop_images/discount-percent.png",
@@ -63,7 +64,7 @@
         "announcement-bar-0"
       ],
       "custom_css": [
-        ".utility-bar__grid {padding: 10px;}",
+        ".utility-bar__grid {padding: 0 10px;}",
         ".announcement-bar-slider .slider {width: 80%;}",
         ".slider-button .icon {height: 10px;}",
         ".svg-wrapper {font-size: 20px;}"

@@ -900,28 +900,6 @@
       });
     }
 
-    function groupByAlt(mediaArray) {
-      const groups = {};
-      mediaArray.forEach(item => {
-        if (!groups[item.alt]) groups[item.alt] = [];
-        groups[item.alt].push(item);
-      });
-      return groups;
-    }
-
-    function reorderByAlt(targetAlt) {
-      if (!targetAlt) return;
-      const groups = groupByAlt(allMedia);
-      const targetGroup = groups[targetAlt] || [];
-      const others = allMedia.filter(m => m.alt !== targetAlt);
-      const newOrder = [...targetGroup, ...others];
-      const fragment = document.createDocumentFragment();
-      newOrder.forEach(item => fragment.appendChild(item.element));
-      slider.innerHTML = '';
-      slider.appendChild(fragment);
-      allMedia = newOrder;
-    }
-
     function getActiveIndex() {
       for (let i = 0; i < allMedia.length; i++) {
         if (allMedia[i].element.classList.contains('is-active')) return i;
@@ -956,40 +934,64 @@
     }
 
     function updateGrid() {
-      if (!grid) return;
-      const currentAlt = allMedia[currentIndex]?.alt || '';
-      const groups = groupByAlt(allMedia);
-      const priority = groups[currentAlt] || [];
-      const others = allMedia.filter(i => i.alt !== currentAlt);
-      const display = [...priority, ...others].slice(0, 4);
-      grid.innerHTML = '';
-      display.forEach(item => {
-        const btn = document.createElement('button');
-        btn.className = 'thumbnail-2x2-item';
-        if (item.mediaId === allMedia[currentIndex].mediaId) btn.classList.add('is-active');
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = item.alt;
-        img.loading = 'lazy';
-        btn.appendChild(img);
-        grid.appendChild(btn);
-        btn.onclick = () => {
-          const idx = allMedia.findIndex(m => m.mediaId === item.mediaId);
-          if (idx !== -1) goToSlide(idx);
-        };
-      });
+  if (!grid || !allMedia.length) return;
+
+  /*
+   * Fixed groups of 4:
+   * index 0-3   = thumbnails 1-4
+   * index 4-7   = thumbnails 5-8
+   * index 8-11  = thumbnails 9-12
+   * etc.
+   */
+  const groupSize = 4;
+  const groupStart = Math.floor(currentIndex / groupSize) * groupSize;
+  const groupEnd = groupStart + groupSize;
+
+  const display = allMedia.slice(groupStart, groupEnd);
+
+  grid.innerHTML = '';
+
+  display.forEach((item, localIndex) => {
+    const actualIndex = groupStart + localIndex;
+
+    const btn = document.createElement('button');
+
+    btn.type = 'button';
+    btn.className = 'thumbnail-2x2-item';
+    btn.setAttribute('aria-label', 'Image ' + (actualIndex + 1));
+    btn.dataset.mediaId = item.mediaId;
+
+    if (actualIndex === currentIndex) {
+      btn.classList.add('is-active');
     }
+
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt || '';
+    img.loading = 'lazy';
+
+    btn.appendChild(img);
+    grid.appendChild(btn);
+
+    btn.addEventListener('click', function() {
+      goToSlide(actualIndex);
+    });
+  });
+}
 
     function handleVariantChange() {
       setTimeout(() => {
         refreshMediaData();
-        const activeIndex = getActiveIndex();
-        const alt = allMedia[activeIndex]?.alt || '';
-        if (alt) {
-          reorderByAlt(alt);
-          const newIndex = getActiveIndex();
-          currentIndex = newIndex !== -1 ? newIndex : 0;
+
+        currentIndex = getActiveIndex();
+
+        if (
+          currentIndex < 0 ||
+          currentIndex >= allMedia.length
+        ) {
+          currentIndex = 0;
         }
+
         updateArrows();
         updateCounter();
         updateGrid();
@@ -1044,8 +1046,7 @@
     function init() {
       refreshMediaData();
       const active = getActiveIndex();
-      const alt = allMedia[active]?.alt || '';
-      if (alt) reorderByAlt(alt);
+      
       currentIndex = getActiveIndex();
       updateArrows();
       updateCounter();

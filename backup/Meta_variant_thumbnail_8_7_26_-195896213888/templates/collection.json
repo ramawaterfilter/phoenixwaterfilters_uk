@@ -63,6 +63,7 @@
     },
     "banner_new_JBrKe6": {
       "type": "banner-new",
+      "disabled": true,
       "name": "Banner New",
       "settings": {
         "image": "shopify://shop_images/Website_Collection_Banner_-_Desktop_1.jpg",
@@ -175,7 +176,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "the-phoenix-gravity-water-filter-6-litre",
+            "product": "the-phoenix-gravity-water-filter-with-postreat-fluoride-removal-filter-cartridge-8l",
             "badge_text": "1–2 <br>people",
             "review_text": "(4.7/5) - 846 Reviews"
           }
@@ -184,7 +185,6 @@
           "type": "product",
           "settings": {
             "product": "the-phoenix-gravity-water-filter",
-            "badge_image": "shopify://shop_images/Website_PDP_Badge.png",
             "badge_text": "",
             "review_text": " (4.74/5) - 769 Reviews"
           }
