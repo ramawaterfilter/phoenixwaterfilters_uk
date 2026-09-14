@@ -3683,3 +3683,30 @@ details-disclosure > details {
 
 .countdown_annoucement_bar_wrapper_cmtbb6w62001qkawn4bh9e5a1.bottom_page{z-index:3 !important;}
 #button-body{width:45px !important;height:45px !important;}
+
+/* announcement */
+@media screen and (max-width:767px){
+  .announcement-bar__message{
+    justify-content: center;
+    display: flex;
+  }
+  .announcement-bar-slider .slider-button{height: 36px;}
+}
+
+html {
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}

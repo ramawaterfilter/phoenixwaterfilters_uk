@@ -7,10 +7,7 @@
   {% assign grid_cols = grid_cols | append: product_col %}
 {% endfor %}
 
-<div class="comparison-section" style="
-  background-color: {{ section.settings.background_color }};
-  padding: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
-">
+<div class="comparison-section" style="background-color: {{ section.settings.background_color }}; padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px; 0">
   <div class="comparison-container page-width">
     <div class="comparison-container-heading">
     {% if section.settings.sub_title != blank %}
@@ -71,9 +68,20 @@
             {% assign check_setting = 'feature_' | append: feature_index %}
             <div class="comparison-cell product-cell">
               {% if block.settings[check_setting] %}
-                <span class="phxtech-check">✓</span>
+                <span class="phxtech-check">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+                    <title/>
+                    <g id="Complete">
+                    <g id="tick">
+                    <polyline fill="none" points="3.7 14.3 9.6 19 20.3 5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </g>
+                    </g>
+                  </svg>
+                </span>
               {% else %}
-                <span class="phxtech-cross">×</span>
+                <span class="phxtech-cross">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 94 94" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet"><path d="M62 10.571L53.429 2L32 23.429L10.571 2L2 10.571L23.429 32L2 53.429L10.571 62L32 40.571L53.429 62L62 53.429L40.571 32z" fill="#000000"/></svg>
+                </span>
               {% endif %}
             </div>
           {% endfor %}
@@ -84,7 +92,8 @@
 </div>
 
 <style>
-.comparison-container.page-width{max-width:{{ section.settings.page_width }}rem;}
+  
+.comparison-container.page-width{max-width:{{ section.settings.page_width }}rem;padding:0;}
 .phxtech-check{
     width: 26px;
     height: 26px;
@@ -92,11 +101,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 18px;
+    color: #2F2954;
+    font-size: 24px;
     font-weight: 900;
     line-height: 1;
-    background: #00b815;
 }
 .phxtech-cross{
     width: 26px;
@@ -105,11 +113,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: #2F2954;
     font-size: 18px;
     font-weight: 900;
     line-height: 1;
-    background: #f48782;
 }
 
 h2.comparison-title {
@@ -122,6 +129,10 @@ h2.comparison-title {
 }
 
 @media(max-width:786px){
+  .phxtech-cross {
+    width: 22px;
+    height: 22px;
+  }
   h2.comparison-title {
     font-family: Montserrat;
     font-weight: 700;
@@ -155,7 +166,7 @@ h2.comparison-title {
   display: grid;
   grid-template-columns: var(--grid-cols, 1.3fr 1fr 1fr 1fr);
   gap: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #2F2954;
 }
 
 .comparison-header {
@@ -167,8 +178,7 @@ h2.comparison-title {
 } {% endcomment %}
 
 .product-image {
-  height: 180px;
-  margin-bottom: 15px;
+  height: 70px;
   object-fit: contain;
 }
 
@@ -197,7 +207,7 @@ h2.comparison-title {
 
 @media screen and (min-width: 768px) {
   h3.product-name {
-    color: white;
+    color: #2F2954;
     font-family: 'Montserrat';
     font-size: 22px;
     font-weight: 700;
@@ -205,7 +215,7 @@ h2.comparison-title {
     line-height: 22px;
   }
   .comparison-cell {
-    padding: 10px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,7 +231,7 @@ h2.comparison-title {
     padding-left: 30px;
   }
   .comparison-cell.feature-cell {
-    font-size: 18px;
+    font-size: 16px;
     align-items: flex-start;
     text-align: left;
     font-family: 'Montserrat';
@@ -266,7 +276,7 @@ h2.comparison-title {
     font-weight: 600;
   }
   h3.product-name {
-    color: white;
+    color: #2F2954;
     font-family: 'Montserrat';
     font-size: 12px;
     font-weight: 700;
@@ -296,12 +306,12 @@ h2.comparison-title {
     } {% endcomment %}
     .comparison-row.comparison-row-light .comparison-cell.product-cell:nth-of-type(2),
     .comparison-row.comparison-row-dark .comparison-cell.product-cell:nth-of-type(2){
-    background-color:#eaedf5;
+    background-color:#4994bf;
     }
     .section-{{ section.id }} .product-cell {
      border-left: none;
     }
-    .comparison-row{border-bottom: 1px solid #e4e9f0;border-top: 1px solid #e4e9f0;}
+    {% comment %} .comparison-row{border-bottom: 1px solid #e4e9f0;border-top: 1px solid #e4e9f0;} {% endcomment %}
 </style>
 
 {% schema %}

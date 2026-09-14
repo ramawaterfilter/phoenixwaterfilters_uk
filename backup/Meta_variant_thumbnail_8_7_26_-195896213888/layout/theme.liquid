@@ -1,6 +1,33 @@
 <!doctype html>
 <html class="js" lang="en-gb">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    {% if request.page_type == 'index' %}
+      <style>
+        /*
+        * Prevent homepage popup elements from entering the page flow
+        * before their application stylesheet finishes loading.
+        */
+        .timesact_bis_popup_overlay,
+        .timesact_bis_dialog,
+        #mixed-modal,
+        .md-modal,
+        .md-overlay {
+          position: fixed;
+          inset: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .popup-container:not(.active):not(.open) {
+          display: none;
+        }
+      </style>
+    {% endif %}
+
 {% comment %} /////////////////////////////////////////////////////////////////////faq-schema////////////////////////////////////////////////////// {% endcomment %}
 {%- if page.handle == 'faqs' -%}
 <script type="application/ld+json">
@@ -357,9 +384,7 @@
 
 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style">
  <link rel="preload" href="{{ 'global.js' | asset_url }}" as="script">
  <script src="{{ 'phoenix-auto-subscription.js' | asset_url }}" defer="defer"></script>
@@ -740,12 +765,59 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {{ 'style.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
-    {%- if settings.cart_type == 'drawer' -%}
+    {% comment %} {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
       {{ 'component-cart.css' | asset_url | stylesheet_tag }}
       {{ 'component-totals.css' | asset_url | stylesheet_tag }}
       {{ 'component-price.css' | asset_url | stylesheet_tag }}
       {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {%- endif -%} {% endcomment %}
+
+    {%- if settings.cart_type == 'drawer' -%}
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-cart-drawer.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-cart.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-totals.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-price.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-discounts.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <noscript>
+        {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+        {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+        {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+        {{ 'component-price.css' | asset_url | stylesheet_tag }}
+        {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+      </noscript>
+
     {%- endif -%}
 
     {%- unless settings.type_body_font.system? -%}

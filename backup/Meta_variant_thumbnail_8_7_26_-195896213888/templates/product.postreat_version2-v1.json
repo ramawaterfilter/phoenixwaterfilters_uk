@@ -84,8 +84,8 @@
           "settings": {
             "heading": "What’s in the box?",
             "icon": "none",
-            "content": "{{ product.metafields.custom.learn_more_centent_01 | metafield_tag }}",
-            "product_metafield_key": "",
+            "content": "",
+            "product_metafield_key": "variant_description",
             "image_metafield_key": "",
             "c1": "",
             "page": ""
@@ -175,7 +175,7 @@
         "image_zoom": "none",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 20,
         "cs1": ""
       }
@@ -200,8 +200,8 @@
         "text_width": 1200,
         "cl1": "#2f2954",
         "right_content": "",
-        "bottom_icon": "shopify://shop_images/100_days_5.png",
-        "bottom_heading": "100 day money-back guarantee when purchased with the complete Phoenix Gravity system",
+        "bottom_icon": "shopify://shop_images/10_years_new.png",
+        "bottom_heading": "10-Year Warranty on POSTreat Housing. Buy Once, Use for Years.",
         "w1": 24,
         "w2": 16,
         "bottom_heading1": "",
@@ -667,7 +667,7 @@
       "custom_css": [
         "h2.video-text-heading {padding-left: 10%;}",
         "h2 {margin-left: 70px;}",
-        "@media (min-width:768px){.video-text-content {width: 60%;}.video-text-media {width: 40%;}}",
+        "@media (min-width: 768px) {.video-text-content {width: 60%; } .video-text-media {width: 40%; }}",
         "@media (max-width: 768px) {h2 {width: 85%; margin: auto; text-align: center; }}"
       ],
       "name": "Video with Text (Fully Dynamic)",
@@ -710,6 +710,7 @@
     },
     "rich_text_TGEg6T": {
       "type": "rich-text",
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -1009,6 +1010,76 @@
         "cs1": ""
       }
     },
+    "comparision_table_text_zXqqai": {
+      "type": "comparision_table_text",
+      "blocks": {
+        "product_NiCeyE": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/Logo_with_Register_Mark.png",
+            "product_name": "",
+            "feature_1": "AISI 304 Stainless Steel",
+            "feature_2": "Yes",
+            "feature_3": "£0.067",
+            "feature_4": "Up to 4,015 litres",
+            "feature_5": "Yes",
+            "feature_6": ">95%",
+            "feature_7": "Yes",
+            "feature_8": "",
+            "feature_9": "",
+            "feature_10": "",
+            "feature_11": "",
+            "feature_12": "",
+            "feature_13": "",
+            "feature_14": "",
+            "feature_15": ""
+          }
+        },
+        "product_cKKUht": {
+          "type": "product",
+          "settings": {
+            "product_name": "Other Fluoride Filter",
+            "feature_1": "Plastic",
+            "feature_2": "No",
+            "feature_3": "£0.15",
+            "feature_4": "Up to 1,325 litres",
+            "feature_5": "No",
+            "feature_6": "<90%",
+            "feature_7": "No",
+            "feature_8": "",
+            "feature_9": "",
+            "feature_10": "",
+            "feature_11": "",
+            "feature_12": "",
+            "feature_13": "",
+            "feature_14": "",
+            "feature_15": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_NiCeyE",
+        "product_cKKUht"
+      ],
+      "disabled": true,
+      "name": "Comparison Text Table",
+      "settings": {
+        "page_width": 140,
+        "section_title": "",
+        "sub_title": "",
+        "title_color": "#eaeef1",
+        "background_color": "#eaeef1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "header_bg_color": "#eaeef1",
+        "header_text_color": "#2f2954",
+        "feature_column_title": "Feature",
+        "row_light_bg": "#eaeef1",
+        "row_dark_bg": "#eaeef1",
+        "feature_text_color": "#1e3a5f",
+        "features_list": "Material, Reliable, Cost Per Liter, Filter Capacity, Eco-Friendly, Removes Fluoride, Refillable"
+      }
+    },
     "rich_text_4Fa3Jz": {
       "type": "rich-text",
       "name": "t:sections.rich-text.presets.name",
@@ -1019,145 +1090,6 @@
         "full_width": true,
         "padding_top": 0,
         "padding_bottom": 40
-      }
-    },
-    "custom_text_section_mNLNYX": {
-      "type": "custom-text-section",
-      "disabled": true,
-      "custom_css": [
-        ".bottom-cta {justify-content: space-evenly !important;}"
-      ],
-      "name": "Custom Text",
-      "settings": {
-        "hd1": 40,
-        "hd2": 24,
-        "show_heading_line": false,
-        "c1": false,
-        "heading2": "",
-        "heading": "",
-        "heading_color": "#1e1e1e",
-        "line_color": "#ff7a00",
-        "line_width_desktop": 120,
-        "line_width_mobile": 80,
-        "left_content": "",
-        "t1": 18,
-        "t2": 18,
-        "text_width": 1200,
-        "cl1": "#2f2954",
-        "right_content": "",
-        "bottom_heading": "Ready To Experience Water, As It Should Be?",
-        "w1": 24,
-        "w2": 18,
-        "bottom_heading1": "",
-        "bottom_button_text": "Complete Purchase",
-        "bottom_button_link": "shopify://collections",
-        "button_bg": "#f5d24f",
-        "button_text_color": "#000000",
-        "text_color": "#2d2d4f",
-        "bg_color": "#4994bf",
-        "padding_top": 15,
-        "padding_bottom": 20,
-        "show_bottom_buttons": false,
-        "buttons_per_row_desktop": 4,
-        "buttons_per_row_mobile": 2,
-        "btn_width_desktop": 200,
-        "btn_width_mobile": 155,
-        "btn_text_1": "",
-        "btn_link_1": "",
-        "btn_bg_1": "#ff7a00",
-        "btn_text_color_1": "#ffffff",
-        "btn_border_color_1": "#ff7a00",
-        "btn_text_2": "",
-        "btn_link_2": "",
-        "btn_bg_2": "#000000",
-        "btn_text_color_2": "#ffffff",
-        "btn_border_color_2": "#000000",
-        "btn_text_3": "",
-        "btn_link_3": "",
-        "btn_bg_3": "#ffffff",
-        "btn_text_color_3": "#000000",
-        "btn_border_color_3": "#000000",
-        "btn_text_4": "",
-        "btn_link_4": "",
-        "btn_bg_4": "#2d2d4f",
-        "btn_text_color_4": "#ffffff",
-        "btn_border_color_4": "#2d2d4f",
-        "btn_text_5": "",
-        "btn_link_5": "",
-        "btn_bg_5": "#f69320",
-        "btn_text_color_5": "#ffffff",
-        "btn_border_color_5": "#f69320",
-        "show_faq_search": false,
-        "faq_search_placeholder": "Search your question...",
-        "cs1": ""
-      }
-    },
-    "multicolumn_6zLMqh": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_aC7RQ3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list1.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity WaterFilter with Smart Carbon</a>",
-            "sub_title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_T76TeX": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list2.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal</a>",
-            "sub_title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NCcygW": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/list3.png",
-            "title": "<a href=\"https://phoenixwaterfilters.co.uk/products/the-phoenix-gravity-water-filter\">The Phoenix Gravity Water Filter with Smart Carbon + Fluoride Removal + Teak Wood Stand</a>",
-            "sub_title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_aC7RQ3",
-        "column_T76TeX",
-        "column_NCcygW"
-      ],
-      "disabled": true,
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "page_width": 120,
-        "title": "",
-        "sub_title": "",
-        "w1": 24,
-        "w2": 18,
-        "p1": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "text_layout": "below",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 36,
-        "cs1": "multi-column-tem"
       }
     },
     "custom_text_section_J8htEn": {
@@ -1518,9 +1450,8 @@
     "custom_side_icons_tJBD7w",
     "custom_text_section_C8qwW6",
     "image_banner_xCpEer",
+    "comparision_table_text_zXqqai",
     "rich_text_4Fa3Jz",
-    "custom_text_section_mNLNYX",
-    "multicolumn_6zLMqh",
     "custom_text_section_J8htEn",
     "custom_text_section_ddrd4c",
     "collapsible_content_jF6Q7J",

@@ -5,8 +5,27 @@
   {% render 'cart-drawer' %}
 {% endcomment %}
 
-{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+<link
+  rel="stylesheet"
+  href="{{ 'quantity-popover.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
+<link
+  rel="stylesheet"
+  href="{{ 'component-card.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
+<noscript>
+  {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+</noscript>
 
 {%- capture phoenix_visible_cart_count -%}{%- render 'phoenix-visible-cart-count' -%}{%- endcapture -%}
 {%- assign phoenix_visible_cart_count = phoenix_visible_cart_count | plus: 0 -%}
@@ -15,8 +34,20 @@
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
 <style>
-  .drawer {
+  cart-drawer.drawer {
+    position: fixed !important;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
     visibility: hidden;
+    pointer-events: none;
+  }
+
+  cart-drawer.drawer.active {
+    visibility: visible;
+    pointer-events: auto;
   }
 </style>
 

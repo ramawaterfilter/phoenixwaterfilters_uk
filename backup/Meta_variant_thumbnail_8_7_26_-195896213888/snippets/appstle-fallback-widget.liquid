@@ -1,0 +1,304 @@
+{% doc %}
+Renders an interactive Appstle lookalike until the real widget is ready.
+
+@param {Object} product - Shopify product object
+@param {String} section_id - Section ID for unique element IDs
+{% enddoc %}
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign allocation = variant.selling_plan_allocations.first
+  assign plan = allocation.selling_plan
+  assign discount = variant.price | minus: allocation.price
+  assign discount_pct = discount | times: 100 | divided_by: variant.price | round
+-%}
+
+<style>
+  .appstle-fallback {
+    color: #2f2953;
+    font: 500 16px/1.8 'DM Sans', sans-serif;
+    width: 100%;
+  }
+  .appstle-fallback *, .appstle-fallback *::before, .appstle-fallback *::after { box-sizing: border-box; }
+  .appstle-fallback__title { color: #2f2953; font: inherit; margin: 0; }
+  .appstle-fallback__option {
+    background: transparent;
+    border: 1px solid #2f2952;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 16px;
+    position: relative;
+    width: 100%;
+  }
+  .appstle-fallback__option--subscription { margin: 15px 0 12px; }
+  .appstle-fallback__option.is-selected { background: #e4eafb; }
+  .appstle-fallback__radio {
+    cursor: pointer;
+    height: 100%;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  .appstle-fallback__option:focus-within { outline: 2px solid #2f2953; outline-offset: 2px; }
+  .appstle-fallback__row { align-items: flex-start; display: flex; justify-content: space-between; min-height: 28.8px; }
+  .appstle-fallback__label { align-items: center; display: flex; min-width: 0; }
+  .appstle-fallback__circle {
+    align-items: center;
+    border: 2px solid #2f2953;
+    border-radius: 50%;
+    display: flex;
+    flex: 0 0 18px;
+    height: 18px;
+    justify-content: center;
+    margin-right: 10px;
+    width: 18px;
+  }
+  .appstle-fallback__circle span { background: #2f2953; border-radius: 50%; display: none; height: 10px; width: 10px; }
+  .appstle-fallback__option.is-selected .appstle-fallback__circle span { display: block; }
+  .appstle-fallback__amounts { margin-left: 16px; white-space: nowrap; }
+  .appstle-fallback__price { font: inherit; }
+  .appstle-fallback__compare-price { color: rgba(47, 41, 83, .75); margin-left: 3px; }
+  .appstle-fallback__discount {
+    background: #2f2953;
+    border-radius: 12px;
+    color: #eaeef1;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 28px;
+    margin: 5px 0 0 38px;
+    padding: 0 10px;
+  }
+  .appstle-fallback__plan-details { margin: 5px 0 0 29px; }
+  .appstle-fallback__plan-name { font-size: 16px; line-height: 1.8; }
+  .appstle-fallback__description { font-size: 13px; line-height: 1.8; }
+  .appstle-fallback__description ul { margin: 13px 0; padding-left: 40px; }
+  .appstle-fallback__description li { margin: 0; }
+  .appstle-fallback__option--subscription:not(.is-selected) .appstle-fallback__discount,
+  .appstle-fallback__option--subscription:not(.is-selected) .appstle-fallback__plan-details { display: none; }
+    .appstle-fallback__one-time-description { font-size: 13px; line-height: 1.8; margin-left: 28px; }
+    .appstle-fallback__tooltip { align-items: center; display: flex; font-size: 12px; gap: 6px; height: 22px; }
+    .appstle-fallback__tooltip svg { fill: currentColor; height: 14px; width: 14px; }
+
+  @media screen and (max-width: 749px) {
+    .appstle-fallback__row { gap: 8px; }
+    .appstle-fallback__amounts { margin-left: auto; }
+    .appstle-fallback__description ul { padding-left: 24px; }
+  }
+</style>
+
+{%- if allocation -%}
+  <div
+    id="appstle-fallback-{{ section_id }}"
+    class="appstle-fallback"
+    data-section-id="{{ section_id }}"
+    aria-label="Purchase Options"
+  >
+    <div class="appstle_widget_title appstle-fallback__title">Purchase Options</div>
+
+    <div class="appstle-fallback__options">
+      <div class="appstle-fallback__option appstle-fallback__option--subscription is-selected">
+        <input
+          id="appstle-fallback-subscription-{{ section_id }}"
+          class="appstle-fallback__radio"
+          type="radio"
+          name="appstle-fallback-plan-{{ section_id }}"
+          value="{{ plan.id }}"
+          data-plan-id="{{ plan.id }}"
+          checked
+        >
+        <div class="appstle-fallback__row">
+          <label class="appstle-fallback__label" for="appstle-fallback-subscription-{{ section_id }}">
+            <span class="appstle-fallback__circle" aria-hidden="true"><span></span></span>
+            <span>Subscribe &amp; Save</span>
+          </label>
+          <span class="appstle-fallback__amounts">
+            <span class="appstle-fallback__price">{{ allocation.price | money }}</span>
+            <s class="appstle-fallback__compare-price">{{ variant.price | money }}</s>
+          </span>
+        </div>
+
+        <span class="appstle-fallback__discount"{% if discount_pct <= 0 %} hidden{% endif %}>
+          Save {{ discount_pct }}%
+        </span>
+
+        <div class="appstle-fallback__plan-details">
+          <div class="appstle-fallback__plan-name">{{ plan.name }}</div>
+          <div class="appstle-fallback__description">{{ plan.description }}</div>
+        </div>
+      </div>
+
+      {%- unless product.requires_selling_plan -%}
+        <div class="appstle-fallback__option appstle-fallback__option--one-time">
+          <input
+            id="appstle-fallback-one-time-{{ section_id }}"
+            class="appstle-fallback__radio"
+            type="radio"
+            name="appstle-fallback-plan-{{ section_id }}"
+            value=""
+            data-plan-id=""
+          >
+          <div class="appstle-fallback__row">
+            <label class="appstle-fallback__label" for="appstle-fallback-one-time-{{ section_id }}">
+              <span class="appstle-fallback__circle" aria-hidden="true"><span></span></span>
+              <span>One Time Purchase</span>
+            </label>
+            <span class="appstle-fallback__price appstle-fallback__one-time-price">{{ variant.price | money }}</span>
+          </div>
+          <div class="appstle-fallback__one-time-description">
+            Buy now, pay later with <strong>Shop Pay</strong> and <strong>PayPal</strong><br>
+            Split your purchase into easy installments
+          </div>
+        </div>
+      {%- endunless -%}
+    </div>
+    <div class="appstle-fallback__tooltip">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2a10 10 0 1 0 9.95 11h-2.02A8 8 0 1 1 17.66 6.34L15 9h7V2l-2.92 2.92A9.96 9.96 0 0 0 12 2Zm-1 5v6l5 3 1-1.73-4-2.37V7h-2Z"/>
+      </svg>
+      <span>Subscription details</span>
+    </div>
+  </div>
+
+  <script type="application/json" id="appstle-fallback-prices-{{ section_id }}">
+    {
+      {%- for v in product.variants -%}
+        {%- assign v_allocation = v.selling_plan_allocations.first -%}
+        {%- unless forloop.first -%},{%- endunless -%}
+        "{{ v.id }}": {
+          "price": {{ v.price }},
+          "priceFormatted": {{ v.price | money | json }},
+          {%- if v_allocation -%}
+            "plan": {
+              "id": {{ v_allocation.selling_plan.id | json }},
+              "price": {{ v_allocation.price }},
+              "priceFormatted": {{ v_allocation.price | money | json }},
+              "name": {{ v_allocation.selling_plan.name | json }},
+              "description": {{ v_allocation.selling_plan.description | json }}
+            }
+          {%- else -%}
+            "plan": null
+          {%- endif -%}
+        }
+      {%- endfor -%}
+    }
+  </script>
+
+  <script>
+    (() => {
+      const sectionId = {{ section_id | json }};
+      const fallback = document.getElementById(`appstle-fallback-${sectionId}`);
+      const priceJson = document.getElementById(`appstle-fallback-prices-${sectionId}`);
+      if (!fallback || !priceJson) return;
+
+      const priceData = JSON.parse(priceJson.textContent);
+      let removed = false;
+      let observer;
+
+      const getForm = () =>
+        fallback.closest('product-info')?.querySelector('form[data-type="add-to-cart-form"]') ||
+        document.querySelector('form[data-type="add-to-cart-form"]');
+
+      const setFormPlan = (value) => {
+        const form = getForm();
+        if (!form) return;
+        let input = form.querySelector('input[data-appstle-fallback-input]');
+        if (!input) {
+          input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'selling_plan';
+          input.dataset.appstleFallbackInput = '';
+          form.appendChild(input);
+        }
+        input.value = value;
+      };
+
+      const syncSelection = () => {
+        const checked = fallback.querySelector('.appstle-fallback__radio:checked');
+        if (!checked) return;
+        fallback.querySelectorAll('.appstle-fallback__option').forEach((option) => {
+          option.classList.toggle('is-selected', option.contains(checked));
+        });
+        setFormPlan(checked.dataset.planId);
+      };
+
+      const updateVariant = (variantId) => {
+        const data = priceData[variantId];
+        if (!data) return;
+
+        const subscriptionOption = fallback.querySelector('.appstle-fallback__option--subscription');
+        const radio = fallback.querySelector('.appstle-fallback__option--subscription .appstle-fallback__radio');
+        const price = fallback.querySelector('.appstle-fallback__option--subscription .appstle-fallback__price');
+        const comparePrice = fallback.querySelector('.appstle-fallback__compare-price');
+        const discount = fallback.querySelector('.appstle-fallback__discount');
+        const planName = fallback.querySelector('.appstle-fallback__plan-name');
+        const description = fallback.querySelector('.appstle-fallback__description');
+        const oneTimePrice = fallback.querySelector('.appstle-fallback__one-time-price');
+
+        if (oneTimePrice) oneTimePrice.textContent = data.priceFormatted;
+        subscriptionOption.hidden = !data.plan;
+        if (!data.plan) {
+          const oneTimeRadio = fallback.querySelector('.appstle-fallback__option--one-time .appstle-fallback__radio');
+          if (oneTimeRadio) oneTimeRadio.checked = true;
+          syncSelection();
+          return;
+        }
+
+        radio.value = data.plan.id;
+        radio.dataset.planId = data.plan.id;
+        price.textContent = data.plan.priceFormatted;
+        comparePrice.textContent = data.priceFormatted;
+        planName.textContent = data.plan.name;
+        description.innerHTML = data.plan.description || '';
+        if (discount) {
+          const percentage = Math.round((data.price - data.plan.price) * 100 / data.price);
+          discount.textContent = percentage > 0 ? `Save ${percentage}%` : '';
+          discount.hidden = percentage <= 0;
+        }
+        syncSelection();
+      };
+
+      const cleanup = () => {
+        if (removed) return;
+        removed = true;
+        observer?.disconnect();
+        getForm()?.querySelector('input[data-appstle-fallback-input]')?.remove();
+        priceJson.remove();
+        fallback.remove();
+      };
+
+      fallback.querySelectorAll('.appstle-fallback__radio').forEach((radio) => {
+        radio.addEventListener('change', syncSelection);
+      });
+      syncSelection();
+
+      getForm()?.querySelector('[name="id"]')?.addEventListener('change', (event) => {
+        updateVariant(String(event.target.value));
+      });
+
+      observer = new MutationObserver(() => {
+        const appstle = document.querySelector(
+          '.appstle_subscription_wrapper, .appstle_subscription_widget, [class*="appstle_subscription_widget"]'
+        );
+        if (!appstle || appstle.closest(`#appstle-fallback-${CSS.escape(sectionId)}`)) return;
+
+        const selectedPlan = fallback.querySelector('.appstle-fallback__radio:checked')?.dataset.planId || '';
+        document.querySelectorAll('input[name="selling_plan"]').forEach((radio) => {
+          if (radio.dataset.appstleFallbackInput !== undefined) return;
+          if (radio.value === selectedPlan || (!selectedPlan && radio.value === '')) {
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+        cleanup();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      setTimeout(cleanup, 10000);
+    })();
+  </script>
+
+{%- endif -%}

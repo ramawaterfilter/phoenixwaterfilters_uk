@@ -300,7 +300,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/virus_3.png",
-            "title": "99.99% contaminants removed",
+            "title": "Removes up to 99.99% of contaminants",
             "sub_title": "",
             "text": "",
             "link_label": "",
@@ -650,11 +650,12 @@
       ],
       "name": "Category Slider",
       "settings": {
+        "heading": "Say hello to healthier hydration",
+        "heading1": "",
         "hd1": 50,
         "hd2": 24,
         "w1": 30,
         "w2": 30,
-        "heading": "Say hello to healthier hydration",
         "section_bg": "#4994bf",
         "text_color": "#222222",
         "line_color": "rgba(0,0,0,0)",

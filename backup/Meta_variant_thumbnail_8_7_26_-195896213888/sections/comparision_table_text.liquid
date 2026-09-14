@@ -1,0 +1,546 @@
+{% liquid
+  assign total_columns = section.blocks.size | plus: 1
+  assign grid_cols = '1.3fr '
+
+  for block in section.blocks
+    assign grid_cols = grid_cols | append: '1fr '
+  endfor
+
+  assign features_array = section.settings.features_list | split: ','
+%}
+
+<div
+  id="ComparisonTable-{{ section.id }}"
+  class="comparison-section"
+  style="
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="comparison-container page-width">
+    <div class="comparison-container-heading">
+      {% if section.settings.sub_title != blank %}
+        <div class="comparison-sub-title">
+          {{ section.settings.sub_title }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.section_title != blank %}
+        <h2
+          class="comparison-title"
+          style="color: {{ section.settings.title_color }};"
+        >
+          {{ section.settings.section_title }}
+        </h2>
+      {% endif %}
+    </div>
+
+    <div class="comparison-table">
+      <div
+        class="comparison-row comparison-header"
+        style="
+          background-color: {{ section.settings.header_bg_color }};
+          --grid-cols: {{ grid_cols }};
+          --column-count: {{ total_columns }};
+        "
+      >
+        <div
+          class="comparison-cell feature-cell"
+          style="color: {{ section.settings.header_text_color }};"
+        >
+          {{ section.settings.feature_column_title }}
+        </div>
+
+        {% for block in section.blocks %}
+          <div
+            class="comparison-cell product-cell"
+            style="color: {{ section.settings.header_text_color }};"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.product_image != blank %}
+              {{
+                block.settings.product_image
+                | image_url: width: 300
+                | image_tag:
+                  class: 'product-image',
+                  loading: 'lazy',
+                  widths: '80, 120, 150, 200, 300',
+                  sizes: '(max-width: 768px) 65px, 100px',
+                  alt: block.settings.product_name
+              }}
+            {% endif %}
+
+            {% if block.settings.product_name != blank %}
+              <h3 class="product-name">
+                {{ block.settings.product_name }}
+              </h3>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% for feature in features_array limit: 15 %}
+        {% liquid
+          assign feature_name = feature | strip
+          assign feature_index = forloop.index
+          assign feature_setting = 'feature_' | append: feature_index
+          assign row_class = 'comparison-row-light'
+          assign mod_check = forloop.index0 | modulo: 2
+
+          if mod_check == 1
+            assign row_class = 'comparison-row-dark'
+          endif
+        %}
+
+        {% if feature_name != blank %}
+          <div
+            class="comparison-row {{ row_class }}"
+            style="
+              background-color: {% if row_class == 'comparison-row-light' %}{{ section.settings.row_light_bg }}{% else %}{{ section.settings.row_dark_bg }}{% endif %};
+              --grid-cols: {{ grid_cols }};
+              --column-count: {{ total_columns }};
+            "
+          >
+            <div
+              class="comparison-cell feature-cell"
+              style="color: {{ section.settings.feature_text_color }};"
+            >
+              {{ feature_name }}
+            </div>
+
+            {% for block in section.blocks %}
+              {% liquid
+                assign raw_feature_value = block.settings[feature_setting]
+
+                if raw_feature_value == true or raw_feature_value == false
+                  assign feature_value = ''
+                else
+                  assign feature_value = raw_feature_value | strip
+                endif
+              %}
+
+              <div
+                class="comparison-cell product-cell comparison-value-cell{% if feature_value == blank %} comparison-cell--empty{% endif %}"
+                aria-hidden="{% if feature_value == blank %}true{% else %}false{% endif %}"
+              >
+                {% if feature_value != blank %}
+                  <span class="comparison-value">
+                    {{ feature_value | escape | newline_to_br }}
+                  </span>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  #ComparisonTable-{{ section.id }} {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-container.page-width {
+    max-width: {{ section.settings.page_width }}rem;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-title {
+    margin: 0 0 20px;
+    font-family: Montserrat, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1px;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-table {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-row {
+    display: grid;
+    grid-template-columns: var(--grid-cols, 1.3fr 1fr 1fr 1fr);
+    gap: 0;
+    border-bottom: 2px solid #2f2954;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-header {
+    align-items: center;
+    font-weight: 600;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-cell--empty {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #ComparisonTable-{{ section.id }} .product-image {
+    width: auto;
+    max-width: 100px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  #ComparisonTable-{{ section.id }} .product-name {
+    margin: 0;
+    color: #2f2954;
+    font-family: Montserrat, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-header .feature-cell {
+    align-items: flex-start;
+    padding-left: 30px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-row:not(.comparison-header) .feature-cell {
+    align-items: flex-start;
+    padding-left: 30px;
+    color: {{ section.settings.feature_text_color }};
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-value {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: {{ section.settings.feature_text_color }};
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-row-light .product-cell:nth-of-type(2),
+  #ComparisonTable-{{ section.id }} .comparison-row-dark .product-cell:nth-of-type(2) {
+    background-color: #4994bf;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-row-light .product-cell:nth-of-type(2) .comparison-value,
+  #ComparisonTable-{{ section.id }} .comparison-row-dark .product-cell:nth-of-type(2) .comparison-value {
+    color: #ffffff;
+  }
+
+  #ComparisonTable-{{ section.id }} .comparison-row-light .product-cell:nth-of-type(2).comparison-cell--empty,
+  #ComparisonTable-{{ section.id }} .comparison-row-dark .product-cell:nth-of-type(2).comparison-cell--empty {
+    background-color: transparent;
+  }
+
+  @media screen and (max-width: 1024px) {
+    #ComparisonTable-{{ section.id }} .comparison-cell {
+      padding: 18px 8px;
+      font-size: 14px;
+    }
+
+    #ComparisonTable-{{ section.id }} .product-image {
+      max-width: 80px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #ComparisonTable-{{ section.id }} .comparison-title {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-table {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-row {
+      min-width: calc(var(--column-count) * 115px);
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-cell {
+      min-height: 70px;
+      padding: 8px;
+      border-left: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-header .feature-cell {
+      align-items: flex-start;
+      padding-left: 10px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-row:not(.comparison-header) .feature-cell {
+      align-items: flex-start;
+      padding-left: 10px;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    #ComparisonTable-{{ section.id }} .product-image {
+      max-width: 65px;
+      height: 55px;
+    }
+
+    #ComparisonTable-{{ section.id }} .product-name {
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    #ComparisonTable-{{ section.id }} .comparison-value {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Text Table",
+  "settings": [
+    {
+      "type": "range",
+      "id": "page_width",
+      "min": 100,
+      "max": 160,
+      "unit": "rem",
+      "label": "Page width",
+      "default": 120
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title colour",
+      "default": "#1e3a5f"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Header settings"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header background colour",
+      "default": "#0d3d4d"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Header text colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "feature_column_title",
+      "label": "Feature column title",
+      "default": "Feature"
+    },
+    {
+      "type": "header",
+      "content": "Row colours"
+    },
+    {
+      "type": "color",
+      "id": "row_light_bg",
+      "label": "Light row background",
+      "default": "#f5f7fa"
+    },
+    {
+      "type": "color",
+      "id": "row_dark_bg",
+      "label": "Dark row background",
+      "default": "#e8ecf1"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature text colour",
+      "default": "#1e3a5f"
+    },
+    {
+      "type": "header",
+      "content": "Features list"
+    },
+    {
+      "type": "textarea",
+      "id": "features_list",
+      "label": "Features (comma separated)",
+      "default": "Removes Bacteria & Viruses, No Electricity Required, Cost-Effective, Eco-Friendly, Removes Heavy Metals, Improves Taste, Easy Maintenance, Portable, Long Filter Life, Removes Chlorine, Reduces TDS, NSF Certified, BPA Free, Removes Sediments, UV Protection",
+      "info": "Enter up to 15 features separated by commas. Each feature number matches the same numbered text field in every product block."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product name",
+          "default": "Product name"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_4",
+          "label": "Feature 4 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_5",
+          "label": "Feature 5 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_6",
+          "label": "Feature 6 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_7",
+          "label": "Feature 7 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_8",
+          "label": "Feature 8 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_9",
+          "label": "Feature 9 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_10",
+          "label": "Feature 10 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_11",
+          "label": "Feature 11 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_12",
+          "label": "Feature 12 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_13",
+          "label": "Feature 13 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_14",
+          "label": "Feature 14 text"
+        },
+        {
+          "type": "text",
+          "id": "feature_15",
+          "label": "Feature 15 text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Text Table",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Phoenix Gravity Filter"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Jug Filter System"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_name": "Inline Filter"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

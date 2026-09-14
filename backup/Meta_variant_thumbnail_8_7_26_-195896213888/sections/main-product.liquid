@@ -125,7 +125,7 @@
   <div class="page-width custom-width-product {{ section.settings.cs1 }}">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-          {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template' or template.suffix == 'postreat_version2-v1'%}
+        {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template' or template.suffix == 'postreat_version2-v1'%}
           {% render 'product-media-gallery-variant',
           variant_images: variant_images
           %}
@@ -138,7 +138,10 @@
       <div class="product__info-wrapper klop grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="product__info-container
+          {% if section.settings.enable_sticky_info %} product__column-sticky {% endif %}"
+          {% comment %} class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}" {% endcomment %}
+          {% comment %} class=" product__info-container {% if section.settings.enable_sticky_info and template.suffix != 'kokocarb' %} product__column-sticky {% endif %}" {% endcomment %}
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -179,9 +182,15 @@
 
   <div id="inventory-indicator" class="inventory-box">
     {% if variant.available %}
-      <span class="inventory-status inventory-available">
-        In Stock
-      </span>
+      {% if template.suffix == 'single_skew_page' %}
+        <span class="inventory-status inventory-available">
+          Starter Kit
+        </span>
+      {% else %}
+        <span class="inventory-status inventory-available">
+          In Stock
+        </span>
+      {% endif %}
     {% else %}
       <span class="inventory-status inventory-unavailable">
         Out of stock
@@ -1022,6 +1031,141 @@
       {{ product | structured_data }}
     </script>
   </div>
+  
+  {% comment %} <style>
+    @media screen and (min-width: 990px) {
+      #MainProduct-{{ section.id }} .product {
+        align-items: flex-start !important;
+      }
+
+      #MainProduct-{{ section.id }} .product__media-wrapper {
+        align-self: flex-start !important;
+        position: relative !important;
+        z-index: 2;
+        will-change: transform;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const productRoot = document.getElementById(
+        'MainProduct-{{ section.id }}'
+      );
+
+      if (!productRoot || productRoot.dataset.mediaScrollReady === 'true') {
+        return;
+      }
+
+      productRoot.dataset.mediaScrollReady = 'true';
+
+      const mediaWrapper = productRoot.querySelector(
+        '.product > .product__media-wrapper'
+      );
+
+      const infoWrapper = productRoot.querySelector(
+        '.product > .product__info-wrapper'
+      );
+
+      if (!mediaWrapper || !infoWrapper) {
+        return;
+      }
+
+      const desktopBreakpoint = 990;
+      const stickyTop = 100;
+
+      let mediaStart = 0;
+      let maximumMovement = 0;
+      let ticking = false;
+
+      function resetMedia() {
+        mediaWrapper.style.transform = '';
+      }
+
+      function measureLayout() {
+        if (window.innerWidth < desktopBreakpoint) {
+          resetMedia();
+          return;
+        }
+
+        /*
+         * Remove the previous translation before measuring
+         * the element’s original position.
+         */
+        mediaWrapper.style.transform = 'none';
+
+        const mediaRect = mediaWrapper.getBoundingClientRect();
+        const infoRect = infoWrapper.getBoundingClientRect();
+
+        mediaStart = mediaRect.top + window.scrollY;
+
+        const mediaHeight = mediaWrapper.offsetHeight;
+        const informationBottom = infoRect.bottom + window.scrollY;
+
+        /*
+         * Stop the gallery when the right column ends.
+         */
+        maximumMovement = Math.max(
+          0,
+          informationBottom - mediaStart - mediaHeight
+        );
+
+        updatePosition();
+      }
+
+      function updatePosition() {
+        ticking = false;
+
+        if (window.innerWidth < desktopBreakpoint) {
+          resetMedia();
+          return;
+        }
+
+        const requestedMovement =
+          window.scrollY + stickyTop - mediaStart;
+
+        const movement = Math.min(
+          maximumMovement,
+          Math.max(0, requestedMovement)
+        );
+
+        mediaWrapper.style.transform =
+          'translate3d(0, ' + movement + 'px, 0)';
+      }
+
+      function requestPositionUpdate() {
+        if (ticking) return;
+
+        ticking = true;
+        window.requestAnimationFrame(updatePosition);
+      }
+
+      window.addEventListener(
+        'scroll',
+        requestPositionUpdate,
+        { passive: true }
+      );
+
+      window.addEventListener('resize', measureLayout);
+      window.addEventListener('load', measureLayout);
+
+      if ('ResizeObserver' in window) {
+        const layoutObserver = new ResizeObserver(measureLayout);
+
+        layoutObserver.observe(mediaWrapper);
+        layoutObserver.observe(infoWrapper);
+      }
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measureLayout);
+      }
+
+      measureLayout();
+      setTimeout(measureLayout, 500);
+      setTimeout(measureLayout, 1500);
+    })();
+  </script> {% endcomment %}
+ 
 </product-info>
 
 <style>
@@ -1033,8 +1177,67 @@
     @media screen and (max-width:767px){
       .product-media-container .product__media.media--transparent {
         aspect-ratio: auto;
-        height:350px;
+        height:330px;
         padding-top: 0%;
+      }
+      .product__accordion .icon_with_text_collap_text{max-width:100%;font-size:15px;margin-left:10px;color:rgba(18,18,18);text-align:left;}
+      .product__accordion .icon_with_text_collap_image {
+        height: 30px;
+      }
+      .product__accordion .icon_with_text_collap_image img{width:30px;height:30px;}
+    }
+    .product__accordion .icon_with_text_collap_text{max-width:100%;color:rgba(18,18,18);text-align:left;margin-left:10px;font-size:16px;}
+      .product__accordion .icon_with_text_collap {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 7px;
+        padding: 0;
+      }
+      .product__accordion .icon_with_text_collap_block1, .icon_with_text_collap_block2, .icon_with_text_collap_block3, .icon_with_text_collap_block4 {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          text-align: center;
+      }
+      .product__accordion .icon_with_text_collap_image {
+        height: 44px;
+        margin-bottom: 0px;
+      }
+      
+      .product__accordion .accordion__content{overflow-x: unset;}
+      .shopify-section{background:white !important;}
+      .labreport-item a{margin-top:0;font-size: 12px;}
+      .labreport-item h4 {margin: 0;font-size: 13px;}
+      .labreport-item img {
+        display: block;
+        width: 40px;
+        height: 40px;
+      }
+      @media screen and (max-width: 749px) {
+          .labreport-grid {
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: 15px;
+          }
+      }
+  {% endif %}
+  {% if template.suffix == 'postreat_version2-v1' %}
+    @media screen and (max-width: 749px) {
+      .slider.slider--mobile {margin-bottom:0;}
+    }
+    @media screen and (max-width: 749px) {
+      .product-media-mobile-dots {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 9px;
+          /* min-height: 24px; */
+          margin: 0;
+          position: absolute;
+          /* top: 0; */
+          bottom: 10px;
+          left: auto;
+          right: auto;
+          left: 0;
+          right: 0;
       }
     }
   {% endif %}

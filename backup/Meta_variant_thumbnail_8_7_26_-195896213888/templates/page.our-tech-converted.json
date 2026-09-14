@@ -51,7 +51,7 @@
           "type": "item",
           "settings": {
             "icon": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
-            "text": "Up to 99.9% contaminants removed"
+            "text": "Removes up to 99.99% of contaminants"
           }
         },
         "item_bCViRb": {
@@ -729,7 +729,7 @@
             "text_color": "#000000",
             "section_heading": "",
             "heading": "",
-            "text": "<h2>304-grade stainless steel</h2><p>Naturally BPA-free and rust-resistant for locked-in freshness. Our premium grade stainless steel comes with a 10 year warranty.</p><h2>Highest-grade activated coconut carbon</h2><p>We use CT90 premium coconut carbon for our KoKoCarb Cartridges. We form it into a highly dense porous carbon block. This enables us to continue removing 99.99% of contaminants for at least 12 months.</p><h2>20 x more powerful</h2><p>Our KoKoCarb Cartridges have a &lt;1 micron rating and an extended filtration contact time. Making them 20 x more effective than typical jug filters and those using granular carbon.</p>",
+            "text": "<h2>304-grade stainless steel</h2><p>Naturally BPA-free and rust-resistant for locked-in freshness. Our premium grade stainless steel comes with a 10 year warranty.</p><h2>Highest-grade activated coconut carbon</h2><p>We use CT90 premium coconut carbon for our KoKoCarb Cartridges. We form it into a highly dense porous carbon block. This enables us to continue removes up to 99.99% of contaminants for at least 12 months.</p><h2>20 x more powerful</h2><p>Our KoKoCarb Cartridges have a &lt;1 micron rating and an extended filtration contact time. Making them 20 x more effective than typical jug filters and those using granular carbon.</p>",
             "show_underline": true,
             "show_search": false,
             "search_placeholder": "",

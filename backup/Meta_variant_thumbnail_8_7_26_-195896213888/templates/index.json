@@ -149,7 +149,7 @@
             "image": "shopify://shop_images/52.png",
             "title": "",
             "sub_title": "",
-            "text": "<p>Removes 99.99% of contaminants</p>",
+            "text": "<p>Removes up to 99.99% of contaminants</p>",
             "link_label": "",
             "link": ""
           }
@@ -287,8 +287,8 @@
       ],
       "name": "Category Slider",
       "settings": {
-        "heading": "",
-        "heading1": "Say hello to healthier hydration.",
+        "heading": "Say hello to healthier hydration.",
+        "heading1": "",
         "hd1": 40,
         "hd2": 24,
         "w1": 30,
@@ -330,7 +330,7 @@
             "button_bg": "#deb1b2",
             "button_text_color": "#ffffff",
             "hover_heading": "Removes impurities, not nutrients",
-            "sub_heading": "We remove up to 99.99% of chlorine, bacteria, viruses, heavy metals and other contaminants and >95% of fluoride – whilst retaining 100% of the nutrients your body needs from magnesium, zinc, potassium and more",
+            "sub_heading": "We removes up to 99.99% of chlorine, bacteria, viruses, heavy metals and other contaminants and >95% of fluoride – whilst retaining 100% of the nutrients your body needs from magnesium, zinc, potassium and more",
             "button_text": "Shop Now",
             "button_link": "shopify://products/the-phoenix-gravity-water-filter",
             "card_bg": "#f9d24e",

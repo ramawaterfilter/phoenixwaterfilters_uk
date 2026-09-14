@@ -941,7 +941,7 @@
         "text_width": 1200,
         "cl1": "#2f2954",
         "right_content": "",
-        "bottom_heading": "Designed and manufactured in-house. Advanced and sustainable drinking water filtration removing 99.99% contaminants whilst retaining 100% nutrients.",
+        "bottom_heading": "Designed and manufactured in-house. Advanced and sustainable drinking water filtration removes up to 99.99% contaminants whilst retaining 100% nutrients.",
         "w1": 24,
         "w2": 16,
         "bottom_heading1": "",
@@ -990,6 +990,7 @@
     },
     "image_banner_qmJcjG": {
       "type": "image-banner",
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 750px) {.banner--medium:not(.banner--adapt) {min-height: clamp(220px, 45vh, 450px); margin: clamp(8px, 1.5vh, 20px) 0 clamp(16px, 3vh, 50px) 0; } .banner img, .banner__media img {width: 100%; height: 100%; object-fit: contain; }}",
         "@media screen and (max-width: 749px) {.banner--adapt {margin: 0.5vh 0 1.5vh 0; } .banner img, .banner__media img {width: 100%; height: auto; object-fit: contain; }}"
@@ -1008,6 +1009,101 @@
         "mobile_content_alignment": "center",
         "show_text_below": false,
         "cs1": ""
+      }
+    },
+    "comparison_table_7zfFX6": {
+      "type": "comparison_table",
+      "blocks": {
+        "product_NAJtFi": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/Logo_with_Register_Mark.png",
+            "product_name": "",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": true,
+            "feature_4": true,
+            "feature_5": true,
+            "feature_6": true,
+            "feature_7": true,
+            "feature_8": true,
+            "feature_9": true,
+            "feature_10": true
+          }
+        },
+        "product_PCMkaa": {
+          "type": "product",
+          "settings": {
+            "product_name": "Plumbed-In System",
+            "feature_1": false,
+            "feature_2": false,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": false,
+            "feature_6": true,
+            "feature_7": false,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        },
+        "product_gQmi3G": {
+          "type": "product",
+          "settings": {
+            "product_name": "Bottled Water",
+            "feature_1": false,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": true,
+            "feature_6": false,
+            "feature_7": true,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        },
+        "product_i8AedP": {
+          "type": "product",
+          "settings": {
+            "product_name": "Jugs",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": true,
+            "feature_6": false,
+            "feature_7": true,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        }
+      },
+      "block_order": [
+        "product_NAJtFi",
+        "product_PCMkaa",
+        "product_gQmi3G",
+        "product_i8AedP"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "page_width": 140,
+        "section_title": "",
+        "sub_title": "",
+        "title_color": "#1e3a5f",
+        "background_color": "#eaeef1",
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "header_bg_color": "#eaeef1",
+        "header_text_color": "#2f2954",
+        "feature_column_title": "Feature",
+        "row_light_bg": "#eaeef1",
+        "row_dark_bg": "#eaeef1",
+        "feature_text_color": "#1e3a5f",
+        "check_color": "#eaeef1",
+        "cross_color": "#eaeef1",
+        "features_list": "Affordable, Portable, Durable 304 Stainless Steel, 100 Day Money Back Guarantee, Easy To Maintain, Large Capacity, No Plumbing Required"
       }
     },
     "custom_liquid_xQaCgL": {
@@ -1091,57 +1187,6 @@
         "show_faq_search": false,
         "faq_search_placeholder": "Search your question...",
         "cs1": "custom-class-2"
-      }
-    },
-    "image_with_text_baXir8": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_zadMCy": {
-          "type": "heading",
-          "settings": {
-            "heading": "POSTreat Fluoride Removal Filter Cartridge",
-            "heading_size": "h1"
-          }
-        },
-        "text_rph3tA": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
-            "text_style": "body"
-          }
-        },
-        "button_MjfBDp": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_zadMCy",
-        "text_rph3tA",
-        "button_MjfBDp"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "page_width": 120,
-        "image": "shopify://shop_images/postreat_landscape_1.jpg",
-        "custom_text": "",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-2",
-        "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "custom_video_text_VnLUkL": {
@@ -1557,9 +1602,9 @@
     "custom_text_section_WJkaK8",
     "custom_text_section_ztgPhh",
     "image_banner_qmJcjG",
+    "comparison_table_7zfFX6",
     "custom_liquid_xQaCgL",
     "custom_text_section_xhRKY8",
-    "image_with_text_baXir8",
     "custom_video_text_VnLUkL",
     "custom_video_text_JYL8fT",
     "custom_video_text_eGN8Mn",

@@ -97,15 +97,39 @@
             "page": ""
           }
         },
+        "collapsible_tab_t66Yfi": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Lab Report",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "<div class=\"labreport-accordion\">\n  <div class=\"labreport-grid\">\n\n    <!-- PFOA / PFOS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\"\n        alt=\"PFOA and PFOS filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>PFOA &amp; PFOS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the PFOA and PFOS laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- NSF CERTIFICATION -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\"\n        alt=\"\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>NSF/ANSI 42 & 372</h4>\n\n      <a\n        href=\"https://info.nsf.org/Certified/DWTU/Listings.asp?CompanyName=rama\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View RAMA Pure Water's official NSF ANSI 42 product listing\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- HEAVY METALS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\"\n        alt=\"Heavy metals filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>HEAVY METALS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/2644/2852/files/Phoenix_gravity_contaminants_lab_report_USA_Aug2024_2.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the heavy metals laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .labreport-grid {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 40px;\n    text-align: center;\n  }\n\n  .labreport-item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .labreport-item img {\n    display: block;\n    width: 60px;\n    height: 60px;\n    margin-bottom: 12px;\n    object-fit: contain;\n  }\n\n  .labreport-item h4 {\n    margin: 0;\n    font-size: 15px;\n    line-height: 1.4;\n    letter-spacing: 0.5px;\n  }\n\n  .labreport-description {\n    max-width: 280px;\n    margin: 8px auto 0;\n    font-size: 13px;\n    line-height: 1.5;\n  }\n\n  .labreport-item a {\n    display: inline-block;\n    margin-top: 8px;\n    color: #00a0ff;\n    font-weight: 600;\n    text-decoration: none;\n  }\n\n  .labreport-item a:hover,\n  .labreport-item a:focus-visible {\n    color: #00a0ff;\n    text-decoration: underline;\n  }\n\n  @media screen and (max-width: 749px) {\n    .labreport-grid {\n      grid-template-columns: 1fr;\n      gap: 30px;\n    }\n  }\n</style>",
+            "page": ""
+          }
+        },
         "collapsible_tab_WRPzJX": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "What’s in the box?",
             "icon": "none",
-            "content": "",
+            "content": "<ul><li>1 x 304-grade Stainless Steel housing unit of 8 Litre capacity</li><li>1 x 304-grade Stainless Steel tap  </li><li>2 x Smart Carbon cartridges</li><li>2 x POSTreat cartridges with POSTreat FluoRid Media Refill</li></ul>",
             "product_metafield_key": "",
             "image_metafield_key": "",
-            "c1": "{% render 'custom-variant-spec' %}",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_dkcmBy": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "100-day Money Back Guarantee",
+            "icon": "none",
+            "content": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "",
             "page": ""
           }
         },
@@ -127,6 +151,18 @@
             "heading": "What's New",
             "icon": "none",
             "content": "<ul><li>The Phoenix gravity system is a powerful and easy-to-set-up worktop filtration solution that requires no plumbing or electricity.</li><li>Crafted from high-grade AISI 304 stainless steel, the housing is naturally BPA-free and non-leaching.</li><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving the essential minerals.</li><li>With a filtration capacity 20X better than a typical jug filters and GAC, Phoenix delivers cleaner, healthier water using the natural force of gravity offering a sustainable, long-lasting alternative built with eco-friendly materials.</li><li>Phoenix Gravity Smart Carbon Cartridges are precisely engineered for compatibility with almost all gravity-fed water systems, delivering consistent performance and clean, safe water you can rely on.</li></ul>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_PMVLgr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Warranty & Protection",
+            "icon": "none",
+            "content": "<p>We stand behind the quality and craftsmanship of every Phoenix Gravity system.</p><ul><li><strong>Stainless Steel Gravity Filter System:</strong> 10-year warranty against defects in materials and workmanship.</li><li><strong>Stainless Steel Tap:</strong> 1-year warranty against defects in materials and workmanship.</li><li><strong>Carbon Filter Cartridge:</strong> 3-month warranty against defects in materials and workmanship.</li></ul><p><strong>Transit Damage?</strong></p><p>If your order arrives damaged, report it within <strong>30 days of delivery</strong>, and we’ll provide a free replacement. Our warranty is designed to give you added confidence in the quality, durability, and workmanship of your Phoenix Gravity water filter.</p>",
             "product_metafield_key": "",
             "image_metafield_key": "",
             "c1": "",
@@ -159,13 +195,16 @@
         "custom_liquid_7wgRGz",
         "icon_with_text_3yWehV",
         "collapsible_tab_rtDRV9",
+        "collapsible_tab_t66Yfi",
         "collapsible_tab_WRPzJX",
+        "collapsible_tab_dkcmBy",
         "collapsible_tab_4Wiz6y",
         "collapsible_tab_yGYd4C",
+        "collapsible_tab_PMVLgr",
         "collapsible_tab_nFbX67"
       ],
       "custom_css": [
-        "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 37rem; }}",
+        "@media screen and (max-width: 749px) {.product__media-item {height: 30rem; overflow: hidden; } ul.product__media-list {height: 31rem; }}",
         ".product-form {margin-bottom: -5px;}"
       ],
       "settings": {
@@ -203,6 +242,148 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
+      }
+    },
+    "custom_video_text_JYL8fT": {
+      "type": "custom-video-text",
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 768px) {h2.video-text-heading {width: 90%; margin: 0 auto; } .video-text-contents h2 {text-align: center; }}",
+        "@media (min-width: 768px) {img {width: 85%; } .video-text-wrapper {align-items: flex-start; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 32,
+        "hd2": 24,
+        "w1": 21,
+        "w2": 16,
+        "u1": 36,
+        "un1": 30,
+        "b1": false,
+        "s1": true,
+        "pd1": 70,
+        "pd2": 40,
+        "heading1": "",
+        "heading": "100-day Money Back Guarantee",
+        "text": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "button_text": "",
+        "button_link": "",
+        "video_url": "",
+        "video_position": "left",
+        "bg_color": "#ffffff",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "underline_width_desktop": 490,
+        "underline_width_mobile": 350,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "300px",
+        "cs1": "left-padding-class"
+      }
+    },
+    "custom_marquee_xDhKW4": {
+      "type": "custom-marquee",
+      "blocks": {
+        "marquee_item_PWbRyk": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/heavy_metals_2_e437209f-d9ff-4ed1-b1cb-af9056cf2fc6.webp",
+            "title": "Heavy Metals",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_PAPyrg": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/pfa_1_a711d498-db80-4271-a093-3a0e78d435c0.webp",
+            "title": "PFAs",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_PRkWeE": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/micro_1dbfd5f2-aec1-4ec8-aa1f-2c091440dfe6.png",
+            "title": "Microplastics",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_hj9XQa": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/cll_8b54051b-c462-4dd4-b9ce-ee1036efb0ef.webp",
+            "title": "Chlorine",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_jRyCEJ": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/Bacteria_2_577d52c6-af39-47b3-a532-325e4520d452.webp",
+            "title": "Bacteria",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        },
+        "marquee_item_dwRp3x": {
+          "type": "marquee_item",
+          "settings": {
+            "icon": "shopify://shop_images/cav_bf257863-a238-40a5-99bc-2621e9a6e1eb.webp",
+            "title": "Pesticides",
+            "percentage_text": "99.99%",
+            "link": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf?v=1724753901"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_item_PWbRyk",
+        "marquee_item_PAPyrg",
+        "marquee_item_PRkWeE",
+        "marquee_item_hj9XQa",
+        "marquee_item_jRyCEJ",
+        "marquee_item_dwRp3x"
+      ],
+      "name": "Custom marquee",
+      "settings": {
+        "show_heading_line": true,
+        "heading": "What Phoenix Gravity Water Filters remove?",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 500,
+        "line_width_mobile": 220,
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true,
+        "icon_size": 70,
+        "mobile_icon_size": 50,
+        "icon_gap": 0,
+        "mobile_icon_gap": 0,
+        "title_font_size": 24,
+        "mobile_title_font_size": 14,
+        "title_font_weight": "600",
+        "percentage_font_size": 16,
+        "mobile_percentage_font_size": 12,
+        "percentage_font_weight": "500",
+        "percentage_opacity": 85,
+        "text_transform": "none",
+        "letter_spacing": 0,
+        "item_gap": 120,
+        "mobile_item_gap": 40,
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 10
       }
     },
     "nice_custom_video_text_nKh6Vn": {
@@ -356,14 +537,84 @@
         "cs1": ""
       }
     },
+    "rich_text_BayWqY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wcbVLX": {
+          "type": "heading",
+          "settings": {
+            "heading": "POSTreat Fluoride Removal Filter Cartridge",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wcbVLX"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.rich-text {display: none; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 32,
+        "padding_bottom": 0
+      }
+    },
+    "custom_video_text_VnLUkL": {
+      "type": "custom-video-text",
+      "custom_css": [
+        ".video-text-wrapper {align-items: flex-start;}",
+        "@media screen and (max-width: 767px) {.video-text-contents h2 {text-align: center; } .video-text-contents h2, .video-text-contents .heading-underline, .for-mobile {display: none; } .video-text-wrapper {flex-direction: column-reverse; }}"
+      ],
+      "name": "Video with Text (Fully Dynamic)",
+      "settings": {
+        "h1": "",
+        "hd1": 32,
+        "hd2": 24,
+        "w1": 21,
+        "w2": 16,
+        "u1": 36,
+        "un1": 30,
+        "b1": true,
+        "s1": true,
+        "pd1": 76,
+        "pd2": 25,
+        "heading1": "",
+        "heading": "POSTreat Fluoride Removal Filter Cartridge",
+        "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
+        "show_search": false,
+        "search_placeholder": "Search products...",
+        "search_btn_text": "Search",
+        "custom_video": "",
+        "image": "shopify://shop_images/postreat_landscape_1.jpg",
+        "image_mobile_1": "shopify://shop_images/postreat_landscape_1.jpg",
+        "button_text": "Shop Now",
+        "button_link": "shopify://products/postreat-fluoride-remover",
+        "video_url": "",
+        "video_position": "left",
+        "bg_color": "#ffffff",
+        "text_color": "#1c1c1c",
+        "underline_color": "#ff7a00",
+        "underline_width_desktop": 610,
+        "underline_width_mobile": 345,
+        "padding_top": 10,
+        "padding_bottom": 0,
+        "media_height_desktop": "500px",
+        "media_height_mobile": "auto",
+        "cs1": "left-padding-class"
+      }
+    },
     "custom_text_section_ztgPhh": {
       "type": "custom-text-section",
       "custom_css": [
         ".diffrent-class-text .cta-heading {width: 100% !important;}",
         "@media (min-width: 768px) {.cta-image img {margin: 0 auto; display: block; width: 50%; }}",
         ".cta-heading {padding-bottom: 0px !important;}",
-        ".heading-line {margin: 0 auto 10px;}",
-        "@media screen and (max-width: 767px) {.diffrent-class-text {display: none; }}"
+        ".heading-line {margin: 0 auto 10px;}"
       ],
       "name": "Custom Text",
       "settings": {
@@ -434,8 +685,7 @@
       "type": "image-banner",
       "custom_css": [
         "@media screen and (min-width: 750px) {.banner--medium:not(.banner--adapt) {min-height: clamp(220px, 45vh, 450px); margin: clamp(8px, 1.5vh, 20px) 0 clamp(16px, 3vh, 50px) 0; } .banner img, .banner__media img {width: 100%; height: 100%; object-fit: contain; }}",
-        "@media screen and (max-width: 749px) {.banner--adapt {margin: 0.5vh 0 1.5vh 0; } .banner img, .banner__media img {width: 100%; height: auto; object-fit: contain; }}",
-        "@media screen and (max-width: 767px) {.banner {display: none; }}"
+        "@media screen and (max-width: 749px) {.banner--adapt {margin: 0.5vh 0 1.5vh 0; } .banner img, .banner__media img {width: 100%; height: auto; object-fit: contain; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -470,6 +720,7 @@
       "block_order": [
         "collapsible_row_h3p49m"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}"
       ],
@@ -499,50 +750,6 @@
         "cs1": ""
       }
     },
-    "custom_video_text_VnLUkL": {
-      "type": "custom-video-text",
-      "custom_css": [
-        ".video-text-wrapper {align-items: flex-start;}",
-        "@media screen and (max-width: 767px) {.video-text-section {display: none; }}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 24,
-        "w1": 21,
-        "w2": 16,
-        "u1": 36,
-        "un1": 30,
-        "b1": true,
-        "s1": true,
-        "pd1": 76,
-        "pd2": 25,
-        "heading1": "",
-        "heading": "POSTreat Fluoride Removal Filter Cartridge",
-        "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "custom_video": "",
-        "image": "shopify://shop_images/postreat_landscape_1.jpg",
-        "image_mobile_1": "shopify://shop_images/postreat_landscape_1.jpg",
-        "button_text": "Shop Now",
-        "button_link": "shopify://products/postreat-fluoride-remover",
-        "video_url": "",
-        "video_position": "left",
-        "bg_color": "#ffffff",
-        "text_color": "#1c1c1c",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 610,
-        "underline_width_mobile": 345,
-        "padding_top": 10,
-        "padding_bottom": 30,
-        "media_height_desktop": "500px",
-        "media_height_mobile": "300px",
-        "cs1": "left-padding-class"
-      }
-    },
     "collapsible_content_qbKwVP": {
       "type": "collapsible-content",
       "blocks": {
@@ -560,6 +767,7 @@
       "block_order": [
         "collapsible_row_diVgyD"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}"
       ],
@@ -589,51 +797,6 @@
         "cs1": ""
       }
     },
-    "custom_video_text_JYL8fT": {
-      "type": "custom-video-text",
-      "custom_css": [
-        "@media (max-width: 768px) {h2.video-text-heading {width: 90%; margin: 0 auto; }}",
-        "@media (min-width: 768px) {img {width: 85%; } .video-text-wrapper {align-items: flex-start; }}",
-        "@media screen and (max-width: 767px) {.video-text-section {display: none; }}"
-      ],
-      "name": "Video with Text (Fully Dynamic)",
-      "settings": {
-        "h1": "",
-        "hd1": 32,
-        "hd2": 24,
-        "w1": 21,
-        "w2": 16,
-        "u1": 36,
-        "un1": 30,
-        "b1": false,
-        "s1": true,
-        "pd1": 70,
-        "pd2": 40,
-        "heading1": "",
-        "heading": "100-day Money Back Guarantee",
-        "text": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
-        "show_search": false,
-        "search_placeholder": "Search products...",
-        "search_btn_text": "Search",
-        "custom_video": "",
-        "image": "shopify://shop_images/img..webp",
-        "image_mobile_1": "shopify://shop_images/img..webp",
-        "button_text": "",
-        "button_link": "",
-        "video_url": "",
-        "video_position": "left",
-        "bg_color": "#ffffff",
-        "text_color": "#1c1c1c",
-        "underline_color": "#ff7a00",
-        "underline_width_desktop": 490,
-        "underline_width_mobile": 350,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "media_height_desktop": "500px",
-        "media_height_mobile": "300px",
-        "cs1": "left-padding-class"
-      }
-    },
     "collapsible_content_QxfMep": {
       "type": "collapsible-content",
       "blocks": {
@@ -651,6 +814,7 @@
       "block_order": [
         "collapsible_row_jJrQJm"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 768px) {.collapsible-content {display: none; }}"
       ],
@@ -752,6 +916,7 @@
       "blocks": {
         "collapsible_row_D7di3E": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Which size filter is best for me?",
             "icon": "none",
@@ -779,6 +944,7 @@
         },
         "collapsible_row_H8Qyp3": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How does the Phoenix Gravity Filter compare to plastic jugs or other filters?",
             "icon": "none",
@@ -788,6 +954,7 @@
         },
         "collapsible_row_UHMcUe": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Are Phoenix Gravity Smart Carbon Cartridges compatible with my gravity-fed system?",
             "icon": "none",
@@ -947,14 +1114,16 @@
   "order": [
     "main",
     "related-products",
+    "custom_video_text_JYL8fT",
+    "custom_marquee_xDhKW4",
     "nice_custom_video_text_nKh6Vn",
     "collapsible_content_zmQ76m",
+    "rich_text_BayWqY",
+    "custom_video_text_VnLUkL",
     "custom_text_section_ztgPhh",
     "image_banner_qmJcjG",
     "collapsible_content_arkpGd",
-    "custom_video_text_VnLUkL",
     "collapsible_content_qbKwVP",
-    "custom_video_text_JYL8fT",
     "collapsible_content_QxfMep",
     "custom_text_section_ddrd4c",
     "collapsible_content_jF6Q7J",
