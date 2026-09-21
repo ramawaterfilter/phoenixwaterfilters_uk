@@ -3710,3 +3710,17 @@ video,
 svg {
   max-width: 100%;
 }
+
+@media (max-width: 800px) {
+  .rc-jb--bleed.rc-jb--hero .rc-jb__media {
+    min-height: auto !important;
+  }
+  .rc-jb--bleed.rc-jb--hero .rc-jb__inner--with-media {
+      min-height: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      gap:20px !important;
+      padding:20px !important;
+  }
+}
+

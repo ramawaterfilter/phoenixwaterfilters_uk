@@ -36,7 +36,9 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": ""
+          }
         },
         "variant_picker_X8rUKF": {
           "type": "variant_picker",
@@ -1061,7 +1063,6 @@
         "product_NiCeyE",
         "product_cKKUht"
       ],
-      "disabled": true,
       "name": "Comparison Text Table",
       "settings": {
         "page_width": 140,

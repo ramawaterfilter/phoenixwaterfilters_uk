@@ -5,6 +5,9 @@
   - product: {Object} Product Liquid object (optional)
   - placeholder: {Boolean} Renders a placeholder price (optional)
   - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+  - use_subscription_price: {Boolean} Renders the first selling plan allocation price (optional)
+  - target: {Object} Uses a specific variant instead of the selected variant (optional)
+  - include_subscription_observer: {Boolean} Includes the Appstle price observer script (optional)
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
@@ -13,24 +16,38 @@
   {% render 'price', product: product %}
 {% endcomment %}
 {%- liquid
-  if use_variant
-    assign target = product.selected_or_first_available_variant
-  elsif placeholder
-    assign target = null
-  else
-    assign target = product
+  if target == blank
+    if use_variant
+      assign target = product.selected_or_first_available_variant
+    elsif placeholder
+      assign target = null
+    else
+      assign target = product
+    endif
   endif
 
-  assign compare_at_price = target.compare_at_price
-  assign price = target.price | default: 1999
+  assign subscription_allocation = null
+  if use_subscription_price and use_variant
+    assign subscription_allocation = target.selling_plan_allocations.first
+  endif
+
+  if subscription_allocation
+    assign compare_at_price = subscription_allocation.compare_at_price
+    assign price = subscription_allocation.price
+  else
+    assign compare_at_price = target.compare_at_price
+    assign price = target.price | default: 1999
+  endif
   assign price_min = product.price_min
   assign price_max = product.price_max
   assign available = target.available | default: false
   assign money_price = price | money
+  assign money_compare_at_price = compare_at_price | money
   assign money_price_min = price_min | money
   assign money_price_max = price_max | money
   if settings.currency_code_enabled
     assign money_price = price | money_with_currency
+    assign money_compare_at_price = compare_at_price | money_with_currency
     assign money_price_min = price_min | money_with_currency
     assign money_price_max = price_max | money_with_currency
   endif
@@ -41,9 +58,23 @@
 -%}
 
 {%- unless target == null and placeholder == null -%}
+  {%- if subscription_allocation -%}
+    <div class="appstle-price-fallback">
+      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="appstle-price-fallback__current">{{ money_price }}</span>
+      {%- if compare_at_price > price -%}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <s class="appstle-price-fallback__compare">{{ money_compare_at_price }}</s>
+        {%- if show_badges -%}
+          <span class="badge color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
   <div
     class="
       price
+      {%- if subscription_allocation %} appstle-price-pending{% endif -%}
       {%- if price_class %} {{ price_class }}{% endif -%}
       {%- if available == false %} price--sold-out{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
@@ -92,6 +123,10 @@
         {%- endif -%}
       </div>
       <div class="price__sale">
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+        <span class="price-item price-item--sale price-item--last">
+          {{ money_price }}
+        </span>
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
@@ -104,10 +139,6 @@
             </s>
           </span>
         {%- endunless -%}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
-          {{ money_price }}
-        </span>
       </div>
       {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
         {% render 'unit-price', price: product.selected_or_first_available_variant.unit_price, measurement: product.selected_or_first_available_variant.unit_price_measurement %}
@@ -123,4 +154,27 @@
       </span>
     {%- endif -%}
   </div>
+  {%- if subscription_allocation and include_subscription_observer != false -%}
+    <script>
+      (() => {
+        const price = document.currentScript.previousElementSibling;
+        const fallback = price?.previousElementSibling;
+        if (!price || !fallback?.classList.contains('appstle-price-fallback')) return;
+
+        let observer;
+        const revealFinalPrice = () => {
+          if (!price.querySelector('.appstle_subscription_final_price')) return false;
+          fallback.remove();
+          price.classList.remove('appstle-price-pending');
+          observer?.disconnect();
+          return true;
+        };
+
+        if (!revealFinalPrice()) {
+          observer = new MutationObserver(revealFinalPrice);
+          observer.observe(price, { attributes: true, childList: true, subtree: true, attributeFilter: ['class'] });
+        }
+      })();
+    </script>
+  {%- endif -%}
 {% endunless %}

@@ -72,7 +72,7 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "none",
-            "image_1": "shopify://shop_images/NSF.png",
+            "image_1": "shopify://shop_images/nsf-01.png",
             "heading_1": "NSF 372  ANSI 42 Certified",
             "icon_2": "none",
             "image_2": "shopify://shop_images/delivery_28d070a8-d149-42f8-8db0-36695c273f7e.svg",
@@ -90,22 +90,10 @@
           "settings": {
             "heading": "Product Description",
             "icon": "none",
-            "content": "<ul><li>We’ve created our KokoCarb Cartridges from activated carbon using the highest-grade coconut shells (CTC 60) to create a dense, porous structure that removes 99.99% of parasites, heavy metals, chemicals and other contaminants - without removing the minerals your body needs.</li><li>Traps physical contaminants more than 20 times smaller than jug filters.</li><li>Silver-impregnated to prevent bacteria growth keeping your water safer for longer.</li><li>Fuses natural force of gravity with the highest-grade environmentally-friendly materials for the most effective, sustainable and durable filtration on the market.</li></ul>",
+            "content": "<ul><li>We’ve created our KokoCarb Cartridges from activated carbon using the highest-grade coconut shells (CTC 60) to create a dense, porous structure that removes up to 99.99% of parasites, heavy metals, chemicals and other contaminants - without removing the minerals your body needs.</li><li>Traps physical contaminants more than 20 times smaller than jug filters.</li><li>Silver-impregnated to prevent bacteria growth keeping your water safer for longer.</li><li>Fuses natural force of gravity with the highest-grade environmentally-friendly materials for the most effective, sustainable and durable filtration on the market.</li></ul>",
             "product_metafield_key": "",
             "image_metafield_key": "",
             "c1": "",
-            "page": ""
-          }
-        },
-        "collapsible_tab_t66Yfi": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Lab Report",
-            "icon": "none",
-            "content": "",
-            "product_metafield_key": "",
-            "image_metafield_key": "",
-            "c1": "<div class=\"labreport-accordion\">\n  <div class=\"labreport-grid\">\n\n    <!-- PFOA / PFOS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\"\n        alt=\"PFOA and PFOS filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>PFOA &amp; PFOS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the PFOA and PFOS laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- NSF CERTIFICATION -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\"\n        alt=\"\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>NSF/ANSI 42 & 372</h4>\n\n      <a\n        href=\"https://info.nsf.org/Certified/DWTU/Listings.asp?CompanyName=rama\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View RAMA Pure Water's official NSF ANSI 42 product listing\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- HEAVY METALS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\"\n        alt=\"Heavy metals filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>HEAVY METALS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/2644/2852/files/Phoenix_gravity_contaminants_lab_report_USA_Aug2024_2.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the heavy metals laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .labreport-grid {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 40px;\n    text-align: center;\n  }\n\n  .labreport-item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .labreport-item img {\n    display: block;\n    width: 60px;\n    height: 60px;\n    margin-bottom: 12px;\n    object-fit: contain;\n  }\n\n  .labreport-item h4 {\n    margin: 0;\n    font-size: 15px;\n    line-height: 1.4;\n    letter-spacing: 0.5px;\n  }\n\n  .labreport-description {\n    max-width: 280px;\n    margin: 8px auto 0;\n    font-size: 13px;\n    line-height: 1.5;\n  }\n\n  .labreport-item a {\n    display: inline-block;\n    margin-top: 8px;\n    color: #00a0ff;\n    font-weight: 600;\n    text-decoration: none;\n  }\n\n  .labreport-item a:hover,\n  .labreport-item a:focus-visible {\n    color: #00a0ff;\n    text-decoration: underline;\n  }\n\n  @media screen and (max-width: 749px) {\n    .labreport-grid {\n      grid-template-columns: 1fr;\n      gap: 30px;\n    }\n  }\n</style>",
             "page": ""
           }
         },
@@ -115,18 +103,6 @@
             "heading": "What’s in the box?",
             "icon": "none",
             "content": "<ul><li>1 x 304-grade Stainless Steel housing unit of 8 Litre capacity</li><li>1 x 304-grade Stainless Steel tap  </li><li>2 x Smart Carbon cartridges</li><li>2 x POSTreat cartridges with POSTreat FluoRid Media Refill</li></ul>",
-            "product_metafield_key": "",
-            "image_metafield_key": "",
-            "c1": "",
-            "page": ""
-          }
-        },
-        "collapsible_tab_dkcmBy": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "100-day Money Back Guarantee",
-            "icon": "none",
-            "content": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
             "product_metafield_key": "",
             "image_metafield_key": "",
             "c1": "",
@@ -151,6 +127,30 @@
             "heading": "What's New",
             "icon": "none",
             "content": "<ul><li>The Phoenix gravity system is a powerful and easy-to-set-up worktop filtration solution that requires no plumbing or electricity.</li><li>Crafted from high-grade AISI 304 stainless steel, the housing is naturally BPA-free and non-leaching.</li><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving the essential minerals.</li><li>With a filtration capacity 20X better than a typical jug filters and GAC, Phoenix delivers cleaner, healthier water using the natural force of gravity offering a sustainable, long-lasting alternative built with eco-friendly materials.</li><li>Phoenix Gravity Smart Carbon Cartridges are precisely engineered for compatibility with almost all gravity-fed water systems, delivering consistent performance and clean, safe water you can rely on.</li></ul>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_t66Yfi": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Lab Report",
+            "icon": "none",
+            "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
+            "c1": "<div class=\"labreport-accordion\">\n  <div class=\"labreport-grid\">\n\n    <!-- PFOA / PFOS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\"\n        alt=\"PFOA and PFOS filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>PFOA &amp; PFOS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity__Filtration_Performance__Contaminants_Lab_Reports_August_2024.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the PFOA and PFOS laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- NSF CERTIFICATION -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\"\n        alt=\"\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>NSF/ANSI 42 & 372</h4>\n\n      <a\n        href=\"https://info.nsf.org/Certified/DWTU/Listings.asp?CompanyName=rama\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View RAMA Pure Water's official NSF ANSI 42 product listing\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n    <!-- HEAVY METALS REPORT -->\n    <div class=\"labreport-item\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\"\n        alt=\"Heavy metals filtration laboratory test report\"\n        width=\"60\"\n        height=\"60\"\n        loading=\"lazy\"\n      >\n\n      <h4>HEAVY METALS LABORATORY TEST REPORT</h4>\n\n      <a\n        href=\"https://cdn.shopify.com/s/files/1/2644/2852/files/Phoenix_gravity_contaminants_lab_report_USA_Aug2024_2.pdf\"\n        target=\"_blank\"\n        rel=\"noopener noreferrer\"\n        aria-label=\"View the heavy metals laboratory test report\"\n      >\n        See report &gt;\n      </a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .labreport-grid {\n    display: grid;\n    grid-template-columns: repeat(3, minmax(0, 1fr));\n    gap: 40px;\n    text-align: center;\n  }\n\n  .labreport-item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .labreport-item img {\n    display: block;\n    width: 60px;\n    height: 60px;\n    margin-bottom: 12px;\n    object-fit: contain;\n  }\n\n  .labreport-item h4 {\n    margin: 0;\n    font-size: 15px;\n    line-height: 1.4;\n    letter-spacing: 0.5px;\n  }\n\n  .labreport-description {\n    max-width: 280px;\n    margin: 8px auto 0;\n    font-size: 13px;\n    line-height: 1.5;\n  }\n\n  .labreport-item a {\n    display: inline-block;\n    margin-top: 8px;\n    color: #00a0ff;\n    font-weight: 600;\n    text-decoration: none;\n  }\n\n  .labreport-item a:hover,\n  .labreport-item a:focus-visible {\n    color: #00a0ff;\n    text-decoration: underline;\n  }\n\n  @media screen and (max-width: 749px) {\n    .labreport-grid {\n      grid-template-columns: 1fr;\n      gap: 30px;\n    }\n  }\n</style>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_dkcmBy": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "100-day Money Back Guarantee",
+            "icon": "none",
+            "content": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
             "product_metafield_key": "",
             "image_metafield_key": "",
             "c1": "",
@@ -195,11 +195,11 @@
         "custom_liquid_7wgRGz",
         "icon_with_text_3yWehV",
         "collapsible_tab_rtDRV9",
-        "collapsible_tab_t66Yfi",
         "collapsible_tab_WRPzJX",
-        "collapsible_tab_dkcmBy",
         "collapsible_tab_4Wiz6y",
         "collapsible_tab_yGYd4C",
+        "collapsible_tab_t66Yfi",
+        "collapsible_tab_dkcmBy",
         "collapsible_tab_PMVLgr",
         "collapsible_tab_nFbX67"
       ],
@@ -590,8 +590,8 @@
         "search_placeholder": "Search products...",
         "search_btn_text": "Search",
         "custom_video": "",
-        "image": "shopify://shop_images/postreat_landscape_1.jpg",
-        "image_mobile_1": "shopify://shop_images/postreat_landscape_1.jpg",
+        "image": "shopify://shop_images/POSTreat_v2.jpg",
+        "image_mobile_1": "shopify://shop_images/POSTreat_v2.jpg",
         "button_text": "Shop Now",
         "button_link": "shopify://products/postreat-fluoride-remover",
         "video_url": "",
@@ -614,7 +614,8 @@
         ".diffrent-class-text .cta-heading {width: 100% !important;}",
         "@media (min-width: 768px) {.cta-image img {margin: 0 auto; display: block; width: 50%; }}",
         ".cta-heading {padding-bottom: 0px !important;}",
-        ".heading-line {margin: 0 auto 10px;}"
+        ".heading-line {margin: 0 auto 10px;}",
+        "@media (max-width: 768px) {.diffrent-class-text .cta-heading {text-align: left; } .bottom-cta {width: 100%;}}"
       ],
       "name": "Custom Text",
       "settings": {
@@ -644,8 +645,8 @@
         "button_text_color": "#ffffff",
         "text_color": "#2d2d4f",
         "bg_color": "#ffffff",
-        "padding_top": 15,
-        "padding_bottom": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "show_bottom_buttons": false,
         "buttons_per_row_desktop": 4,
         "buttons_per_row_mobile": 2,
@@ -681,8 +682,104 @@
         "cs1": "diffrent-class-text"
       }
     },
+    "comparison_table_7zfFX6": {
+      "type": "comparison_table",
+      "blocks": {
+        "product_NAJtFi": {
+          "type": "product",
+          "settings": {
+            "product_image": "shopify://shop_images/Logo_with_Register_Mark.png",
+            "product_name": "",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": true,
+            "feature_4": true,
+            "feature_5": true,
+            "feature_6": true,
+            "feature_7": true,
+            "feature_8": true,
+            "feature_9": true,
+            "feature_10": true
+          }
+        },
+        "product_PCMkaa": {
+          "type": "product",
+          "settings": {
+            "product_name": "Plumbed-In System",
+            "feature_1": false,
+            "feature_2": false,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": false,
+            "feature_6": true,
+            "feature_7": false,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        },
+        "product_gQmi3G": {
+          "type": "product",
+          "settings": {
+            "product_name": "Bottled Water",
+            "feature_1": false,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": true,
+            "feature_6": false,
+            "feature_7": true,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        },
+        "product_i8AedP": {
+          "type": "product",
+          "settings": {
+            "product_name": "Jugs",
+            "feature_1": true,
+            "feature_2": true,
+            "feature_3": false,
+            "feature_4": false,
+            "feature_5": true,
+            "feature_6": false,
+            "feature_7": true,
+            "feature_8": false,
+            "feature_9": false,
+            "feature_10": false
+          }
+        }
+      },
+      "block_order": [
+        "product_NAJtFi",
+        "product_PCMkaa",
+        "product_gQmi3G",
+        "product_i8AedP"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "page_width": 140,
+        "section_title": "",
+        "sub_title": "",
+        "title_color": "#1e3a5f",
+        "background_color": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 0,
+        "header_bg_color": "#ffffff",
+        "header_text_color": "#2f2954",
+        "feature_column_title": "Feature",
+        "row_light_bg": "#ffffff",
+        "row_dark_bg": "#ffffff",
+        "feature_text_color": "#1e3a5f",
+        "check_color": "#ffffff",
+        "cross_color": "#ffffff",
+        "features_list": "Affordable, Portable, Durable 304 Stainless Steel, 100 Day Money Back Guarantee, Easy To Maintain, Large Capacity, No Plumbing Required"
+      }
+    },
     "image_banner_qmJcjG": {
       "type": "image-banner",
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 750px) {.banner--medium:not(.banner--adapt) {min-height: clamp(220px, 45vh, 450px); margin: clamp(8px, 1.5vh, 20px) 0 clamp(16px, 3vh, 50px) 0; } .banner img, .banner__media img {width: 100%; height: 100%; object-fit: contain; }}",
         "@media screen and (max-width: 749px) {.banner--adapt {margin: 0.5vh 0 1.5vh 0; } .banner img, .banner__media img {width: 100%; height: auto; object-fit: contain; }}"
@@ -874,8 +971,8 @@
         "button_text_color": "#ffffff",
         "text_color": "#2d2d4f",
         "bg_color": "#ffffff",
-        "padding_top": 5,
-        "padding_bottom": 5,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "show_bottom_buttons": false,
         "buttons_per_row_desktop": 4,
         "buttons_per_row_mobile": 2,
@@ -914,13 +1011,39 @@
     "collapsible_content_jF6Q7J": {
       "type": "collapsible-content",
       "blocks": {
+        "collapsible_row_UHMcUe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My Phoenix Gravity Water Filter has water dripping between the Upper and Lower Chambers. What does this mean?",
+            "icon": "none",
+            "row_content": "<p>This will be from over-filling the Water Filter System. Careful use can help prevent overfilling by checking how much water is in the lower chamber before filling the upper chamber. Once you get to know your usage rates the re-filling process will become second nature! We also sell a vision tap which will enable you to see the water level from the outside.<a href=\"/products/vision-tap-stainless-steel\" target=\"_blank\" title=\"Vision Tap- Stainless Steel\"> </a>Please visit our <a href=\"/products/vision-tap-stainless-steel\" target=\"_blank\" title=\"Vision Tap- Stainless Steel\">Vision Tap page</a> for more information .</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_D7di3E": {
           "type": "collapsible_row",
-          "disabled": true,
           "settings": {
-            "heading": "Which size filter is best for me?",
+            "heading": "What certifications do Phoenix Gravity Water Filters have, and which products do they apply to?",
             "icon": "none",
-            "row_content": "<p>This depends on how many people will be using your Phoenix Gravity Water Filter, and how much water you drink! Generally, we recommend:</p><p>6-Litre - Perfect pairing, for up to 1-2 people</p><p>8-Litre - In the middle, for up to 2-4 people</p><p>12-Litre - Family friendly, for 3-4 + people</p>",
+            "row_content": "<p>Phoenix Gravity Water Filters are independently certified to NSF/ANSI 42, 372, and 401 standards, covering contaminant reduction, material safety, and emerging contaminants such as PFAS and microplastics. These certifications apply to the Phoenix Gravity Water Filter systems and relevant filtration components.</p><p>Carbon Cartridges - NSF/ANSI 42 (safely reduces non-health-related contaminants that impact the taste, odor, or visual appearance of water such as chlorine, particulates and iron) </p><p>Filter System - NSF/ANSI 42 (safely reduces non-health-related contaminants that impact the taste, odor, or visual appearance of water such as chlorine, particulates and iron) & NSF/ANSI/CAN 372 (standard that establishes testing methods and verification procedures for the \"lead-free\" content of drinking water system components) </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_H8Qyp3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why is my water cloudy?",
+            "icon": "none",
+            "row_content": "<p>Don’t worry, cloudy water after initial installation is normal and completely harmless. It’s simply safe residual dust from the manufacturing process. It can occur if the cartridges are not correctly primed - and we recommend priming cartridges fully (see above). If it is not primed, it can take about four rounds of filtered water to clear.   <br/>please refer to our instruction manual sheet <a href=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/Phoenix_Gravity___Carbon_Filter.pdf\">instruction manual sheet .</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_H6C73A": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does Phoenix Gravity water filters remove limescale ?",
+            "icon": "none",
+            "row_content": "<p><br/>Our filters do not remove limescale, as it is primarily made up of calcium and magnesium, which are essential minerals that your body needs.</p><p>Our system is specifically designed to remove harmful contaminants while retaining beneficial minerals like these. As a result, a small amount of limescale is completely normal and does not affect the quality or safety of your filtered water. (possibly mention TDS?)</p>",
             "page": ""
           }
         },
@@ -941,34 +1064,15 @@
             "row_content": "<p>Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.We include full instructions with every unit and we’re always here to help. You can contact us <a href=\"/pages/get-help\" title=\"New Get Help\">here.</a></p>",
             "page": ""
           }
-        },
-        "collapsible_row_H8Qyp3": {
-          "type": "collapsible_row",
-          "disabled": true,
-          "settings": {
-            "heading": "How does the Phoenix Gravity Filter compare to plastic jugs or other filters?",
-            "icon": "none",
-            "row_content": "<p>The Phoenix Gravity is one of the most advanced filtration systems on the market. With a Phoenix Gravity System, your water is purified through two-stages of activated carbon filtration to remove 99.9% of contaminants including bacteria, parasites, cysts, pesticides, heavy metals and more.  This means we can trap physical contaminants that are more than 20 times smaller than jug filters. Combined with our higher filtration contact time we are 20 times more powerful than typical jug filters and those using granular carbon.</p><p>Our stainless steel chambers not only prevent microplastics and other harmful chemicals from leaching into your water, but also hold significantly more purified water than the average jug. This makes it even easier for you to enjoy fresh, nutrient-rich hydration - whenever you need it most. Unlike Reverse Osmosis (RO) filters, the gravity system does not require electricity to run or a plumber to install - and it won’t strip your water of the healthy nutrients your body benefits from.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_UHMcUe": {
-          "type": "collapsible_row",
-          "disabled": true,
-          "settings": {
-            "heading": "Are Phoenix Gravity Smart Carbon Cartridges compatible with my gravity-fed system?",
-            "icon": "none",
-            "row_content": "<p>Yes! Phoenix Gravity Smart Carbon Cartridges are precision-engineered to work with nearly all gravity-fed water systems. They’re built for reliable performance and deliver clean, safe, great-tasting water every time.</p>",
-            "page": ""
-          }
         }
       },
       "block_order": [
+        "collapsible_row_UHMcUe",
         "collapsible_row_D7di3E",
-        "collapsible_row_W4xnAC",
-        "collapsible_row_tWhmT6",
         "collapsible_row_H8Qyp3",
-        "collapsible_row_UHMcUe"
+        "collapsible_row_H6C73A",
+        "collapsible_row_W4xnAC",
+        "collapsible_row_tWhmT6"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
@@ -1121,6 +1225,7 @@
     "rich_text_BayWqY",
     "custom_video_text_VnLUkL",
     "custom_text_section_ztgPhh",
+    "comparison_table_7zfFX6",
     "image_banner_qmJcjG",
     "collapsible_content_arkpGd",
     "collapsible_content_qbKwVP",

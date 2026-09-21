@@ -1,8 +1,8 @@
 {% doc %}
 Renders an interactive Appstle lookalike until the real widget is ready.
 
-@param {Object} product - Shopify product object
-@param {String} section_id - Section ID for unique element IDs
+@param {object} product - Shopify product object
+@param {string} section_id - Section ID for unique element IDs
 {% enddoc %}
 
 {%- liquid
@@ -80,8 +80,8 @@ Renders an interactive Appstle lookalike until the real widget is ready.
   .appstle-fallback__option--subscription:not(.is-selected) .appstle-fallback__discount,
   .appstle-fallback__option--subscription:not(.is-selected) .appstle-fallback__plan-details { display: none; }
     .appstle-fallback__one-time-description { font-size: 13px; line-height: 1.8; margin-left: 28px; }
-    .appstle-fallback__tooltip { align-items: center; display: flex; font-size: 12px; gap: 6px; height: 22px; }
-    .appstle-fallback__tooltip svg { fill: currentColor; height: 14px; width: 14px; }
+    .appstle-fallback__tooltip { align-items: center; display: flex; font-size: 15px; gap: 10px; height: 27px; line-height: 27px; }
+    .appstle-fallback__tooltip svg { fill: currentColor; height: 22px; width: 22px; }
 
   @media screen and (max-width: 749px) {
     .appstle-fallback__row { gap: 8px; }
@@ -297,7 +297,7 @@ Renders an interactive Appstle lookalike until the real widget is ready.
       });
       observer.observe(document.body, { childList: true, subtree: true });
 
-      setTimeout(cleanup, 10000);
+      setTimeout(cleanup, 20000);
     })();
   </script>
 

@@ -176,50 +176,50 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
-{% unless product.handle == 'the-phoenix-gravity-water-filter' %}
+                  {% unless product.handle == 'the-phoenix-gravity-water-filter' %}
 
-  {% assign variant = product.selected_or_first_available_variant %}
+                    {% assign variant = product.selected_or_first_available_variant %}
 
-  <div id="inventory-indicator" class="inventory-box">
-    {% if variant.available %}
-      {% if template.suffix == 'single_skew_page' %}
-        <span class="inventory-status inventory-available">
-          Starter Kit
-        </span>
-      {% else %}
-        <span class="inventory-status inventory-available">
-          In Stock
-        </span>
-      {% endif %}
-    {% else %}
-      <span class="inventory-status inventory-unavailable">
-        Out of stock
-      </span>
-    {% endif %}
-  </div>
+                    <div id="inventory-indicator" class="inventory-box">
+                      {% if variant.available %}
+                        {% if template.suffix == 'single_skew_page' %}
+                          <span class="inventory-status inventory-available">
+                            Starter Kit
+                          </span>
+                        {% else %}
+                          <span class="inventory-status inventory-available">
+                            In Stock
+                          </span>
+                        {% endif %}
+                      {% else %}
+                        <span class="inventory-status inventory-unavailable">
+                          Out of stock
+                        </span>
+                      {% endif %}
+                    </div>
 
-  <script>
-  function updateStock(variant) {
-    const container = document.getElementById('inventory-indicator');
-    if (!container || !variant) return;
+                    <script>
+                    function updateStock(variant) {
+                      const container = document.getElementById('inventory-indicator');
+                      if (!container || !variant) return;
 
-    if (variant.available) {
-      container.innerHTML = `
-        <span class="inventory-status inventory-available">
-          In stock
-        </span>
-      `;
-    } else {
-      container.innerHTML = `
-        <span class="inventory-status inventory-unavailable">
-          Out of stock
-        </span>
-      `;
-    }
-  }
-  </script>
+                      if (variant.available) {
+                        container.innerHTML = `
+                          <span class="inventory-status inventory-available">
+                            In stock
+                          </span>
+                        `;
+                      } else {
+                        container.innerHTML = `
+                          <span class="inventory-status inventory-unavailable">
+                            Out of stock
+                          </span>
+                        `;
+                      }
+                    }
+                    </script>
 
-{% endunless %}
+                  {% endunless %}
                   
                   {% if section.settings.p1 != blank %}
                   <div class="tax-include">{{ section.settings.p1 }}</div>
@@ -304,33 +304,59 @@
                   {%- endif -%}
                 </p>
               {%- when 'description' -%}
-              {%- assign selected_variant = product.selected_or_first_available_variant -%}
-              {%- assign variant_description = selected_variant.metafields.custom.variant_level_description -%}
+                {%- assign selected_variant = product.selected_or_first_available_variant -%}
+                {%- assign metafield_key = block.settings.variant_description_metafield_key | strip -%}
 
-              <div
-                class="product__description-wrapper quick-add-hidden"
-                {{ block.shopify_attributes }}
-              >
                 <div
-                  id="ProductDescription-{{ section.id }}"
-                  class="product__description rte"
+                  id="VariantDescriptionBlock-{{ section.id }}"
+                  class="product__description-wrapper quick-add-hidden"
+                  data-variant-description-block
+                  {{ block.shopify_attributes }}
                 >
-                  {%- if variant_description != blank -%}
-                    {{ variant_description | metafield_tag }}
-                  {%- else -%}
-                    {{ product.description }}
-                  {%- endif -%}
-                </div>
+                  <div
+                    id="ProductDescription-{{ section.id }}"
+                    class="product__description rte"
+                    data-variant-description
+                  >
+                    {%- if metafield_key != blank -%}
+                      {%- assign selected_description = selected_variant.metafields.custom[metafield_key] -%}
 
-                <button
-                  type="button"
-                  class="product__description-read-more is-hidden"
-                  id="ProductDescriptionToggle-{{ section.id }}"
-                  hidden
-                >
-                  Read more
-                </button>
-              </div>
+                      {%- if selected_description != blank -%}
+                        {{ selected_description | metafield_tag }}
+                      {%- else -%}
+                        {{ product.description }}
+                      {%- endif -%}
+                    {%- else -%}
+                      {{ product.description }}
+                    {%- endif -%}
+                  </div>
+
+                  <button
+                    type="button"
+                    class="product__description-read-more"
+                    data-description-toggle
+                    hidden
+                    aria-expanded="false"
+                  >
+                    Read more
+                  </button>
+
+                  <div hidden data-variant-description-templates>
+                    {%- for variant in product.variants -%}
+                      {%- if metafield_key != blank -%}
+                        {%- assign current_description = variant.metafields.custom[metafield_key] -%}
+                      {%- endif -%}
+
+                      <template data-variant-description-template="{{ variant.id }}">
+                        {%- if metafield_key != blank and current_description != blank -%}
+                          {{ current_description | metafield_tag }}
+                        {%- else -%}
+                          {{ product.description }}
+                        {%- endif -%}
+                      </template>
+                    {%- endfor -%}
+                  </div>
+                </div>
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -1218,8 +1244,32 @@
               gap: 15px;
           }
       }
+      @media (max-width: 768px) {
+      .product__title h1 {margin-bottom: 5px;}
+      .product__title h1:after {margin-top: 5px;height: 2px;}
+      .product__info-container>*+* {
+          margin: 0.5rem 0;
+      }
+      .template-single_skew_page .WIDGET_TYPE_7 .appstle_subscription_wrapper_option.appstle_include_dropdown{margin:5px 0 !important;}
+      .product__info-container .product-form, .product__info-container .icon-with-text{margin: 0.5rem 0;}
+      .product-gallery-arrows{display:none;}
+      .product-media-mobile-dots {
+        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        margin: 0;
+        position: absolute;
+        bottom: 10px;
+        left: auto;
+        right: auto;
+        left: 0;
+        right: 0;
+      }
+      }
   {% endif %}
-  {% if template.suffix == 'postreat_version2-v1' %}
+  {% if template.suffix == 'postreat_version2-v1' or template.suffix == 'kokocarb' %}
     @media screen and (max-width: 749px) {
       .slider.slider--mobile {margin-bottom:0;}
     }
@@ -1282,7 +1332,394 @@
   })();
 </script>
 
-  <script type="application/json" id="ProductDescriptionData-{{ section.id }}">
+  <script>
+  (function () {
+    function initialiseVariantDescription() {
+      const block = document.getElementById(
+        'VariantDescriptionBlock-{{ section.id }}'
+      );
+
+      if (!block || block.dataset.initialised === 'true') {
+        return;
+      }
+
+      block.dataset.initialised = 'true';
+
+      const section = block.closest(
+        '#shopify-section-{{ section.id }}'
+      );
+
+      const description = block.querySelector(
+        '[data-variant-description]'
+      );
+
+      const toggleButton = block.querySelector(
+        '[data-description-toggle]'
+      );
+
+      if (!section || !description || !toggleButton) {
+        return;
+      }
+
+      function initialiseReadMore() {
+        toggleButton.textContent = 'Read more';
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.hidden = true;
+
+        if (
+          description.dataset.readMorePrepared === 'true'
+        ) {
+          return;
+        }
+
+        description.dataset.readMorePrepared = 'true';
+
+        const walker = document.createTreeWalker(
+          description,
+          NodeFilter.SHOW_TEXT
+        );
+
+        const textNodes = [];
+        let completeText = '';
+        let currentNode;
+
+        while ((currentNode = walker.nextNode())) {
+          const nodeText =
+            currentNode.textContent || '';
+
+          textNodes.push({
+            node: currentNode,
+            start: completeText.length,
+            end: completeText.length + nodeText.length
+          });
+
+          completeText += nodeText;
+        }
+
+        /*
+         * Matches:
+         * 12 months
+         * 12 Months
+         * 12&nbsp;months
+         */
+        const markerMatch = completeText.match(
+          /12[\s\u00a0]+months/i
+        );
+
+        if (!markerMatch) {
+          return;
+        }
+
+        let hiddenContentStart =
+          markerMatch.index + markerMatch[0].length;
+
+        /*
+         * Keep punctuation immediately following
+         * "12 months" visible.
+         */
+        while (
+          hiddenContentStart < completeText.length &&
+          /[\s.,;:!?()[\]{}'"’“”–—-]/.test(
+            completeText.charAt(hiddenContentStart)
+          )
+        ) {
+          hiddenContentStart++;
+        }
+
+        const contentAfterMarker = completeText
+          .slice(hiddenContentStart)
+          .replace(
+            /[\s.,;:!?()[\]{}'"’“”–—-]/g,
+            ''
+          );
+
+        /*
+         * Do not show the button when no meaningful
+         * content exists after "12 months".
+         */
+        if (!contentAfterMarker.length) {
+          return;
+        }
+
+        let startNodeData = textNodes.find(
+          function (item) {
+            return (
+              hiddenContentStart >= item.start &&
+              hiddenContentStart < item.end
+            );
+          }
+        );
+
+        /*
+         * Fallback when the position is at the end of
+         * a text node.
+         */
+        if (!startNodeData) {
+          startNodeData = textNodes.find(
+            function (item) {
+              return hiddenContentStart === item.end;
+            }
+          );
+        }
+
+        if (!startNodeData) {
+          return;
+        }
+
+        const startOffset = Math.min(
+          hiddenContentStart - startNodeData.start,
+          startNodeData.node.textContent.length
+        );
+
+        const hiddenRange =
+          document.createRange();
+
+        hiddenRange.setStart(
+          startNodeData.node,
+          startOffset
+        );
+
+        hiddenRange.setEnd(
+          description,
+          description.childNodes.length
+        );
+
+        const hiddenFragment =
+          hiddenRange.extractContents();
+
+        if (!hiddenFragment.textContent.trim()) {
+          return;
+        }
+
+        const extraContent =
+          document.createElement('span');
+
+        extraContent.className =
+          'product__description-extra';
+
+        extraContent.setAttribute(
+          'data-description-extra',
+          ''
+        );
+
+        extraContent.hidden = true;
+        extraContent.appendChild(hiddenFragment);
+
+        hiddenRange.insertNode(extraContent);
+
+        toggleButton.hidden = false;
+      }
+
+      function updateDescription(variantId) {
+        if (!variantId) {
+          return;
+        }
+
+        const template = block.querySelector(
+          '[data-variant-description-template="' +
+            String(variantId) +
+          '"]'
+        );
+
+        if (!template) {
+          return;
+        }
+
+        /*
+         * Load the selected variant description.
+         */
+        description.innerHTML =
+          template.innerHTML;
+
+        /*
+         * Allow the new description to be processed.
+         */
+        description.dataset.readMorePrepared =
+          'false';
+
+        initialiseReadMore();
+      }
+
+      function getSelectedVariantId() {
+        const variantInput =
+          section.querySelector(
+            'product-form form[action*="/cart/add"] [name="id"]'
+          ) ||
+          section.querySelector(
+            'form[action*="/cart/add"] [name="id"]'
+          );
+
+        if (
+          variantInput &&
+          variantInput.value
+        ) {
+          return variantInput.value;
+        }
+
+        return new URL(window.location.href)
+          .searchParams
+          .get('variant');
+      }
+
+      function updateFromCurrentVariant() {
+        const variantId =
+          getSelectedVariantId();
+
+        if (variantId) {
+          updateDescription(variantId);
+        }
+      }
+
+      function scheduleUpdate() {
+        /*
+         * Allow the theme to update the hidden
+         * variant ID first.
+         */
+        setTimeout(
+          updateFromCurrentVariant,
+          0
+        );
+
+        setTimeout(
+          updateFromCurrentVariant,
+          100
+        );
+
+        setTimeout(
+          updateFromCurrentVariant,
+          300
+        );
+      }
+
+      toggleButton.addEventListener(
+        'click',
+        function () {
+          const extraContent =
+            description.querySelector(
+              '[data-description-extra]'
+            );
+
+          if (!extraContent) {
+            return;
+          }
+
+          const shouldExpand =
+            extraContent.hidden;
+
+          extraContent.hidden =
+            !shouldExpand;
+
+          toggleButton.textContent =
+            shouldExpand
+              ? 'Read less'
+              : 'Read more';
+
+          toggleButton.setAttribute(
+            'aria-expanded',
+            String(shouldExpand)
+          );
+        }
+      );
+
+      section.addEventListener(
+        'change',
+        function (event) {
+          if (
+            event.target.matches(
+              'input[type="radio"], select, [name="id"]'
+            )
+          ) {
+            scheduleUpdate();
+          }
+        }
+      );
+
+      document.addEventListener(
+        'variant:change',
+        function (event) {
+          if (!block.isConnected) {
+            return;
+          }
+
+          const variant =
+            event.detail?.variant ||
+            event.detail?.selectedVariant;
+
+          if (variant?.id) {
+            updateDescription(variant.id);
+          } else {
+            scheduleUpdate();
+          }
+        }
+      );
+
+      document.addEventListener(
+        'product:variant-change',
+        function (event) {
+          if (!block.isConnected) {
+            return;
+          }
+
+          const variant =
+            event.detail?.variant ||
+            event.detail?.selectedVariant;
+
+          if (variant?.id) {
+            updateDescription(variant.id);
+          } else {
+            scheduleUpdate();
+          }
+        }
+      );
+
+      /*
+       * Shopify Dawn variant-change support.
+       */
+      if (
+        typeof subscribe === 'function' &&
+        typeof PUB_SUB_EVENTS !== 'undefined' &&
+        PUB_SUB_EVENTS.variantChange
+      ) {
+        subscribe(
+          PUB_SUB_EVENTS.variantChange,
+          function (event) {
+            if (!block.isConnected) {
+              return;
+            }
+
+            const variant =
+              event?.data?.variant ||
+              event?.variant;
+
+            if (variant?.id) {
+              updateDescription(variant.id);
+            } else {
+              scheduleUpdate();
+            }
+          }
+        );
+      }
+
+      const initialVariantId =
+        getSelectedVariantId();
+
+      if (initialVariantId) {
+        updateDescription(initialVariantId);
+      } else {
+        initialiseReadMore();
+      }
+    }
+
+    initialiseVariantDescription();
+
+    document.addEventListener(
+      'shopify:section:load',
+      initialiseVariantDescription
+    );
+  })();
+</script>
+
+  {% comment %} <script type="application/json" id="ProductDescriptionData-{{ section.id }}">
     {
       "product": {{ product.description | json }},
       "variants": {
@@ -1296,7 +1733,7 @@
         {%- endfor -%}
       }
     }
-  </script>
+  </script> {% endcomment %}
 
   <script>
     (function () {
@@ -1854,7 +2291,15 @@
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings":[
+        {
+          "type": "text",
+          "id": "variant_description_metafield_key",
+          "label": "Metafield name",
+          "info": "Enter only the metafield key, for example: accordian_image. Leave blank if not needed."
+        },
+      ]
     },
     {
       "type": "share",

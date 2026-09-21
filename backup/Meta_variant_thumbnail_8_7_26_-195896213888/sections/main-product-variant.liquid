@@ -1,51 +1,5 @@
-    <script>
-
-    (()=>{
-    try {
-    var e = navigator
-    , t = e.userAgent
-    , r = 0
-    , a = (e,t,r)=>e.setAttribute(t, r)
-    , o = (e,t)=>e.removeAttribute(t)
-    , d = "tagName"
-    , n = "forEach"
-    , l = "indexOf";
-    (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) && new MutationObserver((e=>{
-    e[n]((({addedNodes: e})=>{
-    e[n]((e=>{
-    1 === e.nodeType && ("IFRAME" === e[d] && (a(e, "loading", "lazy"),
-    a(e, "data-src", e.src),
-    o(e, "src")),
-    "IMG" === e[d] && r++ > 20 && a(e, "loading", "lazy"),
-    "SCRIPT" === e[d] && (a(e, "data-src", e.src),
-    o(e, "src"),
-    e.type = "text/lazyload"))
-    }
-    ))
-    }
-    ))
-    }
-    )).observe(document.documentElement, {
-    childList: !0,
-    subtree: !0
-    });
-    var c = e=>document.querySelector(e)
-    , s = ()=>Date.now()
-    , i = s()
-    , u = ()=>{
-    if (!(s() - i > 500)) {
-    if (!c("body>meta"))
-    return setTimeout(u, 5);
-    var e = c("head");
-    document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t=>e.append(t)))
-    }
-    }
-    ;
-    u()
-    } catch (m) {}
-    }
-    )();
-    </script>
+<link rel="preconnect" href="https://subscription-admin.appstle.com">
+<link rel="dns-prefetch" href="//subscription-admin.appstle.com">
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -134,9 +88,16 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
+          {%- assign appstle_price_selector_rendered = false -%}
+          {%- assign appstle_placeholder_rendered = false -%}
+          {%- assign passed_price_block = false -%}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
+                {%- if passed_price_block and appstle_placeholder_rendered == false and product.selling_plan_groups.size > 0 and block.id contains 'appstle' -%}
+                  {%- assign appstle_placeholder_rendered = true -%}
+                  {% render 'appstle-fallback-widget', product: product, section_id: section.id %}
+                {%- endif -%}
                 {% render block %}
               {%- when 'text' -%}
                 <p
@@ -157,14 +118,18 @@
                 </div>
                 
               {%- when 'price' -%}
+                {%- assign passed_price_block = true -%}
                 
                 <div id="price-{{ section.id }}" class="tax-includes-line" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
+                  <div data-product-price-content>
+                    {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      use_subscription_price: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  </div>
 {% unless product.handle == 'the-phoenix-gravity-water-filter' %}
 
   {% assign variant = product.selected_or_first_available_variant %}
@@ -324,7 +289,14 @@
                   {{- product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
-                {{ block.settings.custom_liquid }}
+                {%- if block.settings.custom_liquid contains 'appstle_stand_alone_price_display_selector' -%}
+                  {%- unless appstle_price_selector_rendered -%}
+                    {{ block.settings.custom_liquid }}
+                    {%- assign appstle_price_selector_rendered = true -%}
+                  {%- endunless -%}
+                {%- else -%}
+                  {{ block.settings.custom_liquid }}
+                {%- endif -%}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -836,6 +808,27 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
+          <script type="application/json" data-variant-price-data>
+            [
+              {%- for variant in product.variants -%}
+                {%- capture variant_price_html -%}
+                  {%- render 'price',
+                    product: product,
+                    target: variant,
+                    use_variant: true,
+                    use_subscription_price: true,
+                    show_badges: true,
+                    price_class: 'price--large',
+                    include_subscription_observer: false
+                  -%}
+                {%- endcapture -%}
+                {
+                  "variant": {{ variant | json }},
+                  "priceHtml": {{ variant_price_html | strip | json }}
+                }{% unless forloop.last %},{% endunless %}
+              {%- endfor -%}
+            ]
+          </script>
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -1135,11 +1128,17 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const sectionId = {{ section.id | json }};
+      const sectionRoot = document.getElementById('shopify-section-' + sectionId) || document;
+      const accordionAreas = sectionRoot.querySelectorAll('[data-variant-accordion-area]');
+
+      if (!accordionAreas.length) return;
+
       let currentVariantId = null;
       let controller = null;
+      let updateTimer = null;
 
       function getSectionRoot() {
-        return document.getElementById('shopify-section-' + sectionId) || document;
+        return sectionRoot;
       }
 
       function getCurrentVariantId() {
@@ -1184,7 +1183,7 @@
           .then(function (html) {
             const newDocument = new DOMParser().parseFromString(html, 'text/html');
 
-            document.querySelectorAll('[data-variant-accordion-area]').forEach(function (oldArea) {
+            accordionAreas.forEach(function (oldArea) {
               const blockId = oldArea.getAttribute('data-variant-accordion-area');
               const newArea = newDocument.querySelector('[data-variant-accordion-area="' + blockId + '"]');
 
@@ -1203,10 +1202,8 @@
       }
 
       function delayedUpdate() {
-        setTimeout(updateVariantAccordion, 50);
-        setTimeout(updateVariantAccordion, 200);
-        setTimeout(updateVariantAccordion, 500);
-        setTimeout(updateVariantAccordion, 900);
+        clearTimeout(updateTimer);
+        updateTimer = setTimeout(updateVariantAccordion, 150);
       }
 
       delayedUpdate();
@@ -1216,8 +1213,6 @@
       document.addEventListener('variant:change', delayedUpdate);
       document.addEventListener('variantChange', delayedUpdate);
       document.addEventListener('shopify:section:load', delayedUpdate);
-
-      const sectionRoot = getSectionRoot();
 
       const observer = new MutationObserver(delayedUpdate);
 

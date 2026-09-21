@@ -31,7 +31,7 @@
 -%}
 
 <media-gallery
-  id="MediaGallery-{{ section.id }}"
+  id="MediaGallery-{{ section.id }}" data-five-dot-gallery
   role="region"
   {% if section.settings.enable_sticky_info %}
     class="product__column-sticky"
@@ -175,7 +175,7 @@
       {% if media_count <= 1 %}hidden{% endif %}
     >
       {%- if media_count > 1 -%}
-        {%- for dot_index in (1..media_count) -%}
+        {%- for dot_index in (1..5) -%}
           <button
             type="button"
             class="product-media-mobile-dot{% if forloop.first %} is-active{% endif %}"
@@ -1564,9 +1564,14 @@
         if (counter) counter.textContent = currentIndex + 1;
       }
 
-      function getDotIndex() {
+      {% comment %} function getDotIndex() {
         if (!dots.length || !allMedia.length) return 0;
         return Math.min(dots.length - 1, Math.max(0, currentIndex));
+      } {% endcomment %}
+
+      function getDotIndex() {
+        if (!dots.length || !allMedia.length) return 0;
+        return currentIndex % dots.length;
       }
 
       function updateDots() {
@@ -1592,7 +1597,7 @@
         });
       }
 
-      function syncDots() {
+      {% comment %} function syncDots() {
         if (!dotsContainer) return;
 
         const dotCount = allMedia.length;
@@ -1613,7 +1618,52 @@
         }
 
         setupDots();
+      } {% endcomment %}
+
+      function syncDots() {
+        if (!dotsContainer) return;
+
+        const isFiveDotGallery = gallery.hasAttribute('data-five-dot-gallery');
+
+        // This gallery: always 5 dots
+        // Other galleries: normal number of dots
+        const dotCount = isFiveDotGallery ? 5 : allMedia.length;
+
+        dotsContainer.hidden = allMedia.length <= 1;
+
+        if (dots.length !== dotCount) {
+          dotsContainer.replaceChildren();
+
+          for (let index = 0; index < dotCount; index += 1) {
+            const dot = document.createElement('button');
+
+            dot.type = 'button';
+            dot.className = 'product-media-mobile-dot';
+
+            dot.dataset.galleryDot = index;
+
+            dot.setAttribute(
+              'aria-label',
+              `Go to image ${index + 1}`
+            );
+
+            if (index === 0) {
+              dot.classList.add('is-active');
+              dot.setAttribute('aria-current', 'true');
+            }
+
+            dotsContainer.appendChild(dot);
+          }
+
+          dots = Array.from(
+            dotsContainer.querySelectorAll('[data-gallery-dot]')
+          );
+        }
+
+        setupDots();
+        updateDots();
       }
+
 
       function updateGrid() {
         if (!grid) return;
@@ -2203,12 +2253,26 @@
   very bottom of product-media-gallery.liquid.
 {%- endcomment -%}
 
-{% comment %} {% if template.suffix == 'kokocarb' %}
+{% if template.suffix == 'kokocarb' %}
   <style>
     @media screen and (min-width: 750px) {
+      /* Klaviyo leaves overflow:hidden on the body while HTML remains the
+         real scrolling element. That body overflow prevents every child
+         position:sticky element from sticking. "clip" prevents horizontal
+         spill without creating a competing scroll container. */
+      body.template-kokocarb {
+        overflow-x: clip !important;
+        overflow-y: visible !important;
+      }
+
+      /* Sticky fails whenever a non-scrolling ancestor uses hidden, auto,
+         scroll or clip overflow. Keep the complete product path visible. */
+      #MainContent,
       #shopify-section-{{ section.id }},
       #MainProduct-{{ section.id }} {
         overflow: visible !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
       }
 
       #MainProduct-{{ section.id }} .product {
@@ -2217,11 +2281,11 @@
       }
 
       #MainProduct-{{ section.id }} .product__media-wrapper {
-        position: relative !important;
-        top: auto !important;
+        position: sticky !important;
+        top: 2rem !important;
         align-self: flex-start !important;
         height: max-content !important;
-        will-change: transform;
+        transform: none !important;
         z-index: 2;
       }
 
@@ -2499,118 +2563,54 @@
         rebuildThumbnails(true);
       }
 
-      function initialiseKokoCarbScrollLock() {
+      function prepareKokoCarbStickyMedia() {
+        if (!window.matchMedia('(min-width: 750px)').matches) return;
+
         const productRoot = document.getElementById(`MainProduct-${sectionId}`);
-        if (!productRoot || productRoot.dataset.kokocarbScrollLock === 'true') return;
+        const sectionRoot = document.getElementById(`shopify-section-${sectionId}`);
+        const mediaWrapper = productRoot?.querySelector('.product__media-wrapper');
 
-        const productGrid = productRoot.querySelector('.product');
-        const mediaWrapper = productGrid?.querySelector(':scope > .product__media-wrapper');
-        const infoWrapper = productGrid?.querySelector(':scope > .product__info-wrapper');
+        if (!productRoot || !sectionRoot || !mediaWrapper) return;
 
-        if (!productGrid || !mediaWrapper || !infoWrapper) return;
+        /* Shopify themes often place overflow:hidden/clip on one of these
+           containers. That silently disables position:sticky. Clear it only
+           along this product section's ancestor path. */
+        let ancestor = mediaWrapper.parentElement;
 
-        productRoot.dataset.kokocarbScrollLock = 'true';
+        while (ancestor) {
+          ancestor.style.setProperty('overflow', 'visible', 'important');
+          ancestor.style.setProperty('overflow-x', 'visible', 'important');
+          ancestor.style.setProperty('overflow-y', 'visible', 'important');
 
-        const desktopQuery = window.matchMedia('(min-width: 750px)');
-        const topOffset = 100;
-        const ease = 0.18; // lower = smoother/slower catch-up, higher = snappier/tighter
-        let mediaStart = 0;
-        let maximumMovement = 0;
-        let currentMovement = 0;
-        let targetMovement = 0;
-
-        function resetPosition() {
-          mediaWrapper.style.removeProperty('transform');
-          currentMovement = 0;
-          targetMovement = 0;
+          if (ancestor === sectionRoot) break;
+          ancestor = ancestor.parentElement;
         }
 
-        function computeTarget() {
-          if (!desktopQuery.matches) {
-            targetMovement = 0;
-            return;
-          }
-          const requestedMovement = window.scrollY + topOffset - mediaStart;
-          targetMovement = Math.min(maximumMovement, Math.max(0, requestedMovement));
+        const mainContent = sectionRoot.closest('#MainContent');
+        if (mainContent) {
+          mainContent.style.setProperty('overflow', 'visible', 'important');
+          mainContent.style.setProperty('overflow-x', 'visible', 'important');
+          mainContent.style.setProperty('overflow-y', 'visible', 'important');
         }
 
-        function tick() {
-          computeTarget();
+        /* The live KokoCarb page scrolls on HTML, but Klaviyo applies
+           overflow:hidden to BODY. BODY must not become the gallery's
+           non-scrolling sticky container. */
+        document.body.style.setProperty('overflow-x', 'clip', 'important');
+        document.body.style.setProperty('overflow-y', 'visible', 'important');
 
-          const delta = targetMovement - currentMovement;
-
-          // Snap once close enough so we don't chase a fraction of a pixel forever
-          if (Math.abs(delta) < 0.05) {
-            currentMovement = targetMovement;
-          } else {
-            currentMovement += delta * ease;
-          }
-
-          mediaWrapper.style.transform = `translate3d(0, ${currentMovement.toFixed(2)}px, 0)`;
-          window.requestAnimationFrame(tick);
-        }
-
-        function measure() {
-          if (!desktopQuery.matches) {
-            resetPosition();
-            return;
-          }
-
-          const mediaRect = mediaWrapper.getBoundingClientRect();
-          const infoRect = infoWrapper.getBoundingClientRect();
-          const previousMovement = currentMovement;
-
-          // Account for the current transform offset so re-measuring
-          // mid-scroll (resize, font load, mutation) doesn't cause a jump.
-          mediaStart = mediaRect.top + window.scrollY - previousMovement;
-          const informationBottom = infoRect.bottom + window.scrollY;
-
-          maximumMovement = Math.max(
-            0,
-            informationBottom - mediaStart - mediaWrapper.offsetHeight
-          );
-        }
-
-        window.addEventListener('resize', measure, { passive: true });
-        window.addEventListener('load', measure, { once: true });
-
-        if (typeof desktopQuery.addEventListener === 'function') {
-          desktopQuery.addEventListener('change', () => {
-            resetPosition();
-            measure();
-          });
-        } else {
-          desktopQuery.addListener(() => {
-            resetPosition();
-            measure();
-          });
-        }
-
-        if ('ResizeObserver' in window) {
-          const resizeObserver = new ResizeObserver(measure);
-          resizeObserver.observe(mediaWrapper);
-          resizeObserver.observe(infoWrapper);
-        }
-
-        if (document.fonts?.ready) {
-          document.fonts.ready.then(measure);
-        }
-
-        measure();
-        window.setTimeout(measure, 300);
-        window.setTimeout(measure, 1000);
-
-        // Continuous rAF loop instead of a scroll-event listener — this is
-        // what removes the jerk, since motion is no longer tied to the
-        // (uneven) rate scroll events fire at.
-        window.requestAnimationFrame(tick);
+        mediaWrapper.style.setProperty('position', 'sticky', 'important');
+        mediaWrapper.style.setProperty('top', '8rem', 'important');
+        mediaWrapper.style.setProperty('align-self', 'flex-start', 'important');
+        mediaWrapper.style.setProperty('height', 'max-content', 'important');
+        mediaWrapper.style.setProperty('transform', 'none', 'important');
       }
 
       function start() {
+        prepareKokoCarbStickyMedia();
         initialiseKokoCarbGallery();
-        initialiseKokoCarbScrollLock();
+        window.setTimeout(prepareKokoCarbStickyMedia, 300);
         window.setTimeout(initialiseKokoCarbGallery, 300);
-        window.setTimeout(initialiseKokoCarbScrollLock, 300);
       }
 
       if (document.readyState === 'loading') {
@@ -2622,4 +2622,4 @@
       document.addEventListener('shopify:section:load', start);
     })();
   </script>
-{% endif %} {% endcomment %}
+{% endif %}

@@ -77,6 +77,7 @@ if (!customElements.get('product-info')) {
             this.updateSelectedVariantJson(optimisticVariant);
             this.updateURL(productUrl, optimisticVariant.id);
             this.productForm?.toggleSubmitButton(!optimisticVariant.available, window.variantStrings.soldOut);
+            this.updateOptimisticPrice(optimisticVariant);
           } else {
             this.updateVariantInputs('');
             this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
@@ -155,7 +156,9 @@ if (!customElements.get('product-info')) {
       }
 
       getSelectedVariantFromCurrentOptions() {
-        const variantsJson = this.variantSelectors?.querySelector('[data-product-variants]')?.textContent;
+        const variantsJson =
+          this.variantSelectors?.querySelector('[data-product-variants]')?.textContent ||
+          this.querySelector('[data-variant-price-data]')?.textContent;
         if (!variantsJson) return null;
 
         let variants;
@@ -165,6 +168,10 @@ if (!customElements.get('product-info')) {
           console.error(error);
           return null;
         }
+
+        variants = variants.map((entry) =>
+          entry.variant ? { ...entry.variant, priceHtml: entry.priceHtml } : entry
+        );
 
         const selectedOptions = Array.from(this.variantSelectors.querySelectorAll('.product-form__input'))
           .map((optionGroup) => {
@@ -186,6 +193,15 @@ if (!customElements.get('product-info')) {
         if (selectedVariantScript) selectedVariantScript.textContent = JSON.stringify(variant);
       }
 
+      updateOptimisticPrice(variant) {
+        if (!variant?.priceHtml) return;
+
+        const priceContent = this.querySelector(
+          `#price-${CSS.escape(this.dataset.section)} [data-product-price-content]`
+        );
+        if (priceContent) priceContent.innerHTML = variant.priceHtml;
+      }
+
       buildRequestUrlWithParams(url, optionValues, shouldFetchFullPage = false) {
         const params = [];
 
@@ -201,6 +217,45 @@ if (!customElements.get('product-info')) {
       updateOptionValues(html) {
         const variantSelects = html.querySelector('variant-selects');
         if (variantSelects) {
+          const currentSelects = this.variantSelectors;
+          const currentInputs = Array.from(currentSelects?.querySelectorAll('.variant-option-with-icons input[type="radio"]') || []);
+          const newInputs = Array.from(variantSelects.querySelectorAll('.variant-option-with-icons input[type="radio"]'));
+          const sameIconOptions =
+            currentInputs.length > 0 &&
+            currentInputs.length === newInputs.length &&
+            currentSelects.querySelectorAll('.product-form__input').length ===
+              currentSelects.querySelectorAll('.product-form__input--pill').length &&
+            variantSelects.querySelectorAll('.product-form__input').length ===
+              variantSelects.querySelectorAll('.product-form__input--pill').length &&
+            currentInputs.every((input, index) => {
+              const next = newInputs[index];
+              return (
+                input.id === next.id &&
+                input.name === next.name &&
+                input.value === next.value &&
+                input.nextElementSibling?.querySelector('.image-box img')?.src ===
+                  next.nextElementSibling?.querySelector('.image-box img')?.src
+              );
+            });
+
+          if (sameIconOptions) {
+            currentInputs.forEach((input, index) => {
+              const next = newInputs[index];
+              input.className = next.className;
+              input.dataset.productUrl = next.dataset.productUrl;
+              input.dataset.optionValueId = next.dataset.optionValueId;
+              input.checked = next.checked;
+              input.toggleAttribute('checked', next.checked);
+            });
+            currentSelects.querySelectorAll('[data-selected-value]').forEach((label, index) => {
+              label.innerHTML = variantSelects.querySelectorAll('[data-selected-value]')[index]?.innerHTML || '';
+            });
+            const selectedVariant = currentSelects.querySelector('[data-selected-variant]');
+            if (selectedVariant) {
+              selectedVariant.textContent = variantSelects.querySelector('[data-selected-variant]')?.textContent || '';
+            }
+            return;
+          }
           HTMLUpdateUtility.viewTransition(this.variantSelectors, variantSelects, this.preProcessHtmlCallbacks);
         }
       }

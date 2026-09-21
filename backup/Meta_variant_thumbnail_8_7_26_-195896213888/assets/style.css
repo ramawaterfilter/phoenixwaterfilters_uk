@@ -1449,7 +1449,7 @@ li.list-payment__item {
 .product__info-wrapper .metafield-rich_text_field ul {
     margin-top: 4px;
 }
-
+.metafield-rich_text_field p{margin:5px 0;}
   .f-text.sen p:before {
   content: '';
   display: inline-block;

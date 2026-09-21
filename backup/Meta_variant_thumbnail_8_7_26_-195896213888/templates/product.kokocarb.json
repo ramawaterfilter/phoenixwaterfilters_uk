@@ -22,7 +22,9 @@
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": "variant_level_description"
+          }
         },
         "text_67PpMK": {
           "type": "text",
