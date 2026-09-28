@@ -1,0 +1,329 @@
+<section class="product-accordion-section">
+  <div class="page-width">
+
+    {% for block in section.blocks %}
+      <div class="accordion-item" {{ block.shopify_attributes }}>
+        <button class="accordion-header">
+          <span>{{ block.settings.title }}</span>
+          <span class="accordion-icon">+</span>
+        </button>
+
+        <div class="accordion-content">
+
+          {% case block.settings.layout_type %}
+
+          {% when 'text_only' %}
+            <div class="acc-text">
+              {{ block.settings.content }}
+            </div>
+
+          {% when 'icons' %}
+            <div class="acc-icons-carousel">
+  <div class="acc-icons-track">
+    {% for i in (1..7) %}
+      {% assign icon = 'icon_' | append: i %}
+      {% assign label = 'label_' | append: i %}
+      {% assign percent = 'percent_' | append: i %}
+      {% if block.settings[icon] != blank %}
+        <div class="icon-item">
+          <img src="{{ block.settings[icon] | image_url: width: 120 }}">
+          <p><strong>{{ block.settings[label] }}</strong></p>
+          <p>{{ block.settings[percent] }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {%- comment -%} DUPLICATE FOR INFINITE LOOP {%- endcomment -%}
+    {% for i in (1..7) %}
+      {% assign icon = 'icon_' | append: i %}
+      {% assign label = 'label_' | append: i %}
+      {% assign percent = 'percent_' | append: i %}
+      {% if block.settings[icon] != blank %}
+        <div class="icon-item">
+          <img src="{{ block.settings[icon] | image_url: width: 120 }}">
+          <p><strong>{{ block.settings[label] }}</strong></p>
+          <p>{{ block.settings[percent] }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+          {% when 'image_text' %}
+            <div class="acc-image-text">
+              <div class="text">{{ block.settings.content }}</div>
+              {% if block.settings.image != blank %}
+                <div class="image">
+                  <img src="{{ block.settings.image | image_url: width: 900 }}">
+                </div>
+              {% endif %}
+            </div>
+
+          {% when 'text_image' %}
+            <div class="acc-image-text reverse">
+              {% if block.settings.image != blank %}
+                <div class="image">
+                  <img src="{{ block.settings.image | image_url: width: 900 }}">
+                </div>
+              {% endif %}
+              <div class="text">{{ block.settings.content }}</div>
+            </div>
+
+          {% when 'video_text' %}
+            <div class="acc-video-text">
+              <div class="video">
+                {% if block.settings.video != blank %}
+                  {{ block.settings.video | video_tag: controls: true }}
+                {% endif %}
+              </div>
+              <div class="text">{{ block.settings.content }}</div>
+            </div>
+
+          {% when 'text_video' %}
+            <div class="acc-video-text reverse">
+              <div class="video">
+                {% if block.settings.video != blank %}
+                  {{ block.settings.video | video_tag: controls: true }}
+                {% endif %}
+              </div>
+              <div class="text">{{ block.settings.content }}</div>
+            </div>
+
+          {% endcase %}
+
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+.product-accordion-section {
+  background: #eaeef1;
+  padding: 40px 0;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+.icon-item > p {
+   font-size: 20px; 
+   color: #2f2953;
+}
+.accordion-header {
+  width: 100%;
+  padding: 18px 0;
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #2f2953;
+}
+
+.accordion-icon {
+  font-size: 26px;
+  color: #2f2953;
+  transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 4000px;
+}
+
+/* IMAGE + TEXT */
+.acc-image-text,
+.acc-video-text {
+  font-size: 20px;
+  color: #2f2953;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 20px 0;
+  align-items: center;
+}
+.acc-text {
+    font-size: 20px;
+    color: #2f2953;
+}
+.acc-image-text.reverse,
+.acc-video-text.reverse {
+  direction: rtl;
+}
+.acc-image-text.reverse *,
+.acc-video-text.reverse * {
+  direction: ltr;
+}
+
+.acc-image-text img,
+.acc-video-text video {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ICON CAROUSEL */
+/* ICON CAROUSEL - TRUE INFINITE */
+.acc-icons-carousel {
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+}
+
+.acc-icons-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: iconScroll 25s linear infinite;
+}
+
+.icon-item {
+  min-width: 160px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.icon-item img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Pause on hover */
+.acc-icons-carousel:hover .acc-icons-track {
+  animation-play-state: paused;
+}
+
+@keyframes iconScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+{% comment %} .acc-icons-carousel::-webkit-scrollbar {
+  display: none;
+} {% endcomment %}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .acc-image-text,
+  .acc-video-text {
+    font-size: 20px;
+    color: #2f2953;
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+.accordion-header {
+  width: 100%;
+  padding: 18px 0;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #2f2953;
+}
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ACCORDION
+  document.querySelectorAll('.accordion-header').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('active');
+    });
+  });
+
+  
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Accordion",
+  "blocks": [
+    {
+      "type": "accordion",
+      "name": "Accordion Item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Accordion Title" },
+
+        {
+          "type": "select",
+          "id": "layout_type",
+          "label": "Content Layout",
+          "options": [
+            { "value": "text_only", "label": "Text Only" },
+            { "value": "icons", "label": "Icons Carousel" },
+            { "value": "image_text", "label": "Image Left / Text Right" },
+            { "value": "text_image", "label": "Text Left / Image Right" },
+            { "value": "video_text", "label": "Video Left / Text Right" },
+            { "value": "text_video", "label": "Text Left / Video Right" }
+          ],
+          "default": "text_only"
+        },
+
+        { "type": "richtext", "id": "content", "label": "Text Content" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "video", "id": "video", "label": "Video" },
+
+        { "type": "image_picker", "id": "icon_1", "label": "Icon 1" },
+        { "type": "text", "id": "label_1", "label": "Label 1" },
+        { "type": "text", "id": "percent_1", "label": "Percent 1" },
+
+        { "type": "image_picker", "id": "icon_2", "label": "Icon 2" },
+        { "type": "text", "id": "label_2", "label": "Label 2" },
+        { "type": "text", "id": "percent_2", "label": "Percent 2" },
+
+        { "type": "image_picker", "id": "icon_3", "label": "Icon 3" },
+        { "type": "text", "id": "label_3", "label": "Label 3" }, 
+        { "type": "text", "id": "percent_3", "label": "Percent 3" }, 
+        
+        { "type": "image_picker", "id": "icon_4", "label": "Icon 4" }, 
+        { "type": "text", "id": "label_4", "label": "Label 4" }, 
+        { "type": "text", "id": "percent_4", "label": "Percent 4" }, 
+        
+        { "type": "image_picker", "id": "icon_5", "label": "Icon 5" }, 
+        { "type": "text", "id": "label_5", "label": "Label 5" }, 
+        { "type": "text", "id": "percent_5", "label": "Percent 5" }, 
+        
+        { "type": "image_picker", "id": "icon_6", "label": "Icon 6" }, 
+        { "type": "text", "id": "label_6", "label": "Label 6" }, 
+        { "type": "text", "id": "percent_6", "label": "Percent 6" }, 
+        
+        { "type": "image_picker", "id": "icon_7", "label": "Icon 7" }, 
+        { "type": "text", "id": "label_7", "label": "Label 7" }, 
+        { "type": "text", "id": "percent_7", "label": "Percent 7" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Product Accordion – Dynamic" }
+  ]
+}
+{% endschema %}

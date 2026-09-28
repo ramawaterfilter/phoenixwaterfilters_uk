@@ -1,0 +1,580 @@
+<section
+  id="Marquee-{{ section.id }}"
+  class="custom-marquee-section"
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="desc-heading hn-k">
+      {{ section.settings.heading }}
+    </h2>
+
+    {% if section.settings.show_heading_line %}
+      <div class="heading-line"></div>
+    {% endif %}
+  {% endif %}
+
+  <div class="custom-marquee-wrapper">
+    <div class="custom-marquee-track">
+      {%- for i in (1..3) -%}
+        <div class="custom-marquee-content"{% if i > 1 %} aria-hidden="true" inert{% endif %}>
+          {% for block in section.blocks %}
+            {% assign item_link = block.settings.link %}
+
+            {% if i == 1 and item_link != blank %}
+              <a href="{{ item_link }}" class="custom-marquee-item" {{ block.shopify_attributes }}>
+            {% else %}
+              <div class="custom-marquee-item"{% if i == 1 %} {{ block.shopify_attributes }}{% endif %}>
+            {% endif %}
+
+                {% if block.settings.icon != blank %}
+                  <img
+                    src="{{ block.settings.icon | image_url: width: 100 }}"
+                    alt="{% if i == 1 %}{{ block.settings.title | escape }}{% endif %}"
+                    width="50"
+                    height="50"
+                    loading="lazy"
+                    class="custom-marquee-icon"
+                  >
+                {% endif %}
+
+                <span class="custom-marquee-text-wrap">
+                  {% if block.settings.title != blank %}
+                    <span class="custom-marquee-title">
+                      {{ block.settings.title }}
+                    </span>
+                  {% endif %}
+
+                  {% if block.settings.percentage_text != blank %}
+                    <span class="custom-marquee-percentage">
+                      {{ block.settings.percentage_text }}
+                    </span>
+                  {% endif %}
+                </span>
+
+            {% if i == 1 and item_link != blank %}
+              </a>
+            {% else %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-marquee-section .desc-heading {
+    text-align: center;
+  }
+
+  #Marquee-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-content {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ section.settings.icon_gap }}px;
+    padding-right: {{ section.settings.item_gap }}px;
+    color: {{ section.settings.text_color }};
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-text-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1.2;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-title {
+    font-size: {{ section.settings.title_font_size }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    text-transform: {{ section.settings.text_transform }};
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-percentage {
+    font-size: {{ section.settings.percentage_font_size }}px;
+    font-weight: {{ section.settings.percentage_font_weight }};
+    opacity: {{ section.settings.percentage_opacity | divided_by: 100.0 }};
+  }
+
+  {% if section.settings.pause_on_hover %}
+    #Marquee-{{ section.id }} .custom-marquee-wrapper:hover .custom-marquee-track {
+      animation-play-state: paused;
+    }
+  {% endif %}
+
+  {% if section.settings.direction == 'right' %}
+    #Marquee-{{ section.id }} .custom-marquee-track {
+      animation-direction: reverse;
+    }
+  {% endif %}
+
+  @keyframes marquee-{{ section.id }} {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-33.3333%, 0, 0);
+    }
+  }
+
+  #Marquee-{{ section.id }} .heading-line {
+    width: {{ section.settings.line_width_desktop }}px;
+    height: 3px;
+    background-color: {{ section.settings.line_color }};
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-marquee-section .desc-heading {
+      margin: 0;
+    }
+
+    #Marquee-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-item {
+      padding-right: {{ section.settings.mobile_item_gap }}px;
+      gap: {{ section.settings.mobile_icon_gap }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-title {
+      font-size: {{ section.settings.mobile_title_font_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-percentage {
+      font-size: {{ section.settings.mobile_percentage_font_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .heading-line {
+      margin: 0 auto 10px;
+      width: {{ section.settings.line_width_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #Marquee-{{ section.id }} .custom-marquee-track {
+      animation: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom marquee",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_heading_line",
+      "label": "Show Heading Line",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Product Description"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Underline Color",
+      "default": "#ff7a00"
+    },
+    {
+      "type": "range",
+      "id": "line_width_desktop",
+      "label": "Underline Width (Desktop)",
+      "min": 40,
+      "max": 800,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "line_width_mobile",
+      "label": "Underline Width (Mobile)",
+      "min": 40,
+      "max": 500,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1d1b4c"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "s",
+      "label": "Marquee speed",
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop icon size",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile icon size",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop icon and text gap",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile icon and text gap",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop title font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_font_size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile title font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Title font weight",
+      "default": "600",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "percentage_font_size",
+      "min": 10,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop percentage/text font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_percentage_font_size",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile percentage/text font size",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "percentage_font_weight",
+      "label": "Percentage/text font weight",
+      "default": "500",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "percentage_opacity",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Percentage/text opacity",
+      "default": 85
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Title text transform",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop item spacing",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "mobile_item_gap",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile item spacing",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding bottom",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "marquee_item",
+      "name": "Marquee item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Heavy Metals"
+        },
+        {
+          "type": "text",
+          "id": "percentage_text",
+          "label": "Percentage or text",
+          "default": "99.99%"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom marquee",
+      "blocks": [
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Heavy Metals",
+            "percentage_text": "99.99%"
+          }
+        },
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Chlorine",
+            "percentage_text": "99.99%"
+          }
+        },
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Microplastics",
+            "percentage_text": "99.99%"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

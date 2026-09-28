@@ -1,0 +1,245 @@
+{% schema %}
+{
+  "name": "CTA Text Image Section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container Width (px)",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "default": 1200
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background Color",
+      "default": "#f4f7f8"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Left Right Gap",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Still have Questions?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Have questions regarding pricing or looking for other information?"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Schedule a Call"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#f5d44d"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width (px)",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "default": 400
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Text with Image"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="cta-section-{{ section.id }}">
+  <div class="cta-container">
+    <div class="cta-left">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.description }}</p>
+
+
+      <div class="button-img">
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link }}" class="cta-btn">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+
+       <div class="cta-right mobile">
+      {% if section.settings.right_image %}
+        <img
+          src="{{ section.settings.right_image | image_url: width: 800 }}"
+          alt=""
+        >
+      {% endif %}
+    </div>
+    </div>
+    </div>
+
+    <div class="cta-right desktop">
+      {% if section.settings.right_image %}
+        <img
+          src="{{ section.settings.right_image | image_url: width: 800 }}"
+          alt=""
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.cta-section-{{ section.id }} {
+  background: {{ section.settings.section_bg }};
+  padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+}
+
+.cta-section-{{ section.id }} .cta-container {
+  max-width: {{ section.settings.container_width }}px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: {{ section.settings.content_gap }}px;
+}
+
+.cta-section-{{ section.id }} .cta-left {
+  max-width: 520px;
+}
+
+
+@media (min-width: 768px) {
+.cta-right.mobile {
+    display: none;
+}
+.cta-section-{{ section.id }} a.cta-btn {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 11px;
+  text-transform: uppercase;
+}
+.cta-section-{{ section.id }} .cta-right img {
+  width: {{ section.settings.image_width }}px;
+  max-width: 100%;
+}
+.cta-section-{{ section.id }} h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cta-section-{{ section.id }} p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 32px;
+}
+.cta-section-{{ section.id }} .cta-btn {
+  display: inline-block;
+  background: {{ section.settings.button_bg }};
+  color: #000;
+  padding: 14px 32px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+}
+
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cta-section-{{ section.id }} .cta-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cta-section-{{ section.id }} a.cta-btn {
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 11px;
+  text-transform: uppercase;
+}
+  .cta-section-{{ section.id }} .cta-btn {
+  display: inline-block;
+  background: {{ section.settings.button_bg }};
+  color: #000;
+  padding: 10px 30px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+  .cta-section-{{ section.id }} p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+  text-align:left;
+}
+  .cta-section-{{ section.id }} h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+   text-align:left;
+}
+  .cta-section-{{ section.id }} .cta-right img {
+  width: 80px;
+  max-width: 100%;
+}
+  .button-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cta-right.desktop {
+    display: none;
+}
+  .cta-section-{{ section.id }} .cta-left {
+    max-width: 100%;
+  }
+}
+</style>

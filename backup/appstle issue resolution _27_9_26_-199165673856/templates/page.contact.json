@@ -1,0 +1,337 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collapsible_content_tKqQKm": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_9Ar99X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How to set up your water filter",
+            "icon": "none",
+            "row_content": "<p>Certainly! Our systems are designed to be extremely easy to assemble and everything you need will be included. You can do it yourself with just your hands - there’s no specialist tools, plumbers or electricians required.We include full instructions with every unit and we’re always here to help. You can contact us<a href=\"/pages/get-help\" target=\"_blank\" title=\"Get help\"> here.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_J634n3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How our filtration system works",
+            "icon": "none",
+            "row_content": "<p>We use the highest grade 304 stainless steel, natural coconut carbon, premium ceramic and other natural materials. Plus the mighty force of gravity! Our advanced filtration system removes up to 99.99% of commonly occurring contaminants and retains up to 100% of nutrients. <a href=\"/pages/our-technology\" title=\"Our Technology\">Click here</a> for more information on how it works.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_EBy4cd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What size filter is best for you",
+            "icon": "none",
+            "row_content": "<p>This depends on how many people will be using your Phoenix Gravity Water Filter, and how much water you drink! Generally, we recommend:</p><p>6-Litre - Perfect pairing, for up to 1-2 people </p><p>8-Litre - In the middle, for up to 2-4 people </p><p>12-Litre - Family friendly, for 3-4 + people</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XRVjfQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our delivery and returns",
+            "icon": "none",
+            "row_content": "<p>We currently ship to the UK and all of Europe. Shipping times and cost depend on your specific location, and will be calculated at the checkout.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LJhUzY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our 10 year warranty",
+            "icon": "none",
+            "row_content": "<p>We offer a 10 year warranty for our Stainless Steel Gravity Water Filter system housings. They’re made to last, so you’re protected against any defects in material and workmanship. For full T&Cs, <a href=\"https://phoenixwaterfilters.co.uk/pages/product-registration\">click here.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bQi3bL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Our 100-Day Money Back Guarantee",
+            "icon": "none",
+            "row_content": "<p>The 100-Day Money Back Guarantee is applicable only to the Phoenix Gravity Systems purchased with the stainless steel housings, via our website. The trial is not applicable for replacement filters and accessories purchased separately. </p><p>Here’s how it works: </p><p><strong>1.</strong> Purchase your Phoenix Gravity Water Filter System via our website. Once it arrives, start using it straight away.</p><p><strong>2.</strong> If you don’t fall in love with your Phoenix Gravity System within 100 days of use from the date of delivery, contact our support team to initiate a return. The return must be initiated within 100 days from the date of purchase.</p><p><strong>3.</strong> The system must be returned complete with all original parts and packaging. The stainless steel housing should not be dented or otherwise damaged. The filter cartridges must not be cracked or damaged upon our receipt of the return.</p><p><strong>4.</strong> Upon safe receipt of the system and inspection of condition, we will be in touch to initiate a full refund to your original payment method. This process may take up to 10 business days to complete.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_9Ar99X",
+        "collapsible_row_J634n3",
+        "collapsible_row_EBy4cd",
+        "collapsible_row_XRVjfQ",
+        "collapsible_row_LJhUzY",
+        "collapsible_row_bQi3bL"
+      ],
+      "custom_css": [],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "anchor_id": "",
+        "caption": "Want to get in touch? Drop us a line here.",
+        "c1": "#deb1b2",
+        "heading": "But first! The answer to your question(s) may already be available on our website. Click below if you want to know about:",
+        "heading1": "",
+        "h1": 50,
+        "h2": 24,
+        "w1": 21,
+        "w2": 16,
+        "w3": 16,
+        "w4": 14,
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-ae1d3c14-ba19-4a4b-bce0-6fb51af57b38",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "rich_text_4gtGU9": {
+      "type": "rich-text",
+      "blocks": {
+        "button_yGgy9j": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_yGgy9j"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "custom_text_section_pT9CqK": {
+      "type": "custom-text-section",
+      "custom_css": [
+        ".cta-btn {padding: 14px 38px;}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 40,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading2": "",
+        "heading": "",
+        "heading_color": "#1e1e1e",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "Shop Now",
+        "bottom_button_link": "shopify://products/the-phoenix-gravity-water-filter",
+        "button_bg": "#f5d24f",
+        "button_text_color": "#000000",
+        "text_color": "#2d2d4f",
+        "bg_color": "#eaeef1",
+        "padding_top": 5,
+        "padding_bottom": 30,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": ""
+      }
+    },
+    "custom_text_section_jczTXA": {
+      "type": "custom-text-section",
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 32,
+        "hd2": 24,
+        "show_heading_line": false,
+        "c1": false,
+        "heading2": "",
+        "heading": "Still have a burning question? We’d love to hear from you.",
+        "heading_color": "#ffffff",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 40,
+        "line_width_mobile": 40,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "",
+        "w1": 24,
+        "w2": 16,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#000000",
+        "button_text_color": "#ffffff",
+        "text_color": "#222222",
+        "bg_color": "#335237",
+        "padding_top": 10,
+        "padding_bottom": 20,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-class-2"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "custom_css": [
+        "/* Default phone number style */a[href^=\"tel:\"] {color: #ffffff !important; text-decoration: none !important; transition: color 0.3s ease;}",
+        " /* Change color on hover */a[href^=\"tel:\"]:hover {color: #f4d03f !important; /* Change to any color you prefer */ text-decoration: none !important;}",
+        " /* Keep underline removed in all states */a[href^=\"tel:\"]:focus,a[href^=\"tel:\"]:active {text-decoration: none !important;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-2",
+        "text_box_heading": "Fill out the form below and we’ll be in touch within 8 hours.",
+        "text_box_content": "<p>Phoenix Gravity Water Filters<br/>Unit 1, 11 Batsworth Road<br/>Mitcham, London CR4 3BX<br/><br/>Email: support@phoenixwaterfilters.co.uk<br/>Phone: <a href=\"tel:+4420 8058 5660\" title=\"tel:+4420 8058 5660\">+44 20 8058 5660</a></p>",
+        "text_box_bg_color": "#deb1b2",
+        "text_box_heading_color": "#010101",
+        "text_box_text_color": "#ffffff",
+        "show_contact_info": false,
+        "contact_info_text": "For support, contact: support@example.com",
+        "show_name_field": true,
+        "name_placeholder": "Your Name",
+        "name_required": true,
+        "show_email_field": true,
+        "email_placeholder": "your.email@example.com",
+        "show_phone_field": false,
+        "phone_placeholder": "Your Phone Number",
+        "phone_required": false,
+        "show_message_field": true,
+        "message_placeholder": "Your Message",
+        "message_required": true,
+        "show_custom_field_1": false,
+        "custom_field_1_label": "Custom Field 1",
+        "custom_field_1_type": "text",
+        "custom_field_1_placeholder": "Enter value",
+        "custom_field_1_options": "",
+        "custom_field_1_required": false,
+        "show_custom_field_2": false,
+        "custom_field_2_label": "Custom Field 2",
+        "custom_field_2_type": "text",
+        "custom_field_2_placeholder": "Enter value",
+        "custom_field_2_options": "",
+        "custom_field_2_required": true,
+        "button_text": "Send your message",
+        "button_bg_color": "#f5d24f",
+        "button_text_color": "#ffffff",
+        "button_hover_bg_color": "#0f0f0f",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "collapsible_content_tKqQKm",
+    "rich_text_4gtGU9",
+    "custom_text_section_pT9CqK",
+    "custom_text_section_jczTXA",
+    "main",
+    "form"
+  ]
+}

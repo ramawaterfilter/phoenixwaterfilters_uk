@@ -1,0 +1,110 @@
+<!-- Variant Description Section -->
+<div class="variant-description-section">
+  
+  <!-- Variant Descriptions Container -->
+  <div class="variant-descriptions">
+    {% for variant in product.variants %}
+      {% if variant.metafields.custom.variant_description %}
+        <div class="variant-desc {% unless variant.id == product.selected_or_first_available_variant.id %}hidden{% endunless %}" 
+             data-variant-id="{{ variant.id }}">
+          
+          <!-- Variant Description Content -->
+          <div class="variant-content">
+            {{ variant.metafields.custom.variant_description | metafield_tag }}
+          </div>
+          
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <!-- No Description Message -->
+  {% assign has_desc = false %}
+  {% for variant in product.variants %}
+    {% if variant.metafields.custom.variant_description %}
+      {% assign has_desc = true %}
+    {% endif %}
+  {% endfor %}
+  
+  {% unless has_desc %}
+    <div class="no-desc-message" style="text-align: center; padding: 20px; color: #666; font-style: italic;">
+      <p>No variant-specific descriptions available.</p>
+    </div>
+  {% endunless %}
+  
+</div>
+
+<!-- JavaScript for Switching -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Find variant selectors
+  const variantSelects = document.querySelectorAll('select[name="id"], input[name="id"]');
+  
+  // Function to update variant description
+  function updateVariantDescription(variantId) {
+    // Hide all variant descriptions
+    document.querySelectorAll('.variant-desc').forEach(desc => {
+      desc.classList.add('hidden');
+    });
+    
+    // Show selected variant description
+    const selectedDesc = document.querySelector(`.variant-desc[data-variant-id="${variantId}"]`);
+    if (selectedDesc) {
+      selectedDesc.classList.remove('hidden');
+    }
+    
+    // Update current variant name
+    const variantNameElement = document.getElementById('current-variant-name');
+    if (variantNameElement) {
+      // Get variant name from selected option
+      const selectedOption = document.querySelector(`option[value="${variantId}"]`);
+      if (selectedOption) {
+        variantNameElement.textContent = selectedOption.textContent;
+      }
+    }
+  }
+  
+  // Listen for variant changes
+  variantSelects.forEach(select => {
+    select.addEventListener('change', function() {
+      const variantId = this.value;
+      updateVariantDescription(variantId);
+    });
+  });
+  
+  // For radio buttons/color swatches
+  const variantRadios = document.querySelectorAll('input[type="radio"][name^="option-"]');
+  variantRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      // Wait a moment for variant ID to update
+      setTimeout(() => {
+        const variantSelect = document.querySelector('select[name="id"]');
+        if (variantSelect && variantSelect.value) {
+          updateVariantDescription(variantSelect.value);
+        }
+      }, 100);
+    });
+  });
+});
+</script>
+
+<style>
+  .hidden {
+    display: none !important;
+  }
+  
+  .variant-content {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .variant-content p {
+    margin: 10px 0;
+  }
+  
+  .variant-content ul,
+  .variant-content ol {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+</style>

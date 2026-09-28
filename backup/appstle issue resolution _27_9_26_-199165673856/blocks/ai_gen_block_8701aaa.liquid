@@ -1,0 +1,658 @@
+
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-region-selector-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, {{ block.settings.bg_gradient_start }} 0%, {{ block.settings.bg_gradient_end }} 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-region-selector-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.03"><circle cx="200" cy="200" r="150" fill="black"/><circle cx="800" cy="400" r="200" fill="black"/><circle cx="400" cy="600" r="100" fill="black"/><circle cx="1000" cy="200" r="120" fill="black"/></svg>');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  .ai-region-selector__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-region-selector__header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: ai-region-fade-in-{{ ai_gen_id }} 0.8s ease-out;
+  }
+
+  .ai-region-selector__heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .ai-region-selector__subheading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subheading_size }}px;
+    color: {{ block.settings.subheading_color }};
+    margin: 0;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  .ai-region-selector__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 2fr));
+    gap: 24px;
+    animation: ai-region-fade-in-{{ ai_gen_id }} 1s ease-out 0.2s backwards;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }} {
+    background: {{ block.settings.card_bg_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: 40px 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid {{ block.settings.card_border_color }};
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: {{ block.settings.card_hover_border_color }};
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}:hover::before {
+    opacity: 1;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}:active {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .ai-region-selector__flag-wrapper-{{ ai_gen_id }} {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}:hover .ai-region-selector__flag-wrapper-{{ ai_gen_id }} {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .ai-region-selector__flag-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-region-selector__flag-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-region-selector__flag-placeholder-{{ ai_gen_id }} svg {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+  }
+
+  .ai-region-selector__country-name-{{ ai_gen_id }} {
+    font-size:18px;
+    font-weight: 600;
+    color: {{ block.settings.country_name_color }};
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .ai-region-selector__currency-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.currency_text_size }}px;
+    color: {{ block.settings.currency_text_color }};
+    margin: 0 0 20px 0;
+    opacity: 0.7;
+  }
+
+  .ai-region-selector__arrow-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: {{ block.settings.arrow_bg_color }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-region-selector__card-{{ ai_gen_id }}:hover .ai-region-selector__arrow-{{ ai_gen_id }} {
+    background-color: {{ block.settings.arrow_hover_bg_color }};
+    transform: translateX(4px);
+  }
+
+  .ai-region-selector__arrow-{{ ai_gen_id }} svg {
+    width: 16px;
+    height: 16px;
+    stroke: {{ block.settings.arrow_color }};
+  }
+
+  .ai-region-selector__badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: {{ block.settings.badge_bg_color }};
+    color: {{ block.settings.badge_text_color }};
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes ai-region-fade-in-{{ ai_gen_id }} {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-region-selector-{{ ai_gen_id }} {
+      padding: 40px 16px;
+      min-height: auto;
+    }
+
+    .ai-region-selector__header-{{ ai_gen_id }} {
+      margin-bottom: 10px;
+    }
+
+    .ai-region-selector__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.7);
+    }
+
+    .ai-region-selector__subheading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.subheading_size }}px * 0.9);
+    }
+
+  .ai-region-selector__grid-{{ ai_gen_id }} {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .ai-region-selector__grid-{{ ai_gen_id }} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+    .ai-region-selector__card-{{ ai_gen_id }} {
+      padding: 18px 24px;
+    }
+  }
+{% endstyle %}
+
+<region-selector-{{ ai_gen_id }} class="ai-region-selector-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-region-selector__container-{{ ai_gen_id }}">
+    <div class="ai-region-selector__header-{{ ai_gen_id }}">
+      <h1 class="ai-region-selector__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h1>
+      <p class="ai-region-selector__subheading-{{ ai_gen_id }}">{{ block.settings.subheading }}</p>
+    </div>
+
+    <div class="ai-region-selector__grid-{{ ai_gen_id }}">
+      {% for i in (1..4) %}
+        {% liquid
+          assign country_name_key = 'country_' | append: i | append: '_name'
+          assign flag_image_key = 'country_' | append: i | append: '_flag'
+          assign currency_text_key = 'country_' | append: i | append: '_currency'
+          assign redirect_url_key = 'country_' | append: i | append: '_url'
+          assign show_badge_key = 'country_' | append: i | append: '_show_badge'
+
+          assign country_name = block.settings[country_name_key]
+          assign flag_image = block.settings[flag_image_key]
+          assign currency_text = block.settings[currency_text_key]
+          assign redirect_url = block.settings[redirect_url_key]
+          assign show_badge = block.settings[show_badge_key]
+        %}
+
+        {% if country_name != blank %}
+          <a
+            href="{{ redirect_url }}"
+            class="ai-region-selector__card-{{ ai_gen_id }}"
+            data-country="{{ country_name }}"
+          >
+            {% if show_badge %}
+              <span class="ai-region-selector__badge-{{ ai_gen_id }}">{{ block.settings.badge_text }}</span>
+            {% endif %}
+
+            <div class="ai-region-selector__flag-wrapper-{{ ai_gen_id }}">
+              {% if flag_image %}
+                <img
+                  src="{{ flag_image | image_url: width: 160 }}"
+                  alt="{{ country_name }} flag"
+                  class="ai-region-selector__flag-{{ ai_gen_id }}"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                >
+              {% else %}
+                <div class="ai-region-selector__flag-placeholder-{{ ai_gen_id }}">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            <h2 class="ai-region-selector__country-name-{{ ai_gen_id }}">{{ country_name }}</h2>
+            
+
+          
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</region-selector-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class RegionSelector{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.detectUserCountry();
+      }
+
+      detectUserCountry() {
+        const userLocale = navigator.language || navigator.userLanguage;
+        const countryCode = userLocale.split('-')[1];
+
+        if (countryCode) {
+          const cards = this.querySelectorAll('.ai-region-selector__card-{{ ai_gen_id }}');
+          cards.forEach(card => {
+            const countryName = card.getAttribute('data-country');
+            if (countryName && countryName.toLowerCase().includes(countryCode.toLowerCase())) {
+              const badge = card.querySelector('.ai-region-selector__badge-{{ ai_gen_id }}');
+              if (!badge) {
+                const newBadge = document.createElement('span');
+                newBadge.className = 'ai-region-selector__badge-{{ ai_gen_id }}';
+                newBadge.textContent = '{{ block.settings.badge_text }}';
+                card.appendChild(newBadge);
+              }
+            }
+          });
+        }
+      }
+    }
+
+    customElements.define('region-selector-{{ ai_gen_id }}', RegionSelector{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Region selector",
+  "tag": null,
+  "class": "region-selector-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Choose Your Region"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Select your country to continue shopping in your local store."
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_start",
+      "label": "Gradient start",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "bg_gradient_end",
+      "label": "Gradient end",
+      "default": "#e9ecef"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_border_color",
+      "label": "Hover border",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "country_name_size",
+      "label": "Country name size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "country_name_color",
+      "label": "Country name color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "currency_text_size",
+      "label": "Currency text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "currency_text_color",
+      "label": "Currency text color",
+      "default": "#6a6a6a"
+    },
+    {
+      "type": "header",
+      "content": "Arrow icon"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_color",
+      "label": "Background",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "arrow_hover_bg_color",
+      "label": "Hover background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Icon color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Recommended badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Recommended"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Country 1"
+    },
+    {
+      "type": "text",
+      "id": "country_1_name",
+      "label": "Country name",
+      "default": "United States"
+    },
+    {
+      "type": "image_picker",
+      "id": "country_1_flag",
+      "label": "Flag image"
+    },
+    {
+      "type": "text",
+      "id": "country_1_currency",
+      "label": "Currency text",
+      "default": "Shop in USD"
+    },
+    {
+      "type": "url",
+      "id": "country_1_url",
+      "label": "Redirect URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "country_1_show_badge",
+      "label": "Show recommended badge",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Country 2"
+    },
+    {
+      "type": "text",
+      "id": "country_2_name",
+      "label": "Country name",
+      "default": "United Kingdom"
+    },
+    {
+      "type": "image_picker",
+      "id": "country_2_flag",
+      "label": "Flag image"
+    },
+    {
+      "type": "text",
+      "id": "country_2_currency",
+      "label": "Currency text",
+      "default": "Shop in GBP"
+    },
+    {
+      "type": "url",
+      "id": "country_2_url",
+      "label": "Redirect URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "country_2_show_badge",
+      "label": "Show recommended badge",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Country 3"
+    },
+    {
+      "type": "text",
+      "id": "country_3_name",
+      "label": "Country name",
+      "default": "France"
+    },
+    {
+      "type": "image_picker",
+      "id": "country_3_flag",
+      "label": "Flag image"
+    },
+    {
+      "type": "text",
+      "id": "country_3_currency",
+      "label": "Currency text",
+      "default": "Shop in EUR"
+    },
+    {
+      "type": "url",
+      "id": "country_3_url",
+      "label": "Redirect URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "country_3_show_badge",
+      "label": "Show recommended badge",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Country 4"
+    },
+    {
+      "type": "text",
+      "id": "country_4_name",
+      "label": "Country name",
+      "default": "Turkey"
+    },
+    {
+      "type": "image_picker",
+      "id": "country_4_flag",
+      "label": "Flag image"
+    },
+    {
+      "type": "text",
+      "id": "country_4_currency",
+      "label": "Currency text",
+      "default": "Shop in TRY"
+    },
+    {
+      "type": "url",
+      "id": "country_4_url",
+      "label": "Redirect URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "country_4_show_badge",
+      "label": "Show recommended badge",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Region selector"
+    }
+  ]
+}
+{% endschema %}

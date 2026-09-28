@@ -1,0 +1,329 @@
+<section class="banner-icons-section section-{{ section.id }}">
+  <div class="banner-bg"
+       style="background-image:url({{ section.settings.banner | img_url: 'master' }});">
+    
+    <div class="overlay"
+         style="background-color: {{ section.settings.overlay_color }};
+                opacity: {{ section.settings.overlay_opacity }};">
+    </div>
+
+    <div class="content-wrapper jkopi"
+         style="
+          padding: {{ section.settings.padding_top }}px {{ section.settings.padding_lr }}px {{ section.settings.padding_bottom }}px;
+         ">
+      
+      <div class="content">
+        
+        {% if section.settings.heading != blank %}
+          <h2 class="heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        <div class="icons">
+          {% for block in section.blocks %}
+            <div class="icon-row">
+              
+              {% if block.settings.icon != blank %}
+                <div class="icon"
+                     style="width: {{ section.settings.icon_width }}px;">
+                  <img src="{{ block.settings.icon | img_url: '100x' }}" alt="icon">
+                </div>
+              {% endif %}
+
+              <div class="text">
+                <p class="title">{{ block.settings.title }}</p>
+                <p class="desc">{{ block.settings.text }}</p>
+              </div>
+
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* DESKTOP – unchanged */
+.section-{{ section.id }} .banner-bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* HEADING UNDERLINE – dynamic color */
+.section-{{ section.id }} .heading {
+  color: {{ section.settings.heading_color }};
+  font-size: {{ section.settings.heading_desktop }}px;
+  border-bottom: 4px solid {{ section.settings.heading_line_color }};
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+
+  /* 🔥 bg image hide on mobile */
+  .section-{{ section.id }} .banner-bg {
+    background-image: none !important;
+    background-color: {{ section.settings.mobile_bg_color }};
+  }
+
+  .section-{{ section.id }} .content-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .section-{{ section.id }} .heading {
+    font-size: {{ section.settings.heading_mobile }}px;
+  }
+
+  .section-{{ section.id }} .title,
+  .section-{{ section.id }} .desc {
+    font-size: {{ section.settings.text_mobile }}px;
+    text-align:left;
+  }
+
+  .section-{{ section.id }} .icon-row {
+    justify-content: center;
+  }
+}
+
+
+.section-{{ section.id }} {
+  position: relative;
+}
+
+.section-{{ section.id }} .banner-bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.section-{{ section.id }} .overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.section-{{ section.id }} .content-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-{{ section.id }} .content {
+  max-width: 630px;
+}
+
+.section-{{ section.id }} .heading {
+  color: {{ section.settings.heading_color }};
+  font-size: {{ section.settings.heading_desktop }}px;
+    border-bottom: 4px solid #f07323;
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+}
+
+.section-{{ section.id }} .icon-row {
+  display: flex;
+  gap: 15px;
+      align-items: center;
+  margin-bottom: 22px;
+}
+
+{% comment %} .section-{{ section.id }} .icon img {
+  width: 100%;
+} {% endcomment %}
+
+.section-{{ section.id }} .title {
+  color: {{ section.settings.text_color }};
+  font-size: {{ section.settings.text_desktop }}px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section-{{ section.id }} .desc {
+  color: {{ section.settings.text_color }};
+  font-size: {{ section.settings.text_desktop }}px;
+  margin-top: 5px;
+    line-height: 140%;
+    margin-left: 25px;
+
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+  .section-{{ section.id }} .content-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+.section-{{ section.id }} .desc {
+    margin-left: 0px !important;
+    
+}
+  .section-{{ section.id }} .heading {
+    font-size: {{ section.settings.heading_mobile }}px;
+  }
+
+  .section-{{ section.id }} .title,
+  .section-{{ section.id }} .desc {
+    font-size: {{ section.settings.text_mobile }}px;
+  }
+
+  .section-{{ section.id }} .icon-row {
+    justify-content: center;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Banner with Icons Content",
+  "settings": [
+
+
+    {
+  "type": "color",
+  "id": "heading_line_color",
+  "label": "Heading Bottom Line Color",
+  "default": "#f07323"
+},
+{
+  "type": "color",
+  "id": "mobile_bg_color",
+  "label": "Mobile Background Color",
+  "default": "#000000"
+},
+
+    {
+      "type": "image_picker",
+      "id": "banner",
+      "label": "Banner Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Leaving you with healthier hydration"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "label": "Icon Width (px)",
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "heading_desktop",
+      "label": "Heading Size Desktop",
+      "min": 24,
+      "max": 80,
+      "step": 1,
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "heading_mobile",
+      "label": "Heading Size Mobile",
+      "min": 20,
+      "max": 50,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "text_desktop",
+      "label": "Text Size Desktop",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_mobile",
+      "label": "Text Size Mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 5,
+      "max": 200,
+      "step": 5,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 5,
+      "max": 200,
+      "step": 5,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_lr",
+      "label": "Padding Left Right",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon Text",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Icon title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Icon description here" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Icons Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,772 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "{background: #eaeef1;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_banner_slider_erbjzK": {
+      "type": "custom-banner-slider",
+      "blocks": {
+        "banner_jagCnh": {
+          "type": "banner",
+          "disabled": true,
+          "settings": {
+            "desktop_image": "shopify://shop_images/Warranty_banner_bg.jpg",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "description": "",
+            "text_alignment": "left",
+            "text_color": "#ffffff",
+            "button_text": "Shop Collection",
+            "button_link": "",
+            "button_bg_color": "#ffffff",
+            "button_text_color": "#000000",
+            "button_border_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "banner_jagCnh"
+      ],
+      "name": "Phoenix Full Width Banner",
+      "settings": {
+        "bg_color": "#ffffff",
+        "w1": 79,
+        "w2": 100,
+        "desktop_height": 240,
+        "mobile_height": 100,
+        "content_width": 850,
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "subheading_size_desktop": 18,
+        "subheading_size_mobile": 16,
+        "subheading_weight": "400",
+        "subheading_transform": "none",
+        "subheading_spacing": 0,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 32,
+        "heading_weight": "500",
+        "heading_spacing": 20,
+        "description_size_desktop": 18,
+        "description_size_mobile": 16,
+        "description_spacing": 30,
+        "button_padding_vertical": 14,
+        "button_padding_horizontal": 30,
+        "button_padding_vertical_mobile": 12,
+        "button_padding_horizontal_mobile": 25,
+        "button_font_size": 16,
+        "button_font_size_mobile": 14,
+        "button_font_weight": "600",
+        "button_border_radius": 4,
+        "button_hover_bg_color": "#000000",
+        "autoplay": true,
+        "autoplay_delay": 5,
+        "slidespeed": 800,
+        "slide_effect": "slide",
+        "show_arrows_desktop": true,
+        "show_arrows_mobile": false,
+        "show_dots_desktop": true,
+        "show_dots_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_WkFJem": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_rqzCXd": {
+          "type": "heading",
+          "settings": {
+            "heading1": "A <strong>50-year</strong> legacy of expertise & a commitment to continuous innovation.",
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_t3gaTN": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text1": "<p>Sustainable Solutions.Smarter Business.</p><p><a href=\"#form-cmx\" title=\"#form-cmx\">PARTNER WITH US</a></p>",
+            "text_style": "body"
+          }
+        },
+        "buttons_wxbpcd": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "PARTNER WITH US",
+            "button_link_1": "shopify://pages/contact",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rqzCXd",
+        "text_t3gaTN",
+        "buttons_wxbpcd"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {h1.banner__heading.inline-richtext.h1 {width: 50%; }}",
+        "@media (max-width: 768px) {h1.banner__heading.inline-richtext.h1 {text-align: left; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Warranty_banner_bg.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "cs1": "banner-class-one"
+      }
+    },
+    "custom_text_section_YE74xb": {
+      "type": "custom-text-section",
+      "custom_css": [
+        ".custom-d-class .cta-heading {line-height: 180% !important;}"
+      ],
+      "name": "Custom Text",
+      "settings": {
+        "hd1": 32,
+        "hd2": 20,
+        "show_heading_line": false,
+        "c1": false,
+        "heading2": "",
+        "heading": "Phoenix Gravity has been the world's leading manufacturer of high-quality stainless steel gravity-fed water filters.",
+        "heading_color": "#222222",
+        "line_color": "#ff7a00",
+        "line_width_desktop": 120,
+        "line_width_mobile": 80,
+        "left_content": "",
+        "t1": 18,
+        "t2": 18,
+        "text_width": 1200,
+        "cl1": "#2f2954",
+        "right_content": "",
+        "bottom_heading": "At Phoenix Gravity, We treat our clients as family, not just as business partners. We're committed to building strong, lasting relationships based on trust, support, and shared success.",
+        "w1": 16,
+        "w2": 14,
+        "bottom_heading1": "",
+        "bottom_button_text": "",
+        "bottom_button_link": "",
+        "button_bg": "#ff7a00",
+        "button_text_color": "#ffffff",
+        "text_color": "#2d2d4f",
+        "bg_color": "#eaeef1",
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "show_bottom_buttons": false,
+        "buttons_per_row_desktop": 4,
+        "buttons_per_row_mobile": 2,
+        "btn_width_desktop": 200,
+        "btn_width_mobile": 155,
+        "btn_text_1": "",
+        "btn_link_1": "",
+        "btn_bg_1": "#ff7a00",
+        "btn_text_color_1": "#ffffff",
+        "btn_border_color_1": "#ff7a00",
+        "btn_text_2": "",
+        "btn_link_2": "",
+        "btn_bg_2": "#000000",
+        "btn_text_color_2": "#ffffff",
+        "btn_border_color_2": "#000000",
+        "btn_text_3": "",
+        "btn_link_3": "",
+        "btn_bg_3": "#ffffff",
+        "btn_text_color_3": "#000000",
+        "btn_border_color_3": "#000000",
+        "btn_text_4": "",
+        "btn_link_4": "",
+        "btn_bg_4": "#2d2d4f",
+        "btn_text_color_4": "#ffffff",
+        "btn_border_color_4": "#2d2d4f",
+        "btn_text_5": "",
+        "btn_link_5": "",
+        "btn_bg_5": "#f69320",
+        "btn_text_color_5": "#ffffff",
+        "btn_border_color_5": "#f69320",
+        "show_faq_search": false,
+        "faq_search_placeholder": "Search your question...",
+        "cs1": "custom-d-class"
+      }
+    },
+    "custom_box_CaJYwa": {
+      "type": "custom-box",
+      "blocks": {
+        "card_77rib3": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/image_4_1.webp",
+            "heading": "Family Owned",
+            "b2": "",
+            "h10": "<p>In London and Chennai, two soon-to-be fathers sought better water filtration solutions.</p><p>Recognizing the limitations of existing options, they pioneered innovative approaches. In 2005, their combined expertise led to Phoenix Gravity Water Filters.</p><p>Today, we are trusted by over <strong>800,000 homes worldwide</strong> for pure water.</p>",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_xeE78D": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/b2b_map.jpg",
+            "heading": "We Are Global",
+            "b2": "",
+            "h10": "<p>With a processing facility in Chennai and presence throughout the world, we are equipped to service the market throughout the world.</p>",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#121212",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ffffff",
+            "button_text_color": "#121212",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_77rib3",
+        "card_xeE78D"
+      ],
+      "custom_css": [
+        "h3 {font-family: system-ui; font-weight: 400; margin: 0px !important;}",
+        ".card-front {justify-content: flex-start !important; align-items: baseline !important;}",
+        ".icon {width: 100%;}",
+        "@media (max-width: 768px) {h3.box-sub-heading {font-size: 14px; text-align: left; font-weight: 300 !important; line-height: 21px; } .card-front {padding: 15px; }}",
+        ".card-hover-text {text-align: left;}",
+        ".button-link-box {margin-top: 0px;}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": false,
+        "hd1": 34,
+        "hd2": 24,
+        "hd3": 23,
+        "hd4": 16,
+        "enable_mobile_hover": true,
+        "h3": "",
+        "h1": "",
+        "h2": "",
+        "section_bg": "#eaeef1",
+        "desktop_height": 330,
+        "mobile_height": 340,
+        "desktop_columns": 2,
+        "mobile_columns": 1,
+        "gap": 20,
+        "card_padding": 10,
+        "radius": 12,
+        "button_radius": 0,
+        "icon_size": 410,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_lr": 80,
+        "p1": 22,
+        "p3": 31,
+        "p2": 14,
+        "b1": "<p><a href=\"#form-cmx\" title=\"#form-cmx\">SCHEDULE A CALL</a></p>",
+        "bc1": "#f5d24f",
+        "bc2": "#000000"
+      }
+    },
+    "image_banner_KEbdDU": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_4WMxA8": {
+          "type": "heading",
+          "settings": {
+            "heading1": "",
+            "heading": "Join the Phoenix Gravity Family ",
+            "heading_size": "h1"
+          }
+        },
+        "text_LHXYQF": {
+          "type": "text",
+          "settings": {
+            "text": "Our Partner Program offers exclusive benefits for <strong>Dealers</strong>. ",
+            "text1": "",
+            "text_style": "body"
+          }
+        },
+        "text_KygFrn": {
+          "type": "text",
+          "settings": {
+            "text": "With Phoenix Gravity, you're not just selling products; you're delivering a superior experience backed by unwavering support.",
+            "text1": "",
+            "text_style": "body"
+          }
+        },
+        "buttons_YAcVtH": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Contact Us",
+            "button_link_1": "#form-cmx",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4WMxA8",
+        "text_LHXYQF",
+        "text_KygFrn",
+        "buttons_YAcVtH"
+      ],
+      "custom_css": [
+        "a.button.button--primary {font-size: 16px; font-weight: bold; border-radius: 11px; text-transform: uppercase;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {background: #b8bbff; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/b2b_background_cba5a2dd-771d-444e-9dbe-9c9cab8c3f1e.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-849ea040-c89b-4468-90c0-d5622f30c3da",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "cs1": "banner-dealer-class"
+      }
+    },
+    "custom_box_HqMLCx": {
+      "type": "custom-box",
+      "blocks": {
+        "card_JFMY4E": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/image_3_1.webp",
+            "heading": "Unmatched Product Quality",
+            "b2": "",
+            "h10": "<p>Our solutions are renowned for their excellence.</p>",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-right",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        },
+        "card_fGe9z3": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/b2b_customer_support_1.webp",
+            "heading": "Comprehensive Support",
+            "b2": "",
+            "h10": "<p>We're committed to your success.</p>",
+            "r1": "rgba(0,0,0,0)",
+            "text_color": "#000000",
+            "hover_heading_color": "#ffffff",
+            "sub_text_color": "#dddddd",
+            "button_bg": "#ff6600",
+            "button_text_color": "#ffffff",
+            "hover_heading": "",
+            "sub_heading": "",
+            "button_text": "",
+            "button_link": "",
+            "card_bg": "#ffffff",
+            "aos_animation": "fade-left",
+            "aos_delay": 0,
+            "aos_duration": 800
+          }
+        }
+      },
+      "block_order": [
+        "card_JFMY4E",
+        "card_fGe9z3"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h3 {font-family: system-ui; font-weight: 400; margin: 0px !important;}",
+        ".card-front {justify-content: flex-start !important; align-items: baseline !important;}",
+        "@media (max-width: 768px) {h3.box-sub-heading {font-size: 14px; text-align: left; font-weight: 300 !important; line-height: 21px; } .card-front {padding: 15px; }}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": false,
+        "hd1": 40,
+        "hd2": 24,
+        "hd3": 40,
+        "hd4": 24,
+        "enable_mobile_hover": true,
+        "h3": "",
+        "h1": "Our Dealer Advantage",
+        "h2": "",
+        "section_bg": "#eaeef1",
+        "desktop_height": 180,
+        "mobile_height": 250,
+        "desktop_columns": 2,
+        "mobile_columns": 1,
+        "gap": 20,
+        "card_padding": 17,
+        "radius": 10,
+        "button_radius": 6,
+        "icon_size": 150,
+        "padding_top": 28,
+        "padding_bottom": 60,
+        "padding_lr": 83,
+        "p1": 60,
+        "p3": 0,
+        "p2": 10,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "multicolumn_EiQGY7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_cLfwtG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Phoenix_Gravity_Filter_image_wojciech_1_2.png",
+            "title": "Unmatched Product Quality",
+            "sub_title": "",
+            "text": "<p>Our solutions are renowned for their excellence.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_daT4b8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/b2b_customer_support.webp",
+            "title": "Comprehensive Support",
+            "sub_title": "",
+            "text": "<p>We're committed to your success.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_cLfwtG",
+        "column_daT4b8"
+      ],
+      "custom_css": [
+        "a.button.button--primary {font-size: 16px; font-weight: bold; border-radius: 11px; text-transform: uppercase;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {background: #b8bbff; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 120,
+        "title": "Our Dealer Advantage",
+        "sub_title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "<p>Ready to Partner with the World's Leading Water Filtration Brand?</p>",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "GET IN TOUCH",
+        "button_link": "#form-cmx",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": "multicolumn-two-class"
+      }
+    },
+    "multicolumn_jxJKfH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_bJnbdb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/medal-star.webp",
+            "title": "A 50-Year Legacy",
+            "sub_title": "",
+            "text": "<p>For over half a century, Phoenix Gravity has been at the forefront of clean drinking water solutions, powering many of the industry’s leading brands.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WewUP6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ranking.webp",
+            "title": "Powering the World's Top Brands",
+            "sub_title": "",
+            "text": "<p>We proudly supply top-quality water filters to leading brands worldwide, including the biggest names in the UK and US.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wa48MX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/verify.webp",
+            "title": "Tested Excellence",
+            "sub_title": "",
+            "text": "<p>Backed by extensive testing, our gravity filter sets the benchmark for performance and reliability.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7PNF4r": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3d-rotate.webp",
+            "title": "Zero Returns",
+            "sub_title": "",
+            "text": "<p>Trusted by customers worldwide, our water filters have an exceptional track record with almost zero returns, even during our 100-day trial period.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xP8AAn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3d-square.webp",
+            "title": "Sustainable Manufacturing",
+            "sub_title": "",
+            "text": "<p>Our production process is entirely powered by 100% solar energy, guaranteeing eco-friendly practices from start to finish.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8TwkUk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/discount-shape.webp",
+            "title": "Maximize Your ROI",
+            "sub_title": "",
+            "text": "<p>Experience unparalleled returns on investment with our water filtration solutions, delivering the highest ROI and robust profits in the industry.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Ubxnep": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/coin.webp",
+            "title": "Competitive Pricing",
+            "sub_title": "",
+            "text": "<p>As a manufacturer, we deliver unbeatable prices that enable you to achieve higher profit margins. Our direct-to-business model cuts out the middleman.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rkEiiF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/people.webp",
+            "title": "Join a Dynamic Team",
+            "sub_title": "",
+            "text": "<p>We are on the lookout for lucrative business opportunities to enhance profitability and expand our network of partners.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_bJnbdb",
+        "column_WewUP6",
+        "column_wa48MX",
+        "column_7PNF4r",
+        "column_xP8AAn",
+        "column_8TwkUk",
+        "column_Ubxnep",
+        "column_rkEiiF"
+      ],
+      "custom_css": [
+        "a.button.button--primary {font-size: 16px; font-weight: bold; border-radius: 11px; text-transform: uppercase; margin-top: 40px;}",
+        ".button:after {box-shadow: none !important;}",
+        "a.button.button--primary:hover {background: #b8bbff; transition-duration: 0.4s;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 120,
+        "title": "Why Partner With Us?",
+        "sub_title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "JOIN US",
+        "button_link": "#form-cmx",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-fac056ad-e687-40de-8645-96d6e90ec6fb",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 60,
+        "cs1": "dealer-class-page"
+      }
+    },
+    "custom_arrow_text_hQGjwJ": {
+      "type": "custom-arrow-text",
+      "custom_css": [
+        "a.cta-btn:hover {background: #b8bbff; transition-duration: 0.4s;}"
+      ],
+      "name": "CTA Text with Image",
+      "settings": {
+        "container_width": 1200,
+        "section_bg": "#eaeef1",
+        "padding_top": 15,
+        "padding_bottom": 25,
+        "content_gap": 30,
+        "heading": "Still have Questions?",
+        "description": "Have questions regarding pricing or looking for other information?",
+        "button_text": "Schedule a Call",
+        "button_link": "#form-cmx",
+        "button_bg": "#f5d44d",
+        "right_image": "shopify://shop_images/arrow-left.webp",
+        "image_width": 200
+      }
+    },
+    "contact_form_DMzreA": {
+      "type": "contact-form",
+      "disabled": true,
+      "custom_css": [
+        ".contact-form-text-box {display: none !important;}"
+      ],
+      "name": "Custom Contact Form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-2",
+        "text_box_heading": "Fill out the form within 48 hours",
+        "text_box_content": "<p>Describe Something</p>",
+        "text_box_bg_color": "#f8fafc",
+        "text_box_heading_color": "#1e293b",
+        "text_box_text_color": "#475569",
+        "show_contact_info": false,
+        "contact_info_text": "For support, contact: support@example.com",
+        "show_name_field": true,
+        "name_placeholder": "Your Name",
+        "name_required": false,
+        "show_email_field": true,
+        "email_placeholder": "your.email@example.com",
+        "show_phone_field": true,
+        "phone_placeholder": "Your Phone Number",
+        "phone_required": false,
+        "show_message_field": true,
+        "message_placeholder": "Your Message",
+        "message_required": true,
+        "show_custom_field_1": false,
+        "custom_field_1_label": "Custom Field 1",
+        "custom_field_1_type": "text",
+        "custom_field_1_placeholder": "Enter value",
+        "custom_field_1_options": "",
+        "custom_field_1_required": false,
+        "show_custom_field_2": false,
+        "custom_field_2_label": "Custom Field 2",
+        "custom_field_2_type": "text",
+        "custom_field_2_placeholder": "Enter value",
+        "custom_field_2_options": "",
+        "custom_field_2_required": false,
+        "button_text": "Send Message",
+        "button_bg_color": "#f5d24f",
+        "button_text_color": "#121212",
+        "button_hover_bg_color": "#2563eb",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_contact_form_gVbnXg": {
+      "type": "custom-contact-form",
+      "name": "Modern Dark Contact",
+      "settings": {
+        "heading": "Get in touch",
+        "subheading": "Have any questions or enquiries? Fill out our contact form, and we'll get back to you.",
+        "heading_color": "#ffffff",
+        "subheading_color": "#e5e7eb",
+        "text_color": "#ffffff",
+        "label_color": "#ffffff",
+        "section_bg_color": "#020617",
+        "section_bg_image": "shopify://shop_images/Warranty_banner_bg.jpg",
+        "padding_top": 32,
+        "padding_bottom": 44,
+        "container_width": 600,
+        "container_width1": 340,
+        "input_bg_color": "#ffffff",
+        "input_text_color": "#000000",
+        "button_text": "SUBMIT",
+        "button_bg_color": "#facc15",
+        "button_hover_color": "#b8bbff",
+        "button_text_color": "#000000"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_banner_slider_erbjzK",
+    "image_banner_WkFJem",
+    "custom_text_section_YE74xb",
+    "custom_box_CaJYwa",
+    "image_banner_KEbdDU",
+    "custom_box_HqMLCx",
+    "multicolumn_EiQGY7",
+    "multicolumn_jxJKfH",
+    "custom_arrow_text_hQGjwJ",
+    "contact_form_DMzreA",
+    "custom_contact_form_gVbnXg"
+  ]
+}

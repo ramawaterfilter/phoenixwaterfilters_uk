@@ -1,0 +1,731 @@
+{% liquid
+  assign section_id = section.id | replace: '_', '' | downcase
+%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    width: 100%;
+  }
+
+  .faq-search-section-{{ section_id }} {
+    width: {{ section.settings.desktop_width_percent }}%;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .faq-search-heading-{{ section_id }} {
+    margin: 0 0 16px;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .faq-search-wrapper-{{ section_id }} {
+    position: relative;
+    width: 100%;
+  }
+
+  .faq-search-form-{{ section_id }} {
+    position: relative;
+    width: 100%;
+  }
+
+  .faq-search-input-{{ section_id }} {
+    width: 100%;
+    box-sizing: border-box;
+    padding: {{ section.settings.input_padding }}px;
+    padding-right: {{ section.settings.input_padding | plus: 50 }}px;
+    font-family: inherit;
+    font-size: {{ section.settings.font_size }}px;
+    line-height: 1.4;
+    text-align: {{ section.settings.text_alignment }};
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.background_color }};
+    border: {{ section.settings.border_thickness }}px solid {{ section.settings.border_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+    outline: none;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .faq-search-input-{{ section_id }}::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .faq-search-input-{{ section_id }}::placeholder {
+    color: {{ section.settings.placeholder_color }};
+    opacity: 0.75;
+  }
+
+  .faq-search-input-{{ section_id }}:focus {
+    border-color: {{ section.settings.focus_border_color }};
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-search-button-{{ section_id }} {
+    position: absolute;
+    top: 50%;
+    right: {{ section.settings.input_padding | divided_by: 2 }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    color: {{ section.settings.icon_color }};
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  .faq-search-button-{{ section_id }}:hover {
+    color: {{ section.settings.icon_hover_color }};
+  }
+
+  .faq-search-button-{{ section_id }} svg {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    pointer-events: none;
+  }
+
+  .faq-search-no-result-{{ section_id }} {
+    display: none;
+    margin: 16px 0 0;
+    color: {{ section.settings.text_color }};
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .faq-search-result-count-{{ section_id }} {
+    display: none;
+    margin: 12px 0 0;
+    color: {{ section.settings.text_color }};
+    font-size: 13px;
+    text-align: center;
+    opacity: 0.75;
+  }
+
+  @media screen and (max-width: 749px) {
+    .faq-search-section-{{ section_id }} {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+    }
+
+    .faq-search-heading-{{ section_id }} {
+      font-size: {{ section.settings.heading_size | times: 0.85 }}px;
+    }
+
+    .faq-search-input-{{ section_id }} {
+      font-size: {{ section.settings.font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div
+  class="faq-search-section-{{ section_id }}"
+  data-faq-search-section
+  data-custom-selector="{{ section.settings.faq_selector | escape }}"
+  {{ section.shopify_attributes }}
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="faq-search-heading-{{ section_id }}">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  <div class="faq-search-wrapper-{{ section_id }}">
+    <div
+      class="faq-search-form-{{ section_id }}"
+      role="search"
+    >
+      <input
+        type="search"
+        class="faq-search-input-{{ section_id }}"
+        placeholder="{{ section.settings.placeholder_text | escape }}"
+        aria-label="{{ section.settings.aria_label | escape }}"
+        autocomplete="off"
+      >
+
+      <button
+        type="button"
+        class="faq-search-button-{{ section_id }}"
+        aria-label="{{ section.settings.button_label | escape }}"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+    </div>
+
+    <p
+      class="faq-search-result-count-{{ section_id }}"
+      aria-live="polite"
+    ></p>
+
+    <p
+      class="faq-search-no-result-{{ section_id }}"
+      aria-live="polite"
+    >
+      {{ section.settings.no_results_text }}
+    </p>
+  </div>
+</div>
+
+<script>
+  (function () {
+    function normaliseFaqText(text) {
+      var value = String(text || '').toLowerCase();
+
+      if (typeof value.normalize === 'function') {
+        value = value
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      }
+
+      return value
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function getFaqSearchInput() {
+      return document.querySelector(
+        '[data-faq-search-section] input[type="search"]'
+      );
+    }
+
+    function getSearchSection(input) {
+      if (!input) return null;
+
+      return input.closest('.shopify-section');
+    }
+
+    function getFaqRows(input) {
+      var searchSection = getSearchSection(input);
+
+      if (!searchSection) return [];
+
+      var faqRows = [];
+      var currentSection = searchSection.nextElementSibling;
+
+      while (currentSection) {
+        /*
+         * Stop before reaching the footer.
+         */
+        if (
+          currentSection.id === 'shopify-section-footer' ||
+          currentSection.closest('footer')
+        ) {
+          break;
+        }
+
+        /*
+         * Dawn and most Shopify collapsible sections use <details>.
+         */
+        currentSection
+          .querySelectorAll('details')
+          .forEach(function (detailsElement) {
+            var completeRow =
+              detailsElement.closest('.accordion') ||
+              detailsElement.closest('.collapsible-content__accordion') ||
+              detailsElement.closest('.accordion-item') ||
+              detailsElement.closest('.faq-item') ||
+              detailsElement.parentElement;
+
+            if (completeRow) {
+              faqRows.push(completeRow);
+            }
+          });
+
+        currentSection = currentSection.nextElementSibling;
+      }
+
+      return Array.from(new Set(faqRows));
+    }
+
+    function rememberOriginalDisplay(row) {
+      if (!row.hasAttribute('data-faq-original-display')) {
+        row.setAttribute(
+          'data-faq-original-display',
+          row.style.display || ''
+        );
+      }
+    }
+
+    function showFaqRow(row) {
+      rememberOriginalDisplay(row);
+
+      var originalDisplay = row.getAttribute(
+        'data-faq-original-display'
+      );
+
+      row.style.removeProperty('display');
+
+      if (originalDisplay) {
+        row.style.display = originalDisplay;
+      }
+
+      row.removeAttribute('data-faq-search-hidden');
+    }
+
+    function hideFaqRow(row) {
+      rememberOriginalDisplay(row);
+
+      row.style.setProperty(
+        'display',
+        'none',
+        'important'
+      );
+
+      row.setAttribute(
+        'data-faq-search-hidden',
+        'true'
+      );
+    }
+
+    function filterAllFaqs(input) {
+      if (!input) return;
+
+      var searchContainer = input.closest(
+        '[data-faq-search-section]'
+      );
+
+      var noResult = searchContainer
+        ? searchContainer.querySelector(
+            '[class*="faq-search-no-result"]'
+          )
+        : null;
+
+      var resultCount = searchContainer
+        ? searchContainer.querySelector(
+            '[class*="faq-search-result-count"]'
+          )
+        : null;
+
+      var searchText = normaliseFaqText(input.value);
+
+      var words = searchText
+        .split(/\s+/)
+        .filter(Boolean);
+
+      var faqRows = getFaqRows(input);
+      var visibleCount = 0;
+
+      faqRows.forEach(function (row) {
+        /*
+         * textContent includes both the question and hidden answer.
+         */
+        var faqText = normaliseFaqText(row.textContent);
+
+        var matches =
+          words.length === 0 ||
+          words.every(function (word) {
+            return faqText.includes(word);
+          });
+
+        if (matches) {
+          showFaqRow(row);
+          visibleCount++;
+        } else {
+          hideFaqRow(row);
+        }
+      });
+
+      if (noResult) {
+        noResult.style.display =
+          words.length > 0 && visibleCount === 0
+            ? 'block'
+            : 'none';
+      }
+
+      if (resultCount) {
+        if (words.length > 0 && visibleCount > 0) {
+          resultCount.textContent =
+            visibleCount === 1
+              ? '1 FAQ found'
+              : visibleCount + ' FAQs found';
+
+          resultCount.style.display = 'block';
+        } else {
+          resultCount.textContent = '';
+          resultCount.style.display = 'none';
+        }
+      }
+
+      console.log(
+        'FAQ rows found:',
+        faqRows.length,
+        'Visible:',
+        visibleCount
+      );
+    }
+
+    /*
+     * Event delegation also works inside the Shopify theme editor
+     * after sections are dynamically reloaded.
+     */
+    document.addEventListener('input', function (event) {
+      var input = event.target.closest(
+        '[data-faq-search-section] input[type="search"]'
+      );
+
+      if (!input) return;
+
+      filterAllFaqs(input);
+    });
+
+    document.addEventListener('search', function (event) {
+      var input = event.target.closest(
+        '[data-faq-search-section] input[type="search"]'
+      );
+
+      if (!input) return;
+
+      filterAllFaqs(input);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      var input = event.target.closest(
+        '[data-faq-search-section] input[type="search"]'
+      );
+
+      if (!input) return;
+
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        filterAllFaqs(input);
+      }
+
+      if (event.key === 'Escape') {
+        input.value = '';
+        filterAllFaqs(input);
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest(
+        '[data-faq-search-section] button'
+      );
+
+      if (!button) return;
+
+      var container = button.closest(
+        '[data-faq-search-section]'
+      );
+
+      var input = container
+        ? container.querySelector('input[type="search"]')
+        : null;
+
+      if (!input) return;
+
+      filterAllFaqs(input);
+      input.focus();
+    });
+
+    function initialiseFaqSearch() {
+      var input = getFaqSearchInput();
+
+      if (input) {
+        filterAllFaqs(input);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener(
+        'DOMContentLoaded',
+        initialiseFaqSearch
+      );
+    } else {
+      initialiseFaqSearch();
+    }
+
+    document.addEventListener(
+      'shopify:section:load',
+      initialiseFaqSearch
+    );
+
+    document.addEventListener(
+      'shopify:section:reorder',
+      initialiseFaqSearch
+    );
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ search",
+  "tag": "section",
+  "class": "section-faq-search",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How can we help?"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_text",
+      "label": "Placeholder text",
+      "default": "Search FAQs"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Search field label",
+      "default": "Search FAQ questions and answers"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Search button label",
+      "default": "Clear FAQ search"
+    },
+    {
+      "type": "text",
+      "id": "no_results_text",
+      "label": "No results text",
+      "default": "No FAQs found."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_result_count",
+      "label": "Show result count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "single_result_text",
+      "label": "Single result text",
+      "default": "FAQ found"
+    },
+    {
+      "type": "text",
+      "id": "multiple_results_text",
+      "label": "Multiple results text",
+      "default": "FAQs found"
+    },
+    {
+      "type": "header",
+      "content": "FAQ targeting"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_selector",
+      "label": "Custom FAQ item selector",
+      "info": "Optional. Enter the CSS selector for each complete FAQ item. For Dawn collapsible content, use .collapsible-content__accordion"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "min": 25,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Desktop width",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 900
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Input text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 18,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Input font size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Input style"
+    },
+    {
+      "type": "range",
+      "id": "input_padding",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Input padding",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading colour",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Input background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Input text colour",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder colour",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border colour",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "focus_border_color",
+      "label": "Focus border colour",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Search icon"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon colour",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "icon_hover_color",
+      "label": "Icon hover colour",
+      "default": "#555555"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ search"
+    }
+  ]
+}
+{% endschema %}

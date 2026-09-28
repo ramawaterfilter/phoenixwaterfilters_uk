@@ -1,0 +1,9 @@
+{%- liquid
+  assign phoenix_visible_cart_count = cart.item_count
+  for item in cart.items
+    if item.properties._bundle_type == 'phoenix-auto-subscription' and item.properties._bundle_role == 'subscription'
+      assign phoenix_visible_cart_count = phoenix_visible_cart_count | minus: item.quantity
+    endif
+  endfor
+  echo phoenix_visible_cart_count
+-%}

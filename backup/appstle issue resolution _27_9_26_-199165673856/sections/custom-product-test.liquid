@@ -1,0 +1,159 @@
+{% liquid
+  assign sid = section.id
+%}
+
+<section id="custom-product-links-{{ sid }}" class="custom-product-links-{{ sid }}">
+  <div class="cpl-container">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      {% assign product_path = block.settings.product_path %}
+
+      {% if product != blank %}
+        {% assign final_link = product.url %}
+
+        {% if section.settings.preview_link != blank and product_path != blank %}
+          {% assign final_link = section.settings.preview_link | append: product_path %}
+        {% endif %}
+
+        <div class="cpl-item" {{ block.shopify_attributes }}>
+          <a href="{{ final_link }}">
+            <h3 class="cpl-title">
+              {{ product.title }}
+            </h3>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+
+
+<style>
+.custom-product-links-{{ sid }} {
+  padding: {{ section.settings.padding_top }}px {{ section.settings.padding_lr }}px {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color }};
+}
+
+.custom-product-links-{{ sid }} .cpl-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.custom-product-links-{{ sid }} .cpl-item {
+  width: calc(25% - 15px);
+}
+
+.custom-product-links-{{ sid }} .cpl-title {
+  font-size: {{ section.settings.text_size }}px;
+  color: {{ section.settings.text_color }};
+  text-decoration: none;
+}
+
+.custom-product-links-{{ sid }} a {
+  text-decoration: none;
+}
+
+@media(max-width: 768px){
+  .custom-product-links-{{ sid }} .cpl-item {
+    width: 100%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Custom Product Links",
+  "settings": [
+{
+  "type": "url",
+  "id": "preview_link",
+  "label": "Preview Base Link",
+  "info": "Example: https://xxxx.shopifypreview.com"
+},
+
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Product Name Font Size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_lr",
+      "label": "Padding Left & Right",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product Block",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+       {
+  "type": "text",
+  "id": "product_path",
+  "label": "Product Path",
+  "default": "/products/",
+  "info": "Example: /products/stainless-steel-tap"
+}
+
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Custom Product Links",
+      "blocks": [
+        {
+          "type": "product_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

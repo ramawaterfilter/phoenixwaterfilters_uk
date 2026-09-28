@@ -1,0 +1,381 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<section class="logoslider-wrapper logoslider-{{ section.id }}"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  "
+>
+  <div class="container">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="logo-slider-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="swiper logo-slider-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% if block.settings.logo %}
+              <a href="{{ block.settings.link_url }}">
+                <img
+                  src="{{ block.settings.logo | img_url: 'master' }}"
+                  alt="{{ block.settings.logo.alt | escape }}"
+                  class="logo-image"
+                >
+              </a>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <p class="logo-title">{{ block.settings.title }}</p>
+            {% endif %}
+
+            {% if block.settings.subtitle != blank %}
+              <p class="logo-subtitle">{{ block.settings.subtitle }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.show_arrows %}
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      {% endif %}
+
+      {% if section.settings.show_dots %}
+        <div class="swiper-pagination"></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.logoslider-{{ section.id }} {
+  text-align: center;
+}
+
+.logo-slider-heading {
+  font-size: {{ section.settings.heading_size }}px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.logo-slider-{{ section.id }} {
+  overflow: hidden;
+      width: 95%;
+}
+
+.logo-slider-{{ section.id }} .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-slider-{{ section.id }} .logo-image {
+  max-width: {{ section.settings.logo_size_desktop }}px;
+  margin-bottom: 8px;
+}
+.swiper-button-prev, .swiper-button-next  {
+    width: 30px !important;
+    height: 30px !important;
+    font-weight: bold;
+    padding: 9px;
+    background: #deb1b2;
+    color: black !important;
+    border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+.logo-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+    text-decoration: none;
+    font-family: DM Sans,sans-serif;
+    margin:0px;
+}
+h2.logo-slider-heading {
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-family: 'DM Sans';
+}
+.logo-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+    text-decoration: none;
+            margin-top: 10px;
+}
+}
+
+
+
+@media (max-width: 768px) {
+  .logo-slider-{{ section.id }} .logo-image {
+    max-width: {{ section.settings.logo_size_mobile }}px;
+  }
+  h2.logo-slider-heading {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'DM Sans';
+}
+  .logo-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.logo-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+    text-decoration: none;
+    font-family: DM Sans,sans-serif;
+    margin:0px;
+}
+  .logo-slider-heading {
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  new Swiper('.logo-slider-{{ section.id }}', {
+    loop: true,
+    autoplay: {
+      delay: {{ section.settings.autoplay_speed }},
+      disableOnInteraction: false
+    },
+    spaceBetween: 20,
+
+    slidesPerView: {{ section.settings.desktop_slides }},
+
+    pagination: {
+      el: '.logoslider-{{ section.id }} .swiper-pagination',
+      clickable: true
+    },
+
+    navigation: {
+      nextEl: '.logoslider-{{ section.id }} .swiper-button-next',
+      prevEl: '.logoslider-{{ section.id }} .swiper-button-prev'
+    },
+
+    breakpoints: {
+      320: {
+        slidesPerView: {{ section.settings.mobile_slides }}
+      },
+      768: {
+        slidesPerView: {{ section.settings.tablet_slides }}
+      },
+      1024: {
+        slidesPerView: {{ section.settings.desktop_slides }}
+      }
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Logo Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Our Partners"
+    },
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Size – Desktop",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading Size – Mobile",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "default": 22
+    },
+
+    {
+      "type": "range",
+      "id": "logo_size_desktop",
+      "label": "Logo Size – Desktop",
+      "min": 40,
+      "max": 500,
+      "step": 5,
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_size_mobile",
+      "label": "Logo Size – Mobile",
+      "min": 30,
+      "max": 200,
+      "step": 5,
+      "default": 100
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_slides",
+      "label": "Desktop – Logos per view",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "tablet_slides",
+      "label": "Tablet – Logos per view",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_slides",
+      "label": "Mobile – Logos per view",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (ms)",
+      "min": 1000,
+      "max": 6000,
+      "step": 500,
+      "default": 2000
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show Dots",
+      "default": false
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 0
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Logo Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Logo Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Logo Slider – Fully Dynamic",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

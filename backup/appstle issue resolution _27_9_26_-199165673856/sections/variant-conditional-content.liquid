@@ -1,0 +1,868 @@
+{% if product.handle == section.settings.product_handle %}
+  {%- assign target_variant_id = section.settings.variant_id | strip -%}
+  {%- assign selected_variant_id = product.selected_or_first_available_variant.id | append: '' -%}
+
+  <variant-conditional-content
+    class="variant-conditional-content color-{{ section.settings.color_scheme }} gradient"
+    style="
+      --section-padding-mobile: {{ section.settings.padding_mobile }}px;
+      --section-padding-desktop: {{ section.settings.padding_desktop }}px;
+    "
+    data-product-handle="{{ product.handle | escape }}"
+    data-target-variant-id="{{ target_variant_id | escape }}"
+    {% unless selected_variant_id == target_variant_id %}
+      hidden
+    {% endunless %}
+  >
+    <div class="variant-conditional-content__inner page-width">
+      <div class="variant-conditional-content__body">
+        {% if section.settings.heading != blank %}
+          <h2 class="variant-conditional-content__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="variant-conditional-content__text rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <a
+            class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+            {% if section.settings.button_link == blank %}
+              role="link"
+              aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'feature_carousel' %}
+          <variant-feature-marquee
+            class="variant-feature-marquee"
+            style="
+              --marquee-background: {{ block.settings.background_color }};
+              --marquee-heading-color: {{ block.settings.heading_color }};
+              --marquee-line-color: {{ block.settings.line_color }};
+              --marquee-icon-background: {{ block.settings.image_background }};
+              --marquee-icon-size: {{ block.settings.icon_size }}px;
+              --marquee-title-color: {{ block.settings.title_color }};
+              --marquee-text-color: {{ block.settings.text_color }};
+            "
+            data-speed="{{ block.settings.scroll_speed }}"
+            data-pause-on-hover="{{ block.settings.pause_on_hover }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.heading != blank %}
+              <div class="variant-feature-marquee__header">
+                <h2 class="variant-feature-marquee__heading variant-feature-marquee__heading--line">
+                  {{ block.settings.heading }}
+                </h2>
+              </div>
+            {% endif %}
+
+            <div class="variant-feature-marquee__viewport">
+              <div class="variant-feature-marquee__track">
+                <div class="variant-feature-marquee__content">
+                  {% for item_number in (1..10) %}
+                    {% liquid
+                      assign image_key = 'image_' | append: item_number
+                      assign heading_key = 'item_heading_' | append: item_number
+                      assign text_key = 'item_text_' | append: item_number
+                      assign link_key = 'link_' | append: item_number
+                      assign item_image = block.settings[image_key]
+                      assign item_heading = block.settings[heading_key]
+                      assign item_text = block.settings[text_key]
+                      assign item_link = block.settings[link_key]
+                    %}
+
+                    {% if item_image != blank or item_heading != blank or item_text != blank %}
+                      <div
+                        class="variant-feature-marquee__item"
+                        {% if item_link != blank %}
+                          data-link="{{ item_link }}"
+                        {% endif %}
+                      >
+                        <div class="variant-feature-marquee__icon-wrap">
+                          {% if item_image != blank %}
+                            {{
+                              item_image
+                              | image_url: width: 400
+                              | image_tag:
+                                class: 'variant-feature-marquee__icon',
+                                alt: item_heading,
+                                loading: 'lazy',
+                                widths: '100, 200, 300, 400'
+                            }}
+                          {% endif %}
+                        </div>
+
+                        {% if item_heading != blank %}
+                          <h3 class="variant-feature-marquee__title">{{ item_heading }}</h3>
+                        {% endif %}
+
+                        {% if item_text != blank %}
+                          <p class="variant-feature-marquee__text">{{ item_text }}</p>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </variant-feature-marquee>
+      {% endcase %}
+    {% endfor %}
+  </variant-conditional-content>
+{% endif %}
+
+{% stylesheet %}
+  .variant-conditional-content {
+    display: block;
+    padding-block: var(--section-padding-mobile);
+  }
+
+  .variant-conditional-content[hidden] {
+    display: none;
+  }
+
+  .variant-conditional-content__inner {
+    text-align: center;
+  }
+
+  .variant-conditional-content__heading {
+    margin: 0 0 16px;
+  }
+
+  .variant-conditional-content__text {
+    margin-bottom: 24px;
+  }
+
+  .variant-conditional-content__text:last-child {
+    margin-bottom: 0;
+  }
+
+  .variant-feature-marquee {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding-block: 40px;
+    background: var(--marquee-background);
+  }
+
+  .variant-feature-marquee__header {
+    padding-inline: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .variant-feature-marquee__heading {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding-bottom: 12px;
+    color: var(--marquee-heading-color);
+    font-size: 24px;
+  }
+
+  .variant-feature-marquee__heading--line::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: min(280px, 80vw);
+    height: 3px;
+    border-radius: 2px;
+    background: var(--marquee-line-color);
+    content: '';
+    transform: translateX(-50%);
+  }
+
+  .variant-feature-marquee__viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .variant-feature-marquee__viewport::before,
+  .variant-feature-marquee__viewport::after {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    content: '';
+    pointer-events: none;
+  }
+
+  .variant-feature-marquee__viewport::before {
+    left: 0;
+    background: linear-gradient(to right, var(--marquee-background), transparent);
+  }
+
+  .variant-feature-marquee__viewport::after {
+    right: 0;
+    background: linear-gradient(to left, var(--marquee-background), transparent);
+  }
+
+  .variant-feature-marquee__track,
+  .variant-feature-marquee__content {
+    display: flex;
+    width: max-content;
+    flex-wrap: nowrap;
+  }
+
+  .variant-feature-marquee__track {
+    will-change: transform;
+  }
+
+  .variant-feature-marquee__content {
+    flex: 0 0 auto;
+  }
+
+  .variant-feature-marquee__item {
+    display: flex;
+    padding: 20px 35px;
+    width: min(280px, 80vw);
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    cursor: default;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .variant-feature-marquee__item[data-link] {
+    cursor: pointer;
+  }
+
+  .variant-feature-marquee__icon-wrap {
+    display: flex;
+    width: var(--marquee-icon-size);
+    height: var(--marquee-icon-size);
+    padding: 14px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--marquee-icon-background);
+  }
+
+  .variant-feature-marquee__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .variant-feature-marquee__title,
+  .variant-feature-marquee__text {
+    margin: 0;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .variant-feature-marquee__title {
+    color: var(--marquee-title-color);
+    font-size: 16px;
+  }
+
+  .variant-feature-marquee__text {
+    color: var(--marquee-text-color);
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  @media screen and (min-width: 750px) {
+    .variant-conditional-content {
+      padding-block: var(--section-padding-desktop);
+    }
+
+    .variant-feature-marquee {
+      padding-block: 60px;
+    }
+
+    .variant-feature-marquee__header {
+      margin-bottom: 32px;
+    }
+
+    .variant-feature-marquee__heading {
+      font-size: 32px;
+    }
+
+    .variant-feature-marquee__viewport::before,
+    .variant-feature-marquee__viewport::after {
+      width: 100px;
+    }
+
+    .variant-feature-marquee__item {
+      padding: 30px 50px;
+      width: 340px;
+      gap: 16px;
+    }
+
+    .variant-feature-marquee__title {
+      font-size: 18px;
+    }
+
+    .variant-feature-marquee__text {
+      font-size: 16px;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('variant-conditional-content')) {
+    customElements.define(
+      'variant-conditional-content',
+      class VariantConditionalContent extends HTMLElement {
+        connectedCallback() {
+          this.updateVisibility = this.updateVisibility.bind(this);
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.initialize(), { once: true });
+          } else {
+            this.initialize();
+          }
+        }
+
+        disconnectedCallback() {
+          this.unsubscribe?.();
+        }
+
+        initialize() {
+          if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+            this.unsubscribe = subscribe(PUB_SUB_EVENTS.variantChange, this.updateVisibility);
+          }
+
+          const variantId = new URL(window.location.href).searchParams.get('variant');
+          if (variantId) this.setVisibility(variantId);
+        }
+
+        updateVisibility(event) {
+          this.setVisibility(event?.data?.variant?.id);
+        }
+
+        setVisibility(variantId) {
+          const shouldShow = String(variantId) === this.dataset.targetVariantId;
+          this.hidden = !shouldShow;
+
+          if (shouldShow) {
+            requestAnimationFrame(() => {
+              this.querySelectorAll('variant-feature-marquee').forEach((marquee) => marquee.refresh());
+            });
+          }
+        }
+      }
+    );
+  }
+
+  if (!customElements.get('variant-feature-marquee')) {
+    customElements.define(
+      'variant-feature-marquee',
+      class VariantFeatureMarquee extends HTMLElement {
+        connectedCallback() {
+          this.viewport = this.querySelector('.variant-feature-marquee__viewport');
+          this.track = this.querySelector('.variant-feature-marquee__track');
+          this.content = this.querySelector('.variant-feature-marquee__content');
+          this.speed = Number(this.dataset.speed) || 50;
+          this.position = 0;
+          this.contentWidth = 0;
+          this.animationFrame = null;
+          this.lastTimestamp = null;
+
+          if (!this.viewport || !this.track || !this.content) return;
+
+          this.handleClick = this.handleClick.bind(this);
+          this.setup = this.setup.bind(this);
+          this.start = this.start.bind(this);
+          this.pause = this.pause.bind(this);
+          this.resizeObserver = new ResizeObserver(this.setup);
+
+          this.addEventListener('click', this.handleClick);
+          this.resizeObserver.observe(this.viewport);
+          this.resizeObserver.observe(this.content);
+
+          if (this.dataset.pauseOnHover === 'true') {
+            this.addEventListener('mouseenter', this.pause);
+            this.addEventListener('mouseleave', this.start);
+          }
+
+          requestAnimationFrame(() => {
+            this.setup();
+            this.start();
+          });
+
+          document.fonts?.ready.then(this.setup);
+        }
+
+        disconnectedCallback() {
+          this.pause();
+          this.removeEventListener('click', this.handleClick);
+          this.removeEventListener('mouseenter', this.pause);
+          this.removeEventListener('mouseleave', this.start);
+          this.resizeObserver?.disconnect();
+        }
+
+        handleClick(event) {
+          const item = event.target.closest('.variant-feature-marquee__item[data-link]');
+          if (item) window.location.href = item.dataset.link;
+        }
+
+        setup() {
+          this.track.querySelectorAll('[data-marquee-clone]').forEach((clone) => clone.remove());
+          this.contentWidth = this.content.getBoundingClientRect().width;
+          if (this.contentWidth <= 0) return;
+
+          const requiredWidth = this.viewport.clientWidth + this.contentWidth;
+
+          do {
+            const clone = this.content.cloneNode(true);
+            clone.dataset.marqueeClone = '';
+            clone.setAttribute('aria-hidden', 'true');
+            clone.querySelectorAll('[data-shopify-editor-block]').forEach((element) => {
+              element.removeAttribute('data-shopify-editor-block');
+            });
+            this.track.appendChild(clone);
+          } while (this.track.scrollWidth < requiredWidth);
+
+          this.position %= this.contentWidth;
+          this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
+          this.start();
+        }
+
+        refresh() {
+          this.setup();
+        }
+
+        start() {
+          if (this.animationFrame || this.contentWidth <= 0) return;
+          this.lastTimestamp = null;
+
+          const animate = (timestamp) => {
+            if (this.lastTimestamp !== null) {
+              const elapsed = Math.min((timestamp - this.lastTimestamp) / 1000, 0.1);
+              this.position -= this.speed * elapsed;
+
+              if (Math.abs(this.position) >= this.contentWidth) {
+                this.position += this.contentWidth;
+              }
+
+              this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
+            }
+
+            this.lastTimestamp = timestamp;
+            this.animationFrame = requestAnimationFrame(animate);
+          };
+
+          this.animationFrame = requestAnimationFrame(animate);
+        }
+
+        pause() {
+          if (!this.animationFrame) return;
+          cancelAnimationFrame(this.animationFrame);
+          this.animationFrame = null;
+          this.lastTimestamp = null;
+        }
+      }
+    );
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Variant content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product handle",
+      "default": "kokocarb-cartridges"
+    },
+    {
+      "type": "text",
+      "id": "variant_id",
+      "label": "Variant ID",
+      "default": "57619826278784"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "KokoCarb with fluoride removal"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>This option combines KokoCarb filtration with dedicated FluoRid media for additional fluoride reduction.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "label": "Use secondary button style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile vertical padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop vertical padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_carousel",
+      "name": "Feature carousel",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Carousel heading",
+          "default": "What fluoride removal targets"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "min": 50,
+          "max": 180,
+          "step": 5,
+          "unit": "px",
+          "label": "Icon size",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "scroll_speed",
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Scroll speed",
+          "default": 50
+        },
+        {
+          "type": "checkbox",
+          "id": "pause_on_hover",
+          "label": "Pause on hover",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "line_color",
+          "label": "Underline color",
+          "default": "#ff7a00"
+        },
+        {
+          "type": "color",
+          "id": "image_background",
+          "label": "Image background",
+          "default": "#eaeef1"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Item heading color",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Item text color",
+          "default": "#666666"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Item 1 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_1",
+          "label": "Item 1 heading",
+          "default": "Fluoride"
+        },
+        {
+          "type": "text",
+          "id": "item_text_1",
+          "label": "Item 1 text",
+          "default": "Removes more than 95% of fluoride"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "Item 1 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Item 2 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_2",
+          "label": "Item 2 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_2",
+          "label": "Item 2 text"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "Item 2 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Item 3 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_3",
+          "label": "Item 3 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_3",
+          "label": "Item 3 text"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "Item 3 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Item 4 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_4",
+          "label": "Item 4 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_4",
+          "label": "Item 4 text"
+        },
+        {
+          "type": "url",
+          "id": "link_4",
+          "label": "Item 4 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Item 5 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_5",
+          "label": "Item 5 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_5",
+          "label": "Item 5 text"
+        },
+        {
+          "type": "url",
+          "id": "link_5",
+          "label": "Item 5 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Item 6 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_6",
+          "label": "Item 6 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_6",
+          "label": "Item 6 text"
+        },
+        {
+          "type": "url",
+          "id": "link_6",
+          "label": "Item 6 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_7",
+          "label": "Item 7 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_7",
+          "label": "Item 7 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_7",
+          "label": "Item 7 text"
+        },
+        {
+          "type": "url",
+          "id": "link_7",
+          "label": "Item 7 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_8",
+          "label": "Item 8 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_8",
+          "label": "Item 8 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_8",
+          "label": "Item 8 text"
+        },
+        {
+          "type": "url",
+          "id": "link_8",
+          "label": "Item 8 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_9",
+          "label": "Item 9 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_9",
+          "label": "Item 9 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_9",
+          "label": "Item 9 text"
+        },
+        {
+          "type": "url",
+          "id": "link_9",
+          "label": "Item 9 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_10",
+          "label": "Item 10 image"
+        },
+        {
+          "type": "text",
+          "id": "item_heading_10",
+          "label": "Item 10 heading"
+        },
+        {
+          "type": "text",
+          "id": "item_text_10",
+          "label": "Item 10 text"
+        },
+        {
+          "type": "url",
+          "id": "link_10",
+          "label": "Item 10 link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Variant content",
+      "blocks": [
+        {
+          "type": "feature_carousel"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

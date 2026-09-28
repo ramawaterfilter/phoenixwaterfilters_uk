@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme",
+  "sections": {
+    "ecom-teak-wood-stand-product": {
+      "type": "ecom-teak-wood-stand-product",
+      "blocks": {
+        "ecom-6lwvzqo7nha": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "ecom-6lwvzqo7nha"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "ecom-teak-wood-stand-product"
+  ]
+}

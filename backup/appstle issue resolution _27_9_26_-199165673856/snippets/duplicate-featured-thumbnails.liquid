@@ -1,0 +1,96 @@
+{% comment %} <!-- Designed by OnHOW YouTube Channel - Anas El Medlaoui --> {% endcomment %}
+{{ 'slick.js' | asset_url | script_tag }}
+<style>
+  .slick-slider { position: relative; display: block; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; } .slick-list { position: relative; display: block; overflow: hidden; margin: 0; padding: 0; } .slick-list:focus { outline: none; } .slick-list.dragging { cursor: pointer; cursor: hand; } .slick-slider .slick-track, .slick-slider .slick-list { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); } .slick-track { position: relative; top: 0; left: 0; display: block; margin-left: auto; margin-right: auto; } .slick-track:before, .slick-track:after { display: table; content: ''; } .slick-track:after { clear: both; } .slick-loading .slick-track { visibility: hidden; } .slick-slide { display: none; float: left; height: 100%; min-height: 1px; } [dir='rtl'] .slick-slide { float: right; } .slick-slide img { display: block; } .slick-slide.slick-loading img { display: none; } .slick-slide.dragging img { pointer-events: none; } .slick-initialized .slick-slide { display: block; } .slick-loading .slick-slide { visibility: hidden; } .slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; } .slick-arrow.slick-hidden { display: none; } .slick-loading .slick-list { background: #fff url('{{ 'ajax-loader.gif' | asset_url }}') center center no-repeat; } @font-face { font-family: 'slick'; font-weight: normal; font-style: normal; src: url('{{ 'slick.eot' | asset_url }}'); src: url('{{ 'slick.eot' | asset_url }}?#iefix') format('embedded-opentype'), url('{{ 'slick.woff' | asset_url }}') format('woff'), url('{{ 'slick.ttf' | asset_url }}') format('truetype'), url('{{ 'slick.svg' | asset_url }}#slick') format('svg'); } .slick-prev, .slick-next { font-size: 0; line-height: 0; position: absolute; top: 50%; display: block; width: 20px; height: 20px; padding: 0; -webkit-transform: translate(0, -50%); -ms-transform: translate(0, -50%); transform: translate(0, -50%); cursor: pointer; color: transparent; border: none; outline: none; background: transparent; } .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus { color: transparent; outline: none; background-color: rgba(255, 255, 255, 0.75); background-position: center center; background-repeat: no-repeat; } .slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before { opacity: 1; } .slick-prev.slick-disabled:before, .slick-next.slick-disabled:before { opacity: .25; } .slick-prev:before, .slick-next:before { font-family: sans-serif; font-size: 24px; line-height: 1; opacity: 1; color: #000; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } .slick-prev:before { content: '\276E'; } .slick-next:before { content: '\276F'; } .slick-prev { left: -25px; } [dir='rtl'] .slick-prev { right: -25px; left: auto; } .slick-prev:before, .slick-next:before { content: none; } .slick-prev { left: 25px; background: #fff url("data:image/svg+xml,%3Csvg fill='%23000000' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 330 330'%3E%3Cpath d='M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z'/%3E%3C/svg%3E") no-repeat center center; background-size: 15px 15px; } .slick-next { right: 25px; background: #fff url("data:image/svg+xml,%3Csvg fill='%23000000' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 330.002 330.002'%3E%3Cpath d='M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z'/%3E%3C/svg%3E") no-repeat center center; background-size: 15px 15px; } .slick-dotted.slick-slider { margin-bottom: 30px; } .slick-dots { position: absolute; bottom: -25px; display: block; width: 100%; padding: 0; margin: 0; list-style: none; text-align: center; } .slick-dots li { position: relative; display: inline-block; width: 20px; height: 20px; margin: 0 5px; padding: 0; cursor: pointer; } .slick-dots li button { font-size: 0; line-height: 0; display: block; width: 20px; height: 20px; padding: 5px; cursor: pointer; color: transparent; border: 0; outline: none; background: transparent; } .slick-dots li button:hover, .slick-dots li button:focus { outline: none; } .slick-dots li button:hover:before, .slick-dots li button:focus:before { opacity: 1; } .slick-dots li button:before { font-family: 'slick'; font-size: 6px; line-height: 20px; position: absolute; top: 0; left: 0; width: 20px; height: 20px; content: '•'; text-align: center; opacity: .25; color: black; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } .slick-dots li.slick-active button:before { opacity: .75; color: black; } .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus { color: transparent; outline: none; background: #ffffffbf; } .slick-next, .slick-prev { right: 25px; background: #fff; border-radius: 100px; height: 40px; width: 40px; box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center; } .slick-next { right: 25px; } .slick-prev { left: 25px; z-index: 999; } .slick-slide img { width: 100%; } .slick-initialized .slick-slide { margin: 10px; } .slideshow-item p { margin: 0px; } .product-gallery-wrapper { max-width: 650px; margin: auto; } .slider-for img { width: 100%; border-radius: 8px; } .slider-nav { margin-top: 15px; } .slider-nav .thumb-item { padding: 5px; } .slider-nav img { width: 85px; height: 85px; object-fit: cover; border: 2px solid #ddd; border-radius: 4px; cursor: pointer; } .slider-nav .slick-current img { border: 2px solid #000; } .product-gallery-wrapper { max-width: 650px; margin: auto; } .slider-for img { width: 100%; border-radius: 8px; } .slider-nav { margin-top: 15px; } .slider-nav .thumb-item { padding: 5px; } .slider-nav img { width: 85px; height: 85px; object-fit: cover; border: 2px solid #ddd; border-radius: 4px; cursor: pointer; } .slider-nav .slick-current img { border: 2px solid #000; } .slide-item.slick-slide{ height: 550px !important; } @media screen and (max-width: 768px) { .thumb-item.slick-slide { width: 10px !important; } .slider-nav img{ width: 10px; height: 10px; } .slide-item.slick-slide { height: 400px !important; } button.slick-prev.slick-arrow { display:none !important; } button.slick-next.slick-arrow { display:none !important; } .slider-nav{ display: none !important; } }
+</style>
+<div class="product-gallery-wrapper">
+  <!-- Main Image Slider -->
+  <div class="slider-for">
+    {% for image in product.images %}
+      <div class="slide-item" data-image-id="{{ image.id }}">
+        <img src="{{ image | image_url: width: 900 }}" alt="{{ product.title }}">
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Thumbnail Slider -->
+  <div class="slider-nav">
+    {% for image in product.images %}
+      <div class="thumb-item" data-image-id="{{ image.id }}">
+        <img src="{{ image | image_url: width: 150 }}" alt="{{ product.title }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  $('.carousel-main').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: '.carousel-nav',
+    lazyLoad: 'progressive',
+    adaptiveHeight: true,
+  });
+  $('.carousel-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.carousel-main',
+    arrows: true,
+    centerMode: true,
+    focusOnSelect: true,
+    lazyLoad: 'progressive',
+    adaptiveHeight: true,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: true } },
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+    ],
+  });
+  $(document).ready(function () {
+    $('.slick-prev, .slick-next').each(function () {
+      $(this).css({
+        'font-size': '0',
+        'background-color': '#fff',
+        width: '40px',
+        height: '40px',
+        'border-radius': '100px',
+        'box-shadow': '0px 0px 25px rgba(0, 0, 0, 0.3)',
+        'z-index': '999',
+        'text-indent': '-9999px',
+      });
+      $(this).empty();
+    });
+    $('.slick-prev').append(
+      '<svg width="15" height="15" viewBox="0 0 330 330" xmlns="http://www.w3.org/2000/svg"><path d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"/></svg>'
+    );
+    $('.slick-next').append(
+      '<svg width="15" height="15" viewBox="0 0 330.002 330.002" xmlns="http://www.w3.org/2000/svg"><path d="M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z"/></svg>'
+    );
+    $('.slick-prev svg, .slick-next svg').css({
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      fill: '#000',
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof $ === 'undefined' || !$.fn.slick) return;
+    $('.slider-for').slick({ slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav' });
+    $('.slider-nav').slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for',
+      focusOnSelect: true,
+      arrows: true,
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () { // Wait until slick is ready var waitForSlick = setInterval(function () { if (typeof $ !== 'undefined' && $('.slider-for').hasClass('slick-initialized')) { clearInterval(waitForSlick); attachVariantListener(); } }, 300); function attachVariantListener() { // Listen to Shopify variant change document.querySelectorAll('form[action*="/cart/add"]').forEach(function(form) { form.addEventListener('change', function(event) { setTimeout(function () { // Get current selected variant image var selectedVariantId = form.querySelector('[name="id"]').value; fetch(window.location.pathname + '.js') .then(res => res.json()) .then(product => { var variant = product.variants.find(v => v.id == selectedVariantId); if (variant && variant.featured_image) { var imageUrl = variant.featured_image.src; // Find slide index that matches this image $('.slider-for .slick-slide img').each(function(index) { if (this.src.includes(imageUrl.split('?')[0])) { $('.slider-for').slick('slickGoTo', index); } }); } }); }, 300); }); }); } });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () { window.productVariants = {{ product.variants | json }}; var variantInput = document.querySelector('[name="id"]'); if (variantInput) { variantInput.addEventListener('change', function () { var variantId = this.value; var variant = window.productVariants.find(v => v.id == variantId); if (variant && variant.featured_image) { var imageId = variant.featured_image.id; $('.slide-item').each(function(index){ if ($(this).data('image-id') == imageId) { $('.slider-for').slick('slickGoTo', index); } }); } }); } });
+</script>

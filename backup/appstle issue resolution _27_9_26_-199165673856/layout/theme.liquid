@@ -1,0 +1,1145 @@
+<!doctype html>
+<html class="js" lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    {% if request.page_type == 'index' %}
+      <style>
+        /*
+        * Prevent homepage popup elements from entering the page flow
+        * before their application stylesheet finishes loading.
+        */
+        .timesact_bis_popup_overlay,
+        .timesact_bis_dialog,
+        #mixed-modal,
+        .md-modal,
+        .md-overlay {
+          position: fixed;
+          inset: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .popup-container:not(.active):not(.open) {
+          display: none;
+        }
+      </style>
+    {% endif %}
+
+{% comment %} /////////////////////////////////////////////////////////////////////faq-schema////////////////////////////////////////////////////// {% endcomment %}
+{%- if page.handle == 'faqs' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://phoenixwaterfilters.co.uk/pages/faqs#faq",
+  "url": "https://phoenixwaterfilters.co.uk/pages/faqs",
+  "inLanguage": "en-GB",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it essential to prime the Carbon Cartridges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Priming the Carbon Cartridges is the first step to ensuring your cartridges are completely free of any residuals from the manufacturing process. The residuals are completely normal and safe but can lead to cloudy water if the cartridges are not correctly primed. We recommend priming your Carbon Cartridges for at least three minutes. If not primed sufficiently, the first four rounds of filtered water may have cloudy white particles that can be safely discarded. The recommended number of priming rounds depends on the type of cartridge you have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my water cloudy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cloudy water after initial installation is normal and completely harmless. It is simply safe residual dust from the manufacturing process. It can occur if the cartridges are not correctly primed, and we recommend priming cartridges fully. If it is not primed, it can take about four rounds of filtered water to clear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will my Carbon Cartridges last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend replacing your Carbon Cartridges every 12 months. The lifespan of a pair of Phoenix Gravity Carbon Cartridges is about 20,000 litres. A subscription service is available to have your filters replaced automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will the POSTreat Fluoride Removal filters last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our POSTreat Filter Cartridges are made from 304 Stainless Steel and are designed to last for years, which is why we include a 10 year warranty with our products. The media inside our proprietary FluoRid media will last for 4,000 litres and needs replacing approximately every 4 months. A subscription service is also available for replacement media."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will the FluoRid Media in the POSTreat last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The lifespan of a pair of POSTreat Fluoride Removal filters is up to 4,000 litres. It is recommended to replace the media with FluoRid Media Refill every 4 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I be able to assemble my system and change my cartridges myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our systems are designed to be extremely easy to assemble and everything you need is included. You can do it yourself with just your hands, with no specialist tools, plumbers or electricians required. Full instructions are included with every unit and support is always available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My Phoenix Gravity Water Filter has water dripping between the Upper and Lower Chambers. What does this mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is caused by over-filling the Water Filter System. Careful use can help prevent overfilling by checking how much water is in the lower chamber before filling the upper chamber. A vision tap is also available which allows you to see the water level from the outside."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How frequently do I need to change my cartridges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This depends on the usage frequency and quality of your water input. As a guide, we recommend replacing Carbon Cartridges every 12 months or 20,000 litres, and POSTreat (FluoRid Media Refill) every 4 months. A subscription service is available that offers a discount on every order and reminds you when a change is due."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is our stainless steel different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is made from premium AISI 304 stainless steel, known for its durability, rust resistance, and long-lasting performance. The 8K finish adds a sleek, polished look while keeping the system naturally BPA-free, non-leaching, and built to withstand everyday home and outdoor use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the filter cartridges made of plastic? Is the filter system made of any plastic elements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our filter housings are constructed from durable and safe 304-grade stainless steel. The carbon cartridges are made from CTC-60 coconut shell activated carbon and are encased in Noryl, a food-grade material that is free of BPA. This combination ensures the highest quality and safety standards for your drinking water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Phoenix Gravity filters work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We use the highest grade 304 stainless steel, natural coconut carbon and other natural materials, combined with the force of gravity. Our advanced filtration system removes up to 99.99% of commonly occurring contaminants and retains up to 100% of minerals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the carbon cartridges made of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our KoKo Carb cartridges are made with CTC60 grade activated carbon, helping remove both physical and chemical contaminants from your water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the carbon cartridges work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our KokoCarb Cartridges sit in a gravity-fed filtration process where water naturally passes through them. The dense porous wall captures physical contaminants like sediments, bacteria, cysts, and microplastics, while the silver-impregnated activated carbon helps reduce chemical contaminants such as chlorine, PFAS, and pesticides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity Filters remove residual pharmaceutical waste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, up to 99.99%. Our primary Smart Carbon Cartridges have been independently tested for many Volatile Organic Compounds including 1,4-dichlorobenzene, 2-Butanone, Acetone, Allyl Chloride and many more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the Phoenix Carbon Cartridges remove fluoride?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with our specialist fluoride cartridge called the POSTreat, which removes over 95% of fluoride from tap water. Made from the highest grade stainless steel, it is completely reusable and refillable, and can be used alongside the primary Carbon Cartridges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Carbon Cartridges eliminate phthalates from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While phthalate removal has not been specifically tested, our Phoenix Carbon Cartridges are made with highest grade activated coconut carbon, which is known for its effectiveness in adsorbing phthalates from water. Testing is ongoing and continually improving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity filters remove estrogen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While estrogen removal has not been specifically tested, our Phoenix Carbon Filters are made with activated coconut carbon, which is known for its effectiveness in adsorbing estrogen from water. Supporting research is also available via published studies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it filter PFAS and pesticides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The activated carbon uses adsorption technology to help reduce PFAS, pesticides, and other chemical contaminants by more than 99.66% from your water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Phoenix Gravity Filters and cartridges compare to others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phoenix Gravity is one of the leaders in advanced gravity filtration, with over 40 years of in-house manufacturing experience, giving complete control over the process and quality of the filters and cartridges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Phoenix Gravity filters as comprehensive as Berkey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Extensive independent tests have been run on our filters for microbiological contaminants such as E. coli bacteria and MS2 Phage viruses, and chemical contaminants such as lead, chlorine, chromium, volatile organic compounds and 100 more, backed by over 40 years of in-house manufacturing experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Phoenix Gravity Filters lower the TDS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDS stands for Total Dissolved Solids, measured in parts per million (ppm) or parts per billion (ppb), representing the water's organic and inorganic content including minerals. Around 300 ppm is generally accepted as a good mineral content. We purposely do not bring TDS to zero, because we are focused on preserving the minerals your body needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will Phoenix Gravity Filters remove water hardness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Phoenix Carbon Filter Cartridges are designed to remove up to 99.99% of bacteria, viruses, chlorine, lead and over 100 other unwanted substances, but they are not designed to lower water hardness, since many of the natural minerals that make water hard are essential to good health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fluoride filter made of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The filter is housed in high-quality 304 stainless steel, a safe and chemically neutral material designed for durable everyday water filtration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do your filters remove arsenic from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Phoenix Gravity filter systems can help reduce arsenic in water. For the most effective results, we recommend using our KokoCarb Cartridges together with the POSTreat Fluoride Removal Filter Cartridge, a combination that has been shown to remove over 99.9% of arsenic and over 95% of fluoride when used correctly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it remove hormones and pharmaceutical residues from water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our Phoenix Gravity Water Filter uses activated carbon to effectively reduce hormones such as oestrogen, along with other pharmaceutical-related contaminants and harmful substances from your drinking water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications do Phoenix Gravity Water Filters have, and which products do they apply to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phoenix Gravity Water Filters are independently certified to NSF/ANSI 42, 372, and 401 standards, covering contaminant reduction, material safety, and emerging contaminants such as PFAS and microplastics. Carbon Cartridges are certified to NSF/ANSI 42, and the Filter System is certified to NSF/ANSI 42 and NSF/ANSI/CAN 372."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Phoenix products are third-party tested and under what standards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Phoenix Gravity Water Systems and KokoCarb Cartridges are independently tested and verified by accredited third-party laboratories under NSF/WQA standards to ensure performance, safety, and filtration effectiveness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any natural vitamins and minerals left after the filtration process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our gravity filtration system is designed to retain many beneficial naturally occurring minerals in water, such as calcium, magnesium, and potassium, while reducing unwanted contaminants like chlorine, heavy metals, sediment, and other impurities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it remove chloramine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Phoenix Gravity Filters are designed to effectively reduce chloramine from water. The activated carbon filtration media helps remove up to 99.9% of chloramine, along with chlorine, bad tastes, odours, and other common contaminants, while still retaining beneficial natural minerals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Phoenix Gravity water filters remove limescale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our filters do not remove limescale, as it is primarily made up of calcium and magnesium, which are essential minerals your body needs. The system is designed to remove harmful contaminants while retaining beneficial minerals, so a small amount of limescale is completely normal and does not affect the quality or safety of the filtered water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have a different stand alone system. Can I use Phoenix Gravity cartridges with them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our Phoenix Gravity KokoCarb Cartridges are compatible with most stand-alone gravity-fed water filtration systems, designed for easy installation and reliable filtration performance across similar gravity filtration units."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these Phoenix Gravity cartridges compatible with the Berkey system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our Phoenix Gravity KokoCarb Cartridges are fully compatible with Berkey water filter systems, designed to fit seamlessly into compatible gravity-fed systems while providing reliable and effective filtration performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the TDS value change after the filtration is done?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the TDS value may change slightly after filtration, but Phoenix Gravity Water Filters are designed to remove unwanted impurities while retaining beneficial natural minerals like calcium and magnesium. Zero TDS does not mean perfect water; ideal drinking water typically falls within 100 to 500 ppm TDS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Phoenix Gravity ship to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently ship to the UK and all of Europe, and we are working on adding more locations. Orders for the United States are served by our dedicated US store at phoenixwaterfilters.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does shipping cost in Europe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer free standard shipping on all Filter Systems and orders over 99 GBP to the UK. Shipping costs outside of the UK depend on local delivery requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does shipping take in Europe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work with trusted couriers to ensure you receive your products in the quickest, safest way possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does UK shipping take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We deliver within the UK in 2 to 4 working days. Expedited delivery is available at checkout for an additional fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your return and exchange policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Returns can be accepted if initiated within 30 days of purchase. You are responsible for the safe return of the item, which must arrive in a resealable condition in the original packaging. Once the return is accepted, a refund is issued via the original payment method within 7 working days. A 100 Day Money-back Guarantee also applies to complete Gravity Water Filter Systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My item has arrived damaged or incorrect, what can I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Please send a photograph of your full order including the packaging along with your order number to the support team, and you will receive a response as a matter of priority within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the 100-Day Money-Back Guarantee work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 100-Day Money Back Guarantee applies only to Phoenix Gravity Systems purchased with the stainless steel housings via our website, and does not apply to replacement filters and accessories purchased separately. If you are not satisfied within 100 days of delivery, contact support to initiate a return. The system must be returned complete with all original parts and packaging, undamaged. Once received and inspected, a full refund is issued to the original payment method within up to 10 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the 100-day return policy valid if I order from Amazon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Phoenix Gravity Filter system must be purchased via our website to qualify for the 100-day money back guarantee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the warranty work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer a 10 year warranty on our Stainless Steel Gravity Water Filter system housings, covering defects in material and workmanship. Phoenix Gravity Stainless Steel Tap and Carbon Cartridges carry a 1 year warranty, and all other parts and accessories carry a 6 month warranty, each covering defects in material and workmanship."
+      }
+    }
+  ]
+}
+</script>
+{%- endif -%}
+{% comment %} /////////////////////////////////////////////////////////////////////faq-schema////////////////////////////////////////////////////// {% endcomment %}
+
+
+
+
+
+    
+  <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style">
+ <link rel="preload" href="{{ 'global.js' | asset_url }}" as="script">
+ <script src="{{ 'phoenix-auto-subscription.js' | asset_url }}" defer="defer"></script>
+ <script src="{{ 'phoenix-sku-auto-subscription.js' | asset_url }}" defer="defer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+
+
+<script>
+if (window.location.pathname === "/collections/accessories/products/vision-tap-stainless-steel") {
+  window.location.replace("/");
+}
+</script>
+
+{% comment %} //////////////////////////////////noindex////////////////////////////////////////// {% endcomment %}
+{% if collection and collection.metafields.seo.hidden.value == 1 %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
+
+
+{% if blog and blog.metafields.seo.hidden.value == 1 %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
+
+
+{% if request.path == '/collections/accessories/products/vision-tap-stainless-steel' %}
+  <meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+{% assign noindex_pages = 'winter-sale,product-test-page,product-registration-1,demo-1,quiz-01-22-2026-2,untitled,welcome-to-phoenix,ccpa-privacy-policy,lgpd-privacy-policy,appi-privacy-policy,pipeda-privacy-policy,gdpr-privacy-policy' | split: ',' %}
+
+{% assign noindex_collections = 'all-1,replacement-cartridges,add-to-your-order,water-filter-systems' | split: ',' %}
+
+{% if template == 'page' and noindex_pages contains page.handle %}
+  <meta name="robots" content="noindex, nofollow">
+{% elsif template == 'collection' and noindex_collections contains collection.handle %}
+  <meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+{% comment %} //////////////////////////////////noindex////////////////////////////////////////// {% endcomment %}
+
+
+<!-- SEO brand name reapet start================================================ -->
+{% capture seo_title %}
+{% assign title_content = page_title %}
+{% if template == 'password' %}
+{% assign title_content = shop.name %}
+{%- endif -%}
+{{ title_content }}
+{% if current_tags %}
+{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+{% endif %}
+{% if current_page != 1 %}
+&ndash; {{ 'general.meta.page' | t: page: current_page }}
+{% endif %}
+{% endcapture %}
+<title>{{ seo_title }}</title>
+<!-- SEO brand name reapet end================================================ -->
+
+    <script>
+    (()=>{
+    try {
+    var e = navigator
+    , t = e.userAgent
+    , r = 0
+    , a = (e,t,r)=>e.setAttribute(t, r)
+    , o = (e,t)=>e.removeAttribute(t)
+    , d = "tagName"
+    , n = "forEach"
+    , l = "indexOf";
+    (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) && new MutationObserver((e=>{
+    e[n]((({addedNodes: e})=>{
+    e[n]((e=>{
+    1 === e.nodeType && ("IFRAME" === e[d] && (a(e, "loading", "lazy"),
+    a(e, "data-src", e.src),
+    o(e, "src")),
+    "IMG" === e[d] && r++ > 20 && a(e, "loading", "lazy"),
+    "SCRIPT" === e[d] && (a(e, "data-src", e.src),
+    o(e, "src"),
+    e.type = "text/lazyload"))
+    }
+    ))
+    }
+    ))
+    }
+    )).observe(document.documentElement, {
+    childList: !0,
+    subtree: !0
+    });
+    var c = e=>document.querySelector(e)
+    , s = ()=>Date.now()
+    , i = s()
+    , u = ()=>{
+    if (!(s() - i > 500)) {
+    if (!c("body>meta"))
+    return setTimeout(u, 5);
+    var e = c("head");
+    document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t=>e.append(t)))
+    }
+    }
+    ;
+    u()
+    } catch (m) {}
+    }
+    )();
+    </script>
+
+{% comment %} //////////////////////////////////////floting-review-hide-for-this-pages-start///////////////////////////////// {% endcomment %}
+{% if request.page_type == 'product' or
+  request.page_type == 'page' and
+  page.handle == 'delivery-and-returns' or
+  page.handle == 'privacy-policy' or
+  page.handle == 'terms-and-conditions'
+%}
+<style>
+.jdgm-revs-tab-btn.btn {
+  display: none !important;
+}
+</style>
+{% endif %}
+
+{% comment %} //////////////////////////////////////floting-review-hide-for-this-pages-end///////////////////////////////// {% endcomment %}
+
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M2L8HDBD');</script>
+<!-- End Google Tag Manager -->
+
+
+    {% render 'meta-tags' %}
+
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+
+    {%- if settings.animations_reveal_on_scroll -%}
+      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+      {% for scheme in settings.color_schemes -%}
+        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% if forloop.index == 1 -%}
+          :root,
+        {%- endif %}
+        .color-{{ scheme.id }} {
+          --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        {% if scheme.settings.background_gradient != empty %}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+        {% else %}
+          --gradient-background: {{ scheme.settings.background }};
+        {% endif %}
+
+        {% liquid
+          assign background_color = scheme.settings.background
+          assign background_color_brightness = background_color | color_brightness
+          if background_color_brightness <= 26
+            assign background_color_contrast = background_color | color_lighten: 50
+          elsif background_color_brightness <= 65
+            assign background_color_contrast = background_color | color_lighten: 5
+          else
+            assign background_color_contrast = background_color | color_darken: 25
+          endif
+        %}
+
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
+        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+        --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+        --color-secondary-button: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-secondary-button-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-link: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-badge-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-badge-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+      }
+      {% endfor %}
+
+      {{ scheme_classes | prepend: 'body' }} {
+        color: rgba(var(--color-foreground));
+        background-color: rgb(var(--color-background));
+      }
+
+      :root {
+        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-style: {{ settings.type_body_font.style }};
+        --font-body-weight: {{ settings.type_body_font.weight }};
+        --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+
+        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-style: {{ settings.type_header_font.style }};
+        --font-heading-weight: {{ settings.type_header_font.weight }};
+
+        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+        --media-padding: {{ settings.media_padding }}px;
+        --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
+        --media-border-width: {{ settings.media_border_thickness }}px;
+        --media-radius: {{ settings.media_radius }}px;
+        --media-shadow-opacity: {{ settings.media_shadow_opacity | divided_by: 100.0 }};
+        --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
+        --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
+        --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
+        --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
+
+        --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+        --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+        --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
+        --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
+        --product-card-text-alignment: {{ settings.card_text_alignment }};
+        --product-card-border-width: {{ settings.card_border_thickness | divided_by: 10.0 }}rem;
+        --product-card-border-opacity: {{ settings.card_border_opacity | divided_by: 100.0 }};
+        --product-card-shadow-opacity: {{ settings.card_shadow_opacity | divided_by: 100.0 }};
+        --product-card-shadow-visible: {% if settings.card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --product-card-shadow-horizontal-offset: {{ settings.card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --product-card-shadow-vertical-offset: {{ settings.card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --product-card-shadow-blur-radius: {{ settings.card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --collection-card-image-padding: {{ settings.collection_card_image_padding | divided_by: 10.0 }}rem;
+        --collection-card-corner-radius: {{ settings.collection_card_corner_radius | divided_by: 10.0 }}rem;
+        --collection-card-text-alignment: {{ settings.collection_card_text_alignment }};
+        --collection-card-border-width: {{ settings.collection_card_border_thickness | divided_by: 10.0 }}rem;
+        --collection-card-border-opacity: {{ settings.collection_card_border_opacity | divided_by: 100.0 }};
+        --collection-card-shadow-opacity: {{ settings.collection_card_shadow_opacity | divided_by: 100.0 }};
+        --collection-card-shadow-visible: {% if settings.collection_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --collection-card-shadow-horizontal-offset: {{ settings.collection_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --collection-card-shadow-vertical-offset: {{ settings.collection_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --collection-card-shadow-blur-radius: {{ settings.collection_card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --blog-card-image-padding: {{ settings.blog_card_image_padding | divided_by: 10.0 }}rem;
+        --blog-card-corner-radius: {{ settings.blog_card_corner_radius | divided_by: 10.0 }}rem;
+        --blog-card-text-alignment: {{ settings.blog_card_text_alignment }};
+        --blog-card-border-width: {{ settings.blog_card_border_thickness | divided_by: 10.0 }}rem;
+        --blog-card-border-opacity: {{ settings.blog_card_border_opacity | divided_by: 100.0 }};
+        --blog-card-shadow-opacity: {{ settings.blog_card_shadow_opacity | divided_by: 100.0 }};
+        --blog-card-shadow-visible: {% if settings.blog_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --blog-card-shadow-horizontal-offset: {{ settings.blog_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+        --blog-card-shadow-vertical-offset: {{ settings.blog_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+        --blog-card-shadow-blur-radius: {{ settings.blog_card_shadow_blur | divided_by: 10.0 }}rem;
+
+        --badge-corner-radius: {{ settings.badge_corner_radius | divided_by: 10.0 }}rem;
+
+        --popup-border-width: {{ settings.popup_border_thickness }}px;
+        --popup-border-opacity: {{ settings.popup_border_opacity | divided_by: 100.0 }};
+        --popup-corner-radius: {{ settings.popup_corner_radius }}px;
+        --popup-shadow-opacity: {{ settings.popup_shadow_opacity | divided_by: 100.0 }};
+        --popup-shadow-horizontal-offset: {{ settings.popup_shadow_horizontal_offset }}px;
+        --popup-shadow-vertical-offset: {{ settings.popup_shadow_vertical_offset }}px;
+        --popup-shadow-blur-radius: {{ settings.popup_shadow_blur }}px;
+
+        --drawer-border-width: {{ settings.drawer_border_thickness }}px;
+        --drawer-border-opacity: {{ settings.drawer_border_opacity | divided_by: 100.0 }};
+        --drawer-shadow-opacity: {{ settings.drawer_shadow_opacity | divided_by: 100.0 }};
+        --drawer-shadow-horizontal-offset: {{ settings.drawer_shadow_horizontal_offset }}px;
+        --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
+        --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
+
+        --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+        --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+
+        --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
+        --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
+        --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
+        --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
+
+        --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
+        --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
+        --text-boxes-radius: {{ settings.text_boxes_radius }}px;
+        --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
+        --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
+        --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
+        --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
+
+        --buttons-radius: {{ settings.buttons_radius }}px;
+        --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+        --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+        --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+        --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
+        --buttons-shadow-visible: {% if settings.buttons_shadow_opacity > 0 %}1{% else %}0{% endif %};
+        --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
+        --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
+        --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
+        --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
+
+        --inputs-radius: {{ settings.inputs_radius }}px;
+        --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+        --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+        --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
+        --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
+        --inputs-margin-offset: {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_opacity > 0 %}{{ settings.inputs_shadow_vertical_offset | abs }}{% else %}0{% endif %}px;
+        --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
+        --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
+        --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
+
+        --variant-pills-radius: {{ settings.variant_pills_radius }}px;
+        --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
+        --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
+        --variant-pills-shadow-opacity: {{ settings.variant_pills_shadow_opacity | divided_by: 100.0 }};
+        --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
+        --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
+        --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+        font-size: calc(var(--font-body-scale) * 62.5%);
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: 0.06rem;
+        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+
+      @media screen and (min-width: 750px) {
+        body {
+          font-size: 1.6rem;
+        }
+      }
+    {% endstyle %}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+      {{ 'style.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {% comment %} {%- if settings.cart_type == 'drawer' -%}
+      {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+      {{ 'component-price.css' | asset_url | stylesheet_tag }}
+      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {%- endif -%} {% endcomment %}
+
+    {%- if settings.cart_type == 'drawer' -%}
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-cart-drawer.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-cart.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-totals.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-price.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <link
+        rel="stylesheet"
+        href="{{ 'component-discounts.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+      <noscript>
+        {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+        {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+        {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+        {{ 'component-price.css' | asset_url | stylesheet_tag }}
+        {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+      </noscript>
+
+    {%- endif -%}
+
+    {%- unless settings.type_body_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+    {%- unless settings.type_header_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.predictive_search_enabled -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+
+    <script>
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Organization",
+      "@id": "https://phoenixwaterfilters.co.uk/#organization",
+      "name": "Phoenix Gravity Water Filters",
+      "url": "https://phoenixwaterfilters.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.shopify.com/s/files/1/0735/1821/9557/files/logo_c27652e4-c51c-4016-905d-c0543548e5db.png?v=1767950565"
+      },
+      "sameAs": [
+        "https://www.facebook.com/PhoenixGravityFiltersUK",
+        "https://www.instagram.com/phoenixgravityfilters_uk/",
+        "https://www.youtube.com/channel/UCpUAUgQn3AJIbx96T0Ln9Dw"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+442080585660",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        "availableLanguage": "English"
+      }
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://phoenixwaterfilters.co.uk/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://phoenixwaterfilters.co.uk/"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+
+<script>
+  window.developer = atob("S2FsaWVzd2FyYW4gLSBXZWJzaXRlIERldmVsb3Blcg==");
+</script>
+<!-- Start of Judge.me Core -->
+<link rel="dns-prefetch" href="https://cdnwidget.judge.me/">
+{{ shop.metafields.judgeme.settings }}
+{% for count in (0..5) %}
+  {% assign metafield_key = 'html_miracle_' | append: count %}
+  {% assign current_metafield = shop.metafields.judgeme[metafield_key] %}
+  {% unless current_metafield %} {% break %} {% endunless %}
+  {{ current_metafield }}
+{% endfor %}
+    <script data-cfasync='false' class='jdgm-script'>
+!function(e){window.jdgm=window.jdgm||{},jdgm.CDN_HOST="https://cdnwidget.judge.me/",
+jdgm.docReady=function(d){(e.attachEvent?"complete"===e.readyState:"loading"!==e.readyState)?
+setTimeout(d,0):e.addEventListener("DOMContentLoaded",d)},jdgm.loadCSS=function(d,t,o,s){
+!o&&jdgm.loadCSS.requestedUrls.indexOf(d)>=0||(jdgm.loadCSS.requestedUrls.push(d),
+(s=e.createElement("link")).rel="stylesheet",s.class="jdgm-stylesheet",s.media="nope!",
+s.href=d,s.onload=function(){this.media="all",t&&setTimeout(t)},e.body.appendChild(s))},
+jdgm.loadCSS.requestedUrls=[],jdgm.docReady(function(){(window.jdgmLoadCSS||e.querySelectorAll(
+".jdgm-widget, .jdgm-all-reviews-page").length>0)&&(jdgmSettings.widget_load_with_code_splitting?
+parseFloat(jdgmSettings.widget_version)>=3?jdgm.loadCSS(jdgm.CDN_HOST+"widget_v3/base.css"):
+jdgm.loadCSS(jdgm.CDN_HOST+"widget/base.css"):jdgm.loadCSS(jdgm.CDN_HOST+"shopify_v2.css"))})}(document);
+</script>
+<noscript><link rel="stylesheet" type="text/css" media="all" href="https://cdnwidget.judge.me/shopify_v2.css"></noscript>
+
+    <script>
+       setTimeout(function(){
+   var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.async = false;
+      po.src = 'https://cdnwidget.judge.me/loader.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
+      }, 2000);
+    </script>
+    <!-- End of Judge.me Core -->
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang start/////////////////////////////////////////////////////////////////// {% endcomment %}
+
+{% if template == 'index' %}
+<link rel="alternate" hreflang="en-us" href="https://phoenixwaterfilters.com/" />
+<link rel="alternate" hreflang="en-gb" href="https://phoenixwaterfilters.co.uk/" />
+<link rel="alternate" hreflang="fr-fr" href="https://phoenixwaterfilters.fr/" />
+<link rel="alternate" hreflang="x-default" href="https://phoenixwaterfilters.com/" />
+{% endif %}
+
+{% if collection.metafields.custom.href_lang != blank %}
+  {{ collection.metafields.custom.href_lang }}
+{% endif %}
+
+ {% if product.metafields.custom.href_lang != blank %}
+  {{ product.metafields.custom.href_lang }}
+{% endif %}
+
+{% if page.metafields.custom.href_lang != blank %}
+  {{ page.metafields.custom.href_lang }}
+{% endif %}
+
+{% if blog.metafields.custom.href_lang != blank %}
+  {{ blog.metafields.custom.href_lang }}
+{% endif %}
+
+{% comment %} /////////////////////////////////////////////////////////////////////////href-lang end/////////////////////////////////////////////////////////////////// {% endcomment %}
+  </head>
+
+  <body class="gradient {% if template.suffix != blank %} template-{{ template.suffix | handle }}{% else %} template-default {% endif %} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2L8HDBD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      };
+
+      window.quickOrderListStrings = {
+        itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
+        itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
+        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+        itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
+        viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
+        each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
+        min_error: `{{- 'sections.quick_order_list.min_error' | t: min: '[min]' }}`,
+        max_error: `{{- 'sections.quick_order_list.max_error' | t: max: '[max]' }}`,
+        step_error: `{{- 'sections.quick_order_list.step_error' | t: step: '[step]' }}`,
+      };
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+        countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
+      };
+    </script>
+
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.cart_type == 'drawer' -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+{%- capture ecom_footer_content -%}{%- render 'ecom_footer' -%}{%- endcapture -%}{%- unless ecom_footer_content contains 'Liquid error' -%}{{ ecom_footer_content }}{%- endunless -%}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const productSection = document.querySelector('.product');
+
+  if (!productSection) return;
+
+  function keepAddToCartText() {
+    const addButton = document.querySelector(
+      'product-form button[type="submit"], form[action*="/cart/add"] button[type="submit"]'
+    );
+
+    if (!addButton) return;
+
+    const buttonText = addButton.querySelector('span') || addButton;
+
+    if (buttonText.textContent.trim().toLowerCase().includes('unavailable')) {
+      buttonText.textContent = 'Add to cart';
+      addButton.removeAttribute('disabled');
+      addButton.classList.remove('disabled');
+    }
+  }
+
+  productSection.addEventListener('change', function (event) {
+    if (
+      event.target.matches('input[type="radio"]') ||
+      event.target.matches('select')
+    ) {
+      keepAddToCartText();
+
+      setTimeout(keepAddToCartText, 50);
+      setTimeout(keepAddToCartText, 150);
+      setTimeout(keepAddToCartText, 300);
+    }
+  });
+});
+</script>
+
+{% comment %}   {% if request.page_type == 'product' %}
+    <style>
+      img.jdgm-rev__pic-img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+    </style>
+
+    <script>
+      (() => {
+        const selector = 'img.jdgm-rev__pic-img';
+        const imageWidth = 100;
+        const imageHeight = 100;
+
+        function setImageDimensions(container = document) {
+          const images = [];
+
+          if (
+            container.nodeType === 1 &&
+            container.matches(selector)
+          ) {
+            images.push(container);
+          }
+
+          if (container.querySelectorAll) {
+            images.push(...container.querySelectorAll(selector));
+          }
+
+          images.forEach((image) => {
+            if (!image.hasAttribute('width')) {
+              image.setAttribute('width', imageWidth);
+            }
+
+            if (!image.hasAttribute('height')) {
+              image.setAttribute('height', imageHeight);
+            }
+          });
+        }
+
+        setImageDimensions();
+
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === 1) {
+                setImageDimensions(node);
+              }
+            });
+          });
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+      })();
+    </script>
+  {% endif %} {% endcomment %}
+
+</body>
+</html>
