@@ -57,7 +57,8 @@
       "custom_css": [
         ".sub-heading-box {width: 100%;}",
         ".heading-box,p {color: white;}",
-        "p {font-weight: 400 !important;}"
+        "p {font-weight: 400 !important;}",
+        ".hover-grid {padding: 0;}"
       ],
       "name": "Custom Box",
       "settings": {
@@ -70,7 +71,7 @@
         "h3": "Product Registration",
         "h1": "",
         "h2": "<p>Product purchases from this store do not need registration they are automatically registered.</p>",
-        "section_bg": "#92bdd7",
+        "section_bg": "#2F2954",
         "desktop_height": 100,
         "mobile_height": 80,
         "desktop_columns": 1,
@@ -84,6 +85,46 @@
         "padding_bottom": 0,
         "padding_lr": 10,
         "p1": 50,
+        "p3": 0,
+        "p2": 0,
+        "b1": "",
+        "bc1": "#ffffff",
+        "bc2": "#ffffff"
+      }
+    },
+    "custom_box_Ae4Wen": {
+      "type": "custom-box",
+      "custom_css": [
+        ".sub-heading-box {width: 100%;}",
+        ".heading-box,p {color: white;}",
+        "p {font-weight: 400 !important;}",
+        "@media screen and (max-width: 767px) {.sub-heading-box p {font-size: 12px; }}"
+      ],
+      "name": "Custom Box",
+      "settings": {
+        "enable_hover_effect": true,
+        "hd1": 21,
+        "hd2": 16,
+        "hd3": 20,
+        "hd4": 16,
+        "enable_mobile_hover": false,
+        "h3": "Manufactured for Phoenix Gravity by:",
+        "h1": "",
+        "h2": "<p>RAMA Pure Water Private Limited, 196 Injambakkam East Coast Road, Chennai – 600041, Tamil Nadu, India.&nbsp;</p>",
+        "section_bg": "#2F2954",
+        "desktop_height": 100,
+        "mobile_height": 80,
+        "desktop_columns": 1,
+        "mobile_columns": 1,
+        "gap": 20,
+        "card_padding": 30,
+        "radius": 12,
+        "button_radius": 6,
+        "icon_size": 60,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "padding_lr": 10,
+        "p1": 20,
         "p3": 0,
         "p2": 0,
         "b1": "",
@@ -150,6 +191,7 @@
     "main",
     "rich_text_yDq76f",
     "custom_box_CHWBDc",
+    "custom_box_Ae4Wen",
     "1769683942eaf67215"
   ]
 }

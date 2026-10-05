@@ -3724,3 +3724,7 @@ svg {
   }
 }
 
+/* .variant-option-with-icons input[type="radio"]:focus-visible + label {
+  outline: 2px solid rgb(47,41,83);
+} */
+

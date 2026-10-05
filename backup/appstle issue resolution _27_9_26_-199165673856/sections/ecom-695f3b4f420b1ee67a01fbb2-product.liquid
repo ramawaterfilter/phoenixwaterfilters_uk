@@ -461,7 +461,7 @@
  </div></div><div class="ecom-product-single-afterpay">
  
  </div></div></div></div></div> </div></div></div></div> <div class="ecom-column ecom-core core__column--last ecom-zpwfthw1xs"><div class="core__column--wrapper ecom__column-full-height" id="ecom-zpwfthw1xs"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-8zgqe3w1ck7"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-2jdnw03lph1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.textcontent_8zgqe3w1ck7_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-a2ya6vqq7wb"><div class="ecom-row ecom-core core__block ecom-cqi4i1xzu1s" data-id="ecom-cqi4i1xzu1s" style="z-index: inherit;"><div class="core__row--columns"></div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block ecom-8ue4xcqaz5v"><div class="ecom-element ecom-product-single ecom-product-single__add-to-cart" section_id="ecom-2jdnw03lph1"><div class="ecom-product-single__add-to-cart-wrapper"><div class="ecom-product-single__add-to-cart-container"><div class="ecom-product-single__add-to-cart-buttons"><div class="ecom-product-single__add-to-cart-buttons-wrapper"><button type="submit" class="ecom-product-single__add-to-cart--submit ecom-flex" data-text-add-cart="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.add_to_cart_8ue4xcqaz5v_html' | t }}" data-text-pre-order="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.pre_order_8ue4xcqaz5v_html' | t }}" data-text-unavailable="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.product_unavailable_8ue4xcqaz5v_html' | t }}" data-text-outstock="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.out_stock_8ue4xcqaz5v_html' | t }}" data-text-added-cart="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.added_cart_text_8ue4xcqaz5v_html' | t }}" data-message-added-cart="{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.added_cart_message_8ue4xcqaz5v_html' | t }}" data-href="#" data-target="" data-action="popup" data-variant-id="{{product.first_available_variant.id}}" name="add"><span class="ecom-add-to-cart-text">{{ 'sections.ecom-695f3b4f420b1ee67a01fbb2-product.add_to_cart_8ue4xcqaz5v_html' | t }}</span><span class="ecom__element--button-icon"></span></button></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-aexwqcnob3"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">
-{% capture 'meta_data' %}
+{% capture meta_data %}
 {% for variant in product.variants %}
 @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.discounted_price | raw }}"@endvalue
 {% unless forloop.last %},{% endunless %}
@@ -504,7 +504,7 @@
  
 </script>
 </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-nki21l2a23i"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">
-{% capture 'meta_data' %}
+{% capture meta_data %}
 
 {% for variant in product.variants %}
 @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.cutoff_price | raw }}"@endvalue
@@ -722,7 +722,7 @@
  {%- endform -%}
  {% assign ecom_has_variant_picker = false %}
  {%- endif -%}
- </div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">{% capture 'meta_data' %}
+ </div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">{% capture meta_data %}
 {% for variant in product.variants %}
  {{ variant.id}}: '{{ variant.metafields.custom.variant_description| metafield_tag }}' {%- comment -%} variant_description{%- endcomment -%}
  {% unless forloop.last %},{% endunless %}
@@ -1582,3 +1582,19 @@
  ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 37767..37790
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 39277..39300
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 53236..53259
+{% endcomment %}

@@ -483,7 +483,7 @@
  {%- if product != blank -%}
  {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-c2o8sunxdm9{%- endcapture -%}
  {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
- <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-gd5rw0py046" id="pf2rfc"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-c2o8sunxdm9"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_description| metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4nb136wev78"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-c2o8sunxdm9">{% capture 'meta_data' %}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-gd5rw0py046" id="pf2rfc"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-c2o8sunxdm9"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_description| metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4nb136wev78"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-c2o8sunxdm9">{% capture meta_data %}
 {% for variant in product.variants %}
 {{ variant.id }}: '{{ variant.metafields.custom.variant_description | metafield_tag }}' 
  {% unless forloop.last %},{% endunless %}
@@ -1488,4 +1488,13 @@
  }
  ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 39071..39094
+{%- endcomment -%}

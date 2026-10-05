@@ -510,7 +510,7 @@ display: none;
 </div>
  
  </div></div></div> <div class="ecom-block ecom-core core__block ecom-8ue4xcqaz5v"><div class="ecom-element ecom-product-single ecom-product-single__add-to-cart"><div class="ecom-product-single__add-to-cart-wrapper"><div class="ecom-product-single__add-to-cart-container"><div class="ecom-product-single__add-to-cart-buttons"><div class="ecom-product-single__add-to-cart-buttons-wrapper"><button type="submit" class="ecom-product-single__add-to-cart--submit ecom-flex" data-text-add-cart="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.add_to_cart_8ue4xcqaz5v_html' | t }}" data-text-pre-order="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.pre_order_8ue4xcqaz5v_html' | t }}" data-text-unavailable="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.product_unavailable_8ue4xcqaz5v_html' | t }}" data-text-outstock="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.out_stock_8ue4xcqaz5v_html' | t }}" data-text-added-cart="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.added_cart_text_8ue4xcqaz5v_html' | t }}" data-message-added-cart="{{ 'sections.ecom-phoenix-gravity-new-pdp-product.added_cart_message_8ue4xcqaz5v_html' | t }}" data-href="#" data-target="" data-action="popup" data-variant-id="{{product.first_available_variant.id}}" name="add"><span class="ecom-add-to-cart-text">{{ 'sections.ecom-phoenix-gravity-new-pdp-product.add_to_cart_8ue4xcqaz5v_html' | t }}</span><span class="ecom__element--button-icon"></span></button></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-aexwqcnob3"><div class="ecom__element ecom-element element__code exporting">
-{% capture 'meta_data' %}
+{% capture meta_data %}
 {% for variant in product.variants %}
 @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.discounted_price | raw }}"@endvalue
 {% unless forloop.last %},{% endunless %}
@@ -553,7 +553,7 @@ display: none;
  
 </script>
 </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-nki21l2a23i"><div class="ecom__element ecom-element element__code exporting">
-{% capture 'meta_data' %}
+{% capture meta_data %}
 
 {% for variant in product.variants %}
 @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.cutoff_price | raw }}"@endvalue
@@ -762,7 +762,7 @@ display: none;
  {%- endform -%}
  {% assign ecom_has_variant_picker = false %}
  {%- endif -%}
- </div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting">{% capture 'meta_data' %}
+ </div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting">{% capture meta_data %}
 {% for variant in product.variants %}
  {{ variant.id}}: '{{ variant.metafields.custom.variant_description| metafield_tag }}' {%- comment -%} variant_description{%- endcomment -%}
  {% unless forloop.last %},{% endunless %}
@@ -1759,3 +1759,19 @@ display: none;
  ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 38919..38942
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 40399..40422
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 53590..53613
+{% endcomment %}

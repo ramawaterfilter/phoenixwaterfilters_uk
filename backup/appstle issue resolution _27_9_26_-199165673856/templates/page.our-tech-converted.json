@@ -107,7 +107,7 @@
         "contaminant_aPwUNR": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.9%",
+            "percentage": "up to 99.9%",
             "title": "Chlorine",
             "description": "<p>Chlorine reacts with organic matter in water, forming disinfection byproducts linked to health risks.</p>"
           }
@@ -115,7 +115,7 @@
         "contaminant_xGN88K": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.999%",
+            "percentage": "up to  99.999%",
             "title": "Bacteria",
             "description": "<p>Bacteria in drinking water can lead to illnesses such as gastrointestinal issues and infections.</p>"
           }
@@ -123,7 +123,7 @@
         "contaminant_pWNExf": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.66%",
+            "percentage": "up to  99.66%",
             "title": "PFAS",
             "description": "<p>PFAS in drinking water has been linked to hormonal disruption, weakened immune systems and liver problems.</p>"
           }
@@ -131,7 +131,7 @@
         "contaminant_YeVcWj": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.9%",
+            "percentage": "up to 99.9%",
             "title": "Viruses",
             "description": "<p>Viruses in drinking water can lead to hepatitis, vomiting, diarrhoea and fever.</p>"
           }
@@ -139,7 +139,7 @@
         "contaminant_TPnjpy": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.9%",
+            "percentage": "up to 99.9%",
             "title": "Microplastics",
             "description": "<p>Microplastics may pose potential health risks including endocrine disruption and cellular damage.</p>"
           }
@@ -147,7 +147,7 @@
         "contaminant_B8KRkh": {
           "type": "contaminant",
           "settings": {
-            "percentage": "99.9%",
+            "percentage": "up to 99.9%",
             "title": "Heavy Metals",
             "description": "<p>Heavy metals can cause neurological damage, kidney and liver issues, and increase cancer risks.</p>"
           }
@@ -155,7 +155,7 @@
         "contaminant_f3Q8UM": {
           "type": "contaminant",
           "settings": {
-            "percentage": "95%",
+            "percentage": "up to 95%",
             "title": " Fluoride",
             "description": "<p>Excess fluoride may lead to fluorosis; our filters remove over 95% so water stays balanced and safe.</p>"
           }
@@ -227,7 +227,7 @@
         "card_min_height": 240,
         "card_radius": 14,
         "card_heading_size": 23,
-        "card_text_size": 19,
+        "card_text_size": 17,
         "background_color": "#ffffff",
         "heading_color": "#222150",
         "text_color": "#222150",
@@ -349,7 +349,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/NSF_logo.png",
-            "title": "NSF Certified",
+            "title": "&nbsp;NSF/ANSI 42 Certified&nbsp;",
             "sub_title": "",
             "text": "",
             "link_label": "",

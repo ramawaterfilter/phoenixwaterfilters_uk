@@ -116,19 +116,7 @@
       {%- endif -%}
     {%- endcapture -%}
 
-    {%
-      render 'swatch-input',
-      id: input_id,
-      name: input_name,
-      value: value | escape,
-      swatch: value.swatch,
-      product_form_id: product_form_id,
-      checked: value.selected,
-      visually_disabled: option_disabled,
-      shape: block.settings.swatch_shape,
-      help_text: help_text,
-      additional_props: input_dataset
-    %}
+    {% render 'swatch-input', id: input_id, name: input_name, value: value, swatch: value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled: option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props: input_dataset %}
 
   {%- elsif picker_type == 'button' -%}
 
@@ -382,9 +370,9 @@
   }
   .variant-wrapper--text{border-radius:5px;}
 
-  .variant-option-with-icons input[type="radio"] {
+  {% comment %} .variant-option-with-icons input[type="radio"] {
   display: none;
-}
+} {% endcomment %}
 
 .variant-label-with-icons {
   display: block;
@@ -480,3 +468,20 @@
 
 </style>
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%\r\n      render 'swatch-input',\r\n      id: input_id,\r\n      name:
+    input_name,\r\n      value: value | escape,\r\n      swatch: value.swatch,\r\n
+    \     product_form_id: product_form_id,\r\n      checked: value.selected,\r\n
+    \     visually_disabled: option_disabled,\r\n      shape: block.settings.swatch_shape,\r\n
+    \     help_text: help_text,\r\n      additional_props: input_dataset\r\n    %}"
+  to: "{% render 'swatch-input', id: input_id, name: input_name, value: value, swatch:
+    value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled:
+    option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props:
+    input_dataset %}"
+  position: 3367..3648
+{% endcomment %}

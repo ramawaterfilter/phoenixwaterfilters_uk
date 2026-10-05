@@ -260,7 +260,7 @@
  <p>Please select the rating platform in settings</p>
  </div>
  {%- endif -%}
- </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-xko3irdivf"><div class="ecom-row ecom-core core__block ecom-x1b0diw1cs8" data-id="ecom-x1b0diw1cs8" style="z-index: inherit;"><div class="core__row--columns"></div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-t3m7n6141aa"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-iw6cqwum2ht"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-carbon-cartridges-pair-product.textcontent_t3m7n6141aa_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5z2v222uxpf"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-iw6cqwum2ht"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-carbon-cartridges-pair-product.headingtext_5z2v222uxpf_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1bj9s1ngyqp"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture 'meta_data' %}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-xko3irdivf"><div class="ecom-row ecom-core core__block ecom-x1b0diw1cs8" data-id="ecom-x1b0diw1cs8" style="z-index: inherit;"><div class="core__row--columns"></div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-t3m7n6141aa"><div class="ecom__element ecom-element element__text ecom-type-deffault" section_id="ecom-iw6cqwum2ht"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-carbon-cartridges-pair-product.textcontent_t3m7n6141aa_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5z2v222uxpf"><div class="ecom__element element__heading ecom-element ecom-html ecom-type-deffault" section_id="ecom-iw6cqwum2ht"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-carbon-cartridges-pair-product.headingtext_5z2v222uxpf_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1bj9s1ngyqp"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture meta_data %}
 {% for variant in product.variants %}
  {{ variant.id}}: '{{ variant.metafields.custom.variant_description | metafield_tag }}' {%- comment -%} Replace it with your NAMESPACE.KEY value {%- endcomment -%}
  {% unless forloop.last %},{% endunless %}
@@ -512,7 +512,7 @@
  {%- if product != blank -%}
  {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-iw6cqwum2ht{%- endcapture -%}
  {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
- <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-6ngi2pg49q3"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-iw6cqwum2ht"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_description| metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-dmvm4xph8wu"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture 'meta_data' %}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-6ngi2pg49q3"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-iw6cqwum2ht"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_description| metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-dmvm4xph8wu"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture meta_data %}
 {% for variant in product.variants %}
 {{ variant.id }}: '{{ variant.metafields.custom.variant_description | metafield_tag }}' 
  {% unless forloop.last %},{% endunless %}
@@ -537,7 +537,7 @@
  }
  });
 
-</script></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1tybnoyxaul"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture 'meta_data' %}
+</script></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1tybnoyxaul"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture meta_data %}
 
  {% for variant in product.variants %}
  @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.variant_description | metafield_tag }}"@endvalue {%- comment -%} Replace it with your NAMESPACE.KEY value {%- endcomment -%}
@@ -586,7 +586,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-a3w5slim90i">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -619,7 +619,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-e175g56l9jq">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -652,7 +652,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-r564iftmgan">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -681,7 +681,7 @@
  {%- if product != blank -%}
  {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-iw6cqwum2ht{%- endcapture -%}
  {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
- <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-01gxcd3z673y" id="compatibility"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-iw6cqwum2ht"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_descriptions | metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-em1y2s9p64u"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture 'meta_data' %}
+ <div class="core__blocks"><div class="core__blocks"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-01gxcd3z673y" id="compatibility"><div class="ecom-element ecom-product-single ecom-product-single__metafield" section_id="ecom-iw6cqwum2ht"><div class="ecom-product-single__metafield-wrapper"><div class="ecom-product-single__metafield-container">{{product.selected_or_first_available_variant.metafields.custom.variant_descriptions | metafield_tag }}</div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-em1y2s9p64u"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-iw6cqwum2ht">{% capture meta_data %}
 
  {% for variant in product.variants %}
  @key"{{ variant.id}}"@endkey: @value"{{ variant.metafields.custom.variant_descriptions | metafield_tag }}"@endvalue {%- comment -%} Replace it with your NAMESPACE.KEY value {%- endcomment -%}
@@ -730,7 +730,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-q4is3cc89wg">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -740,7 +740,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-iw6cqwum2ht">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -773,7 +773,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-6y9yxw5kgrq">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -893,4 +893,52 @@
  }
  ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 23584..23607
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 40200..40223
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 41236..41259
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 42861..42957
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 46160..46256
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 49442..49538
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 52706..52729
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 54339..54435
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 55038..55134
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 65034..65130
+{%- endcomment -%}

@@ -338,7 +338,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-9t42ibjclu4">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -371,7 +371,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-s2c4etjpi4k">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -404,7 +404,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-hdx9q5f1icq">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -1155,7 +1155,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-1drxjc7x364">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -1188,7 +1188,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-bqrd8vwfux7">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -1342,7 +1342,7 @@
  {% unless ecom_has_variant_picker %}
  <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
  <script type="application/json" id="product-json-{{product.id}}-ecom-oujiqu7udz9">
- {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count > 250 -%}
+ {%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count -%}
  </script>
  {% endunless %}
  {%- endform -%}
@@ -1633,4 +1633,40 @@ document.addEventListener("DOMContentLoaded", function () {
  }
  }
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 32078..32174
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 35365..35461
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 38647..38743
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 78436..78532
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 88469..88565
+- from: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    > 250 -%}'
+  to: '{%- render "ecom_product_json", product: product, checkIsHighVariant: product.variants_count
+    -%}'
+  position: 132522..132618
+{%- endcomment -%}

@@ -65,9 +65,9 @@
       {%- if compare_at_price > price -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
         <s class="appstle-price-fallback__compare">{{ money_compare_at_price }}</s>
-        {%- if show_badges -%}
+        {% comment %} {%- if show_badges -%}
           <span class="badge color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-        {%- endif -%}
+        {%- endif -%} {% endcomment %}
       {%- endif -%}
     </div>
   {%- endif -%}

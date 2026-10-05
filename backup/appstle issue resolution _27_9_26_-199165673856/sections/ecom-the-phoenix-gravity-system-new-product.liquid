@@ -629,7 +629,7 @@
  {%- endform -%}
  {% assign ecom_has_variant_picker = false %}
  {%- endif -%}
- </div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">{% capture 'meta_data' %}
+ </div></div></div></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-5gelt71asia"><div class="ecom__element ecom-element element__code exporting" section_id="ecom-2jdnw03lph1">{% capture meta_data %}
 {% for variant in product.variants %}
  {{ variant.id}}: '{{ variant.metafields.custom.variant_description| metafield_tag }}' {%- comment -%} variant_description{%- endcomment -%}
  {% unless forloop.last %},{% endunless %}
@@ -1486,3 +1486,13 @@
  ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture 'meta_data' %}"
+  to: "{% capture meta_data %}"
+  position: 48099..48122
+{% endcomment %}
