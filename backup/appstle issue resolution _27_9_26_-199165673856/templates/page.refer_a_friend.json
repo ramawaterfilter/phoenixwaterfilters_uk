@@ -103,6 +103,297 @@
       "block_order": [
         "referral_candy_join_Rz9yB9"
       ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "image_banner_mwDD7d": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/referral_frd_image.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "cs1": ""
+      }
+    },
+    "banner_new_bawr86": {
+      "type": "banner-new",
+      "custom_css": [],
+      "name": "Banner New",
+      "settings": {
+        "image": "shopify://shop_images/referral_frd_image.png",
+        "enable_mobile_image": true,
+        "mobile_image": "shopify://shop_images/Share_Better_Water_with_Friends.png",
+        "button_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "cs1": ""
+      }
+    },
+    "multicolumn_i6JqNA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_N3YnyY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Minimalist_Group_of_People_Icon_76d9ad81-8d99-4a75-ac03-74624b0e2b42.png",
+            "title": "<strong>Friends get £20 off&nbsp;</strong>",
+            "sub_title": "",
+            "text": "<p>Their first order</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pyCLbh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/gift_icon_50x50_transparent.png",
+            "title": "<strong>You get £10 off&nbsp;</strong>",
+            "sub_title": "",
+            "text": "<p>When they shop</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_N3YnyY",
+        "column_pyCLbh"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".multicolumn-card {display: flex; width: 100%; flex-direction: row; padding: 2.5rem; gap: 20px; align-items: center;}",
+        ".multicolumn-card-spacing {width: 60px; height: 60px; background: #e5f4fb; border-radius: 50%;}",
+        ".multicolumn-card-spacing {padding: 0; margin: 0;}",
+        ".multicolumn-card__info {padding: 0; width: auto;}",
+        ".slider-buttons {display: none;}",
+        ".multicolumn-card__info h3.inline-richtext {font-family: inherit;}",
+        "@media screen and (max-width: 767px) {.multicolumn-card {display: block; padding: 5px 1.5rem; } h3 {font-size: 16px; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "page_width": 120,
+        "title": "",
+        "sub_title": "",
+        "w1": 24,
+        "w2": 18,
+        "p1": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "text_layout": "below",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "cs1": ""
+      }
+    },
+    "rich_text_d6yVQA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hYEWB9": {
+          "type": "heading",
+          "settings": {
+            "heading": "How it works",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hYEWB9"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "process_level_gQX6FB": {
+      "type": "process_level",
+      "blocks": {
+        "process_block_bAMAC6": {
+          "type": "process_block",
+          "settings": {
+            "image": "shopify://shop_images/link_icon_from_reference_50x50_transparent.png",
+            "sub_heading": "",
+            "heading": "Sign up",
+            "content": "<p>To get your unique link</p>"
+          }
+        },
+        "process_block_4pmFzP": {
+          "type": "process_block",
+          "settings": {
+            "image": "shopify://shop_images/Minimalist_Group_of_People_Icon_76d9ad81-8d99-4a75-ac03-74624b0e2b42.png",
+            "sub_heading": "",
+            "heading": "Share link",
+            "content": "<p>With your friends</p>"
+          }
+        },
+        "process_block_EED8X9": {
+          "type": "process_block",
+          "settings": {
+            "image": "shopify://shop_images/gift_icon_50x50_transparent.png",
+            "sub_heading": "",
+            "heading": "They save £20",
+            "content": "<p>You are rewarded £10</p>"
+          }
+        }
+      },
+      "block_order": [
+        "process_block_bAMAC6",
+        "process_block_4pmFzP",
+        "process_block_EED8X9"
+      ],
+      "custom_css": [
+        ".process-level-main {display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;}",
+        ".process-level-media {border: none; margin: 0 auto;}",
+        ".process-level-media__image {background: #e5f4fb; border: none;}",
+        "@media screen and (max-width: 576px) {.process-level-main {grid-template-columns: repeat(3, 1fr); }}",
+        "@media screen and (max-width: 749px) {.process-level-div {row-gap: 0px; } .process-level-media__image {width: 5.8rem; height: 5.8rem; } .process-level-media {width: 6.4rem; height: 6.4rem; }}"
+      ],
+      "name": "Process level section",
+      "settings": {
+        "background_color": "#ffffff",
+        "heading_color": "#000000",
+        "label_color": "#003866",
+        "text_color": "#000000",
+        "border_color": "#d9dfe4",
+        "desktop_heading_size": 26,
+        "sub_heading_size": 13,
+        "value_text_size": 18,
+        "image_column_width": 30,
+        "column_gap": 20,
+        "block_gap": 20,
+        "row_column_gap": 10,
+        "row_padding": 10,
+        "vertical_alignment": "center",
+        "tablet_image_width": 520,
+        "mobile_heading_size": 16,
+        "mobile_sub_heading_size": 11,
+        "mobile_value_text_size": 14,
+        "mobile_block_gap": 16,
+        "mobile_row_padding": 14,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
+      }
+    },
+    "1791278489ed7c77fc": {
+      "type": "apps",
+      "blocks": {
+        "referral_candy_join_ALe9c7": {
+          "type": "shopify://apps/referral-candy/blocks/join/0258f542-988d-488e-8d98-209cecc83a8a",
+          "settings": {
+            "campaign": "rc_campaign_115906",
+            "layout": "stacked",
+            "editor_preview_view": "pre_signup",
+            "section_width": "auto",
+            "content_max_width": 1400,
+            "background": "",
+            "vertical_padding": 24,
+            "edge_padding": 36,
+            "card_background": "#ffffff",
+            "card_padding": 32,
+            "card_radius": 18,
+            "hero_min_height": 440,
+            "hero_image_content_ratio": "equal",
+            "hero_image_position": "right",
+            "hero_image_aspect_ratio": "landscape",
+            "show_header": true,
+            "heading": "Refer and earn a  £10 store credit",
+            "show_offer": true,
+            "offer_text": "Spread a £20 discount among friends. Earn a £10 store credit when friends purchase through your link!&nbsp;",
+            "button_label": "",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "strip_text": "",
+            "strip_button_label": "",
+            "strip_share_text": "",
+            "strip_share_button_label": "",
+            "strip_button_style": "outline",
+            "share_heading": "",
+            "share_subheading": "",
+            "share_button_label": "",
+            "share_copied_label": "Copied!",
+            "share_button_1": "copy",
+            "share_button_2": "email",
+            "share_button_3": "facebook",
+            "share_button_4": "twitter",
+            "share_button_5": "whatsapp",
+            "unenrolled_heading": "",
+            "unenrolled_body": "",
+            "never_enrolled_heading": "",
+            "never_enrolled_body": "",
+            "tier_header": "",
+            "tier_referrals_header": "No. of referrals",
+            "tier_reward_header": "Reward",
+            "tier_reward_prefix": "",
+            "tier_no_reward_label": "No reward",
+            "tier_completed_label": "Thanks for spreading the word!",
+            "tier_cycle_note": "",
+            "section_background": "",
+            "text_color": "",
+            "button_background_color": "",
+            "button_text_color": "",
+            "heading_size_mode": "inherit",
+            "heading_size": 40,
+            "body_size_mode": "inherit",
+            "body_size": 16,
+            "body_text_color": "",
+            "input_background_color": "",
+            "input_border_color": "",
+            "input_radius": 8,
+            "button_radius_mode": "inherit",
+            "button_radius": 8,
+            "card_shadow": "soft",
+            "tier_header_background_color": "",
+            "tier_header_text_color": "",
+            "heading_level": "h2",
+            "error_message": "",
+            "retry_button_label": "Try again",
+            "custom_css": "",
+            "empty_title": "Choose a campaign",
+            "empty_body": "Select a campaign in this block’s settings to preview your Join Block."
+          }
+        }
+      },
+      "block_order": [
+        "referral_candy_join_ALe9c7"
+      ],
+      "custom_css": [
+        ".rc-jb__inner {border: 1px solid; padding: 10px;}"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -110,6 +401,12 @@
   },
   "order": [
     "main",
-    "1789562137d1f6ba8d"
+    "1789562137d1f6ba8d",
+    "image_banner_mwDD7d",
+    "banner_new_bawr86",
+    "multicolumn_i6JqNA",
+    "rich_text_d6yVQA",
+    "process_level_gQX6FB",
+    "1791278489ed7c77fc"
   ]
 }

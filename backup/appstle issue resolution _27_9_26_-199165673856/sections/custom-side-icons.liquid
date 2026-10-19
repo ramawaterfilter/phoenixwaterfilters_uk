@@ -139,7 +139,23 @@
   height: auto;
   max-width: 100%;
 }
+{% if template.suffix == 'template5' %}
+  {% unless section.settings.image_original %}
+  @media (min-width: 769px) {
+    .filtration-center-image-{{ uid }} {
+      width: {{ section.settings.image_width_desktop }}px;
+      height:750px;
+    }
+  }
 
+  @media (max-width: 768px) {
+    .filtration-center-image-{{ uid }} {
+      width: {{ section.settings.image_width_mobile }}px;
+      height:400px;
+    }
+  }
+  {% endunless %}
+{% endif %}
 /* CUSTOM SIZE MODE */
 {% unless section.settings.image_original %}
 @media (min-width: 769px) {

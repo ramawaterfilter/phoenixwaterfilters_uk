@@ -54,8 +54,8 @@
     object-fit: contain;
     margin:auto;
     display: grid;
-    width: 10.8rem;
-    height: 10.8rem;
+    width: 7.8rem;
+    height: 7.8rem;
     place-items: center;
     overflow: hidden;
     border: .2rem solid #163b5d;
@@ -141,31 +141,52 @@
   }
   }
 
-  @media (min-width: 750px) {
-    .process-level-main > .process-level-div:not(:last-of-type)
-    .process-level-media::after {
+  .process-level-main > .process-level-div {
+    position: relative;
+  }
+
+  .process-level-main > .process-level-div:not(:last-of-type)::after {
     content: "";
     position: absolute;
     z-index: 0;
     top: 6.5rem;
     left: calc(50% + 7.2rem);
-    width: 100%;
+    width: 50%;
     height: 1.4rem;
-    background: linear-gradient(45deg, transparent 40%, var(--certificate-line) 42% 58%, transparent 60%) right .1rem top .1rem / .9rem .8rem no-repeat, linear-gradient(135deg, transparent 40%, var(--certificate-line) 42% 58%, transparent 60%) right .1rem bottom .1rem / .9rem .8rem no-repeat, repeating-linear-gradient(to right, var(--certificate-line) 0 .35rem, transparent .35rem .85rem) left center / calc(100% - .7rem) .3rem no-repeat;
-    pointer-events: none;
-    }
+    background:
+      linear-gradient(
+        45deg,
+        transparent 40%,
+        var(--certificate-line) 42% 58%,
+        transparent 60%
+      ) right .1rem top .1rem / .9rem .8rem no-repeat,
 
-    .process-level-main > .process-level-div:last-of-type
-    .process-level-media::after {
-    content: none !important;
-    display: none !important;
-    }
+      linear-gradient(
+        135deg,
+        transparent 40%,
+        var(--certificate-line) 42% 58%,
+        transparent 60%
+      ) right .1rem bottom .1rem / .9rem .8rem no-repeat,
+
+      repeating-linear-gradient(
+        to right,
+        var(--certificate-line) 0 .35rem,
+        transparent .35rem .85rem
+      ) left center / calc(100% - .7rem) .3rem no-repeat;
+
+    pointer-events: none;
+  }
     
-}
 @media screen and (max-width:576px){
     .process-level--{{ section.id }} .process-level-main {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+  }
+  .process-level-main > .process-level-div:not(:last-of-type)::after {
+    content: "";
+    top: 2.5rem;
+    left: calc(48% + 4.2rem);
+    width: 45%;
   }
 }
 
@@ -412,7 +433,7 @@
     {
       "type": "range",
       "id": "mobile_heading_size",
-      "min": 22,
+      "min": 12,
       "max": 44,
       "step": 2,
       "unit": "px",

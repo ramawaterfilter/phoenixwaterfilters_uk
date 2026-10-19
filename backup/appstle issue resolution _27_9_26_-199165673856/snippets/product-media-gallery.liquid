@@ -1,9 +1,12 @@
 
 {%- liquid
   assign uses_variant_media = false
-  if template.suffix == 'steel_stand' or template.suffix == 'wooden_stand'
-    assign uses_variant_media = true
-  endif
+  for variant in product.variants
+    if variant.metafields.custom.variant_media.value != blank
+      assign uses_variant_media = true
+      break
+    endif
+  endfor
   if section.settings.hide_variants and variant_images.size == product.media.size
     assign single_media_visible = true
   endif
@@ -147,7 +150,16 @@
       </button>
     </div>
     {% endif %}
-
+    {% if template.suffix == 'single_skew_page' %}
+      {% if media_count > 1 %}
+        <div
+          class="product-media-mobile-dots"
+          data-gallery-dots
+          aria-label="Media pagination"
+          hidden
+        ></div>
+      {% endif %}
+    {% endif %}
     <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
         type="button"
@@ -353,7 +365,7 @@
       </button>
     </slider-component>
   {%- endif -%}
-
+{% if template.suffix != 'single_skew_page' %}
 {% if media_count > 1 %}
   <div
     class="product-media-mobile-dots"
@@ -362,7 +374,7 @@
     hidden
   ></div>
 {% endif %}
-
+{% endif %}
   {%- comment -%}
     2x2 Thumbnail Grid
   {%- endcomment -%}
@@ -899,7 +911,7 @@
     padding: 0 10px;
     overflow: hidden;
     position:absolute;
-    top:48%;
+    top:63%;
   }
 
   .product-media-mobile-dots[hidden] {
@@ -976,17 +988,14 @@
 
   .product-media-mobile-dots {
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 3px;
-
     margin: 10px 0 12px;
     padding: 0 10px;
-
     overflow: hidden;
+    top:55%;
   }
 
 
@@ -1068,6 +1077,7 @@
   }
 
 }
+.product-media-mobile-dots{display:none;}
 </style>
 
 <!-- Custom Video Fullscreen Modal -->
@@ -3277,17 +3287,11 @@ function updateDots() {
 {% comment %} {% if template.suffix == 'kokocarb' %}
   <style>
     @media screen and (min-width: 750px) {
-      /* Klaviyo leaves overflow:hidden on the body while HTML remains the
-         real scrolling element. That body overflow prevents every child
-         position:sticky element from sticking. "clip" prevents horizontal
-         spill without creating a competing scroll container. */
       body.template-kokocarb {
         overflow-x: clip !important;
         overflow-y: visible !important;
       }
 
-      /* Sticky fails whenever a non-scrolling ancestor uses hidden, auto,
-         scroll or clip overflow. Keep the complete product path visible. */
       #MainContent,
       #shopify-section-{{ section.id }},
       #MainProduct-{{ section.id }} {

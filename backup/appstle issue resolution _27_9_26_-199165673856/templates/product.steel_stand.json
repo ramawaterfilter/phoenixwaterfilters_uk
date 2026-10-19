@@ -43,7 +43,9 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -383,7 +385,10 @@
       "block_order": [
         "heading_xKqb8e"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/SS_stand_2.jpg",
@@ -437,8 +442,8 @@
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "padding_top": 0,
         "padding_bottom": 0,
         "custom_class": "new-image-with-text"
@@ -500,8 +505,8 @@
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "padding_top": 0,
         "padding_bottom": 0,
         "custom_class": "new-image-with-text"
@@ -545,8 +550,8 @@
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
         "padding_top": 0,
         "padding_bottom": 0,
         "custom_class": "new-image-with-text"

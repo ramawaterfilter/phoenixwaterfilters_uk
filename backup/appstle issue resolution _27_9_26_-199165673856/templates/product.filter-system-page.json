@@ -43,7 +43,9 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -127,6 +129,8 @@
             "heading": "Product Description",
             "icon": "none",
             "content": "<ul><li>The Phoenix Gravity System is easy to set up for any worktop in your home or workplace, no plumber or electricity required.</li><li>Housed in 304-grade stainless steel, naturally BPA-free and non-leaching.</li><li> Activated carbon filters made out from the highest grade coconut shells (CTC 60) and infused with silver to remove 99.99% contaminants and preserve the nutrients your body needs.</li><li>Fuses natural force of gravity with the highest-grade environmentally-friendly materials for the most effective, sustainable and durable filtration on the market.</li></ul>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -137,6 +141,8 @@
             "heading": "What’s in the box?",
             "icon": "none",
             "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "{% render 'custom-variant-spec' %}",
             "page": ""
           }
@@ -147,6 +153,8 @@
             "heading": "Lab Report",
             "icon": "none",
             "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "<div class=\"labreport-accordion\">\n\n  \n\n  <div class=\"labreport-grid\">\n\n    <!-- ITEM 1 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9419215_2.avif?v=1770698721\">\n      <h4>PFOA PFOS LABORATORY TEST REPORT</h4>\n      <a href=\"PDF1_URL\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 2 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/nsf-01.png?v=1770698720\">\n      <h4>NSF Certified</h4>\n      <a href=\"PDF2_URL\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n    <!-- ITEM 3 -->\n    <div class=\"labreport-item\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0735/1821/9557/files/9402263_3.avif?v=1770698720\">\n      <h4>HEAVY METALS TEST REPORT</h4>\n      <a href=\"PDF3_URL\" target=\"_blank\">See more &gt;</a>\n    </div>\n\n  </div>\n</div>\n\n<style>\n.labreport-accordion {\n  padding: 25px 0 10px;\n}\n\n.labreport-title {\n  font-size: 26px;\n  margin-bottom: 25px;\n  border-bottom: 1px solid #ddd;\n  padding-bottom: 10px;\n}\n\n.labreport-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 40px;\n  text-align: center;\n}\n\n.labreport-item img {\n  width: 60px;\n  margin-bottom: 12px;\n}\n\n.labreport-item h4 {\n  font-size: 15px;\n  margin-bottom: 10px;\n  letter-spacing: 0.5px;\n}\n\n.labreport-item a {\n  color: #00a0ff;\n  font-weight: 600;\n  text-decoration: none;\n}\n\n.labreport-item a:hover {\n  text-decoration: underline;\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .labreport-grid {\n    grid-template-columns: 1fr;\n    gap: 25px;\n  }\n}\n</style>",
             "page": ""
           }
@@ -157,6 +165,8 @@
             "heading": "What’s in the box?",
             "icon": "none",
             "content": "",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "{{ product.selected_or_first_available_variant.metafields.custom.what_in_the_box | metafield_tag }}",
             "page": ""
           }
@@ -167,6 +177,8 @@
             "heading": "Key Features",
             "icon": "none",
             "content": "<ul><li>The Phoenix gravity system is a powerful and easy-to-set-up worktop filtration solution that requires no plumbing or electricity.</li><li>Crafted from high-grade AISI 304 stainless steel, the housing is naturally BPA-free and non-leaching.</li><li>Inside, premium silver-infused activated carbon filters made from CTC 60 coconut shells eliminate 99.9% of contaminants while preserving the essential minerals.</li><li>With a filtration capacity 20X better than a typical jug filters and GAC, Phoenix delivers cleaner, healthier water using the natural force of gravity offering a sustainable, long-lasting alternative built with eco-friendly materials.</li><li>Phoenix Gravity Smart Carbon Cartridges are precisely engineered for compatibility with almost all gravity-fed water systems, delivering consistent performance and clean, safe water you can rely on.</li></ul>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -177,6 +189,8 @@
             "heading": "Shipping and Returns",
             "icon": "none",
             "content": "<ul><li>Refunds are processed within 2 business days upon receiving and inspecting the returned product, and the amount will be credited to your original payment method within 7 business days.</li><li>A full refund is issued only if the complete product is returned; partial returns receive partial refunds.</li><li>Exchanges are available only for items with manufacturing defects or faults.</li><li>Return shipping is the customer’s responsibility and is non-refundable. For items over £99, we recommend using a trackable shipping service.</li></ul>",
+            "product_metafield_key": "",
+            "image_metafield_key": "",
             "c1": "",
             "page": ""
           }
@@ -207,7 +221,7 @@
         "collapsible_tab_nFbX67"
       ],
       "custom_css": [
-        "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 38rem; }}"
+        "@media screen and (max-width: 749px) {.product__media-item {height: 37rem; overflow: hidden; } ul.product__media-list {height: 38rem; } .product-form__input--pill label.image-only-label {border: 1px solid #2f2953 !important; background: white !important; } input[type=\"radio\"]:checked + label {background: white !important; border: 3px solid #2f2953 !important; }}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -235,6 +249,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "rgba(0,0,0,0)",
@@ -321,6 +336,7 @@
           "settings": {
             "image": "shopify://shop_images/6.1_1.webp",
             "title": "Retains 100% nutrients",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -331,6 +347,7 @@
           "settings": {
             "image": "shopify://shop_images/11.webp",
             "title": "Less waste, fewer refills, lower cost",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -341,6 +358,7 @@
           "settings": {
             "image": "shopify://shop_images/7_1.webp",
             "title": "Better taste you can trust for 50+ years",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -351,6 +369,7 @@
           "settings": {
             "image": "shopify://shop_images/tastes_great_1_f16608f0-5b6a-46d7-883a-307601960ecc.webp",
             "title": "Tastes great",
+            "sub_title": "",
             "text": "",
             "link_label": "",
             "link": ""
@@ -369,13 +388,16 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
+        "page_width": 120,
         "title": "",
+        "sub_title": "",
         "w1": 24,
         "w2": 18,
         "p1": "",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
+        "text_layout": "below",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 4,
@@ -461,6 +483,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "Product Description",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -530,6 +553,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "Contaminants Removed",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -703,6 +727,7 @@
         "s1": true,
         "pd1": 78,
         "pd2": 40,
+        "heading1": "",
         "heading": "Designed for durability",
         "text": "<ul><li>Unlike plastic filters, Phoenix Gravity’s 304 stainless steel housing won’t leach polyurethane, microplastics or harmful chemicals into your water over time.</li><li>Rust-resistant to withstand the rigours of everyday use for 10+ years</li><li>The hand polishing is done with the highest attention to detail to ensure quality, rivaling that of car manufacturers.</li></ul>",
         "show_search": false,
@@ -744,6 +769,7 @@
         "s1": true,
         "pd1": 76,
         "pd2": 40,
+        "heading1": "",
         "heading": "5-minute assembly",
         "text": "<ul><li>Install your Phoenix Gravity in 5 minutes or less.</li><li>It is easy to assemble.<br/></li><li>No tools are required.<br/></li><li>Just use your hands.</li></ul>",
         "show_search": false,
@@ -775,6 +801,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "How Smart Carbon Cartridges work?",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -837,7 +864,9 @@
       "type": "video",
       "name": "t:sections.video.presets.name",
       "settings": {
+        "page_width": 120,
         "heading": "",
+        "sub_heading": "",
         "h1": "",
         "heading_size": "h1",
         "enable_video_looping": true,
@@ -862,6 +891,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -936,6 +966,7 @@
         "show_heading_line": true,
         "c1": true,
         "m2": "shopify://shop_images/Comparion_chart_mobile_view_93f29bcd-c42e-492b-9e05-140df94f96e6.jpg",
+        "heading2": "",
         "heading": "The Phoenix Difference",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1006,6 +1037,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1098,7 +1130,9 @@
       "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "page_width": 120,
         "image": "shopify://shop_images/postreat_landscape_1.jpg",
+        "custom_text": "",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -1131,6 +1165,7 @@
         "s1": true,
         "pd1": 76,
         "pd2": 25,
+        "heading1": "",
         "heading": "POSTreat Fluoride Removal Filter Cartridge",
         "text": "<ul><li>Our additional POSTreat filter removes more than 95% of fluoride for highly targeted filtration</li><li>Works in tandem with Phoenix Gravity Filters made of 304 grade stainless steel</li><li>Works in conjunction with  Phoenix Gravity Smart Carbon Cartridges</li><li>Designed for maximum reuse, the first on the market with refillable environmentally-friendly materials</li></ul>",
         "show_search": false,
@@ -1174,6 +1209,7 @@
         "s1": true,
         "pd1": 70,
         "pd2": 40,
+        "heading1": "",
         "heading": "100-day Money Back Guarantee",
         "text": "<ul><li>Purchase the Phoenix Gravity system.</li><li>Use the system for full 100 days.</li><li>If you don't get the best tasting water, send it back to us for a full refund - no questions asked.</li></ul><p><strong>       </strong><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\"><strong>*Terms & Conditions</strong></a></p>",
         "show_search": false,
@@ -1206,6 +1242,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "FAQs",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",
@@ -1326,6 +1363,7 @@
         "caption": "",
         "c1": "rgba(0,0,0,0)",
         "heading": "",
+        "heading1": "",
         "h1": 50,
         "h2": 24,
         "w1": 26,
@@ -1376,6 +1414,7 @@
         "hd2": 24,
         "show_heading_line": true,
         "c1": false,
+        "heading2": "",
         "heading": "The Phoenix difference, straight from the source(s).",
         "heading_color": "#1e1e1e",
         "line_color": "#ff7a00",

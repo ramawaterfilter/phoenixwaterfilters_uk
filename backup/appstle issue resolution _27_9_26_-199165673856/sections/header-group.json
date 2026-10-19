@@ -25,6 +25,7 @@
         },
         "announcement_gnYzXU": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Removes up to 99.99% of contaminants",
             "icon": "shopify://shop_images/contaminate_new.png",

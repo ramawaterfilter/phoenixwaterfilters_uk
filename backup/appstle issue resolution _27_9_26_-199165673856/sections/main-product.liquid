@@ -125,15 +125,15 @@
   <div class="page-width custom-width-product {{ section.settings.cs1 }}">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template' or template.suffix == 'postreat_version2-v1'%}
+        {% comment %} {% if template.suffix == 'kokocarb' or template.suffix == 'postreat_template' or template.suffix == 'postreat_version2-v1'%}
           {% render 'product-media-gallery-variant',
           variant_images: variant_images
           %}
-          {% else %}
+          {% else %} {% endcomment %}
           {% render 'product-media-gallery',
           variant_images: variant_images
           %}
-          {% endif %}
+          {% comment %} {% endif %} {% endcomment %}
       </div>
       <div class="product__info-wrapper klop grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -1212,9 +1212,17 @@
 
 <style>
   {% if template.suffix == 'single_skew_page' %}
+    @media screen and (max-width: 749px) {
+    .product-media-mobile-dot.is-active::before {
+        background: #302b63;
+        transform: scale(1.15);
+    }
+    .product-media-mobile-dot::before {width:7px;height:7px;}
+    }
     @media screen and (max-width:767px)
     {
     .video-text-section.single_skew .video-text-content{display:none;}
+    .product-media-container .product__media.media--transparent{height:324px !important;}
     }
     @media screen and (max-width:767px){
       .product-media-container .product__media.media--transparent {
@@ -1227,6 +1235,18 @@
         height: 30px;
       }
       .product__accordion .icon_with_text_collap_image img{width:30px;height:30px;}
+    }
+    @media screen and (max-width:768px){
+    .product-media-mobile-dots{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px !important;
+        height: 10px;
+        margin: 0;
+        bottom: 0;
+        top: 100%;
+      }
     }
     .product__accordion .icon_with_text_collap_text{max-width:100%;color:rgba(18,18,18);text-align:left;margin-left:10px;font-size:16px;}
       .product__accordion .icon_with_text_collap {
@@ -1268,8 +1288,8 @@
       }
       .template-single_skew_page .WIDGET_TYPE_7 .appstle_subscription_wrapper_option.appstle_include_dropdown{margin:5px 0 !important;}
       .product__info-container .product-form, .product__info-container .icon-with-text{margin: 0.5rem 0;}
-      .product-gallery-arrows{display:none;}
-      .product-media-mobile-dots {
+      .product-media-mobile-dots{display:none;}
+      {% comment %} .product-media-mobile-dots {
         display: none;
         display: flex;
         align-items: center;
@@ -1282,31 +1302,32 @@
         right: auto;
         left: 0;
         right: 0;
-      }
+      } {% endcomment %}
       }
   {% endif %}
-  {% if template.suffix == 'postreat_version2-v1' or template.suffix == 'kokocarb' %}
+  {% comment %} {% if template.suffix == 'postreat_version2-v1' or template.suffix == 'kokocarb' %}
     @media screen and (max-width: 749px) {
       .slider.slider--mobile {margin-bottom:0;}
     }
     @media screen and (max-width: 749px) {
       .product-media-mobile-dots {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 9px;
-          /* min-height: 24px; */
-          margin: 0;
-          position: absolute;
-          /* top: 0; */
-          bottom: 10px;
-          left: auto;
-          right: auto;
-          left: 0;
-          right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 24px;
+        margin: 0;
+        position: absolute;
+        top: 63%;
+        bottom: 0;
+        left: auto;
+        right: auto;
+        left: 0;
+        right: 0;
+        height: 15px;
       }
     }
-  {% endif %}
+  {% endif %} {% endcomment %}
 </style>
 
 <script>

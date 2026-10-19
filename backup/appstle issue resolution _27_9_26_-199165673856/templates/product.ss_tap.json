@@ -43,7 +43,9 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -480,7 +482,7 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 12,
         "padding_bottom": 12
@@ -488,6 +490,10 @@
     },
     "new_image_banner_bxkxMf": {
       "type": "new-image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/ss_tap_3.jpg",
@@ -497,8 +503,8 @@
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "",
-        "mobile_text_position": "below_image",
+        "color_scheme": "scheme-2",
+        "mobile_text_position": "overlay",
         "mobile_content_alignment": "center",
         "cs1": ""
       }
@@ -587,6 +593,12 @@
         "bullet_xEwHHC",
         "bullet_3m9Mh4"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.overlay-feature-card__banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        "@media screen and (min-width: 576px) and (max-width: 1099px) {.overlay-feature-card__content h2 {font-size: 26px; } .overlay-feature-card__content li {font-size: 18px; }}",
+        "@media screen and (min-width: 767px) and (max-width: 850px) {.overlay-feature-card__content {padding: 15px; }}",
+        ".overlay-feature-card__container {background: #eaeef1;}"
+      ],
       "name": "New custom image banner",
       "settings": {
         "image": "shopify://shop_images/ss_tap_1.jpg",
@@ -612,7 +624,7 @@
         "mobile_card_left": 2,
         "mobile_card_width": 46,
         "mobile_card_padding": 12,
-        "section_bg": "#111111",
+        "section_bg": "rgba(0,0,0,0)",
         "image_bg": "#111111",
         "card_bg": "#f2f2f2",
         "heading_color": "#000000",
@@ -657,6 +669,12 @@
         "bullet_z7Ufhq",
         "bullet_4ANyDa"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.overlay-feature-card__banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        "@media screen and (min-width: 576px) and (max-width: 1099px) {.overlay-feature-card__content h2 {font-size: 26px; } .overlay-feature-card__content li {font-size: 18px; }}",
+        "@media screen and (min-width: 767px) and (max-width: 850px) {.overlay-feature-card__content {padding: 15px; }}",
+        ".overlay-feature-card__container {background: #eaeef1;}"
+      ],
       "name": "New custom image banner",
       "settings": {
         "image": "shopify://shop_images/ss_tap_new_1.png",
@@ -681,7 +699,7 @@
         "mobile_card_left": 2,
         "mobile_card_width": 46,
         "mobile_card_padding": 12,
-        "section_bg": "#111111",
+        "section_bg": "rgba(0,0,0,0)",
         "image_bg": "#111111",
         "card_bg": "#f2f2f2",
         "heading_color": "#000000",

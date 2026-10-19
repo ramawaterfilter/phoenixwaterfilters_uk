@@ -615,7 +615,7 @@
         "@media (min-width: 768px) {.cta-image img {margin: 0 auto; display: block; width: 50%; }}",
         ".cta-heading {padding-bottom: 0px !important;}",
         ".heading-line {margin: 0 auto 10px;}",
-        "@media (max-width: 768px) {.diffrent-class-text .cta-heading {text-align: left; } .bottom-cta {width: 100%;}}"
+        "@media (max-width: 768px) {.diffrent-class-text .cta-heading {text-align: left; } .bottom-cta {width: 100%; }}"
       ],
       "name": "Custom Text",
       "settings": {

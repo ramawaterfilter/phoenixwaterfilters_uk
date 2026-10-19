@@ -229,6 +229,10 @@ document.addEventListener("DOMContentLoaded", function() {
     text-underline-offset: 12px;
 }
 
+@media screen and (max-width:576px){
+#{{ custom_id | handle }} .filtration-heading {text-wrap: nowrap;}
+}
+
 .filtration-grid {
   display: grid;
   gap: var(--card-gap);

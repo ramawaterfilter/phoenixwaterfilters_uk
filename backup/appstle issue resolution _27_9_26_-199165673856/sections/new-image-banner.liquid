@@ -36,7 +36,7 @@
     assign fetch_priority = 'high'
   endif
 -%}
-
+<div class="new-banner-image">
 <div
   id="Banner-{{ section.id }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.mobile_text_position == 'below_image' %} banner--mobile-bottom{% endif %}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
@@ -137,7 +137,7 @@
     </div>
   </div>
 </div>
-
+</div>
 <style>
 
    #Banner-{{ section.id }} {
@@ -146,12 +146,13 @@
     min-height: unset !important;
     overflow: hidden;
   }
-
+@media screen and (min-width:750px){
   #Banner-{{ section.id }}::before {
     content: "";
     display: block;
     padding-bottom: 40.94%;
   }
+}
 
   #Banner-{{ section.id }} .banner__media {
     position: absolute !important;

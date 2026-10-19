@@ -192,6 +192,75 @@
     position: relative;
     z-index: 3;
   }
+  {% if template.suffix == 'refer_a_friend' %}
+    <style>
+      #Banner-{{ section.id }} {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden;
+      }
+
+      /* Remove Dawn's fixed-height spacers */
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before,
+      #Banner-{{ section.id }} .banner__content::before {
+        display: none !important;
+        content: none !important;
+      }
+
+      #Banner-{{ section.id }} .banner__media {
+        position: relative !important;
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible;
+      }
+
+      #Banner-{{ section.id }} .banner__media img {
+        position: relative !important;
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      /* Desktop image */
+      @media screen and (min-width: 750px) {
+        #Banner-{{ section.id }} .banner__media--mobile {
+          display: none !important;
+        }
+      }
+
+      /* Separate mobile image */
+      @media screen and (max-width: 749px) {
+        #Banner-{{ section.id }} .banner__media--desktop-hidden-on-mobile {
+          display: none !important;
+        }
+
+        #Banner-{{ section.id }} .banner__media--mobile {
+          display: block !important;
+        }
+      }
+
+      /* Full-banner clickable link */
+      #Banner-{{ section.id }} .banner-new__image-link {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+      @media screen and (min-width: 750px) {
+          .banner--medium:not(.banner--adapt) {
+            min-height:unset;
+          }
+      }
+    </style>
+  {% endif %}
 </style>
 
 {% schema %}

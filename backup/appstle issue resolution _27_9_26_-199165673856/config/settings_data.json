@@ -238,6 +238,11 @@
         "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-helper/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
         "disabled": false,
         "settings": {}
+      },
+      "17299265041693349214": {
+        "type": "shopify://apps/cookieyes-gdpr/blocks/app-embed/44e5ef64-bf2c-4188-838c-6f3b0716b8e4",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {

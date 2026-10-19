@@ -43,7 +43,9 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "variant_description_metafield_key": ""
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -351,51 +353,63 @@
     },
     "new_image_banner_4w4P78": {
       "type": "new-image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/Wooden_stand_01-desk.webp",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
-        "mobile_text_position": "below_image",
+        "mobile_text_position": "overlay",
         "mobile_content_alignment": "center",
         "cs1": ""
       }
     },
     "new_image_banner_DCDxJA": {
       "type": "new-image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/wooden_2.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
-        "mobile_text_position": "below_image",
+        "mobile_text_position": "overlay",
         "mobile_content_alignment": "center",
         "cs1": ""
       }
     },
     "new_image_banner_bxkxMf": {
       "type": "new-image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/wooden_3.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
-        "mobile_text_position": "below_image",
+        "mobile_text_position": "overlay",
         "mobile_content_alignment": "center",
         "cs1": ""
       }
@@ -420,17 +434,21 @@
     },
     "new_image_banner_ify79H": {
       "type": "new-image-banner",
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.banner {padding: 0 5rem; max-width: var(--page-width); margin: 0 auto; }}",
+        ".new-banner-image {background: #eaeef1;}"
+      ],
       "name": "New Image Banner",
       "settings": {
         "image": "shopify://shop_images/wooden_5.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
-        "mobile_text_position": "below_image",
+        "mobile_text_position": "overlay",
         "mobile_content_alignment": "center",
         "cs1": ""
       }

@@ -1140,6 +1140,32 @@ document.addEventListener('DOMContentLoaded', function () {
       })();
     </script>
   {% endif %} {% endcomment %}
+<style>
+  @media screen and (min-width: 990px) {
+    body:has(product-info[id^="MainProduct-"]):not(.klaviyo-prevent-body-scrolling) {
+      overflow-x: clip !important;
+      overflow-y: visible !important;
+    }
 
+    product-info[id^="MainProduct-"] .product {
+      align-items: flex-start !important;
+      overflow: visible !important;
+    }
+
+    product-info[id^="MainProduct-"] .product > .product__media-wrapper {
+      position: sticky !important;
+      top: 100px !important;
+      align-self: flex-start !important;
+      height: max-content !important;
+      transform: none !important;
+    }
+
+    product-info[id^="MainProduct-"] .product__media-wrapper > media-gallery,
+    product-info[id^="MainProduct-"] .product__info-container {
+      position: static !important;
+      top: auto !important;
+    }
+  }
+</style>
 </body>
 </html>
