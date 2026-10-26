@@ -417,6 +417,71 @@
       object-fit: contain;
     }
   }
+  
+/* FIX: Video black borders - desktop, tablet and mobile */
+
+#video-text-{{ section.id }} .video-text-media {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Shopify-hosted and direct MP4 videos */
+#video-text-{{ section.id }} .video-text-media video {
+  display: block !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  backface-visibility: hidden;
+}
+
+/* Embedded videos */
+#video-text-{{ section.id }} .video-text-media iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Desktop */
+@media screen and (min-width: 769px) {
+  #video-text-{{ section.id }} .video-text-media video {
+    height: {% if section.settings.media_height_desktop == 'auto' %}auto{% else %}{{ section.settings.media_height_desktop }}{% endif %} !important;
+  }
+}
+
+/* Tablet and mobile */
+@media screen and (max-width: 768px) {
+  #video-text-{{ section.id }} .video-text-media video {
+    height: {% if section.settings.media_height_mobile == 'auto' %}auto{% else %}{{ section.settings.media_height_mobile }}{% endif %} !important;
+  }
+}
+
+/* Video edge / black hairline correction */
+
+#video-text-{{ section.id }} .video-text-media {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Slightly overscan the video without resizing the layout */
+#video-text-{{ section.id }} .video-text-media video {
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.015) translateZ(0);
+  transform-origin: center center;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 </style>
 
 {% schema %}

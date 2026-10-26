@@ -15,14 +15,12 @@
   <div class="custom-marquee-wrapper">
     <div class="custom-marquee-track">
       {%- for i in (1..3) -%}
-        <div class="custom-marquee-content"{% if i > 1 %} aria-hidden="true" inert{% endif %}>
+        <div class="custom-marquee-content"{% if i > 3 %} aria-hidden="true" inert{% endif %}>
           {% for block in section.blocks %}
             {% assign item_link = block.settings.link %}
 
-            {% if i == 1 and item_link != blank %}
+            {% if item_link != blank %}
               <a href="{{ item_link }}" class="custom-marquee-item" {{ block.shopify_attributes }}>
-            {% else %}
-              <div class="custom-marquee-item"{% if i == 1 %} {{ block.shopify_attributes }}{% endif %}>
             {% endif %}
 
                 {% if block.settings.icon != blank %}
@@ -50,10 +48,8 @@
                   {% endif %}
                 </span>
 
-            {% if i == 1 and item_link != blank %}
+            {% if item_link != blank %}
               </a>
-            {% else %}
-              </div>
             {% endif %}
           {% endfor %}
         </div>

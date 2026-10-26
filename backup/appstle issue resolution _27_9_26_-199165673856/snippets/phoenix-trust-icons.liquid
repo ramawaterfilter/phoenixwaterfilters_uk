@@ -1,0 +1,159 @@
+
+
+<div
+  class="phoenix-trust-icons"
+  style="
+    --trust-color: {{ block.settings.icon_color }};
+    --trust-text: {{ block.settings.text_color }};
+    --trust-size: {{ block.settings.icon_size }}px;
+    --trust-gap: {{ block.settings.gap }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  <div class="phoenix-trust-icons__grid">
+
+    <!-- NSF -->
+    <div class="phoenix-trust-icons__item">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <circle cx="40" cy="40" r="36"
+          fill="none" stroke="#1769AC"
+          stroke-width="1.5"/>
+        <text x="40" y="51"
+          text-anchor="middle"
+          font-family="Arial,sans-serif"
+          font-size="32"
+          font-weight="900"
+          fill="#1769AC">NSF</text>
+      </svg>
+      <span>{{ block.settings.label_1 | escape }}</span>
+    </div>
+
+    <!-- Shipping -->
+    <div class="phoenix-trust-icons__item">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <g fill="none" stroke="currentColor"
+           stroke-width="2.5"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+          <rect x="8" y="18" width="42" height="39" rx="1"/>
+          <rect x="14" y="24" width="30" height="25"/>
+          <path d="M50 30H61L72 43V57H50Z"/>
+          <path d="M55 35H60L67 44H55Z"/>
+          <circle cx="22" cy="58" r="7" fill="white"/>
+          <circle cx="22" cy="58" r="3"/>
+          <circle cx="61" cy="58" r="7" fill="white"/>
+          <circle cx="61" cy="58" r="3"/>
+        </g>
+      </svg>
+      <span>{{ block.settings.label_2 | escape }}</span>
+    </div>
+
+    <!-- Warranty -->
+    <div class="phoenix-trust-icons__item">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <g fill="none" stroke="currentColor"
+           stroke-width="2"
+           stroke-linejoin="round">
+          <path d="M26 51V75L33 69L40 75L47 69L54 75V51"/>
+          <path d="M40 4L47 9L55 8L59 15L67 18L67 26
+                   L74 32L70 40L74 48L67 54L67 62
+                   L59 65L55 72L47 71L40 76L33 71
+                   L25 72L21 65L13 62L13 54L6 48
+                   L10 40L6 32L13 26L13 18L21 15
+                   L25 8L33 9Z"/>
+          <circle cx="40" cy="40" r="24"/>
+        </g>
+        <g fill="currentColor" text-anchor="middle"
+           font-family="Arial,sans-serif"
+           font-weight="bold">
+          <text x="40" y="39" font-size="17">10</text>
+          <text x="40" y="50" font-size="9">YEARS</text>
+        </g>
+      </svg>
+      <span>{{ block.settings.label_3 | escape }}</span>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="phoenix-trust-icons__item">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <g fill="none" stroke="currentColor"
+           stroke-width="2"
+           stroke-linejoin="round">
+          <path d="M26 51V75L33 69L40 75L47 69L54 75V51"/>
+          <path d="M40 4L47 9L55 8L59 15L67 18L67 26
+                   L74 32L70 40L74 48L67 54L67 62
+                   L59 65L55 72L47 71L40 76L33 71
+                   L25 72L21 65L13 62L13 54L6 48
+                   L10 40L6 32L13 26L13 18L21 15
+                   L25 8L33 9Z"/>
+          <circle cx="40" cy="40" r="24"/>
+        </g>
+        <g fill="currentColor" text-anchor="middle"
+           font-family="Arial,sans-serif"
+           font-weight="bold">
+          <text x="40" y="39" font-size="16">100</text>
+          <text x="40" y="50" font-size="9">DAYS</text>
+        </g>
+      </svg>
+      <span>{{ block.settings.label_4 | escape }}</span>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .phoenix-trust-icons {
+    width: 100%;
+    margin: 12px 0;
+    color: var(--trust-color);
+  }
+
+  .phoenix-trust-icons__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--trust-gap);
+    align-items: start;
+  }
+
+  .phoenix-trust-icons__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .phoenix-trust-icons__item svg {
+    display: block;
+    width: 100%;
+    max-width: var(--trust-size);
+    height: auto;
+    aspect-ratio: 1;
+    color: var(--trust-color);
+    overflow: visible;
+  }
+
+  .phoenix-trust-icons__item span {
+    color: var(--trust-text);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  @media screen and (max-width: 749px) {
+    .phoenix-trust-icons__grid {
+      gap: 8px;
+    }
+
+    .phoenix-trust-icons__item svg {
+      max-width: 48px;
+    }
+
+    .phoenix-trust-icons__item span {
+      font-size: 10px;
+      line-height: 1.3;
+    }
+  }
+</style>

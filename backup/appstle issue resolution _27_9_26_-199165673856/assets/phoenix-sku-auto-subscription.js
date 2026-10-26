@@ -1,7 +1,7 @@
 (function (root) {
   const CONFIG = {
     handle:
-      'the-phoenix-gravity-water-filter-with-postreat-fluoride-removal-filter-cartridge-8l',
+      'the-phoenix-gravity-8l-water-filter-with-postreat-fluoride-filter-starter-kit',
     mainVariant: '47245643481381',
     mainSellingPlan: '739100656000',
     bundleType: 'phoenix-auto-subscription',

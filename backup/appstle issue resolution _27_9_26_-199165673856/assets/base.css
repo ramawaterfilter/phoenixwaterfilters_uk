@@ -3728,3 +3728,4 @@ svg {
   outline: 2px solid rgb(47,41,83);
 } */
 
+.announcement-bar-slider .slideshow__slide:first-child {display:none;}

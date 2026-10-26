@@ -1,0 +1,815 @@
+<div class="phoenix-marquee-popup" id="PhoenixMarquee-{{ section.id }}">
+<section
+  id="Marquee-{{ section.id }}"
+  class="custom-marquee-section"
+>
+  {% if section.settings.heading != blank %}
+    <h2 class="desc-heading hn-k">
+      {{ section.settings.heading }}
+    </h2>
+
+    {% if section.settings.show_heading_line %}
+      <div class="heading-line"></div>
+    {% endif %}
+  {% endif %}
+
+  <div class="custom-marquee-wrapper">
+    <div class="custom-marquee-track">
+      {%- for i in (1..3) -%}
+        <div class="custom-marquee-content"{% if i > 1 %} aria-hidden="true"{% endif %}>
+          {% for block in section.blocks %}
+            {% assign item_link = block.settings.link %}
+
+            {% if item_link != blank %}
+              <a href="{{ item_link | escape }}" class="custom-marquee-item" data-marquee-popup aria-haspopup="dialog" aria-controls="MarqueeDialog-{{ section.id }}" {% if i > 1 %}tabindex="-1"{% else %}{{ block.shopify_attributes }}{% endif %}>
+            {% else %}
+              <div class="custom-marquee-item" {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}>
+            {% endif %}
+
+                {% if block.settings.icon != blank %}
+                  <img
+                    src="{{ block.settings.icon | image_url: width: 100 }}"
+                    alt=""
+                    width="50"
+                    height="50"
+                    loading="lazy"
+                    class="custom-marquee-icon"
+                  >
+                {% endif %}
+
+                <span class="custom-marquee-text-wrap">
+                  {% if block.settings.title != blank %}
+                    <span class="custom-marquee-title">
+                      {{ block.settings.title }}
+                    </span>
+                  {% endif %}
+
+                  {% if block.settings.percentage_text != blank %}
+                    <span class="custom-marquee-percentage">
+                      {{ block.settings.percentage_text }}
+                    </span>
+                  {% endif %}
+                </span>
+
+            {% if item_link != blank %}
+              </a>
+            {% else %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+<dialog id="MarqueeDialog-{{ section.id }}" class="marquee-popup-dialog" aria-labelledby="MarqueePopupTitle-{{ section.id }}">
+  <div class="marquee-popup-header">
+    <h2 id="MarqueePopupTitle-{{ section.id }}">More information</h2>
+    <button type="button" class="marquee-popup-close" aria-label="Close popup" autofocus>&times;</button>
+  </div>
+  <div class="marquee-pdf-toolbar">
+    <label for="MarqueeZoom-{{ section.id }}">Zoom</label>
+    <select id="MarqueeZoom-{{ section.id }}" data-pdf-zoom aria-label="PDF zoom">
+      <option value="0.65">65%</option>
+      <option value="0.75" selected>75%</option>
+      <option value="1">Fit width</option>
+      <option value="1.25">125%</option>
+      <option value="1.5">150%</option>
+    </select>
+    <a class="marquee-popup-fallback" href="#" target="_blank" rel="noopener noreferrer">Open original PDF</a>
+  </div>
+  <p class="marquee-pdf-status" role="status" aria-live="polite"></p>
+  <div class="marquee-popup-body"></div>
+</dialog>
+</div>
+
+<style>
+  .custom-marquee-section .desc-heading {
+    text-align: center;
+  }
+
+  #Marquee-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-content {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ section.settings.icon_gap }}px;
+    padding-right: {{ section.settings.item_gap }}px;
+    color: {{ section.settings.text_color }};
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-text-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1.2;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-title {
+    font-size: {{ section.settings.title_font_size }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    text-transform: {{ section.settings.text_transform }};
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+  }
+
+  #Marquee-{{ section.id }} .custom-marquee-percentage {
+    font-size: {{ section.settings.percentage_font_size }}px;
+    font-weight: {{ section.settings.percentage_font_weight }};
+    opacity: {{ section.settings.percentage_opacity | divided_by: 100.0 }};
+  }
+
+  {% if section.settings.pause_on_hover %}
+    #Marquee-{{ section.id }} .custom-marquee-wrapper:hover .custom-marquee-track {
+      animation-play-state: paused;
+    }
+  {% endif %}
+
+  {% if section.settings.direction == 'right' %}
+    #Marquee-{{ section.id }} .custom-marquee-track {
+      animation-direction: reverse;
+    }
+  {% endif %}
+
+  @keyframes marquee-{{ section.id }} {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-33.3333%, 0, 0);
+    }
+  }
+
+  #Marquee-{{ section.id }} .heading-line {
+    width: {{ section.settings.line_width_desktop }}px;
+    height: 3px;
+    background-color: {{ section.settings.line_color }};
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-marquee-section .desc-heading {
+      margin: 0;
+    }
+
+    #Marquee-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-item {
+      padding-right: {{ section.settings.mobile_item_gap }}px;
+      gap: {{ section.settings.mobile_icon_gap }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-title {
+      font-size: {{ section.settings.mobile_title_font_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .custom-marquee-percentage {
+      font-size: {{ section.settings.mobile_percentage_font_size }}px;
+    }
+
+    #Marquee-{{ section.id }} .heading-line {
+      margin: 0 auto 10px;
+      width: {{ section.settings.line_width_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #Marquee-{{ section.id }} .custom-marquee-track {
+      animation: none;
+    }
+  }
+
+  .phoenix-marquee-popup { display: block; }
+  .marquee-popup-dialog {
+    box-sizing: border-box; width: min(1100px, calc(100% - 32px));
+    height: 85vh; height: 85dvh; max-height: calc(100dvh - 32px);
+    max-width: none; margin: auto; padding: 0; border: 0;
+    border-radius: 12px; background: #fff; color: #1d1b4c;
+    box-shadow: 0 16px 64px #0004; overflow: hidden; z-index: 2147483647;
+  }
+  .marquee-popup-dialog[open] { display: flex; flex-direction: column; }
+  .marquee-popup-dialog::backdrop { background: rgb(0 0 0 / 65%); }
+  .marquee-popup-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px; border-bottom: 1px solid #ddd; }
+  .marquee-popup-header h2 { margin: 0; font: inherit; font-size: 20px; font-weight: 600; color: inherit; }
+  .marquee-popup-close { flex: 0 0 44px; width: 44px; height: 44px; border: 0; background: transparent; color: inherit; font: inherit; font-size: 32px; cursor: pointer; }
+  .marquee-popup-body {
+    flex: 1; min-height: 0; overflow: auto; padding: 12px;
+    background: #eee; overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch; touch-action: pan-y;
+  }
+  .marquee-pdf-page {
+    display: block; position: relative; max-width: none;
+    margin: 0 auto 14px; background: #fff;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 12%);
+  }
+  .marquee-pdf-page canvas { display: block; width: 100%; height: 100%; }
+  .marquee-pdf-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 16px; font-size: 14px; }
+  .marquee-pdf-toolbar select { min-height: 40px; font: inherit; color: inherit; padding: 6px 10px; background: white; }
+  .marquee-pdf-toolbar a { color: inherit; text-decoration: underline; }
+  .marquee-pdf-status { margin: 0; padding: 0 16px; font-size: 14px; }
+  .marquee-pdf-status:not(:empty) { padding-bottom: 8px; }
+  .phoenix-marquee-popup[data-popup-open] #Marquee-{{ section.id }} .custom-marquee-track { animation-play-state: paused; }
+  #Marquee-{{ section.id }} .custom-marquee-item:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
+  @media (max-width: 767px) {
+    .marquee-popup-dialog { width: calc(100% - 12px); height: 94dvh; max-height: 94dvh; border-radius: 10px; }
+    .marquee-popup-header { padding: 8px 12px; }
+    .marquee-popup-header h2 { font-size: 18px; }
+    .marquee-popup-body { padding: 8px; }
+    .marquee-pdf-toolbar { padding: 6px 12px; gap: 8px; }
+  }
+</style>
+
+
+<script>
+/* This section uses direct event handlers rather than a global custom element.
+   This avoids collisions with an older popup script on the same storefront. */
+(() => {
+  const root = document.getElementById('PhoenixMarquee-{{ section.id }}');
+  if (!root || root.dataset.pdfPopupInitialized === '1') return;
+  root.dataset.pdfPopupInitialized = '1';
+
+  const dialog = root.querySelector('.marquee-popup-dialog');
+  const area = root.querySelector('.marquee-popup-body');
+  const status = root.querySelector('.marquee-pdf-status');
+  const zoom = root.querySelector('[data-pdf-zoom]');
+  const fallback = root.querySelector('.marquee-popup-fallback');
+  const closeButton = root.querySelector('.marquee-popup-close');
+  if (!dialog || !area || !status || !zoom || !fallback || !closeButton) return;
+
+  let active = 0;
+  let loadingTask = null;
+  let pdf = null;
+  let currentRender = null;
+  let wasHtmlOverflow = '';
+  let wasBodyOverflow = '';
+  let renderSequence = 0;
+  let opened = false;
+
+  function unlockPage() {
+    if (!opened) return;
+    opened = false;
+    document.documentElement.style.overflow = wasHtmlOverflow;
+    document.body.style.overflow = wasBodyOverflow;
+    root.removeAttribute('data-popup-open');
+  }
+
+  function stopPDF() {
+    active++;
+    renderSequence++;
+    try { currentRender?.cancel(); } catch (_) {}
+    currentRender = null;
+    if (loadingTask) {
+      Promise.resolve(loadingTask.destroy()).catch(() => {});
+      loadingTask = null;
+    }
+    pdf = null;
+    area.replaceChildren();
+  }
+
+  function closePopup() {
+    if (dialog.open) dialog.close();
+    else { stopPDF(); unlockPage(); }
+  }
+
+  // Event capture helps when marquee/theme scripts handle click events too.
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('[data-marquee-popup]');
+    if (!link || !root.contains(link)) return;
+    if (event.defaultPrevented) return;
+    let url;
+    try { url = new URL(link.href, location.href); } catch (_) { return; }
+    if (!['https:', 'http:'].includes(url.protocol)) return;
+    event.preventDefault();
+    openPopup(link, url);
+  }, true);
+
+  closeButton.addEventListener('click', closePopup);
+  dialog.addEventListener('close', () => { stopPDF(); unlockPage(); });
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const r = dialog.getBoundingClientRect();
+    if (event.clientX < r.left || event.clientX > r.right ||
+        event.clientY < r.top || event.clientY > r.bottom) closePopup();
+  });
+  zoom.addEventListener('change', () => { if (pdf && dialog.open) renderPages(active); });
+
+  async function openPopup(link, url) {
+    stopPDF();
+    const mySession = active;
+    root.querySelector('.marquee-popup-header h2').textContent =
+      link.querySelector('.custom-marquee-title')?.textContent.trim() || 'Lab report';
+    fallback.href = url.href;
+    zoom.value = matchMedia('(max-width: 767px)').matches ? '1' : '0.75';
+    status.textContent = 'Loading report…';
+
+    try {
+      if (!dialog.open) dialog.showModal();
+    } catch (error) {
+      console.error('PDF popup could not open:', error);
+      location.assign(url.href); // Accessible fallback if dialog unsupported.
+      return;
+    }
+    if (!opened) {
+      wasHtmlOverflow = document.documentElement.style.overflow;
+      wasBodyOverflow = document.body.style.overflow;
+      opened = true;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+    root.setAttribute('data-popup-open', '');
+
+    try {
+      if (!window.phoenixPopupPdfJsV4) {
+        window.phoenixPopupPdfJsV4 = import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs')
+          .then(lib => {
+            lib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';
+            return lib;
+          }).catch(err => { window.phoenixPopupPdfJsV4 = null; throw err; });
+      }
+      const lib = await window.phoenixPopupPdfJsV4;
+      if (mySession !== active) return;
+      loadingTask = lib.getDocument({ url: url.href, isEvalSupported: false });
+      const loadedPDF = await loadingTask.promise;
+      if (mySession !== active) return;
+      pdf = loadedPDF;
+      await renderPages(mySession);
+    } catch (error) {
+      if (mySession !== active) return;
+      console.error('PDF popup loading error:', error);
+      status.textContent = 'Unable to load the PDF here. Tap “Open original PDF” to view it.';
+    }
+  }
+
+  async function renderPages(session) {
+    if (!pdf || session !== active || !dialog.open) return;
+    const myRender = ++renderSequence;
+    try { currentRender?.cancel(); } catch (_) {}
+    currentRender = null;
+    area.replaceChildren();
+    area.scrollTop = 0;
+    status.textContent = 'Preparing report…';
+
+    try {
+      const count = pdf.numPages;
+      // First page is rendered immediately; the rest follow without replacing the view.
+      for (let i = 1; i <= count; i++) {
+        if (session !== active || myRender !== renderSequence || !dialog.open) return;
+        const page = await pdf.getPage(i);
+        if (session !== active || myRender !== renderSequence) return;
+        const base = page.getViewport({ scale: 1 });
+        const available = Math.max(120, area.clientWidth - 24);
+        const view = page.getViewport({ scale: (available / base.width) * Number(zoom.value) });
+        // Limit bitmap sizes on Android to avoid crashes / blank PDF canvases.
+        const dpr = Math.max(0.5, Math.min(devicePixelRatio || 1, 1.5, Math.sqrt(2000000 / (view.width * view.height))));
+        const wrapper = document.createElement('div');
+        wrapper.className = 'marquee-pdf-page';
+        wrapper.style.width = view.width + 'px';
+        wrapper.style.height = view.height + 'px';
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.floor(view.width * dpr));
+        canvas.height = Math.max(1, Math.floor(view.height * dpr));
+        canvas.setAttribute('role', 'img');
+        canvas.setAttribute('aria-label', 'PDF page ' + i + ' of ' + count);
+        wrapper.append(canvas);
+        area.append(wrapper);
+        currentRender = page.render({
+          canvasContext: canvas.getContext('2d'),
+          viewport: view,
+          transform: [dpr, 0, 0, dpr, 0, 0]
+        });
+        await currentRender.promise;
+        currentRender = null;
+        if (i === 1) status.textContent = '';
+        page.cleanup();
+        // Yield to browser to allow Android scrolling while remaining pages render.
+        await new Promise(resolve => setTimeout(resolve, 0));
+      }
+      if (session === active && myRender === renderSequence) status.textContent = '';
+    } catch (error) {
+      if (session !== active || myRender !== renderSequence || error?.name === 'RenderingCancelledException') return;
+      console.error('PDF page rendering error:', error);
+      status.textContent = 'Some pages could not be displayed. Use “Open original PDF”.';
+    }
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Custom marquee",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_heading_line",
+      "label": "Show Heading Line",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Product Description"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Underline Color",
+      "default": "#ff7a00"
+    },
+    {
+      "type": "range",
+      "id": "line_width_desktop",
+      "label": "Underline Width (Desktop)",
+      "min": 40,
+      "max": 800,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "line_width_mobile",
+      "label": "Underline Width (Mobile)",
+      "min": 40,
+      "max": 500,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1d1b4c"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "s",
+      "label": "Marquee speed",
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop icon size",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile icon size",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop icon and text gap",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile icon and text gap",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop title font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_font_size",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile title font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Title font weight",
+      "default": "600",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "percentage_font_size",
+      "min": 10,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop percentage/text font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_percentage_font_size",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile percentage/text font size",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "percentage_font_weight",
+      "label": "Percentage/text font weight",
+      "default": "500",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "percentage_opacity",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Percentage/text opacity",
+      "default": 85
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Title text transform",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop item spacing",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "mobile_item_gap",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile item spacing",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding bottom",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "marquee_item",
+      "name": "Marquee item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Heavy Metals"
+        },
+        {
+          "type": "text",
+          "id": "percentage_text",
+          "label": "Percentage or text",
+          "default": "99.99%"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom marquee",
+      "blocks": [
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Heavy Metals",
+            "percentage_text": "99.99%"
+          }
+        },
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Chlorine",
+            "percentage_text": "99.99%"
+          }
+        },
+        {
+          "type": "marquee_item",
+          "settings": {
+            "title": "Microplastics",
+            "percentage_text": "99.99%"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

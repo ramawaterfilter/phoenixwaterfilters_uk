@@ -25,10 +25,9 @@
         },
         "announcement_gnYzXU": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "Removes up to 99.99% of contaminants",
-            "icon": "shopify://shop_images/contaminate_new.png",
+            "text": "Starter Kit",
+            "icon": "shopify://shop_images/White_Party_Popper_Confetti_Icon_b440a463-335c-4537-991d-d02cb8ea3514.png",
             "link": ""
           }
         },

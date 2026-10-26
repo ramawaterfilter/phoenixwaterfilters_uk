@@ -193,7 +193,7 @@
                       {% if variant.available %}
                         {% if template.suffix == 'single_skew_page' %}
                           <span class="inventory-status inventory-available">
-                            Starter Kit
+                            {% comment %} Starter Kit {% endcomment %}
                           </span>
                         {% else %}
                           <span class="inventory-status inventory-available">
@@ -1211,7 +1211,35 @@
 </product-info>
 
 <style>
+  
   {% if template.suffix == 'single_skew_page' %}
+    .page-width.custom-width-product .icon-with-text img{width:50px !important;height:50px !important;}
+    .announcement-bar-slider .slideshow__slide:first-child {
+      display: block !important;
+    }
+
+    .announcement-bar-slider .slider {
+      scroll-snap-type: none !important;
+    }
+
+    .announcement-bar-slider .slideshow__slide:first-child {
+      order: -1;
+    }
+    .icon-with-text__item {
+      position: relative;
+    }
+
+    {% comment %} li.icon-with-text__item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 2px;
+      height: 45px;
+      background: #000;
+      transform: translateY(-50%);
+    } {% endcomment %}
+    #inventory-indicator{display:none;}
     @media screen and (max-width: 749px) {
     .product-media-mobile-dot.is-active::before {
         background: #302b63;
